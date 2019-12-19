@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import VendorRegister from './components/VendorRegister';
+import Register from './components/Register';
 
 function App() {
   return (
     <div>
       <h1>Quickstreet</h1>
-      <Route path='/vendorregister' component={VendorRegister} /> 
+      <Route path='/register' component={Register} /> 
     </div>
   );
 }

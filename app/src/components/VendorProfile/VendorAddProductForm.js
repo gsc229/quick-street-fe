@@ -23,7 +23,7 @@ const VendorAddProductForm = () => {
   };
 
   return (
-    <div>
+    <div className="vendor_add_product_form">
       <form onSubmit={onSubmit}>
         <div>
           <label>Picture of item</label>

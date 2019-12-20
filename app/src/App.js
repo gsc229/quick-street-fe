@@ -1,11 +1,10 @@
 import React from "react";
-import About from "../src/components/VendorProfile/VendorAbout";
+import VendorProfile from "./components/VendorProfile/VendorProfile";
 
 function App() {
   return (
     <div className="App">
-      <h1>Quickstreet</h1>
-      <About />
+      <VendorProfile />
     </div>
   );
 }

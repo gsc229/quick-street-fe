@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import VendorBulletin from "./VendorBulletin";
 
 const About = props => {
   const [info, setInfo] = useState({
@@ -19,12 +20,12 @@ const About = props => {
   };
 
   return (
-    <div>
-      <h2>About Us</h2>
+    <>
+      <p>About Us</p>
       <div className="vendor_about_container">
         <div className="vendor_info">
           <form className="vendor_info_form">
-            <div>
+            <div className="vendor_info_name">
               <label>Name</label>
               <input
                 type="text"
@@ -33,7 +34,7 @@ const About = props => {
                 onChange={changeHandler}
               />
             </div>
-            <div>
+            <div className="vendor_info_phone">
               <label>Phone</label>
               <input
                 type="number"
@@ -42,7 +43,7 @@ const About = props => {
                 onChange={changeHandler}
               />
             </div>
-            <div>
+            <div className="vendor_info_about">
               <label>About</label>
               <input
                 type="text"
@@ -51,7 +52,7 @@ const About = props => {
                 onChange={changeHandler}
               />
             </div>
-            <div>
+            <div className="vendor_info_hour">
               <label>Hours of Operation</label>
               <input
                 type="number"
@@ -69,9 +70,11 @@ const About = props => {
             </div>
           </form>
         </div>
-        <div className="bulletin_board"></div>
+        <div className="bulletin_board">
+          <VendorBulletin />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

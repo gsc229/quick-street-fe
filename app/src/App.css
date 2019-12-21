@@ -7,6 +7,11 @@
   margin-left: 20%;
 }
 
+.vendor_header_container {
+  display: flex;
+  justify-content: space-around;
+}
+
 .vendor_profile_btn_group {
   text-align: end;
   margin-bottom: 20px;
@@ -16,10 +21,21 @@
   margin-right: -100px;
 }
 
-.vendor_header_image {
+.vendor_banner_container {
+  position: relative;
+}
+
+.vendor_banner_image {
   width: 100%;
   text-align: center;
 }
+
+.vendor_banner_upload {
+  position: absolute;
+  bottom: 5px;
+  right: 0px;
+}
+
 .vendor_profile_nav ul {
   display: flex;
   justify-content: center;
@@ -96,13 +112,6 @@
 .vendor_info_about input {
   width: 90%;
   height: 80%;
-}
-
-.vendor_bulletin_board {
-  width: 50%;
-  margin: 50px 30px 0 0;
-  padding: 2%;
-  height: 70%;
 }
 
 .vendor_bulletin_board_container {

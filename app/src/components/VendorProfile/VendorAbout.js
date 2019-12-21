@@ -54,24 +54,24 @@ const About = props => {
             </div>
             <div className="vendor_info_hour">
               <label>Hours of Operation</label>
-              <input
-                type="number"
-                name="hour_from"
-                value={info.hour_from}
-                onChange={changeHandler}
-              />
-              to
-              <input
-                type="number"
-                name="hour_to"
-                value={info.hour_to}
-                onChange={changeHandler}
-              />
+              <div className="vendor_info_hour_input_group">
+                <input
+                  type="number"
+                  name="hour_from"
+                  value={info.hour_from}
+                  onChange={changeHandler}
+                />
+                to
+                <input
+                  className="vendor_info_hour_input_2"
+                  type="number"
+                  name="hour_to"
+                  value={info.hour_to}
+                  onChange={changeHandler}
+                />
+              </div>
             </div>
           </form>
-        </div>
-        <div className="bulletin_board">
-          <VendorBulletin />
         </div>
       </div>
     </>

@@ -1,16 +1,10 @@
 import React, { useState } from "react";
 import VendorPost from "./VendorPost";
 
-const VendorBulletin = ({ posts }) => {
+const VendorBulletin = props => {
   return (
-    <div>
-      <ul>
-        {posts ? (
-          posts.map(p => <VendorPost post={p} />)
-        ) : (
-          <p>you don't have any post yet</p>
-        )}
-      </ul>
+    <div className="vendor_bulletin_board_container">
+      <p>Bulletin Board</p>
     </div>
   );
 };

@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import VendorAbout from "./VendorAbout";
 import VendorProducts from "./VendorProducts";
 import VendorAddProductForm from "./VendorAddProductForm";
 import picture from "../../assets/placeholder.png";
+import VendorBulletin from "./VendorBulletin";
 
 const VendorProfile = () => {
-  const addProduct = e => {
-    e.preventDefault();
-    console.log(`add product`);
+  const [modal, setModal] = useState(false);
+
+  const addProduct = () => {
+    setModal(true);
   };
+
+  const addProductformClickHandler = () => {
+    setModal(false);
+  };
+
   return (
     <div className="vendor_profile_container">
       <div className="vendor_profile_btn_group">
@@ -19,12 +26,17 @@ const VendorProfile = () => {
       <nav className="vendor_profile_nav">
         <ul>
           <li>About</li>
-          <li>Product</li>
+          <li>Bulletin</li>
+          <li>Products</li>
         </ul>
       </nav>
       <VendorAbout />
+      <VendorBulletin />
       <VendorProducts addProduct={addProduct} />
-      <VendorAddProductForm />
+      <VendorAddProductForm
+        modal={modal}
+        addProductformClickHandler={addProductformClickHandler}
+      />
     </div>
   );
 };

@@ -73,7 +73,7 @@ const About = props => {
             </div>
             <div className="vendor_info_about">
               <label>About</label>
-              <input
+              <textarea
                 type="text"
                 name="about"
                 value={info.about}

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import VendorPost from "./VendorPost";
 import VendorAddPostForm from "./VendorAddPostForm";
 import VendorPostList from "./VendorPostList";
 
@@ -25,12 +24,26 @@ const p = [
 ];
 
 const VendorBulletin = props => {
+  const [showAddPostForm, setShowAddPostForm] = useState(false);
+
+  const addPost = e => {
+    e.preventDefault();
+    setShowAddPostForm(true);
+  };
+
+  const cancelAddPost = e => {
+    e.preventDefault();
+    setShowAddPostForm(false);
+  };
+
   return (
     <div className="vendor_bulletin_container">
       <p>Bulletin Board</p>
-      <button>Add Post</button>
+      <div className="vendor_add_post_btn_wrapper">
+        <button onClick={addPost}>Add Post</button>
+      </div>
 
-      <VendorAddPostForm />
+      <VendorAddPostForm show={showAddPostForm} cancelAddPost={cancelAddPost} />
 
       <VendorPostList posts={p} />
     </div>

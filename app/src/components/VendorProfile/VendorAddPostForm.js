@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const VendorAddPostForm = () => {
+const VendorAddPostForm = ({ show, cancelAddPost }) => {
   let today = new Date();
 
   let dd = String(today.getDate()).padStart(2, "0");
@@ -20,7 +20,11 @@ const VendorAddPostForm = () => {
   };
 
   return (
-    <form>
+    <form
+      className={
+        show ? "vendor_add_post_form_show" : "vendor_add_post_form_hide"
+      }
+    >
       <p>{`Date ${today}`}</p>
       <textarea
         value={post.content}
@@ -35,7 +39,7 @@ const VendorAddPostForm = () => {
         placeholder="77777"
       />
       <button>Save</button>
-      <button>Cancel</button>
+      <button onClick={cancelAddPost}>Cancel</button>
     </form>
   );
 };

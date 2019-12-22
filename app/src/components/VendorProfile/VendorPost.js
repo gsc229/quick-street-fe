@@ -4,7 +4,7 @@ const VendorPost = ({ content, date, location }) => {
   return (
     <li>
       <p>
-        <small>{date}</small>
+        <small>Date:{date}</small>
       </p>
       <p>{content}</p>
       <p>

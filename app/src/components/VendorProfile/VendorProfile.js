@@ -7,6 +7,40 @@ import create from "../../assets/create.png";
 import save from "../../assets/save.png";
 import upload from "../../assets/upload.png";
 import VendorBulletin from "./VendorBulletin";
+import rectangle from "../../assets/rectangle.png";
+
+const p = [
+  {
+    name: "product",
+    price: "1.00",
+    img: rectangle
+  },
+  {
+    name: "product",
+    price: "1.00",
+    img: rectangle
+  },
+  {
+    name: "product",
+    price: "1.00",
+    img: rectangle
+  },
+  {
+    name: "product",
+    price: "1.00",
+    img: rectangle
+  },
+  {
+    name: "product",
+    price: "1.00",
+    img: rectangle
+  },
+  {
+    name: "product",
+    price: "1.00",
+    img: rectangle
+  }
+];
 
 const VendorProfile = () => {
   const [modal, setModal] = useState(false);
@@ -59,7 +93,7 @@ const VendorProfile = () => {
       </nav>
       <VendorAbout />
       <VendorBulletin />
-      <VendorProducts addProduct={addProduct} />
+      <VendorProducts products={p} addProduct={addProduct} />
       <VendorAddProductForm
         modal={modal}
         addProductformClickHandler={addProductformClickHandler}

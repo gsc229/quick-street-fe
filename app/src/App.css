@@ -129,7 +129,8 @@
   margin-left: 10px;
 }
 
-.vendor_info_about input {
+.vendor_info_about textarea {
+  border: 1px solid black;
   margin-top: 5%;
   width: 120%;
   height: 70%;
@@ -147,8 +148,9 @@
   margin-top: 6%;
 }
 
-.vendor_bulletin_board_container {
-  background-color: lightgrey;
+/************/
+
+.vendor_bulletin_container {
   width: 100%;
   height: 100%;
 }

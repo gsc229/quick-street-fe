@@ -1,5 +1,6 @@
 .App {
   width: 100%;
+  box-sizing: border-box;
 }
 
 .vendor_profile_container {
@@ -53,16 +54,15 @@
   height: 600px;
 }
 
-.vendor_info {
-  width: 50%;
-  margin-top: 50px;
-  padding: 5%;
-}
-
 .vendor_info_form {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+}
+
+.vendor_info_left {
+  width: 40%;
+  padding: 6% 5%;
 }
 
 .vendor_info_form input {
@@ -71,17 +71,37 @@
   margin-top: 5%;
 }
 
-.vendor_info_name {
+.vendor_info_days {
+  position: relative;
   width: 40%;
   display: flex;
   flex-direction: column;
-  margin-right: 5%;
+  margin: 10% 0;
+}
+
+.vendor_info_days select {
+  margin-top: 5%;
+  border: 1px solid black;
+  border-radius: 0px;
+  width: 100%;
+  height: 25px;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+}
+
+.vendor_info_arrow {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  bottom: 24px;
+  left: 80%;
 }
 
 .vendor_info_phone {
   width: 40%;
   display: flex;
   flex-direction: column;
+  margin-bottom: 10%;
 }
 
 .vendor_info_about {
@@ -90,12 +110,12 @@
   width: 300px;
   display: flex;
   flex-direction: column;
-  margin-top: 10%;
+  margin-top: 20%;
 }
 
 .vendor_info_hour {
   width: 80%;
-  margin-top: 10%;
+  margin-top: 5%;
   display: flex;
   flex-direction: column;
 }
@@ -110,8 +130,21 @@
 }
 
 .vendor_info_about input {
-  width: 90%;
-  height: 80%;
+  margin-top: 5%;
+  width: 120%;
+  height: 70%;
+}
+
+.vendor_info_right {
+  width: 40%;
+  padding: 6% 5%;
+}
+
+.vendor_info_location {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 6%;
 }
 
 .vendor_bulletin_board_container {

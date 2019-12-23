@@ -8,6 +8,7 @@ import save from "../../assets/save.png";
 import upload from "../../assets/upload.png";
 import VendorBulletin from "./VendorBulletin";
 import rectangle from "../../assets/rectangle.png";
+import axios from "axios";
 
 const p = [
   {
@@ -77,6 +78,9 @@ const VendorProfile = () => {
   const bannerChangeHandler = e => {
     console.log(Array.from(e.target.files));
     const newBanner = Array.from(e.target.files[0]);
+    const formData = new FormData();
+    formData.append("file", newBanner);
+
     setBanner(newBanner);
   };
 

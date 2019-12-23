@@ -2,11 +2,11 @@ import React from "react";
 
 const Product = ({ name, img, price }) => {
   return (
-    <div className="card">
-      <img src={img} className="card-img-top" alt="..." />
-      <div className="card-body">
-        <h5 className="card-title">{name}</h5>
-        <p className="card-text">${price}</p>
+    <div className="vendor_product">
+      <img src={img} className="vendor_product_image" alt="..." />
+      <div className="vendor_product_body">
+        <h5 className="vendor_product_name">{name}</h5>
+        <p className="vendor_product_price">${price}</p>
       </div>
     </div>
   );

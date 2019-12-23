@@ -38,7 +38,11 @@ const VendorBulletin = props => {
 
   return (
     <div className="vendor_bulletin_container">
-      <p>Bulletin Board</p>
+      <div className="vendor_bulletin_title">
+        <p>Bulletin Board</p>
+        <hr />
+      </div>
+
       <div className="vendor_add_post_btn_wrapper">
         <button onClick={addPost}>Add Post</button>
       </div>

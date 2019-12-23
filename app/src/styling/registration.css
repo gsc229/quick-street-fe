@@ -59,7 +59,7 @@ h4 {
   border: 2px red solid
 } */
 
-.button {
+.button_next {
   width: 30%;
   height: 6vh;
   background-color: #21B787;
@@ -75,4 +75,67 @@ h4 {
 .link {
   color: #00B2ED;
   
+}
+
+.button_cancel {
+  display: block;
+  width: 30%;
+  height: 6vh;
+  border: 3px solid #21B787;
+  border-radius: 10px;
+  font-size: 24px;
+  background-color: #FFFFFF;
+  margin-bottom: 10px;
+}
+
+.form_input_vendor_details {
+  display: flex;
+  flex-direction: column;
+}
+
+.form_input_vendor_details label {
+  font-size: 24px;
+  line-height: 155%;
+}
+
+.form_input_vendor_details input {
+  border: 2px solid #36C2DB;
+  border-radius: 10px;
+  width: 30%;
+  height: 5vh;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.form_input_address {
+  display: flex;
+  flex-direction: row;
+}
+
+.form_input_city {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+
+.form_input_city label {
+  font-size: 24px;
+  line-height: 155%;
+}
+
+.form_input_city input {
+  border: 2px solid #36C2DB;
+  border-radius: 10px;
+  height: 5vh;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.form_input_vendor_details textarea {
+  border: 2px solid #36C2DB;
+  border-radius: 10px;
+  width: 30%;
+  height: 10vh;
+  margin-top: 5px;
+  margin-bottom: 10px;
 }

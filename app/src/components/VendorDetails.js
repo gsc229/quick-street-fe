@@ -14,14 +14,14 @@ const VendorDetails = (props) => {
   };
 
   return (
-    <div>
-      <div>
+    <div className='form_container'>
+      {/* <div>
         <img alt='Signup Image'/>
-      </div>
-      <div>
-        <h1>Great! Let's get you set up.</h1>
+      </div> */}
+      <div className='form_details'>
+        <h1>Great! <br/>Let's get you <br/>set up.</h1>
         <form>
-          <div>
+          <div className='form_input_vendor_details'>
             <label htmlFor='businessName'>Business Name</label>
             <input
               type='text'
@@ -32,7 +32,7 @@ const VendorDetails = (props) => {
               onChange={handleChange}
             />
           </div>
-          <div>
+          <div className='form_input_vendor_details'>
             <label htmlFor='phoneNumber'>Phone Number</label>
             <input
               type='text'
@@ -43,9 +43,9 @@ const VendorDetails = (props) => {
               onChange={handleChange}
             />
           </div>
-          <div>
+          <div className='form_input_vendor_details'>
             <label htmlFor='streetAddress'>Street Address</label>
-            <input
+            <textarea
               type='text'
               name='streetAddress'
               id='streetAddress'
@@ -54,30 +54,34 @@ const VendorDetails = (props) => {
               onChange={handleChange}
             />
           </div>
-          <div>
-            <label htmlFor='city'>City</label>
-            <input
-              type='text'
-              name='city'
-              id='city'
-              placeholder='Enter your city'
-              value={values.city}
-              onChange={handleChange}
-            />
+          <div className='form_input_address'>
+            <div className='form_input_city'>
+              <label htmlFor='city'>City</label>
+              <input
+                type='text'
+                name='city'
+                id='city'
+                placeholder='Enter your city'
+                value={values.city}
+                onChange={handleChange}
+              />
+            </div>
+            <div className='form_input_city'>
+              <label htmlFor='zipcode'>Zipcode</label>
+              <input
+                type='text'
+                name='zipcode'
+                id='zipcode'
+                placeholder='Enter your zipcode'
+                value={values.zipcode}
+                onChange={handleChange}
+              />
+            </div>
           </div>
-          <div>
-            <label htmlFor='zipcode'>Zipcode</label>
-            <input
-              type='text'
-              name='zipcode'
-              id='zipcode'
-              placeholder='Enter your zipcode'
-              value={values.zipcode}
-              onChange={handleChange}
-          />
-          </div>
-          <button onClick={cancel}>Cancel</button>
-          <button onClick={proceed}>Next</button>
+            
+        
+          <button className='button_cancel' onClick={cancel}>Cancel</button>
+          <button className='button_next' onClick={proceed}>Next</button>
         </form>
       </div>
     </div>

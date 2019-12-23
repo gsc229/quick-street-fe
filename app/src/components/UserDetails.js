@@ -70,7 +70,7 @@ const UserDetails = (props) => {
               <label htmlFor='vendor'>Vendor</label>
             </div>  
           </div>
-          <button className='button' onClick={proceed}>Next</button>
+          <button className='button_next' onClick={proceed}>Next</button>
         </form>
       </div>
     </div>

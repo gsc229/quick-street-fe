@@ -47,11 +47,22 @@
   margin: 20px;
 }
 
+/******** vendor about  *********/
+
 .vendor_about_container {
-  border: 1px solid black;
-  display: flex;
-  justify-content: center;
   height: 600px;
+  margin-top: 10%;
+}
+
+.vendor_about_title {
+  position: relative;
+}
+
+.vendor_about_title hr {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 85%;
 }
 
 .vendor_info_form {
@@ -153,6 +164,18 @@
 .vendor_bulletin_container {
   width: 100%;
   height: 100%;
+  margin-top: 10%;
+}
+
+.vendor_bulletin_title {
+  position: relative;
+}
+
+.vendor_bulletin_title hr {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 80%;
 }
 
 .vendor_add_post_btn_wrapper {
@@ -168,6 +191,31 @@
 
 .vendor_add_post_form_show {
   display: block;
+  padding: 30px;
+}
+
+.vendor_add_post_form_show textarea {
+  width: 100%;
+  height: 100px;
+}
+
+.vendor_add_post_form_show input {
+  height: 20px;
+  width: 20%;
+  border: 1px solid black;
+}
+
+.vendor_add_post_btn_group {
+  display: flex;
+  justify-content: center;
+}
+
+.vendor_add_post_form_show button {
+  height: 30px;
+  width: 30%;
+  margin: 5%;
+  background-color: lightgray;
+  border: 1px solid black;
 }
 
 .vendor_add_post_form_hide {
@@ -183,6 +231,22 @@
 }
 
 /************ vendor product ***********/
+
+.vendor_product_list_container {
+  margin-top: 10%;
+}
+
+.vendor_product_list_title {
+  position: relative;
+}
+
+.vendor_product_list_title hr {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 85%;
+}
+
 .vendor_add_product_form_container {
   display: none;
   position: fixed;
@@ -233,8 +297,27 @@
   border: 1px solid black;
 }
 
-.vendor_product_list_container {
+.vendor_product_list_wrapper {
+  margin-top: 10%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+
+.add_product_btn {
+  width: 146px;
+  height: 122px;
+}
+
+/********** vendor product ******/
+.vendor_product {
+  font-size: 15px;
+}
+
+.vendor_product_name {
+  margin: 5px 0;
+}
+
+.vendor_product_price {
+  margin-bottom: 50px;
 }

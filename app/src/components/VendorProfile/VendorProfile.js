@@ -44,11 +44,6 @@ const p = [
     name: "product",
     price: "1.00",
     img: rectangle
-  },
-  {
-    name: "product",
-    price: "1.00",
-    img: rectangle
   }
 ];
 

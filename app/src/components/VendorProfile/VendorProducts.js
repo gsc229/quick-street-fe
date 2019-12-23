@@ -3,12 +3,15 @@ import Product from "./Product";
 
 const VendorProducts = ({ products, addProduct }) => {
   return (
-    <div>
-      <p>Products</p>
-      <button className="add_product_btn" onClick={addProduct}>
-        Add product
-      </button>
-      <div className="vendor_product_list_container">
+    <div className="vendor_product_list_container">
+      <div className="vendor_product_list_title">
+        <p>Products</p>
+        <hr />
+      </div>
+      <div className="vendor_product_list_wrapper">
+        <button className="add_product_btn" onClick={addProduct}>
+          Add product
+        </button>
         {products ? (
           products.map((p, idx) => (
             <Product key={idx} name={p.name} price={p.price} img={p.img} />

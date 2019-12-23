@@ -36,10 +36,12 @@ const VendorAddPostForm = ({ show, cancelAddPost }) => {
         name="zipcode"
         value={post.zipcode}
         onChange={postChangeHandler}
-        placeholder="77777"
+        placeholder="zipcode"
       />
-      <button>Save</button>
-      <button onClick={cancelAddPost}>Cancel</button>
+      <div className="vendor_add_post_btn_group">
+        <button>Save</button>
+        <button onClick={cancelAddPost}>Cancel</button>
+      </div>
     </form>
   );
 };

@@ -38,6 +38,10 @@
   text-align: center;
 }
 
+.vendor_banner_input {
+  display: none;
+}
+
 .vendor_banner_upload {
   position: absolute;
   bottom: 5px;

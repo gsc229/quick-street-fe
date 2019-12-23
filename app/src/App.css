@@ -299,13 +299,48 @@
 .vendor_add_product_form .input_wrapper {
   display: flex;
   flex-direction: column;
+  width: 50%;
+  align-items: flex-start;
+  margin: 5% 25%;
+}
+
+.vendor_product_container {
+  position: relative;
+}
+
+.vendor_product_image {
+  width: 100%;
   text-align: center;
-  align-items: center;
-  margin: 5% 0;
+}
+
+.vendor_product_input {
+  display: none;
+}
+
+.vendor_product_picture_upload {
+  position: absolute;
+  bottom: 5px;
+  right: 0px;
 }
 
 .vendor_add_product_form input {
+  height: 30px;
+  width: 332px;
   border: 1px solid black;
+  margin-top: 20px;
+}
+.vendor_product_btn_group {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: 2% 25%;
+}
+
+.vendor_product_btn_group button {
+  width: 332px;
+  height: 30px;
+  margin-top: 20px;
+  border: 1px black solid;
 }
 
 .vendor_product_list_wrapper {

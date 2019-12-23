@@ -75,9 +75,8 @@ const VendorProfile = () => {
         </div>
         <div className="vendor_profile_btn_group">
           <img src={create} alt="create" onClick={editProfile} />
-          <div>
-            <img src={save} alt="save" onClick={saveProfile} />
-          </div>
+
+          <img src={save} alt="save" onClick={saveProfile} />
         </div>
       </div>
       <div className="vendor_banner_container">

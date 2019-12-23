@@ -10,12 +10,19 @@
 
 .vendor_header_container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  position: relative;
 }
 
 .vendor_profile_btn_group {
   text-align: end;
-  margin-bottom: 20px;
+  padding-top: 5%;
+  position: absolute;
+  right: -80px;
+}
+
+.vendor_profile_btn_group img {
+  margin-right: 10px;
 }
 
 .vendor_profile_btn_group button {

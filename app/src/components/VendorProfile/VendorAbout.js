@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import down from "../../assets/down.png";
-import seperate from "../../assets/rectangle90.png";
 
 const About = props => {
   const [info, setInfo] = useState({

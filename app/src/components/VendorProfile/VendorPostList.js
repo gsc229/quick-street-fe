@@ -6,8 +6,9 @@ const VendorPostList = ({ posts }) => {
     <div className="vendor_post_list_container">
       <ul>
         {posts
-          ? posts.map(p => (
+          ? posts.map((p, idx) => (
               <VendorPost
+                key={idx}
                 content={p.content}
                 date={p.date}
                 location={p.location}

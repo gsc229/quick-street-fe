@@ -1,17 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import upload from "../../assets/upload.png";
+import productImg from "../../assets/rectangle75.png";
 
 const VendorAddProductForm = ({ modal, addProductformClickHandler }) => {
-  const [file, setFile] = useState("");
-  const [filename, setFilename] = useState("Choose File");
+  const productPictureUploader = useRef(null);
+
   const [product, setProduct] = useState({
     name: "",
     price: ""
   });
 
-  const changePicture = e => {
-    console.log(e);
-    // setFile(e.target.file[0]);
-    // setFilename(e.target.file[0].name);
+  const uploadProductPicture = e => {
+    productPictureUploader.current.click();
+  };
+
+  const productPictureChangeHandler = e => {
+    console.log(`product picture change`);
   };
 
   const changeHandler = e => {
@@ -33,8 +37,25 @@ const VendorAddProductForm = ({ modal, addProductformClickHandler }) => {
     >
       <form className="vendor_add_product_form" onSubmit={onSubmit}>
         <div className="input_wrapper">
-          <label>Picture of item</label>
-          <input type="file" onChange={changePicture} />
+          <div className="vendor_product_container">
+            <img
+              className="vendor_product_image"
+              src={productImg}
+              alt="vendor product"
+            />
+            <input
+              className="vendor_product_input"
+              type="file"
+              ref={productPictureUploader}
+              onChange={productPictureChangeHandler}
+            />
+            <img
+              className="vendor_product_picture_upload"
+              src={upload}
+              alt="upload icon"
+              onClick={uploadProductPicture}
+            />
+          </div>
         </div>
 
         <div className="input_wrapper">
@@ -55,8 +76,10 @@ const VendorAddProductForm = ({ modal, addProductformClickHandler }) => {
             onChange={changeHandler}
           />
         </div>
-        <button onClick={addProductformClickHandler}>Cancel</button>
-        <input type="submit" />
+        <div className="vendor_product_btn_group">
+          <button onClick={addProductformClickHandler}>Cancel</button>
+          <button>save</button>
+        </div>
       </form>
     </div>
   );

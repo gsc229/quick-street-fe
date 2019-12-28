@@ -34,7 +34,7 @@ const About = props => {
             <label>Hours of Operation</label>
             <div className="vendor_info_hour_input_group">
               <input
-                type="number"
+                type="time"
                 name="hour_from"
                 value={info.hour_from}
                 onChange={changeHandler}
@@ -42,7 +42,7 @@ const About = props => {
               to
               <input
                 className="vendor_info_hour_input_2"
-                type="number"
+                type="time"
                 name="hour_to"
                 value={info.hour_to}
                 onChange={changeHandler}
@@ -88,7 +88,7 @@ const About = props => {
           <div className="vendor_info_location">
             <label>Location</label>
             <input
-              type="number"
+              type="text"
               name="location"
               value={info.location}
               onChange={changeHandler}

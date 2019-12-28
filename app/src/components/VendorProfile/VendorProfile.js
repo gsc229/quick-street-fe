@@ -1,12 +1,12 @@
 import React, { useState, useRef } from "react";
 import VendorAbout from "./VendorAbout";
-import VendorProducts from "./VendorProducts";
-import VendorAddProductForm from "./VendorAddProductForm";
+import VendorProducts from "../VendorProduct/VendorProducts";
+import VendorAddProductForm from "../../components/VendorProduct/VendorAddProductForm";
 import picture from "../../assets/placeholder.png";
 import create from "../../assets/create.png";
 import save from "../../assets/save.png";
 import upload from "../../assets/upload.png";
-import VendorBulletin from "./VendorBulletin";
+import VendorBulletin from "../VendorBulletin/VendorBulletin";
 import rectangle from "../../assets/rectangle.png";
 import axios from "axios";
 
@@ -70,8 +70,6 @@ const VendorProfile = () => {
   };
 
   const uploadBanner = () => {
-    console.log(`upload banner`);
-
     bannerUploader.current.click();
   };
 

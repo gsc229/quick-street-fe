@@ -52,6 +52,18 @@ const VendorProfile = () => {
   const [modal, setModal] = useState(false);
   const bannerUploader = useRef(null);
   const [banner, setBanner] = useState(picture);
+  const myWidget = window.cloudinary.createUploadWidget(
+    {
+      cloudName: "dkz9kcsqy",
+      uploadPreset: "tmta9mmz"
+    },
+    (error, result) => {
+      if (!error && result && result.event === "success") {
+        console.log("Done! Here is the image info: ", result.info);
+        setBanner(result.info.url);
+      }
+    }
+  );
 
   const addProduct = () => {
     setModal(true);
@@ -69,17 +81,9 @@ const VendorProfile = () => {
     console.log(`save profile`);
   };
 
-  const uploadBanner = () => {
-    bannerUploader.current.click();
-  };
-
-  const bannerChangeHandler = e => {
-    console.log(Array.from(e.target.files));
-    const newBanner = Array.from(e.target.files[0]);
-    const formData = new FormData();
-    formData.append("file", newBanner);
-
-    setBanner(newBanner);
+  const uploadBanner = e => {
+    e.preventDefault();
+    myWidget.open();
   };
 
   return (
@@ -97,12 +101,12 @@ const VendorProfile = () => {
       </div>
       <div className="vendor_banner_container">
         <img className="vendor_banner_image" src={banner} alt="vendor header" />
-        <input
+        {/* <input
           className="vendor_banner_input"
           type="file"
           ref={bannerUploader}
           onChange={bannerChangeHandler}
-        />
+        /> */}
         <img
           className="vendor_banner_upload"
           src={upload}

@@ -27,7 +27,7 @@ const VendorDetails = (props) => {
               type='text'
               name='businessName'
               id='businessName'
-              placeholder='Enter your business name'
+              // placeholder='Enter your business name'
               value={values.businessName}
               onChange={handleChange}
             />
@@ -38,7 +38,7 @@ const VendorDetails = (props) => {
               type='text'
               name='phoneNumber'
               id='phoneNumber'
-              placeholder='Enter your phone number'
+              // placeholder='Enter your phone number'
               value={values.phoneNumber}
               onChange={handleChange}
             />
@@ -49,7 +49,7 @@ const VendorDetails = (props) => {
               type='text'
               name='streetAddress'
               id='streetAddress'
-              placeholder='Enter your street address'
+              // placeholder='Enter your street address'
               value={values.streetAddress}
               onChange={handleChange}
             />
@@ -61,7 +61,7 @@ const VendorDetails = (props) => {
                 type='text'
                 name='city'
                 id='city'
-                placeholder='Enter your city'
+                // placeholder='Enter your city'
                 value={values.city}
                 onChange={handleChange}
               />
@@ -72,7 +72,7 @@ const VendorDetails = (props) => {
                 type='text'
                 name='zipcode'
                 id='zipcode'
-                placeholder='Enter your zipcode'
+                // placeholder='Enter your zipcode'
                 value={values.zipcode}
                 onChange={handleChange}
               />

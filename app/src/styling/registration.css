@@ -9,6 +9,7 @@
 
 .form_details {
   margin-left: 30px;
+  width: 30%;
 }
 
 h1 {
@@ -42,7 +43,6 @@ h4 {
 .form_input input {
   border: 2px solid #36C2DB;
   border-radius: 10px;
-  width: 30%;
   height: 5vh;
   margin-top: 10px;
   margin-bottom: 20px;
@@ -61,13 +61,13 @@ h4 {
   border: 2px red solid
 } */
 
-.button_next {
-  width: 30%;
+.confirm_button {
   height: 6vh;
   background-color: #21B787;
   border-radius: 10px;
   font-size: 24px;
   color: #FFFFFF;
+  width: 100%;
 }
 
 .radio_buttons {
@@ -79,15 +79,14 @@ h4 {
   
 }
 
-.button_cancel {
-  display: block;
-  width: 30%;
+.cancel_button {
+  margin-bottom: 10px;
   height: 6vh;
   border: 3px solid #21B787;
   border-radius: 10px;
   font-size: 24px;
   background-color: #FFFFFF;
-  margin-bottom: 10px;
+  width: 100%;  
 }
 
 .form_input_vendor_details {
@@ -103,7 +102,6 @@ h4 {
 .form_input_vendor_details input {
   border: 2px solid #36C2DB;
   border-radius: 10px;
-  width: 30%;
   height: 5vh;
   margin-top: 5px;
   margin-bottom: 10px;
@@ -114,14 +112,14 @@ h4 {
 .form_input_address {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   
 }
 
 .form_input_city {
   display: flex;
   flex-direction: column;
-  margin-right: 20px;
-  width: 15%;
+  width: 45%;
 }
 
 .form_input_city label {
@@ -132,7 +130,6 @@ h4 {
 .form_input_city input {
   border: 2px solid #36C2DB;
   border-radius: 10px;
-  /* width: 130px; */
   height: 5vh;
   margin-top: 10px;
   margin-bottom: 20px;
@@ -143,7 +140,6 @@ h4 {
 .form_input_vendor_details textarea {
   border: 2px solid #36C2DB;
   border-radius: 10px;
-  width: 30%;
   height: 10vh;
   margin-top: 5px;
   margin-bottom: 10px;
@@ -183,22 +179,3 @@ h4 {
   width: 45%;
 }
 
-.confirm_button {
-  height: 6vh;
-  background-color: #21B787;
-  border-radius: 10px;
-  font-size: 24px;
-  color: #FFFFFF;
-  width: 100%;
-}
-
-.cancel_button {
-  margin-bottom: 10px;
-  height: 6vh;
-  border: 3px solid #21B787;
-  border-radius: 10px;
-  font-size: 24px;
-  background-color: #FFFFFF;
-  width: 100%;
-  
-}

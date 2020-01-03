@@ -80,8 +80,8 @@ const VendorDetails = (props) => {
           </div>
             
         
-          <button className='button_cancel' onClick={cancel}>Cancel</button>
-          <button className='button_next' onClick={proceed}>Next</button>
+          <button className='cancel_button' onClick={cancel}>Cancel</button>
+          <button className='confirm_button' onClick={proceed}>Next</button>
         </form>
       </div>
     </div>

@@ -1,15 +1,20 @@
+/* .main_container {
+  width: 1440px;
+} */
+
 .form_container {
-  width: 100%; 
+  width: 960px; 
   height: 100vh;
   background-image: url('../assets/meditate_girl.svg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: right;
+  margin: 0 auto;
 }
 
 .form_details {
   margin-left: 30px;
-  width: 30%;
+  width: 40%;
 }
 
 h1 {

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import VendorAbout from "./VendorAbout";
 import VendorProducts from "../VendorProduct/VendorProducts";
 import VendorAddProductForm from "../../components/VendorProduct/VendorAddProductForm";
@@ -85,6 +85,12 @@ const VendorProfile = () => {
     e.preventDefault();
     myWidget.open();
   };
+
+  useEffect(() => {
+    return setBanner(
+      `https://res.cloudinary.com/dkz9kcsqy/image/upload/v1578004173/zzgiw4e7tw8m2r8d10lv.png`
+    );
+  });
 
   return (
     <div className="vendor_profile_container">

@@ -12,6 +12,16 @@
   margin: 0 auto;
 }
 
+.form_container_login {
+  width: 960px; 
+  height: 100vh;
+  /* background-image: url('../assets/meditate_girl.svg'); */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+  margin: 0 auto;
+}
+
 .form_details {
   margin-left: 30px;
   width: 40%;

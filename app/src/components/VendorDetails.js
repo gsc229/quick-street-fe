@@ -1,12 +1,46 @@
 import React from 'react';
 
 const VendorDetails = (props) => {
-  const { values, handleChange, nextStep, previousStep} = props;
+  const { values, handleChange, nextStep, previousStep, setUserInfo } = props;
 
   const proceed = (event) => {
     event.preventDefault();
-    nextStep();
+    if (validate()) {
+      console.log(values);
+      nextStep();
+    }
   }
+
+  const validate = () => {
+    let businessNameError = '';
+    let phoneNumberError = '';
+    let zipcodeError = '';
+
+    if(!values.businessName) {
+      businessNameError = 'Business name required';
+    }
+
+    if (!values.phoneNumber) {
+      phoneNumberError = 'Phone number required';
+    }
+
+    if (!values.zipcode) {
+      zipcodeError = 'Zipcode required';
+    }
+    
+    if(businessNameError || phoneNumberError || zipcodeError ) {
+      setUserInfo({
+        ...values,
+        businessNameError,
+        phoneNumberError,
+        zipcodeError
+      })
+      return false;
+    }
+
+    return true;
+  }
+
 
   const cancel = (event) => {
     event.preventDefault();
@@ -31,6 +65,9 @@ const VendorDetails = (props) => {
               value={values.businessName}
               onChange={handleChange}
             />
+            <p className='errorMessage'>
+                {values.businessNameError}
+            </p>
           </div>
           <div className='form_input_vendor_details'>
             <label htmlFor='phoneNumber'>Phone Number</label>
@@ -42,6 +79,9 @@ const VendorDetails = (props) => {
               value={values.phoneNumber}
               onChange={handleChange}
             />
+            <p className='errorMessage'>
+                {values.phoneNumberError}
+            </p>
           </div>
           <div className='form_input_vendor_details'>
             <label htmlFor='streetAddress'>Street Address</label>
@@ -76,6 +116,9 @@ const VendorDetails = (props) => {
                 value={values.zipcode}
                 onChange={handleChange}
               />
+              <p className='errorMessage'>
+                {values.zipcodeError}
+              </p>
             </div>
           </div>
             

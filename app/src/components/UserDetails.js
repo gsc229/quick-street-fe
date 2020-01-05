@@ -5,12 +5,49 @@ import meditateGirlImg from '../assets/meditate_girl.svg';
 import '../styling/registration.css';
 
 const UserDetails = (props) => {
+  const { values, nextStep, handleChange, setUserInfo } = props;
+
   const proceed = (event) => {
     event.preventDefault();
-    props.nextStep();
+    if (validate()) {
+      console.log(values);
+      nextStep();
+    }
   }
 
-  const { values, handleChange} = props;
+  const validate = () => {
+    let emailError = '';
+    let passwordError = '';
+    let roleError = '';
+
+    if(!values.email.includes('@')) {
+      emailError = 'Invalid email';
+    }
+
+    if (values.password.length === 0) {
+      passwordError = 'Password required';
+    }
+
+    if(values.password.length < 6 && values.password) {
+      passwordError = 'Minimum password is 6 characters';
+    }
+
+    if (!values.role) {
+      roleError = 'Role required';
+    }
+
+    if(emailError || passwordError || roleError ) {
+      setUserInfo({
+        ...values,
+        emailError,
+        passwordError,
+        roleError
+      })
+      return false;
+    }
+
+    return true;
+  }
 
   return (
     <div>
@@ -32,6 +69,9 @@ const UserDetails = (props) => {
                 value={values.email}
                 onChange={handleChange}
               />
+              <p className='errorMessage'>
+                {values.emailError}
+              </p>
             </div>
             <div className='form_input'>
               <label htmlFor='password'>Password</label>
@@ -43,8 +83,12 @@ const UserDetails = (props) => {
                 value={values.password}
                 onChange={handleChange}
               />
+              <p className='errorMessage'>
+                {values.passwordError}
+              </p>
             </div>
-            <h4>Are you a vendor?</h4>
+            <div className='form_input'>
+            <label>Are you a vendor?</label>
             <div className='form_input_radio'>
             <div className='radio_buttons'>
                 <input
@@ -53,7 +97,7 @@ const UserDetails = (props) => {
                   name='role' 
                   id='vendor'
                   value='vendor'
-                  // checked={values.role === 'vendor'}
+                  checked={values.role === 'vendor'}
                   onChange={handleChange}
                 />
                 <label htmlFor='vendor'>Yes</label>
@@ -65,11 +109,15 @@ const UserDetails = (props) => {
                   name='role' 
                   id='customer' 
                   value='customer'
-                  // checked={values.role === 'customer'}
+                  checked={values.role === 'customer'}
                   onChange={handleChange}
                 />
                 <label htmlFor='customer'>No</label>
               </div>
+            </div>
+            <p className='errorMessage'>
+                {values.roleError}
+            </p>
             </div>
             <button className='confirm_button' onClick={proceed}>Next</button>
           </form>

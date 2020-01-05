@@ -29,12 +29,6 @@ h3 {
   color: #00B2ED;
 }
 
-h4 {
-  font-size: 24px;
-  margin-top: 5px;
-  margin-bottom: 10px;
-}
-
 .form_input {
   display: flex;
   flex-direction: column;
@@ -58,13 +52,13 @@ h4 {
 .form_input_radio {
   display: flex;
   flex-direction: row;
-  margin-bottom: 30px;
 }
 
-/* .form_input_radio .checkbox {
-  display: inline-block;
-  border: 2px red solid
-} */
+.form_input_radio .checkbox {
+  margin-top: 0px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
 
 .confirm_button {
   height: 6vh;
@@ -77,6 +71,8 @@ h4 {
 
 .radio_buttons {
   margin-right: 40px;
+  display: flex;
+  justify-content: center;
 }
 
 .link {
@@ -182,5 +178,11 @@ h4 {
 
 .vendor_city_confirmation {
   width: 45%;
+}
+
+.errorMessage {
+  color: red;
+  margin-top: 0px;
+  line-height: 0%;
 }
 

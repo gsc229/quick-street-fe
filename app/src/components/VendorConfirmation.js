@@ -15,45 +15,63 @@ const VendorConfirmation = (props) => {
   }
 
   return (
-    <>
-      <div>
-        <h4>Email</h4>
-        <h6>{email}</h6>
 
-        <h4>Password</h4>
-        <h6>{password}</h6>
-
-        <h4>Business Name</h4>
-        <h6>{businessName}</h6>
-
-        <h4>Phone Number</h4>
-        <h6>{phoneNumber}</h6>
-
-        {streetAddress.length > 0 && (
-          <>
-            <h4>Street Address</h4>
-            <h6>{streetAddress}</h6>
-          </>
-        )
-        }
-
-        {city.length > 0 && (
-          <>
-            <h4>City</h4>
-            <h6>{city}</h6>
-          </>
-        )
-        }
-
-        <h4>Zipcode</h4>
-        <h6>{zipcode}</h6>
-
+    <div className='confirmation_container'>
+      <div className='vendor_confirmation_div'>
+        <p className ='vendor_confirmation_title'>Email</p>
+        <p className='vendor_confirmation_value'>{email}</p>
       </div>
 
-      <button onClick={handleSubmit}>Confirm</button>
-      <button onClick={cancel}>Cancel</button>  
+      <div className='vendor_confirmation_div'>
+        <p className ='vendor_confirmation_title'>Password</p>
+        <p className='vendor_confirmation_value'>{password}</p>
+      </div>
+      
+      <div className='vendor_confirmation_div'>
+        <p className ='vendor_confirmation_title'>Business Name</p>
+        <p className='vendor_confirmation_value'>{businessName}</p>
+      </div>
+      
+      <div className='vendor_confirmation_div'>
+        <p className ='vendor_confirmation_title'>Phone Number</p>
+        <p className='vendor_confirmation_value'>{phoneNumber}</p>
+      </div>
+      
 
-    </>
+      {streetAddress.length > 0 && (
+        <div className='vendor_confirmation_div'>
+          <p className ='vendor_confirmation_title'>Street Address</p>
+          <p className='vendor_confirmation_value'>{streetAddress}</p>
+        </div>
+      )}
+
+      {city.length > 0 && (
+        <div className='vendor_confirmation_div address_confirmation'>
+          <div className='vendor_city_confirmation'>
+            <p className ='vendor_confirmation_title'>City</p>
+            <p className='vendor_confirmation_value'>{city}</p>
+          </div>
+          <div className='vendor_city_confirmation'>
+            <p className ='vendor_confirmation_title'>Zipcode</p>
+            <p className='vendor_confirmation_value'>{zipcode}</p>
+          </div>
+        </div>
+      )}
+
+      {city.length === 0 && (
+        <div className='vendor_confirmation_div'>
+        <p className ='vendor_confirmation_title'>Zipcode</p>
+        <p className='vendor_confirmation_value'>{zipcode}</p>
+      </div> 
+      )}
+
+      <div className='vendor_confirmation_div'>
+        <button className='cancel_button' onClick={cancel}>Cancel</button>
+        <button className='confirm_button' onClick={handleSubmit}>Save</button>
+      </div>
+
+    </div>
+
   )
 
 }

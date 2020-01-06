@@ -9,13 +9,19 @@ const Register = () => {
   const [userInfo, setUserInfo] = useState({
     step: 1,
     email: '',
+    emailError: '',
     password: '',
+    passwordError: '',
     role: '',
+    roleError: '',
     businessName: '',
+    businessNameError: '',
     phoneNumber: '',
+    phoneNumberError: '',
     streetAddress: '',
     city: '',
-    zipcode: ''
+    zipcode: '',
+    zipcodeError: ''
   });
 
   const nextStep = () => {
@@ -37,8 +43,14 @@ const Register = () => {
   const handleChange = (event) => {
     setUserInfo({
       ...userInfo,
-      [event.target.name]: event.target.value
-    })
+      [event.target.name]: event.target.value,
+      emailError: '', 
+      passwordError: '', 
+      roleError: '',
+      businessNameError: '',
+      phoneNumberError: '',
+      zipcodeError: ''
+    });
   };
 
   const userDetails = () => {
@@ -48,6 +60,7 @@ const Register = () => {
           values={userInfo}
           handleChange={handleChange}
           nextStep={nextStep}
+          setUserInfo={setUserInfo}
         />
       )
     }
@@ -61,6 +74,7 @@ const Register = () => {
           handleChange={handleChange}
           nextStep={nextStep}
           previousStep={previousStep}
+          setUserInfo={setUserInfo}
         />
       )
     }

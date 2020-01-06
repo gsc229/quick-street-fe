@@ -1,0 +1,198 @@
+/* .main_container {
+  width: 1440px;
+} */
+
+.form_container {
+  width: 960px; 
+  height: 100vh;
+  background-image: url('../assets/meditate_girl.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+  margin: 0 auto;
+}
+
+.form_container_login {
+  width: 960px; 
+  height: 100vh;
+  /* background-image: url('../assets/meditate_girl.svg'); */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+  margin: 0 auto;
+}
+
+.form_details {
+  margin-left: 30px;
+  width: 40%;
+}
+
+h1 {
+  line-height: 155%;
+  font-size: 40px;
+  color: #00B2ED;
+}
+
+h3 {
+  font-size: 20px;
+  line-height: 155%;
+  color: #00B2ED;
+}
+
+.form_input {
+  display: flex;
+  flex-direction: column;
+}
+
+.form_input label {
+  font-size: 24px;
+  line-height: 155%;
+}
+
+.form_input input {
+  border: 2px solid #36C2DB;
+  border-radius: 10px;
+  height: 5vh;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.form_input_radio {
+  display: flex;
+  flex-direction: row;
+}
+
+.form_input_radio .checkbox {
+  margin-top: 0px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+
+.confirm_button {
+  height: 6vh;
+  background-color: #21B787;
+  border-radius: 10px;
+  font-size: 24px;
+  color: #FFFFFF;
+  width: 100%;
+}
+
+.radio_buttons {
+  margin-right: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.link {
+  color: #00B2ED;
+  
+}
+
+.cancel_button {
+  margin-bottom: 10px;
+  height: 6vh;
+  border: 3px solid #21B787;
+  border-radius: 10px;
+  font-size: 24px;
+  background-color: #FFFFFF;
+  width: 100%;  
+}
+
+.form_input_vendor_details {
+  display: flex;
+  flex-direction: column;
+}
+
+.form_input_vendor_details label {
+  font-size: 24px;
+  line-height: 155%;
+}
+
+.form_input_vendor_details input {
+  border: 2px solid #36C2DB;
+  border-radius: 10px;
+  height: 5vh;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.form_input_address {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+}
+
+.form_input_city {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+}
+
+.form_input_city label {
+  font-size: 24px;
+  line-height: 155%;
+}
+
+.form_input_city input {
+  border: 2px solid #36C2DB;
+  border-radius: 10px;
+  height: 5vh;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.form_input_vendor_details textarea {
+  border: 2px solid #36C2DB;
+  border-radius: 10px;
+  height: 10vh;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.confirmation_container {
+  width: 100%;
+}
+
+.vendor_confirmation_div {
+  width: 50%;  
+  margin: 0 auto;  
+}
+
+.vendor_confirmation_title {
+  font-size: 24px;
+}
+
+.vendor_confirmation_value {
+  border: 2px solid #3E7689;
+  box-sizing: border-box;
+  border-radius: 10px;
+  height: 5vh;
+  font-size: 24px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.address_confirmation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.vendor_city_confirmation {
+  width: 45%;
+}
+
+.errorMessage {
+  color: red;
+  margin-top: 0px;
+  line-height: 0%;
+}
+

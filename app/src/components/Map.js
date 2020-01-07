@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
+import Circle from 'google-maps-react';
 import axios from 'axios';
 
 import axiosWithAuth from '../utils/axiosWithAuth';
@@ -74,18 +75,30 @@ const MapContainer = (props) => {
         lat: mapDetails.initialCenterLat,
         lng: mapDetails.initialCenterLng
       }}
+      center={{
+        lat: mapDetails.initialCenterLat,
+        lng: mapDetails.initialCenterLng
+      }}
     >
-    {console.log(mapDetails.initialCenterLat)}
-    {console.log(mapDetails.initialCenterLng)}
+      {/* <Circle 
+        radius={1}
+        center={{
+          lat: mapDetails.initialCenterLat,
+        lng: mapDetails.initialCenterLng
+        }}
+        onMouseover={() => console.log('mouseover')}
+        onClick={() => console.log('click')}
+        onMouseout={() => console.log('mouseout')}
+        strokeColor='transparent'
+        strokeOpacity={0}
+        strokeWeight={5}
+        fillColor='#ffff00'
+        fillOpacity={0.2}
+      /> */}
     </Map>
     )}
+    {/* <h1>Map</h1> */}
     </>
-    
-
-      
-    // <>
-    // <h1>Map</h1>
-    // </>
   );
 }
 

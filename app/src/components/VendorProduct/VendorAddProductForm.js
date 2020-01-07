@@ -51,19 +51,23 @@ const VendorAddProductForm = ({ modal, addProductformClickHandler }) => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    axios
-      .post(
-        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5dfc1ea2396390001715f1e3/products`,
-        {
-          diet: ["Vegan"],
-          name: product.name,
-          description: "test description",
-          category: "test cat",
-          price: product.price
-        }
-      )
-      .then(res => console.log(res.data))
-      .catch(err => console.log(err.message));
+    const res_1 = await axios.post(
+      `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5dfc1ea2396390001715f1e3/products`,
+      {
+        diet: ["Vegan"],
+        name: product.name,
+        description: "test description",
+        category: "test cat",
+        price: product.price
+      }
+    );
+    const productId = res_1.data.data._id;
+    console.log(productId);
+    const res_2 = await axios.post(
+      `https://quickstlabs.herokuapp.com/api/v1.0/products/${productId}/product-images`,
+      productPictureInfo
+    );
+    console.log(res_2);
   };
 
   return (

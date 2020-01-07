@@ -1,0 +1,210 @@
+.landingContainer {
+	width: 1440px;
+	margin: auto;
+}
+
+.heroContainer {
+	padding: 20px;
+	background-color: #00b2ed;
+	height: 808px;
+}
+.landingMenu {
+	font-family: Raleway;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 24px;
+	line-height: 170.5%;
+	/* identical to box height, or 41px */
+	display: flex;
+	align-items: center;
+	color: #fef2e4;
+}
+.landingInfo {
+	width: 483px;
+	height: 369px;
+	font-family: Rubik;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 40px;
+	line-height: 155%;
+	/* or 62px */
+	display: flex;
+	align-items: center;
+	color: #fef2e4;
+}
+.vendorButton {
+	width: 302px;
+	height: 57px;
+	left: 80px;
+	top: 619px;
+}
+.customerButton {
+	width: 302px;
+	height: 57px;
+	left: 80px;
+	top: 712px;
+}
+
+.marketing-Container {
+}
+.marketing-Header {
+	font-family: Rubik;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 48px;
+	line-height: 170.5%;
+	/* or 82px */
+	width: 652px;
+	text-align: center;
+
+	color: #00b2ed;
+}
+.marketing-Box {
+	width: 1280px;
+	height: 704px;
+	flex: 1;
+	background-color: #00b2ed;
+	display: flex;
+	margin: auto;
+	padding: 40px;
+}
+
+.marketing-featured-Container {
+	width: 361.31px;
+	height: 567px;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 5px;
+	display: flex;
+	margin-right: 40px;
+}
+.marketing-featured-Image {
+	display: flex;
+}
+.marketing-featured-Image image {
+	width: 100%;
+	height: 567px;
+
+	display: flex;
+}
+
+.marketing-featured-Image p {
+	width: 246px;
+	height: 111px;
+	position: bottom;
+	font-family: Raleway;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 166.36%;
+	/* or 30px */
+
+	align-items: center;
+	text-align: center;
+
+	color: #ffffff;
+
+	border-radius: 5px;
+}
+.marketing-right-Box {
+	width: 880px;
+	background-color: red;
+	height: 567px;
+}
+.marketing-right-Box-Toprow {
+	width: 100%;
+	height: 141px;
+	display: flex;
+}
+.marketing-right-Box-Toprow-left {
+	width: 299.39px;
+	height: 141px;
+}
+.marketing-right-Box-Toprow-left p {
+	font-family: Rubik;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 30px;
+	line-height: 166.86%;
+	/* or 50px */
+
+	display: flex;
+	align-items: center;
+
+	color: #ffffff;
+}
+.marketing-right-Box-Toprow-right {
+	width: 321.49px;
+	height: 114px;
+}
+.marketing-right-Box-Toprow-right p {
+	font-family: Raleway;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 185.86%;
+	/* or 26px */
+
+	display: flex;
+	align-items: center;
+
+	color: #ffffff;
+}
+.marketing-right-Box-Toprow-right-btn {
+	width: 161.96px;
+	height: 43px;
+	left: 925.15px;
+	top: 1230px;
+
+	background: #e92323;
+	border-radius: 5px;
+}
+.marketing-right-Box-Toprow-right-btn p {
+	width: 98.77px;
+	height: 23px;
+	font-family: Raleway;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 193.5%;
+	/* or 27px */
+	align-items: center;
+	display: flex;
+	margin: auto;
+
+	color: #ffffff;
+
+	border-radius: 5px;
+}
+.marketing-right-Box-BottomRow {
+	display: flex;
+	background-color: green;
+}
+.marketing-right-Box-BottomRow-features {
+	width: 246.84px;
+	height: 360px;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 5px;
+	display: flex;
+}
+.marketing-right-Box-BottomRow-features p {
+	width: 200.06px;
+	height: 53px;
+	bottom: 0;
+	font-family: Raleway;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 166.36%;
+	/* or 23px */
+	flex: 1;
+	justify-content: 'flex-end';
+
+	justify-self: center;
+	align-items: center;
+	text-align: center;
+
+	color: #ffffff;
+}
+.marketing-right-Box-BottomRow-featured-image {
+	display: flex;
+}

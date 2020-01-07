@@ -18,20 +18,20 @@ const Browse = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axiosWithAuth()
-      .get(`/vendors/radius/${customerZip}/5`)
-      .then(response => {
-        console.log(response);
-        setVendors({
-          ...vendors,
-          count: response.data.count,
-          vendorDetails: response.data.data
-        })
-        setZipcode(customerZip)
-      })
-      .catch(error => {
-        console.log(error);
-      })
+    // axiosWithAuth()
+    //   .get(`/vendors/radius/${customerZip}/5`)
+    //   .then(response => {
+    //     console.log(response);
+    //     setVendors({
+    //       ...vendors,
+    //       count: response.data.count,
+    //       vendorDetails: response.data.data
+    //     })
+    //     setZipcode(customerZip)
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //   })
     // setVendors({
     //   ...vendors, 
     //   count: 5,

@@ -21,7 +21,7 @@ const MapContainer = (props) => {
   const getGeocode = () => {
     axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${props.zipcode}&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`)
       .then(response => {
-        // console.log(response);
+        console.log(response);
         console.log(response.data.results[0].geometry.location);
         setMapDetails({
           ...mapDetails,
@@ -84,16 +84,16 @@ const MapContainer = (props) => {
         radius={1}
         center={{
           lat: mapDetails.initialCenterLat,
-        lng: mapDetails.initialCenterLng
+          lng: mapDetails.initialCenterLng
         }}
         onMouseover={() => console.log('mouseover')}
         onClick={() => console.log('click')}
         onMouseout={() => console.log('mouseout')}
         strokeColor='transparent'
-        strokeOpacity={0}
+        strokeOpacity={1}
         strokeWeight={5}
         fillColor='#ffff00'
-        fillOpacity={0.2}
+        fillOpacity={1}
       /> */}
     </Map>
     )}

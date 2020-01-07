@@ -4,24 +4,24 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 import Map from './Map';
 
 const Browse = () => {
-  const [ zipcode, setZipcode ] = useState('');
+  const [ zipcode, setZipcode ] = useState('02143');
   const [ vendors, setVendors ] = useState({});
+  const [ customerZip, setCustomerZip ] =  useState('');
   
   const handleChange = (event) => {
-    console.log(event.target.value);
-    setZipcode(event.target.value);
+    setCustomerZip(event.target.value);
   };
 
   const handleSubmit = (event) => {
-    
     event.preventDefault();
     axiosWithAuth()
-      .get(`/vendors/radius/${zipcode}/5`)
+      .get(`/vendors/radius/${customerZip}/5`)
       .then(response => {
-        console.log(response);
+        // console.log(response);
         setVendors({
           response
-        })  
+        })
+        setZipcode(customerZip)
       })
       .catch(error => {
         console.log(error);
@@ -35,7 +35,7 @@ const Browse = () => {
           name='zipcode'
           placeholder='zip code'
           onChange={handleChange}
-          value={zipcode}
+          value={customerZip}
         />
       </form>
       <Map zipcode={zipcode} vendors={vendors} />

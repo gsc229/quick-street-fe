@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
+import axios from 'axios';
+
+import axiosWithAuth from '../utils/axiosWithAuth';
 
 const mapStyles = {
   width: '100%',
@@ -7,6 +10,29 @@ const mapStyles = {
 };
 
 const MapContainer = (props) => {
+
+  const [ mapDetails, setMapDetails ] = useState({
+    initialCenterLng: '',
+    initialCenterLat: ''
+
+  })
+
+  const getGeocode = () => {
+    axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${props.zipcode}&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`)
+      .then(response => {
+        // console.log(response);
+        console.log(response.data.results[0].geometry.location);
+        setMapDetails({
+          ...mapDetails,
+          initialCenterLat: response.data.results[0].geometry.location.lat,
+          initialCenterLng: response.data.results[0].geometry.location.lng,
+        })
+      })
+  }
+
+  useEffect(() => {
+    getGeocode();
+  }, [props.zipcode])
 
   const [marker, setMarker] = useState({
     showingInfoWindow: false,
@@ -37,45 +63,28 @@ const MapContainer = (props) => {
     }
   };
 
-  const test = () => {
-    console.log(props);
-  }
-
   return (
-    <Map
+    <>
+    {mapDetails.initialCenterLat && mapDetails.initialCenterLng && (
+      <Map
       google={props.google}
       zoom={14}
       style={mapStyles}
       initialCenter={{
-        lat: 41.3309,
-        lng: -75.7430
+        lat: mapDetails.initialCenterLat,
+        lng: mapDetails.initialCenterLng
       }}
     >
-      <Marker
-        onClick={onMarkerClick}
-        position={{ lat: 41.337107, lng: -75.729503 }}
-        name={'Vendor 1'}
-      />
-      <Marker
-        onClick={onMarkerClick}
-        position={{ lat: 41.343326, lng: -75.73843 }}
-        name={'Vendor2'}
-      />
-      <InfoWindow
-        marker={marker.activeMarker}
-        visible={marker.showingInfoWindow}
-        onClose={onClose}
-      >
-        {marker.selectedPlace.name && (
-          <div>
-            <h4>{marker.selectedPlace.name}</h4>
-          </div>
-        )}
-      </InfoWindow>
+    {console.log(mapDetails.initialCenterLat)}
+    {console.log(mapDetails.initialCenterLng)}
     </Map>
+    )}
+    </>
+    
+
+      
     // <>
     // <h1>Map</h1>
-    // <h1>{this.test()}</h1>
     // </>
   );
 }

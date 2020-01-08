@@ -9,9 +9,9 @@ const VendorPostList = ({ posts }) => {
           ? posts.map((p, idx) => (
               <VendorPost
                 key={idx}
-                content={p.content}
-                date={p.date}
-                location={p.location}
+                content={p.description}
+                title={p.title}
+                date={p.createdAt.split("T")[0]}
               />
             ))
           : null}

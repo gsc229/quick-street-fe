@@ -12,7 +12,6 @@ const About = ({ edit, vendorInfo }) => {
     location: ""
   });
 
-  console.log(edit);
   const changeHandler = e => {
     setInfo({ ...info, [e.target.name]: e.target.value });
   };
@@ -21,8 +20,6 @@ const About = ({ edit, vendorInfo }) => {
     e.preventDefault();
     console.log(`submitted`);
   };
-
-  console.log(`about`, vendorInfo);
 
   return (
     <div className="vendor_about_container">

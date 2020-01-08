@@ -1,30 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import VendorAddPostForm from "./VendorAddPostForm";
 import VendorPostList from "./VendorPostList";
-
-const p = [
-  {
-    content:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
-    date: "12/05/2016",
-    location: "New York"
-  },
-  {
-    content:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
-    date: "11/12/2019",
-    location: "New York"
-  },
-  {
-    content:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
-    date: "11/12/2019",
-    location: "New York"
-  }
-];
+import axios from "axios";
 
 const VendorBulletin = props => {
   const [showAddPostForm, setShowAddPostForm] = useState(false);
+  const [posts, setPosts] = useState([]);
 
   const addPost = e => {
     e.preventDefault();
@@ -35,6 +16,17 @@ const VendorBulletin = props => {
     e.preventDefault();
     setShowAddPostForm(false);
   };
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5dfc1ea2396390001715f1e3/posts`
+      )
+      .then(res => {
+        console.log(res.data.data);
+        setPosts(res.data.data);
+      });
+  }, []);
 
   return (
     <div className="vendor_bulletin_container">
@@ -49,7 +41,7 @@ const VendorBulletin = props => {
 
       <VendorAddPostForm show={showAddPostForm} cancelAddPost={cancelAddPost} />
 
-      <VendorPostList posts={p} />
+      <VendorPostList posts={posts} />
     </div>
   );
 };

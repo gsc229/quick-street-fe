@@ -7,7 +7,7 @@ import create from "../../assets/create.png";
 import save from "../../assets/save.png";
 import upload from "../../assets/upload.png";
 import VendorBulletin from "../VendorBulletin/VendorBulletin";
-import rectangle from "../../assets/rectangle.png";
+
 import { Image, CloudinaryContext } from "cloudinary-react";
 import axios from "axios";
 
@@ -16,7 +16,10 @@ const VendorProfile = () => {
   const [vendorInfo, setVendorInfo] = useState("");
   const [bannerInfo, setBannerInfo] = useState("");
   const [products, setProducts] = useState([]);
+  const [productIds, setProductIds] = useState([]);
+
   const [edit, setEdit] = useState(false);
+
   const myWidget = window.cloudinary.createUploadWidget(
     {
       cloudName: "dxhescd0s",
@@ -60,16 +63,21 @@ const VendorProfile = () => {
       .get(
         `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5dfc1ea2396390001715f1e3/products`
       )
-      .then(p => setProducts(p.data.data));
+      .then(p => {
+        setProducts(p.data.data);
+        setProductIds(p.data.data.map(p => p._id));
+      });
   }, []);
 
-  console.log(vendorInfo);
+  console.log(`products`, products);
+  console.log(`product ids`, productIds);
 
   const addProduct = () => {
     setModal(true);
   };
 
-  const addProductformClickHandler = () => {
+  const addProductformCancelHandler = e => {
+    e.preventDefault();
     setModal(false);
   };
 
@@ -131,10 +139,14 @@ const VendorProfile = () => {
       </nav>
       <VendorAbout vendorInfo={vendorInfo} edit={edit} />
       <VendorBulletin />
-      <VendorProducts products={products} addProduct={addProduct} />
+      <VendorProducts
+        productIds={productIds}
+        products={products}
+        addProduct={addProduct}
+      />
       <VendorAddProductForm
         modal={modal}
-        addProductformClickHandler={addProductformClickHandler}
+        addProductformCancelHandler={addProductformCancelHandler}
       />
     </div>
   );

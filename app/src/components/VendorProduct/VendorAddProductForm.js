@@ -4,7 +4,7 @@ import productImg from "../../assets/rectangle75.png";
 import { Image, CloudinaryContext } from "cloudinary-react";
 import axios from "axios";
 
-const VendorAddProductForm = ({ modal, addProductformClickHandler }) => {
+const VendorAddProductForm = ({ modal, addProductformCancelHandler }) => {
   const [productPictureInfo, setProductPictureInfo] = useState("");
   const [product, setProduct] = useState({
     name: "",
@@ -117,7 +117,7 @@ const VendorAddProductForm = ({ modal, addProductformClickHandler }) => {
           />
         </div>
         <div className="vendor_product_btn_group">
-          <button onClick={addProductformClickHandler}>Cancel</button>
+          <button onClick={addProductformCancelHandler}>Cancel</button>
           <button>save</button>
         </div>
       </form>

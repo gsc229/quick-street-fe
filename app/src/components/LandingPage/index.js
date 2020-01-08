@@ -61,6 +61,37 @@ class LandingPage extends React.Component {
 						</div>
 					</div>
 				</div>
+				<div className="footer-container">
+					<div className="footer-top-row">
+						<div className="footer-top-row-column">
+							<p>Company</p>
+							<p>About Us</p>
+							<p>Careers</p>
+							<p>Contact</p>
+						</div>
+						<div className="footer-top-row-column">
+							<p>Community</p>
+							<p>Blogs</p>
+							<p>Expert Directory</p>
+							<p>Events</p>
+							<p>Food/Vendor Glossary</p>
+						</div>
+						<div className="footer-top-row-column">
+							<p>Product</p>
+							<p>Mobile App</p>
+							<p>Help</p>
+							<p>Swag</p>
+						</div>
+					</div>
+					<div className="footer-bottom-row">
+						<div className="footer-bottom-row-copyright">
+						<p>© 2019 Quick Street, All rights reserved | Terms Of Service | Privacy Policy</p>
+						</div>
+						<div className="footer-bottom-row-social">
+
+						</div>
+					</div>
+				</div>
 			</div>
 		);
 	}

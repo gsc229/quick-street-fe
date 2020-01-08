@@ -208,3 +208,45 @@
 .marketing-right-Box-BottomRow-featured-image {
 	display: flex;
 }
+
+.footer-container {
+	background-color:#00B2ED;
+	width: 1440px;
+	height: 412px;
+}
+.footer-top-row {
+	display: flex;
+	justify-content: space-evenly;
+}
+.footer-top-row-column {
+flex-direction: column;
+}
+.footer-top-row-column p {
+font-family: Rubik;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+text-align: center;
+color: #FFFFFF;
+}
+.footer-bottom-row{
+	display:flex;
+	flex-direction: row;
+}
+.footer-bottom-row-copyright {
+	flex: 2;
+	align-self: center;
+}
+.footer-bottom-row-copyright p {
+
+font-family: Nunito;
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 25px;
+text-align: right;
+color: #FFFFFF;
+}
+.footer-bottom-row-social {
+	flex: 1;
+}

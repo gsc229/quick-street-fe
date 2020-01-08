@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import VendorAbout from "./VendorAbout";
 import VendorProducts from "../VendorProduct/VendorProducts";
 import VendorAddProductForm from "../../components/VendorProduct/VendorAddProductForm";
@@ -70,7 +70,13 @@ const VendorProfile = () => {
     }
   );
 
-  console.log(bannerInfo);
+  useEffect(() => {
+    axios
+      .get(
+        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5d725a037b292f5f8ceff787/products`
+      )
+      .then(p => console.log(`product list`, p));
+  });
 
   const addProduct = () => {
     setModal(true);
@@ -92,12 +98,6 @@ const VendorProfile = () => {
     e.preventDefault();
     myWidget.open();
   };
-
-  // useEffect(() => {
-  //   return setBanner(
-  //     `https://res.cloudinary.com/dkz9kcsqy/image/upload/v1578004173/zzgiw4e7tw8m2r8d10lv.png`
-  //   );
-  // });
 
   return (
     <div className="vendor_profile_container">

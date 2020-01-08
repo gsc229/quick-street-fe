@@ -1,21 +1,48 @@
 import React, { useState, useRef } from "react";
 import upload from "../../assets/upload.png";
 import productImg from "../../assets/rectangle75.png";
+import {
+  Image,
+  Video,
+  Transformation,
+  CloudinaryContext
+} from "cloudinary-react";
+import axios from "axios";
 
 const VendorAddProductForm = ({ modal, addProductformClickHandler }) => {
-  const productPictureUploader = useRef(null);
-
+  const [productPictureInfo, setProductPictureInfo] = useState("");
   const [product, setProduct] = useState({
     name: "",
     price: ""
   });
+  const myWidget = window.cloudinary.createUploadWidget(
+    {
+      cloudName: "dxhescd0s",
+      uploadPreset: "quickstreet"
+    },
+    (error, result) => {
+      if (!error && result && result.event === "success") {
+        const info = result.info;
+        console.log(info);
+        let newInfo = {};
+        Object.keys(info).forEach(k => {
+          if (k !== "eager") {
+            if (!newInfo[k]) {
+              newInfo[k] = info[k];
+            }
+          }
+        });
+        newInfo = { ...newInfo, vendor: "5dfc1ea2396390001715f1e3" };
+        setProductPictureInfo(newInfo);
+      }
+    }
+  );
+
+  console.log(productPictureInfo);
 
   const uploadProductPicture = e => {
-    productPictureUploader.current.click();
-  };
-
-  const productPictureChangeHandler = e => {
-    console.log(`product picture change`);
+    e.preventDefault();
+    myWidget.open();
   };
 
   const changeHandler = e => {
@@ -24,7 +51,23 @@ const VendorAddProductForm = ({ modal, addProductformClickHandler }) => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    console.log(`upload a product`);
+    const res_1 = await axios.post(
+      `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5dfc1ea2396390001715f1e3/products`,
+      {
+        diet: ["Vegan"],
+        name: product.name,
+        description: "test description",
+        category: "test cat",
+        price: product.price
+      }
+    );
+    const productId = res_1.data.data._id;
+    console.log(productId);
+    const res_2 = await axios.post(
+      `https://quickstlabs.herokuapp.com/api/v1.0/products/${productId}/product-images`,
+      productPictureInfo
+    );
+    console.log(res_2);
   };
 
   return (
@@ -38,17 +81,22 @@ const VendorAddProductForm = ({ modal, addProductformClickHandler }) => {
       <form className="vendor_add_product_form" onSubmit={onSubmit}>
         <div className="input_wrapper">
           <div className="vendor_product_container">
-            <img
-              className="vendor_product_image"
-              src={productImg}
-              alt="vendor product"
-            />
-            <input
-              className="vendor_product_input"
-              type="file"
-              ref={productPictureUploader}
-              onChange={productPictureChangeHandler}
-            />
+            {productPictureInfo.public_id ? (
+              <CloudinaryContext cloudName="dxhescd0s">
+                <Image
+                  className="vendor_product_image"
+                  publicId={productPictureInfo.public_id}
+                  width="50"
+                  height="100"
+                />
+              </CloudinaryContext>
+            ) : (
+              <img
+                className="vendor_product_image"
+                src={productImg}
+                alt="product"
+              />
+            )}
             <img
               className="vendor_product_picture_upload"
               src={upload}

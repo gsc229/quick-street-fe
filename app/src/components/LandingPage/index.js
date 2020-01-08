@@ -2,7 +2,9 @@ import React from 'react';
 
 // styling
 import '../LandingPage/landing.css';
+//Icons
 
+import Icon from "./assets/landing/icons/Icon";
 class LandingPage extends React.Component {
 	render() {
 		return (
@@ -88,7 +90,7 @@ class LandingPage extends React.Component {
 						<p>© 2019 Quick Street, All rights reserved | Terms Of Service | Privacy Policy</p>
 						</div>
 						<div className="footer-bottom-row-social">
-
+						<Icon name="snapchat" width={24} fill={'#000'} />
 						</div>
 					</div>
 				</div>

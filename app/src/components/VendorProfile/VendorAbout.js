@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import down from "../../assets/down.png";
 
-const About = props => {
+const About = ({ edit, vendorInfo }) => {
   const [info, setInfo] = useState({
     days: "0",
     phone: "",
@@ -12,6 +12,7 @@ const About = props => {
     location: ""
   });
 
+  console.log(edit);
   const changeHandler = e => {
     setInfo({ ...info, [e.target.name]: e.target.value });
   };
@@ -21,6 +22,8 @@ const About = props => {
     console.log(`submitted`);
   };
 
+  console.log(`about`, vendorInfo);
+
   return (
     <div className="vendor_about_container">
       <div className="vendor_about_title">
@@ -28,31 +31,34 @@ const About = props => {
         <hr />
       </div>
 
-      <form className="vendor_info_form">
+      <form className="vendor_info_form" onSubmit={submitHandler}>
         <div className="vendor_info_left">
           <div className="vendor_info_hour">
             <label>Hours of Operation</label>
             <div className="vendor_info_hour_input_group">
               <input
-                type="time"
+                type="text"
                 name="hour_from"
-                value={info.hour_from}
+                value={edit ? info.hour_from : vendorInfo.hours}
                 onChange={changeHandler}
               />
               to
               <input
                 className="vendor_info_hour_input_2"
-                type="time"
+                type="text"
                 name="hour_to"
-                value={info.hour_to}
+                value={edit ? info.hour_to : vendorInfo.hours}
                 onChange={changeHandler}
               />
             </div>
           </div>
           <div className="vendor_info_days">
             <label>Days of week</label>
-            <select name="days" value={info.days} onChange={changeHandler}>
-              <option value="0">Select days</option>
+            <select
+              name="days"
+              value={edit ? info.days : vendorInfo.days_of_week}
+              onChange={changeHandler}
+            >
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -68,9 +74,9 @@ const About = props => {
           <div className="vendor_info_phone">
             <label>Phone</label>
             <input
-              type="number"
+              type="text"
               name="phone"
-              value={info.phone}
+              value={edit ? info.phone : vendorInfo.phone}
               onChange={changeHandler}
             />
           </div>
@@ -79,7 +85,7 @@ const About = props => {
             <textarea
               type="text"
               name="about"
-              value={info.about}
+              value={edit ? info.about : vendorInfo.description}
               onChange={changeHandler}
             />
           </div>
@@ -90,7 +96,7 @@ const About = props => {
             <input
               type="text"
               name="location"
-              value={info.location}
+              value={edit ? info.location : vendorInfo.zipcode}
               onChange={changeHandler}
             />
           </div>

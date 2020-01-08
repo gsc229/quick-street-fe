@@ -1,107 +1,55 @@
 import React, { useState, useEffect } from 'react';
-import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
-import Circle from 'google-maps-react';
 import axios from 'axios';
 
-import axiosWithAuth from '../utils/axiosWithAuth';
-
-const mapStyles = {
-  width: '100%',
-  height: '100%'
-};
-
-const MapContainer = (props) => {
+const Map = (props) => {
 
   const [ mapDetails, setMapDetails ] = useState({
-    initialCenterLng: '',
-    initialCenterLat: ''
-
-  })
+    lng: 0,
+    lat: 0
+  });
 
   const getGeocode = () => {
     axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${props.zipcode}&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`)
       .then(response => {
-        console.log(response);
-        console.log(response.data.results[0].geometry.location);
+        // console.log(response);
+        // console.log(response.data.results[0].geometry.location);
         setMapDetails({
           ...mapDetails,
-          initialCenterLat: response.data.results[0].geometry.location.lat,
-          initialCenterLng: response.data.results[0].geometry.location.lng,
+          lat: response.data.results[0].geometry.location.lat,
+          lng: response.data.results[0].geometry.location.lng,
         })
       })
-  }
+  };
 
   useEffect(() => {
     getGeocode();
-  }, [props.zipcode])
+  }, [props.zipcode]);
 
-  const [marker, setMarker] = useState({
-    showingInfoWindow: false,
-    activeMarker: {},
-    selectedPlace: {}
-  })
-
-  // console.log(marker);
-
-  const onMarkerClick = (props, marker, event) => {
-    // console.log('props', props);
-    // console.log('marker', marker);
-    // console.log('event', event);
-    setMarker({
-      selectedPlace: props,
-      activeMarker: marker,
-      showingInfoWindow: true
-    })
-  };
-
-  const onClose = (props) => {
-    // console.log('props on close', props);
-    if(marker.showingInfoWindow) {
-      setMarker({
-        showingInfoWindow: false,
-        activeMarker: null
-      })
+  useEffect(() => {
+    let options = {
+      center: { lat: mapDetails.lat, lng: mapDetails.lng },
+      zoom: 11, 
+      // zoomControl: false, 
+      // gestureHandling: 'none'
     }
-  };
-
+    const map = new window.google.maps.Map(document.getElementById('map'), options);
+    
+    let cityCircle = new window.google.maps.Circle({
+      strokeColor: '#B706F5',
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: 'transparent',
+      fillOpacity: 0.35,
+      map: map,
+      center: { lat: mapDetails.lat, lng: mapDetails.lng },
+      radius: 5000
+    });
+  }, [mapDetails]); 
+    
   return (
-    <>
-    {mapDetails.initialCenterLat && mapDetails.initialCenterLng && (
-      <Map
-      google={props.google}
-      zoom={14}
-      style={mapStyles}
-      initialCenter={{
-        lat: mapDetails.initialCenterLat,
-        lng: mapDetails.initialCenterLng
-      }}
-      center={{
-        lat: mapDetails.initialCenterLat,
-        lng: mapDetails.initialCenterLng
-      }}
-    >
-      {/* <Circle 
-        radius={1}
-        center={{
-          lat: mapDetails.initialCenterLat,
-          lng: mapDetails.initialCenterLng
-        }}
-        onMouseover={() => console.log('mouseover')}
-        onClick={() => console.log('click')}
-        onMouseout={() => console.log('mouseout')}
-        strokeColor='transparent'
-        strokeOpacity={1}
-        strokeWeight={5}
-        fillColor='#ffff00'
-        fillOpacity={1}
-      /> */}
-    </Map>
-    )}
-    {/* <h1>Map</h1> */}
-    </>
+    <div style={{ width: 900, height: 500 }} id='map' />
   );
+  
 }
 
-export default GoogleApiWrapper({
-  apiKey: `${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`
-})(MapContainer);
+export default Map;

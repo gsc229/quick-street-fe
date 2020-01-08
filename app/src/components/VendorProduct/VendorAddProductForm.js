@@ -1,12 +1,7 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import upload from "../../assets/upload.png";
 import productImg from "../../assets/rectangle75.png";
-import {
-  Image,
-  Video,
-  Transformation,
-  CloudinaryContext
-} from "cloudinary-react";
+import { Image, CloudinaryContext } from "cloudinary-react";
 import axios from "axios";
 
 const VendorAddProductForm = ({ modal, addProductformClickHandler }) => {
@@ -23,7 +18,6 @@ const VendorAddProductForm = ({ modal, addProductformClickHandler }) => {
     (error, result) => {
       if (!error && result && result.event === "success") {
         const info = result.info;
-        console.log(info);
         let newInfo = {};
         Object.keys(info).forEach(k => {
           if (k !== "eager") {
@@ -37,8 +31,6 @@ const VendorAddProductForm = ({ modal, addProductformClickHandler }) => {
       }
     }
   );
-
-  console.log(productPictureInfo);
 
   const uploadProductPicture = e => {
     e.preventDefault();

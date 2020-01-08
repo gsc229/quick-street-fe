@@ -8,12 +8,7 @@ import save from "../../assets/save.png";
 import upload from "../../assets/upload.png";
 import VendorBulletin from "../VendorBulletin/VendorBulletin";
 import rectangle from "../../assets/rectangle.png";
-import {
-  Image,
-  Video,
-  Transformation,
-  CloudinaryContext
-} from "cloudinary-react";
+import { Image, CloudinaryContext } from "cloudinary-react";
 import axios from "axios";
 
 const p = [
@@ -56,16 +51,33 @@ const p = [
 
 const VendorProfile = () => {
   const [modal, setModal] = useState(false);
-  const [banner, setBanner] = useState(picture);
+  const [vendorInfo, setVendorInfo] = useState("");
   const [bannerInfo, setBannerInfo] = useState("");
   const myWidget = window.cloudinary.createUploadWidget(
     {
       cloudName: "dxhescd0s",
       uploadPreset: "quickstreet"
     },
-    (error, result) => {
+    async (error, result) => {
       if (!error && result && result.event === "success") {
-        setBannerInfo(result.info);
+        const banner_info = await result.info;
+        setBannerInfo(banner_info.public_id);
+        axios
+          .put(
+            `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorInfo.id}`,
+            {
+              avatar: "test",
+              vendor_banner: bannerInfo.public_id,
+              vendor_category: ["Vegetables"],
+              email: "placeholder@theoffice.com",
+              password: "placeholder123",
+              phone: "555-555-5555",
+              business_name: "placeholder's Beets",
+              description: "Root vegies",
+              address: "100 Terminal Dr, Avoca, PA 18641-2221, US"
+            }
+          )
+          .then(res => console.log(`response from put`, res.data.data));
       }
     }
   );
@@ -73,10 +85,13 @@ const VendorProfile = () => {
   useEffect(() => {
     axios
       .get(
-        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5d725a037b292f5f8ceff787/products`
+        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5dfc1ea2396390001715f1e3`
       )
-      .then(p => console.log(`product list`, p));
-  });
+      .then(res => {
+        setVendorInfo(res.data.data);
+        setBannerInfo(res.data.data.vendor_banner);
+      });
+  }, []);
 
   const addProduct = () => {
     setModal(true);
@@ -113,18 +128,18 @@ const VendorProfile = () => {
         </div>
       </div>
       <div className="vendor_banner_container">
-        {bannerInfo.public_id ? (
+        {bannerInfo ? (
           <CloudinaryContext cloudName="dxhescd0s">
             <Image
               className="vendor_banner_image"
-              publicId={bannerInfo.public_id}
+              publicId={bannerInfo}
               width="50"
             />
           </CloudinaryContext>
         ) : (
           <img
             className="vendor_banner_image"
-            src={banner}
+            src={picture}
             alt="vendor header"
           />
         )}

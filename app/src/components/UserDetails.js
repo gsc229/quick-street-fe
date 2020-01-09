@@ -50,7 +50,7 @@ const UserDetails = (props) => {
   }
 
   return (
-    <div>
+    <div className="main_container">
       <div className='form_container'>
         {/* <div className='signup_image'> */}
         {/* <img src={meditateGirlImg} alt='Sign Up Form' /> */}

@@ -48,6 +48,7 @@ const VendorDetails = (props) => {
   };
 
   return (
+    <div className="main_container">
     <div className='form_container'>
       {/* <div>
         <img alt='Signup Image'/>
@@ -127,6 +128,7 @@ const VendorDetails = (props) => {
           <button className='confirm_button' onClick={proceed}>Next</button>
         </form>
       </div>
+    </div>
     </div>
   )
 }

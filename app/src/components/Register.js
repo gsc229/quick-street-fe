@@ -7,7 +7,7 @@ import CustomerConfirmation from './CustomerConfirmation';
 
 const Register = () => {
   const [userInfo, setUserInfo] = useState({
-    step: 1,
+    step: 3,
     email: '',
     emailError: '',
     password: '',

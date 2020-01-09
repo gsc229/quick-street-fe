@@ -13,7 +13,44 @@ const VendorAddProductForm = ({ modal, addProductformCancelHandler }) => {
   const myWidget = window.cloudinary.createUploadWidget(
     {
       cloudName: "dxhescd0s",
-      uploadPreset: "quickstreet"
+      uploadPreset: "quickstreet",
+      sources: [
+        "local",
+        "url",
+        "camera",
+        "image_search",
+        "facebook",
+        "dropbox",
+        "instagram"
+    ],
+    showAdvancedOptions: true,
+    cropping: true, // if true multiple must be false, set to false [set multiple to true] to upload multiple files
+    multiple: false,
+    defaultSource: "local",
+    styles: {
+        palette: {
+            window: "#FFFFFF",
+            sourceBg: "#00B2ED",
+            windowBorder: "#E1F6FA",
+            tabIcon: "#2B3335",
+            inactiveTabIcon: "#555a5f",
+            menuIcons: "#5B5F63",
+            link: "#00769D",
+            action: "#21B787",
+            inProgress: "#00769D",
+            complete: "#21B787",
+            error: "#E92323",
+            textDark: "#2B3335",
+            textLight: "#FFFFFF"
+        },
+        fonts: {
+            default: null,
+            "'Poppins', sans-serif": {
+                url: "https://fonts.googleapis.com/css?family=Poppins",
+                active: true
+            }
+        }
+    }
     },
     (error, result) => {
       if (!error && result && result.event === "success") {

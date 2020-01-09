@@ -14,14 +14,13 @@ const VendorConfirmation = (props) => {
     if (streetAddress || city) {
       let address = ''
       address = streetAddress.trim().concat(',').concat(city.trim()).concat(',').concat(zipcode.trim());
-      console.log(address);
+      // console.log(address);
       return address
     } else {
       return zipcode;
     }
   }
-  convertAddress();
-
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     const registerObject = {

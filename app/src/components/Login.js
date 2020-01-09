@@ -49,7 +49,7 @@ const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (validate()) {
-      console.log(credentials);
+      // console.log(credentials);
       axiosWithAuth()
       .post('/auth/login', { email: credentials.email, password: credentials.password })
       .then(response => {

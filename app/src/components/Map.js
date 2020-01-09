@@ -3,15 +3,14 @@ import axios from 'axios';
 
 const Map = (props) => {
 
-  const [ showCircle, setShowCircle ] = useState(false);
-
   const [ mapDetails, setMapDetails ] = useState({
-    lng: 48.1454292,
-    lat: -86.7409781
+    lng: -78.435315,
+    lat: 28.644141, 
+    isDefault: false
   });
 
   const getGeocode = () => {
-    console.log(props.zipcode);
+    // console.log(props.zipcode);
     axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${props.zipcode}&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`)
       .then(response => {
         // console.log(response);
@@ -20,26 +19,28 @@ const Map = (props) => {
           ...mapDetails,
           lat: response.data.results[0].geometry.location.lat,
           lng: response.data.results[0].geometry.location.lng,
+          isDefault :true
         })
-        setShowCircle(true);
+        
       })
   };
 
   useEffect(() => {
-    getGeocode();
+    if (props.zipcode !== '') {
+      getGeocode();
+    }
   }, [props.zipcode]);
 
   useEffect(() => {
-    console.log('the lat and lng is ', mapDetails.lat, mapDetails.lng);
     let options = {
       center: { lat: mapDetails.lat, lng: mapDetails.lng },
-      zoom: showCircle ? 11 : 8, 
+      zoom: mapDetails.isDefault ? 11 : 5, 
       zoomControl: false, 
       gestureHandling: 'none'
     }
     const map = new window.google.maps.Map(document.getElementById('map'), options);
     
-    if (showCircle) { 
+    if (mapDetails.isDefault) { 
       let cityCircle = new window.google.maps.Circle({
         strokeColor: '#B706F5',
         strokeOpacity: 0.8,
@@ -53,9 +54,9 @@ const Map = (props) => {
     }
     
   }, [mapDetails]); 
-    
   return (
     <div style={{ width: 900, height: 500 }} id='map' />
+    // <h1>Map</h1>
   );
   
 }

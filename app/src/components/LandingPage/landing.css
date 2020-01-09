@@ -211,8 +211,8 @@
 
 .footer-container {
 	background-color:#00B2ED;
-	width: 1440px;
-	height: 412px;
+	width: 1400px;
+	padding:20px;
 }
 .footer-top-row {
 	display: flex;
@@ -233,9 +233,13 @@ color: #FFFFFF;
 	display:flex;
 	flex-direction: row;
 }
+.footer-bottom-row-blank {
+	flex: 2 0 0;
+}
 .footer-bottom-row-copyright {
-	flex: 2;
+	flex: 3 0 0;
 	align-self: center;
+	flex-basis: 12%;
 }
 .footer-bottom-row-copyright p {
 
@@ -244,9 +248,14 @@ font-style: normal;
 font-weight: 600;
 font-size: 18px;
 line-height: 25px;
-text-align: right;
 color: #FFFFFF;
 }
 .footer-bottom-row-social {
-	flex: 1;
+	display: flex;
+	flex: 1 0 0;
+	align-self: center;
+	justify-content: space-evenly;
+
+
+
 }

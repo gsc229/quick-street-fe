@@ -1,5 +1,7 @@
 import React from 'react';
 
+import axiosWithAuth from '../utils/axiosWithAuth';
+
 const VendorConfirmation = (props) => {
   const { email, password, businessName, phoneNumber, streetAddress, city, zipcode } = props.values;
 
@@ -8,10 +10,37 @@ const VendorConfirmation = (props) => {
     props.previousStep();
   };
 
+  const convertAddress = () => {
+    if (streetAddress || city) {
+      let address = ''
+      address = streetAddress.trim().concat(',').concat(city.trim()).concat(',').concat(zipcode.trim());
+      // console.log(address);
+      return address
+    } else {
+      return zipcode;
+    }
+  }
+  
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(props.values);
-    // POST request to backend
+    const registerObject = {
+      email,
+      password, 
+      business_name: businessName,
+      phone: phoneNumber,
+      address: convertAddress()
+    };
+
+    axiosWithAuth()
+      .post('/auth/register', registerObject)
+      .then(response => {
+        console.log(response);
+        localStorage.setItem('token', response.data.token);
+      })
+      .catch(error => {
+        console.log(error.response);
+      });
+    
   }
 
   return (

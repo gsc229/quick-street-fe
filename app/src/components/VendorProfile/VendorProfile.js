@@ -17,6 +17,14 @@ const VendorProfile = () => {
   const [bannerInfo, setBannerInfo] = useState("");
   const [products, setProducts] = useState([]);
   const [productIds, setProductIds] = useState([]);
+  const [info, setInfo] = useState({
+    days: "0",
+    phone: "",
+    about: "",
+    hour_from: "",
+    hour_to: "",
+    location: ""
+  });
 
   const [edit, setEdit] = useState(false);
 
@@ -55,6 +63,7 @@ const VendorProfile = () => {
         `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5dfc1ea2396390001715f1e3`
       )
       .then(res => {
+        console.log(`vendor info`, res.data.data);
         setVendorInfo(res.data.data);
         setBannerInfo(res.data.data.vendor_banner);
       });
@@ -69,9 +78,6 @@ const VendorProfile = () => {
       });
   }, []);
 
-  console.log(`products`, products);
-  console.log(`product ids`, productIds);
-
   const addProduct = () => {
     setModal(true);
   };
@@ -85,8 +91,24 @@ const VendorProfile = () => {
     setEdit(true);
   };
 
-  const saveProfile = () => {
-    console.log(`save profile`);
+  const saveProfile = e => {
+    e.preventDefault();
+    axios
+      .put(
+        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5dfc1ea2396390001715f1e3`,
+        {
+          ...vendorInfo,
+          hours: `${info.hour_from} ${info.hour_to}`,
+          zipcode: info.location,
+          days_of_week: info.days,
+          phone: info.phone,
+          description: info.about
+        }
+      )
+      .then(res => {
+        console.log(`update vendor info`, res);
+        setVendorInfo(res.data.data);
+      });
   };
 
   const uploadBanner = e => {
@@ -137,7 +159,12 @@ const VendorProfile = () => {
           <li>Products</li>
         </ul>
       </nav>
-      <VendorAbout vendorInfo={vendorInfo} edit={edit} />
+      <VendorAbout
+        vendorInfo={vendorInfo}
+        info={info}
+        setInfo={setInfo}
+        edit={edit}
+      />
       <VendorBulletin />
       <VendorProducts
         productIds={productIds}

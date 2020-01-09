@@ -5,7 +5,7 @@ import axios from "axios";
 const VendorProducts = ({ productIds, products, addProduct }) => {
   const [productImagesIds, setProductImagesIds] = useState([]);
 
-  // **************** old way **************
+  // **************** old way, forEach doesn't work **************
   // useEffect(() => {
   //   let temp_ids = [];
   //   productIds.forEach(id => {
@@ -19,8 +19,6 @@ const VendorProducts = ({ productIds, products, addProduct }) => {
   //   setProductImagesIds(temp_ids);
   // }, [products]);
 
-  console.log(`productID`, productIds.length);
-
   useEffect(() => {
     let temp_ids = [];
     async function fetchImageIds() {
@@ -33,7 +31,7 @@ const VendorProducts = ({ productIds, products, addProduct }) => {
           temp_ids.push(imageIds.data.data[0].public_id);
         }
       }
-      console.log(`temp`, temp_ids);
+
       setProductImagesIds(temp_ids);
     }
     fetchImageIds();
@@ -41,13 +39,9 @@ const VendorProducts = ({ productIds, products, addProduct }) => {
 
   if (products.length !== 0 && productImagesIds.length !== 0) {
     for (let i = 0; i < products.length; i++) {
-      console.log(productImagesIds[i]);
       products[i].imageId = productImagesIds[i];
     }
   }
-
-  console.log(`image ids`, productImagesIds);
-  console.log(`products combined`, products);
 
   return (
     <div className="vendor_product_list_container">

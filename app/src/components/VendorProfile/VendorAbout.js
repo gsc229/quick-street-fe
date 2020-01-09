@@ -1,24 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
 import down from "../../assets/down.png";
 
-const About = ({ edit, vendorInfo }) => {
-  const [info, setInfo] = useState({
-    days: "0",
-    phone: "",
-    about: "",
-    hour_from: "",
-    hour_to: "",
-    location: ""
-  });
-
+const About = ({ edit, vendorInfo, info, setInfo }) => {
   const changeHandler = e => {
     setInfo({ ...info, [e.target.name]: e.target.value });
-  };
-
-  const submitHandler = e => {
-    e.preventDefault();
-    console.log(`submitted`);
   };
 
   return (
@@ -28,7 +14,7 @@ const About = ({ edit, vendorInfo }) => {
         <hr />
       </div>
 
-      <form className="vendor_info_form" onSubmit={submitHandler}>
+      <form className="vendor_info_form">
         <div className="vendor_info_left">
           <div className="vendor_info_hour">
             <label>Hours of Operation</label>
@@ -36,7 +22,13 @@ const About = ({ edit, vendorInfo }) => {
               <input
                 type="text"
                 name="hour_from"
-                value={edit ? info.hour_from : vendorInfo.hours}
+                value={
+                  edit
+                    ? info.hour_from
+                    : vendorInfo.hours
+                    ? vendorInfo.hours.split(" ")[0]
+                    : ""
+                }
                 onChange={changeHandler}
               />
               to
@@ -44,7 +36,13 @@ const About = ({ edit, vendorInfo }) => {
                 className="vendor_info_hour_input_2"
                 type="text"
                 name="hour_to"
-                value={edit ? info.hour_to : vendorInfo.hours}
+                value={
+                  edit
+                    ? info.hour_to
+                    : vendorInfo.hours
+                    ? vendorInfo.hours.split(" ")[1]
+                    : ""
+                }
                 onChange={changeHandler}
               />
             </div>

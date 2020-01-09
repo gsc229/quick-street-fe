@@ -9,7 +9,6 @@ import Browse from "./components/Browse";
 function App() {
   return (
     <div>
-      <h1>Quickstreet</h1>
       <Route path="/register" component={Register} />
       <Route path="/login" component={Login} />
       <Route path="/profile" component={VendorProfile} />

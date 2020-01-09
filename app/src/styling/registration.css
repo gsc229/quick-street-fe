@@ -13,9 +13,9 @@
 }
 
 .form_container_login {
-  width: 960px; 
+  width: 1100px; 
   height: 100vh;
-  /* background-image: url('../assets/meditate_girl.svg'); */
+  background-image: url('../assets/thinking_man.svg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: right;

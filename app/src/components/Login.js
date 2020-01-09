@@ -50,13 +50,21 @@ const Login = () => {
     event.preventDefault();
     if (validate()) {
       console.log(credentials);
+      axiosWithAuth()
+      .post('/auth/login', { email: credentials.email, password: credentials.password })
+      .then(response => {
+        console.log(response);
+        localStorage.setItem('token', response.data.token);
+      })
+      .catch(error => {
+        console.log(error.response);
+      });
+
     }
-    
-    // implement post request once backend is deployed
   }
 
   return(
-    <div div className='form_container_login'>
+    <div className='form_container_login'>
       <div className='form_details'>
         <h1>Welcome Back!</h1>
         <h1>Log In</h1>

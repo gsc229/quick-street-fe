@@ -5,7 +5,7 @@ import Map from './Map';
 import VendorsNearby from './VendorsNearby';
 
 const Browse = () => {
-  const [ zipcode, setZipcode ] = useState('02143');
+  const [ zipcode, setZipcode ] = useState('');
   const [ vendors, setVendors ] = useState({
     count: '',
     vendorDetails: []
@@ -36,6 +36,13 @@ const Browse = () => {
 
   return (
     <div>
+      {zipcode === '' && (
+        <p>Enter a location to start browsing</p>
+      )}
+      {zipcode !== '' && (
+        <p>Your results for</p>
+      )}
+      <p></p>
       <form onSubmit={handleSubmit}>
         <input
           name='zipcode'

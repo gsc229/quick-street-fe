@@ -2,9 +2,6 @@
 	width: 1440px;
 	margin: auto;
 }
-.confirm {
-	background-color: #00b2ed;
-}
 .form_container {
 	width: 100%;
 	height: 100vh;
@@ -34,7 +31,9 @@
 h1 {
 	line-height: 155%;
 	font-size: 40px;
-	color: #00b2ed;
+  color: #00b2ed;
+  margin: 0;
+
 }
 
 h3 {
@@ -161,20 +160,26 @@ h3 {
 }
 
 .confirmation_container {
-	width: 846px;
-	height: 1481px;
 	background: #ffffff;
 	border-radius: 10px;
-	margin: auto;
-}
+  flex: 1;
+  justify-content: center;
 
+}
+.main_container_confirm {
+  background-color: #00b2ed;
+  width: 1440px;
+  margin: auto;
+  display: flex;
+}
 .vendor_confirmation_div {
 	width: 50%;
 	margin: 0 auto;
 }
 
 .vendor_confirmation_title {
-	font-size: 24px;
+  font-size: 24px;
+  margin:0;
 }
 
 .vendor_confirmation_value {

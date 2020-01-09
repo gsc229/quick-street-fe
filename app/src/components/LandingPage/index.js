@@ -4,36 +4,57 @@ import React from 'react';
 import '../LandingPage/landing.css';
 //Icons
 
-import Icon from "../../assets/landing/icons/Icon";
+import Icon from '../../assets/landing/icons/Icon';
+import Works1 from '../../assets/landing/images/works-1.png';
+import Works2 from '../../assets/landing/images/works-2.png';
+import Works3 from '../../assets/landing/images/works-3.png';
+
+import Cookies from '../../assets/landing/images/cookies.png';
+
+import Carousel from '../../assets/landing/images/carousel.png';
+
+import Testimonials1 from '../../assets/landing/images/testimonial-1.png';
 class LandingPage extends React.Component {
 	render() {
 		return (
 			<div className="landingContainer">
 				<div className="heroContainer">
-					<div className="landingMenu">
-						<p>Quick Street</p>
-						<p>Food</p>
-						<p>Services</p>
-						<p>About</p>
-						<p>Log In</p>
-						<p>Join Us</p>
+					<div className="menu-container">
+						<nav class="navbar">
+							Quick Street
+							<ul class="nav-links">
+								<li class="nav-item">
+									<a href="#">Food</a>
+								</li>
+								<li class="nav-item">
+									<a href="#">Services</a>
+								</li>
+								<li class="nav-item">
+									<a href="#">About</a>
+								</li>
+								<li class="nav-item">
+									<a href="#">Login</a>
+								</li>
+								<li class="nav-item">
+									<a href="#">Join Us</a>
+								</li>
+							</ul>
+						</nav>
 					</div>
 					<div className="landingInfo">
 						<p>Finally , A Way For Vendors and Lovers of Food to Come Together in Harmony </p>
-					</div>
-					<div className="vendorButton">
-						<p>I'm a Vendor!</p>
-					</div>
-					<div className="customerButton">
-						<p>I'm a Customer!</p>
+						<div className="button-container">
+							<div className="vendorButton">I'm a Vendor!</div>
+							<div className="customerButton">I'm a Customer!</div>
+						</div>
 					</div>
 				</div>
+				<div className="marketing-Header"> See What We Offer!</div>
 				<div className="marketing-Container">
-					<div className="marketing-Header"> See What We Offer!</div>
 					<div className="marketing-Box">
 						<div className="marketing-featured-Container">
 							<div className="marketing-featured-Image">
-								<image src="../../assets/landing/cookies.jpeg" />
+								<img src={Cookies} alt="cookies" />
 								<p>Cookie Bites - Dietary friendly cookies with all locally sourced ingredients.</p>
 							</div>
 						</div>
@@ -63,6 +84,68 @@ class LandingPage extends React.Component {
 						</div>
 					</div>
 				</div>
+				<div className="marketing-Header"> How it Works</div>
+				<div className="works-container">
+					<div className="works-card-wrapper">
+						<div className="works-image">
+							<img src={Works1} alt="works1" />
+						</div>
+						<div className="works-content">
+							We help vendors gain visibility more consistently to their customer base
+						</div>
+					</div>
+					<div className="works-card-wrapper">
+						<div className="works-image">
+							<img src={Works2} alt="works2" />
+						</div>
+						<div className="works-content">
+							As the customer, we can seamlessly support your local food vendor through a one stop shop
+							search platform.
+						</div>
+					</div>
+					<div className="works-card-wrapper">
+						<div className="works-image">
+							<img src={Works3} alt="works3" />
+						</div>
+						<div className="works-content">
+							See what you like? We have a seamless order request process for both sides. Win-win.{' '}
+						</div>
+					</div>
+				</div>
+				<div className="marketing-Header"> Our Spotlight Vendors For This Month</div>
+				<div className="carousel-container">
+					<img src={Carousel} alt="Carousel" />
+				</div>
+				<div className="marketing-Header"> Testimonials</div>
+				<div className="works-container">
+					<div className="works-card-wrapper">
+						<div className="works-image">
+							<img src={Testimonials1} alt="works1" />
+						</div>
+						<div className="works-content">
+							“I just moved to Austin and wanted to support local from the start. This made it so easy!” -
+							Alandra S.
+						</div>
+					</div>
+					<div className="works-card-wrapper">
+						<div className="works-image">
+							<img src={Works2} alt="works2" />
+						</div>
+						<div className="works-content">
+							“Quick Street helped me find new found favorite vendors. Its like a whole new city to me!” -
+							Sam B.
+						</div>
+					</div>
+					<div className="works-card-wrapper">
+						<div className="works-image">
+							<img src={Works3} alt="works3" />
+						</div>
+						<div className="works-content">
+							“As a vendor this helped so many stressors I used to have throughout my week; now I can
+							focus more time on my craft. It’s great!” - Tracee W.
+						</div>
+					</div>
+				</div>
 				<div className="footer-container">
 					<div className="footer-top-row">
 						<div className="footer-top-row-column">
@@ -86,17 +169,17 @@ class LandingPage extends React.Component {
 						</div>
 					</div>
 					<div className="footer-bottom-row">
-						<div className="footer-bottom-row-blank"></div>
+						<div className="footer-bottom-row-blank" />
 						<div className="footer-bottom-row-copyright">
-						<p>© 2019 Quick Street, All rights reserved | Terms Of Service | Privacy Policy</p>
+							<p>© 2019 Quick Street, All rights reserved | Terms Of Service | Privacy Policy</p>
 						</div>
 						<div className="footer-bottom-row-social">
-						<Icon name="snapchat" width={24} fill={'#000'} />
-						<Icon name="instagram" width={24} fill={'#000'} />
-						<Icon name="youtube" width={27} height={20} fill={'#000'} />
-						<Icon name="twitter" width={27} height={22} fill={'#000'} />
-						<Icon name="facebook" width={27} fill={'#000'} />
-						<Icon name="pinterest" width={27} fill={'#000'} />
+							<Icon name="snapchat" width={24} fill={'#000'} />
+							<Icon name="instagram" width={24} fill={'#000'} />
+							<Icon name="youtube" width={27} height={20} fill={'#000'} />
+							<Icon name="twitter" width={27} height={22} fill={'#000'} />
+							<Icon name="facebook" width={27} fill={'#000'} />
+							<Icon name="pinterest" width={27} fill={'#000'} />
 						</div>
 					</div>
 				</div>

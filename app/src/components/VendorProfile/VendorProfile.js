@@ -30,8 +30,8 @@ const VendorProfile = () => {
 
   const myWidget = window.cloudinary.createUploadWidget(
     {
-      cloudName: "dxhescd0s",
-      uploadPreset: "quickstreet"
+      cloudName: "quickstlabs",
+      uploadPreset: "product-images"
     },
     async (error, result) => {
       if (!error && result && result.event === "success") {
@@ -46,9 +46,9 @@ const VendorProfile = () => {
               vendor_category: ["Vegetables"],
               email: "placeholder@theoffice.com",
               password: "placeholder123",
-              phone: "555-555-5555",
+              phone: vendorInfo.phone,
               business_name: "placeholder's Beets",
-              description: "Root vegies",
+              description: vendorInfo.about,
               address: "100 Terminal Dr, Avoca, PA 18641-2221, US"
             }
           )
@@ -131,7 +131,7 @@ const VendorProfile = () => {
       </div>
       <div className="vendor_banner_container">
         {bannerInfo ? (
-          <CloudinaryContext cloudName="dxhescd0s">
+          <CloudinaryContext cloudName="quickstlabs">
             <Image
               className="vendor_banner_image"
               publicId={bannerInfo}

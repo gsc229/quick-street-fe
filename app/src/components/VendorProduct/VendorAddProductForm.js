@@ -12,8 +12,8 @@ const VendorAddProductForm = ({ modal, addProductformCancelHandler }) => {
   });
   const myWidget = window.cloudinary.createUploadWidget(
     {
-      cloudName: "dxhescd0s",
-      uploadPreset: "quickstreet"
+      cloudName: "quickstlabs",
+      uploadPreset: "product-images"
     },
     (error, result) => {
       if (!error && result && result.event === "success") {
@@ -74,7 +74,7 @@ const VendorAddProductForm = ({ modal, addProductformCancelHandler }) => {
         <div className="input_wrapper">
           <div className="vendor_product_container">
             {productPictureInfo.public_id ? (
-              <CloudinaryContext cloudName="dxhescd0s">
+              <CloudinaryContext cloudName="quickstlabs">
                 <Image
                   className="vendor_product_image"
                   publicId={productPictureInfo.public_id}

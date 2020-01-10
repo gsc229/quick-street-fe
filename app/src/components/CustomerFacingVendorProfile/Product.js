@@ -10,7 +10,7 @@ const Product = (props) => {
     axiosWithAuth()
       .get(`/products/${props.product._id}/product-images`)
       .then(response => {
-        console.log(response);
+        // console.log(response);
         setImage(response.data.data[0].secure_url);
       })
       .catch(error => {

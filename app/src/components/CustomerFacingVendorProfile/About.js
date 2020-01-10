@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from 'react';
 
+import Map from '../Map';
 import axiosWithAuth from '../../utils/axiosWithAuth';
+import '../../styling/customerFacingVendorProfile.css';
 
 const About = (props) => { 
-
+  
   const [ vendor, setVendor ] = useState({
-    info: ''
+    location: {}
   })
 
   const getVendor = (id) => {
+    console.log('getvendor');
     axiosWithAuth()
       .get(`/vendors/${id}`)
       .then(response => {
         // console.log(response);
-        setVendor({
-          info: response.data.data
-        })
+        setVendor(response.data.data)
       })
       .catch(error => {
         console.log(error);
@@ -28,23 +29,25 @@ const About = (props) => {
   
   return (
     <div>
-      <div>
-        <p>{vendor.info.business_name}</p>
-        <img src={vendor.info.vendor_banner} alt='Vendor Banner Image' />
+      <div className='top_section'>
+        <p>{vendor.business_name}</p>
+        <img src={vendor.vendor_banner} alt='Vendor Banner Image' />
       </div>
       <div>
         <p>Our Bio</p>
-        <p>{vendor.info.description}</p>
+        <p>{vendor.description}</p>
         <p>Hours of Operation</p>
-        <p>{vendor.info.days_of_week} - {vendor.info.hours}</p>
+        <p>{vendor.days_of_week} - {vendor.hours}</p>
         <p>Contact</p>
-        <p>{vendor.info.phone}</p>
-        <p>{vendor.info.email}</p>
+        <p>{vendor.phone}</p>
+        <p>{vendor.email}</p>
       </div>
-      <div>  
+      <div>
         <p>Location</p>
-        <p>The vendor can be found at {vendor.info.zipcode} area</p>
+        <p>The vendor can be found at {vendor.location.zipcode} area</p>
+        <Map zipcode={vendor.location.zipcode} />
       </div>
+
     </div>
   )
 

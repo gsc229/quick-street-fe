@@ -14,7 +14,7 @@ const Products = (props) => {
     axiosWithAuth()
       .get(`/vendors/${id}/products`)
       .then(response => {
-        console.log(response);
+        // console.log(response);
         setVendorProducts({
           ...vendorProducts,
           products: response.data.data,

@@ -25,38 +25,38 @@ const Map = (props) => {
       })
   };
 
-  useEffect(() => {
-    if (props.zipcode !== '') {
-      getGeocode();
-    }
-  }, [props.zipcode]);
+  // useEffect(() => {
+  //   if (props.zipcode !== '') {
+  //     getGeocode();
+  //   }
+  // }, [props.zipcode]);
 
-  useEffect(() => {
-    let options = {
-      center: { lat: mapDetails.lat, lng: mapDetails.lng },
-      zoom: mapDetails.isDefault ? 11 : 5, 
-      zoomControl: false, 
-      gestureHandling: 'none'
-    }
-    const map = new window.google.maps.Map(document.getElementById('map'), options);
+  // useEffect(() => {
+  //   let options = {
+  //     center: { lat: mapDetails.lat, lng: mapDetails.lng },
+  //     zoom: mapDetails.isDefault ? 11 : 5, 
+  //     zoomControl: false, 
+  //     gestureHandling: 'none'
+  //   }
+  //   const map = new window.google.maps.Map(document.getElementById('map'), options);
     
-    if (mapDetails.isDefault) { 
-      let cityCircle = new window.google.maps.Circle({
-        strokeColor: '#B706F5',
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
-        fillColor: 'transparent',
-        fillOpacity: 0.35,
-        map: map,
-        center: { lat: mapDetails.lat, lng: mapDetails.lng },
-        radius: 5000
-      });
-    }
+  //   if (mapDetails.isDefault) { 
+  //     let cityCircle = new window.google.maps.Circle({
+  //       strokeColor: '#B706F5',
+  //       strokeOpacity: 0.8,
+  //       strokeWeight: 2,
+  //       fillColor: 'transparent',
+  //       fillOpacity: 0.35,
+  //       map: map,
+  //       center: { lat: mapDetails.lat, lng: mapDetails.lng },
+  //       radius: 5000
+  //     });
+  //   }
     
-  }, [mapDetails]); 
+  // }, [mapDetails]); 
   return (
-    <div style={{ width: 900, height: 500 }} id='map' />
-    // <h1>Map</h1>
+    // <div style={{ width: 900, height: 500 }} id='map' />
+    <h1>Map</h1>
   );
   
 }

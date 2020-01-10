@@ -4,7 +4,13 @@ import productImg from "../../assets/rectangle75.png";
 import { Image, CloudinaryContext } from "cloudinary-react";
 import axios from "axios";
 
-const VendorAddProductForm = ({ modal, addProductformCancelHandler }) => {
+const VendorAddProductForm = ({
+  modal,
+  setModal,
+  setProducts,
+  products,
+  addProductformCancelHandler
+}) => {
   const [productPictureInfo, setProductPictureInfo] = useState("");
   const [product, setProduct] = useState({
     name: "",
@@ -87,16 +93,23 @@ const VendorAddProductForm = ({ modal, addProductformCancelHandler }) => {
         name: product.name,
         description: "test description",
         category: "test cat",
-        price: product.price
+        price: product.price,
+        imageId: ""
       }
     );
-    const productId = res_1.data.data._id;
-    console.log(productId);
+    let productInfo = res_1.data.data;
+    console.log(`first`, productInfo);
     const res_2 = await axios.post(
-      `https://quickstlabs.herokuapp.com/api/v1.0/products/${productId}/product-images`,
+      `https://quickstlabs.herokuapp.com/api/v1.0/products/${productInfo._id}/product-images`,
       productPictureInfo
     );
-    console.log(res_2);
+    console.log(`public_id`, res_2.data.data.public_id);
+    // productInfo = { ...productInfo, imageId: `${res_2.data.data.public_id}` };
+    productInfo.imageId = res_2.data.data.public_id;
+    console.log(`second`, productInfo);
+
+    setModal(false);
+    setProducts([...products, productInfo]);
   };
 
   return (

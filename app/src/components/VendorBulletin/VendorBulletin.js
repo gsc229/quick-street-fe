@@ -31,6 +31,7 @@ const VendorBulletin = props => {
       .then(res => setPosts([...posts, res.data.data]));
 
     setPost({ post: "", content: "" });
+    setShowAddPostForm(false);
   };
 
   useEffect(() => {

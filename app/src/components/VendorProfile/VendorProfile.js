@@ -123,8 +123,8 @@ const VendorProfile = () => {
         `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5e1887574321360017dbf6b3`,
         {
           ...vendorInfo,
-          hours: `${info.hour_from} ${info.hour_to}`,
-          zipcode: info.location,
+          hours: `${info.hour_from}_${info.hour_to}`,
+          location: { ...vendorInfo.location, zipcode: info.location },
           days_of_week: info.days,
           phone: info.phone,
           description: info.about
@@ -140,8 +140,6 @@ const VendorProfile = () => {
     e.preventDefault();
     myWidget.open();
   };
-
-  console.log(`vendor info`, vendorInfo);
 
   return (
     <div className="vendor_profile_container">
@@ -200,6 +198,9 @@ const VendorProfile = () => {
       />
       <VendorAddProductForm
         modal={modal}
+        products={products}
+        setProducts={setProducts}
+        setModal={setModal}
         addProductformCancelHandler={addProductformCancelHandler}
       />
     </div>

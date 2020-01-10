@@ -63,7 +63,7 @@ const VendorAddProductForm = ({ modal, addProductformCancelHandler }) => {
             }
           }
         });
-        newInfo = { ...newInfo, vendor: "5dfc1ea2396390001715f1e3" };
+        newInfo = { ...newInfo, vendor: "5e1887574321360017dbf6b3" };
         setProductPictureInfo(newInfo);
       }
     }
@@ -81,7 +81,7 @@ const VendorAddProductForm = ({ modal, addProductformCancelHandler }) => {
   const onSubmit = async e => {
     e.preventDefault();
     const res_1 = await axios.post(
-      `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5dfc1ea2396390001715f1e3/products`,
+      `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5e1887574321360017dbf6b3/products`,
       {
         diet: ["Vegan"],
         name: product.name,

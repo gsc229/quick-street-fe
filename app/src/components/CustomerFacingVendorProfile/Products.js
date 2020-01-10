@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import axiosWithAuth from '../../utils/axiosWithAuth';
 import Product from './Product';
+import '../../styling/customerFacingVendorProfile.css';
 
 const Products = (props) => { 
 
@@ -31,11 +32,13 @@ const Products = (props) => {
   }, [])
 
   return (
-    <div>
-      <p>Products</p>
-      {vendorProducts.products.map(product => (
-        <Product product={product} key={product._id} />
-      ))}
+    <div className='product_section'>
+      <header className='section_title'>Products</header>
+      <div className='products_div'>
+        {vendorProducts.products.map(product => (
+          <Product product={product} key={product._id} />
+        ))}
+      </div>
     </div>
   )
 

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Map from '../Map';
 import axiosWithAuth from '../../utils/axiosWithAuth';
 import '../../styling/customerFacingVendorProfile.css';
+// import { image } from '../../assets/rectangle.png';
 
 const About = (props) => { 
   
@@ -33,19 +34,21 @@ const About = (props) => {
         <p>{vendor.business_name}</p>
         <img src={vendor.vendor_banner} alt='Vendor Banner Image' />
       </div>
-      <div>
-        <p>Our Bio</p>
-        <p>{vendor.description}</p>
-        <p>Hours of Operation</p>
-        <p>{vendor.days_of_week} - {vendor.hours}</p>
-        <p>Contact</p>
-        <p>{vendor.phone}</p>
-        <p>{vendor.email}</p>
-      </div>
-      <div>
-        <p>Location</p>
-        <p>The vendor can be found at {vendor.location.zipcode} area</p>
-        <Map zipcode={vendor.location.zipcode} />
+      <div className='bottom_section'>
+        <div className='vendor_info_section'>
+          <p className='title'>About Us</p>
+          <p className='title_content'>{vendor.description}</p>
+          <p className='title'>Hours of Operation</p>
+          <p className='title_content'>{vendor.days_of_week} - {vendor.hours}</p>
+          <p className='title'>Contact</p>
+          <p className='title_content'>{vendor.phone}</p>
+          <p className='title_content'>{vendor.email}</p>
+        </div>
+        <div className='location_section'>
+          <p>Location</p>
+          <p>The vendor can be found at {vendor.location.zipcode} area</p>
+          <Map zipcode={vendor.location.zipcode} />
+        </div>
       </div>
 
     </div>

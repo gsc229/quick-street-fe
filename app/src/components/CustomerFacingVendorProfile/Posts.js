@@ -9,6 +9,18 @@ const Posts = (props) => {
     count: 0
   })
 
+  const changeDateFormat = (date) => {
+    let resultingDate = ''
+    const yearMonthArray = date.split('-');
+    // console.log(yearMonthArray);
+    const dayArray = yearMonthArray[2].split('T22');
+    // console.log(dayArray);
+    resultingDate = yearMonthArray[1] + '/' + dayArray[0];
+    // console.log(resultingDate);
+    return resultingDate;
+    
+  }
+
   const getVendorPosts = (id) => {
     axiosWithAuth()
       .get(`/vendors/${id}/posts`)
@@ -30,11 +42,12 @@ const Posts = (props) => {
   }, [])
 
   return (
-    <div>
-      <p>Bulletin Board</p>
+    <div className='bulletin_board_section'>
+      <header className='section_title'>Bulletin Board</header>
       {vendorPost.posts.map(post => (
-        <div key={post._id}>
-          <p>{post.title}</p>
+        <div className='posts_div' key={post._id}>
+          <p className='post_date'>Date {changeDateFormat(post.createdAt)}</p>
+          <p className='post_content'>{post.title}</p>
         </div>
       ))}
       {vendorPost.count === 0 && (

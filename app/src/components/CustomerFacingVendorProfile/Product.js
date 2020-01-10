@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import axiosWithAuth from '../../utils/axiosWithAuth';
+import '../../styling/customerFacingVendorProfile.css';
 
 const Product = (props) => {
 
@@ -19,10 +20,10 @@ const Product = (props) => {
   })
 
   return (
-    <div key={props.product._id}>
-      <img src={image} alt='Product Image' />
+    <div className='product' key={props.product._id}>
+      <img className='product_image' src={image} alt='Product Image' />
       <p>{props.product.name}</p>
-      <p>{props.product.price}</p>
+      <p>${props.product.price}</p>
     </div>
   )
 }

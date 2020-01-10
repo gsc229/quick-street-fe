@@ -4,7 +4,7 @@ import { Image, CloudinaryContext } from "cloudinary-react";
 const Product = ({ name, img, price }) => {
   return (
     <div className="vendor_product">
-      <CloudinaryContext cloudName="dxhescd0s">
+      <CloudinaryContext cloudName="quickstlabs">
         <Image className="vendor_banner_image" publicId={img} width="50" />
       </CloudinaryContext>
       <div className="vendor_product_body">

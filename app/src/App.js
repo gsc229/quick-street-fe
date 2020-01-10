@@ -6,6 +6,7 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 
 function App() {
+  console.log(window.cloudinary);
   return (
     <div>
       <h1>Quickstreet</h1>

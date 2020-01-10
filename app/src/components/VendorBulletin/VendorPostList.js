@@ -6,14 +6,16 @@ const VendorPostList = ({ posts }) => {
     <div className="vendor_post_list_container">
       <ul>
         {posts
-          ? posts.map((p, idx) => (
-              <VendorPost
-                key={idx}
-                content={p.description}
-                title={p.title}
-                date={p.createdAt.split("T")[0]}
-              />
-            ))
+          ? posts
+              .reverse()
+              .map((p, idx) => (
+                <VendorPost
+                  key={idx}
+                  content={p.description}
+                  title={p.title}
+                  date={p.createdAt.split("T")[0]}
+                />
+              ))
           : null}
       </ul>
     </div>

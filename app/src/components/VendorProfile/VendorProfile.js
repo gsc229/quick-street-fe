@@ -30,8 +30,8 @@ const VendorProfile = () => {
 
   const myWidget = window.cloudinary.createUploadWidget(
     {
-      cloudName: "dxhescd0s",
-      uploadPreset: "quickstreet",
+      cloudName: "quickstlabs",
+      uploadPreset: "product-images",
       sources: [
         "local",
         "url",
@@ -40,35 +40,35 @@ const VendorProfile = () => {
         "facebook",
         "dropbox",
         "instagram"
-    ],
-    showAdvancedOptions: true,
-    cropping: true, // if true multiple must be false, set to false [set multiple to true] to upload multiple files
-    multiple: false,
-    defaultSource: "local",
-    styles: {
+      ],
+      showAdvancedOptions: true,
+      cropping: true, // if true multiple must be false, set to false [set multiple to true] to upload multiple files
+      multiple: false,
+      defaultSource: "local",
+      styles: {
         palette: {
-            window: "#FFFFFF",
-            sourceBg: "#00B2ED",
-            windowBorder: "#E1F6FA",
-            tabIcon: "#2B3335",
-            inactiveTabIcon: "#555a5f",
-            menuIcons: "#5B5F63",
-            link: "#00769D",
-            action: "#21B787",
-            inProgress: "#00769D",
-            complete: "#21B787",
-            error: "#E92323",
-            textDark: "#2B3335",
-            textLight: "#FFFFFF"
+          window: "#FFFFFF",
+          sourceBg: "#00B2ED",
+          windowBorder: "#E1F6FA",
+          tabIcon: "#2B3335",
+          inactiveTabIcon: "#555a5f",
+          menuIcons: "#5B5F63",
+          link: "#00769D",
+          action: "#21B787",
+          inProgress: "#00769D",
+          complete: "#21B787",
+          error: "#E92323",
+          textDark: "#2B3335",
+          textLight: "#FFFFFF"
         },
         fonts: {
-            default: null,
-            "'Poppins', sans-serif": {
-                url: "https://fonts.googleapis.com/css?family=Poppins",
-                active: true
-            }
+          default: null,
+          "'Poppins', sans-serif": {
+            url: "https://fonts.googleapis.com/css?family=Poppins",
+            active: true
+          }
         }
-    }
+      }
     },
     async (error, result) => {
       if (!error && result && result.event === "success") {
@@ -83,9 +83,9 @@ const VendorProfile = () => {
               vendor_category: ["Vegetables"],
               email: "placeholder@theoffice.com",
               password: "placeholder123",
-              phone: "555-555-5555",
+              phone: vendorInfo.phone,
               business_name: "placeholder's Beets",
-              description: "Root vegies",
+              description: vendorInfo.about,
               address: "100 Terminal Dr, Avoca, PA 18641-2221, US"
             }
           )
@@ -168,7 +168,7 @@ const VendorProfile = () => {
       </div>
       <div className="vendor_banner_container">
         {bannerInfo ? (
-          <CloudinaryContext cloudName="dxhescd0s">
+          <CloudinaryContext cloudName="quickstlabs">
             <Image
               className="vendor_banner_image"
               publicId={bannerInfo}

@@ -7,6 +7,7 @@ import Login from "./components/Login";
 import Browse from "./components/Browse";
 
 function App() {
+  console.log(window.cloudinary);
   return (
     <>
       <Route path="/register" component={Register} />

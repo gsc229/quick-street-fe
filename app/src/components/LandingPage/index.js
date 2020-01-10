@@ -5,15 +5,8 @@ import '../LandingPage/landing.css';
 //Icons
 
 import Icon from '../../assets/landing/icons/Icon';
-import Works1 from '../../assets/landing/images/works-1.png';
-import Works2 from '../../assets/landing/images/works-2.png';
-import Works3 from '../../assets/landing/images/works-3.png';
+import Image from '../../assets/landing/images/Image';
 
-import Cookies from '../../assets/landing/images/cookies.png';
-
-import Carousel from '../../assets/landing/images/carousel.png';
-
-import Testimonials1 from '../../assets/landing/images/testimonial-1.png';
 class LandingPage extends React.Component {
 	render() {
 		return (
@@ -54,7 +47,8 @@ class LandingPage extends React.Component {
 					<div className="marketing-Box">
 						<div className="marketing-featured-Container">
 							<div className="marketing-featured-Image">
-								<img src={Cookies} alt="cookies" />
+							<Image name="Cookies" />
+
 								<p>Cookie Bites - Dietary friendly cookies with all locally sourced ingredients.</p>
 							</div>
 						</div>
@@ -88,7 +82,7 @@ class LandingPage extends React.Component {
 				<div className="works-container">
 					<div className="works-card-wrapper">
 						<div className="works-image">
-							<img src={Works1} alt="works1" />
+						<Image name="Works1" />
 						</div>
 						<div className="works-content">
 							We help vendors gain visibility more consistently to their customer base
@@ -96,7 +90,7 @@ class LandingPage extends React.Component {
 					</div>
 					<div className="works-card-wrapper">
 						<div className="works-image">
-							<img src={Works2} alt="works2" />
+						<Image name="Works2" />
 						</div>
 						<div className="works-content">
 							As the customer, we can seamlessly support your local food vendor through a one stop shop
@@ -105,7 +99,7 @@ class LandingPage extends React.Component {
 					</div>
 					<div className="works-card-wrapper">
 						<div className="works-image">
-							<img src={Works3} alt="works3" />
+						<Image name="Works3" />
 						</div>
 						<div className="works-content">
 							See what you like? We have a seamless order request process for both sides. Win-win.{' '}
@@ -114,13 +108,15 @@ class LandingPage extends React.Component {
 				</div>
 				<div className="marketing-Header"> Our Spotlight Vendors For This Month</div>
 				<div className="carousel-container">
-					<img src={Carousel} alt="Carousel" />
+				<Image name="Carousel" />
+
 				</div>
 				<div className="marketing-Header"> Testimonials</div>
 				<div className="works-container">
 					<div className="works-card-wrapper">
 						<div className="works-image">
-							<img src={Testimonials1} alt="works1" />
+						<Image name="Testimonial1" />
+
 						</div>
 						<div className="works-content">
 							“I just moved to Austin and wanted to support local from the start. This made it so easy!” -
@@ -129,7 +125,6 @@ class LandingPage extends React.Component {
 					</div>
 					<div className="works-card-wrapper">
 						<div className="works-image">
-							<img src={Works2} alt="works2" />
 						</div>
 						<div className="works-content">
 							“Quick Street helped me find new found favorite vendors. Its like a whole new city to me!” -
@@ -138,7 +133,6 @@ class LandingPage extends React.Component {
 					</div>
 					<div className="works-card-wrapper">
 						<div className="works-image">
-							<img src={Works3} alt="works3" />
 						</div>
 						<div className="works-content">
 							“As a vendor this helped so many stressors I used to have throughout my week; now I can

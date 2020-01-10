@@ -2,6 +2,25 @@
 	width: 1440px;
 	margin: auto;
 }
+@media (min-width: 1200px) { 
+	.landingContainer {
+		width: 100%;
+		margin:auto;
+	}
+	.heroContainer {
+		background-image: url('../../assets/landing/images/hero-banner.png');
+		background-repeat: no-repeat;
+		width: 100%;
+		margin: auto;
+		background-size: 100% auto;
+	}
+	.works-container {
+	width: 80%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	}
+ }
 .landingInfo {
 	display: flex;
 	flex-direction: column;

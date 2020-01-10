@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+import '../styling/vendorsNearby.css';
+import '../styling/customerFacingVendorProfile.css';
+
 const Map = (props) => {
 
   const [ mapDetails, setMapDetails ] = useState({
@@ -49,13 +52,13 @@ const Map = (props) => {
         fillOpacity: 0.35,
         map: map,
         center: { lat: mapDetails.lat, lng: mapDetails.lng },
-        radius: 5000
+        radius: 8046
       });
     }
     
   }, [mapDetails]); 
   return (
-    <div style={{ width: 900, height: 500 }} id='map' />
+    <div className='map' id='map' />
     // <h1>Map</h1>
   );
   

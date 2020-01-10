@@ -4,7 +4,8 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 import Map from './Map';
 import VendorsNearby from './VendorsNearby';
 
-const Browse = () => {
+const Browse = (props) => {
+  
   const [ zipcode, setZipcode ] = useState('');
   const [ vendors, setVendors ] = useState({
     count: '',
@@ -21,7 +22,7 @@ const Browse = () => {
     axiosWithAuth()
       .get(`/vendors/radius/${customerZip}/5`)
       .then(response => {
-        console.log(response);
+        // console.log(response);
         setVendors({
           ...vendors,
           count: response.data.count,
@@ -52,7 +53,7 @@ const Browse = () => {
         />
       </form>
       <Map zipcode={zipcode} vendors={vendors} />
-      <VendorsNearby zipcode={zipcode} vendors={vendors} />
+      <VendorsNearby zipcode={zipcode} vendors={vendors} history={props.history} location={props.location} match={props.match} />
     </div>
   )
 }

@@ -2,38 +2,20 @@ import React from 'react';
 
 // styling
 import '../LandingPage/landing.css';
-//Icons
 
-import Icon from '../../assets/landing/icons/Icon';
+// Images
 import Image from '../../assets/landing/images/Image';
+
+// Components
+import Footer from '../Footer';
+import Menu from '../Menu';
 
 class LandingPage extends React.Component {
 	render() {
 		return (
 			<div className="landingContainer">
 				<div className="heroContainer">
-					<div className="menu-container">
-						<nav class="navbar">
-							Quick Street
-							<ul class="nav-links">
-								<li class="nav-item">
-									<a href="#">Food</a>
-								</li>
-								<li class="nav-item">
-									<a href="#">Services</a>
-								</li>
-								<li class="nav-item">
-									<a href="#">About</a>
-								</li>
-								<li class="nav-item">
-									<a href="#">Login</a>
-								</li>
-								<li class="nav-item">
-									<a href="#">Join Us</a>
-								</li>
-							</ul>
-						</nav>
-					</div>
+			<Menu/>
 					<div className="landingInfo">
 						<p>Finally , A Way For Vendors and Lovers of Food to Come Together in Harmony </p>
 						<div className="button-container">
@@ -125,6 +107,7 @@ class LandingPage extends React.Component {
 					</div>
 					<div className="works-card-wrapper">
 						<div className="works-image">
+						<Image name="Testimonial2" />
 						</div>
 						<div className="works-content">
 							“Quick Street helped me find new found favorite vendors. Its like a whole new city to me!” -
@@ -133,6 +116,7 @@ class LandingPage extends React.Component {
 					</div>
 					<div className="works-card-wrapper">
 						<div className="works-image">
+						<Image name="Testimonial3" />
 						</div>
 						<div className="works-content">
 							“As a vendor this helped so many stressors I used to have throughout my week; now I can
@@ -162,20 +146,7 @@ class LandingPage extends React.Component {
 							<p>Swag</p>
 						</div>
 					</div>
-					<div className="footer-bottom-row">
-						<div className="footer-bottom-row-blank" />
-						<div className="footer-bottom-row-copyright">
-							<p>© 2019 Quick Street, All rights reserved | Terms Of Service | Privacy Policy</p>
-						</div>
-						<div className="footer-bottom-row-social">
-							<Icon name="snapchat" width={24} fill={'#000'} />
-							<Icon name="instagram" width={24} fill={'#000'} />
-							<Icon name="youtube" width={27} height={20} fill={'#000'} />
-							<Icon name="twitter" width={27} height={22} fill={'#000'} />
-							<Icon name="facebook" width={27} fill={'#000'} />
-							<Icon name="pinterest" width={27} fill={'#000'} />
-						</div>
-					</div>
+				<Footer />
 				</div>
 			</div>
 		);

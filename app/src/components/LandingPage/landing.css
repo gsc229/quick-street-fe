@@ -74,6 +74,47 @@
 }
 
 .marketing-Container {
+	width: 1280px;
+	height: 704px;
+	background-color: #00b2ed;
+	margin: auto;
+	padding: 40px;
+	border-radius: 10px;
+}
+.marketing-box-top-row {
+	flex: 1;
+	flex-direction: row;
+}
+.marketing-box-top-row h1{
+	color: #fff;
+	font-family: Rubik;
+font-style: normal;
+font-weight: 500;
+font-size: 30px;
+line-height: 166.86%;
+/* or 50px */
+display: flex;
+align-items: center;
+border-radius: 5px;
+}
+.marketing-box-top-row-btn {
+	width: 161px;
+	height: 43px;
+	background: #E92323;
+	border-radius: 5px;
+	text-align: center;
+	flex: 1;
+	color: #fff;
+	align-items: center;
+	font-family: Raleway;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 193.5%;
+}
+.marketing-box-bottom-row {
+	flex: 1;
+	flex-direction: row;
 }
 .marketing-Header {
 	font-family: Rubik;
@@ -89,151 +130,8 @@
 	flex: 1;
 	justify-content: center;
 }
-.marketing-Box {
-	width: 1280px;
-	height: 704px;
-	flex: 1;
-	background-color: #00b2ed;
-	display: flex;
-	margin: auto;
-	padding: 40px;
-}
 
-.marketing-featured-Container {
-	width: 361.31px;
-	height: 567px;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-	border-radius: 5px;
-	display: flex;
-	margin-right: 40px;
-}
-.marketing-featured-Image {
-	display: flex;
-}
-.marketing-featured-Image image {
-	width: 100%;
-	height: 567px;
 
-	display: flex;
-}
-
-.marketing-featured-Image p {
-	width: 246px;
-	height: 111px;
-	position: bottom;
-	font-family: Raleway;
-	font-style: normal;
-	font-weight: 600;
-	font-size: 18px;
-	line-height: 166.36%;
-	/* or 30px */
-
-	align-items: center;
-	text-align: center;
-
-	color: #ffffff;
-
-	border-radius: 5px;
-}
-.marketing-right-Box {
-	width: 880px;
-	height: 567px;
-}
-.marketing-right-Box-Toprow {
-	width: 100%;
-	height: 141px;
-	display: flex;
-}
-.marketing-right-Box-Toprow-left {
-	width: 299.39px;
-	height: 141px;
-}
-.marketing-right-Box-Toprow-left p {
-	font-family: Rubik;
-	font-style: normal;
-	font-weight: 500;
-	font-size: 30px;
-	line-height: 166.86%;
-	/* or 50px */
-
-	display: flex;
-	align-items: center;
-
-	color: #ffffff;
-}
-.marketing-right-Box-Toprow-right {
-	width: 321.49px;
-	height: 114px;
-}
-.marketing-right-Box-Toprow-right p {
-	font-family: Raleway;
-	font-style: normal;
-	font-weight: 600;
-	font-size: 14px;
-	line-height: 185.86%;
-	/* or 26px */
-
-	display: flex;
-	align-items: center;
-
-	color: #ffffff;
-}
-.marketing-right-Box-Toprow-right-btn {
-	width: 161.96px;
-	height: 43px;
-	left: 925.15px;
-	top: 1230px;
-	border-radius: 5px;
-}
-.marketing-right-Box-Toprow-right-btn p {
-	width: 98.77px;
-	height: 23px;
-	font-family: Raleway;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 14px;
-	line-height: 193.5%;
-	/* or 27px */
-	align-items: center;
-	display: flex;
-	margin: auto;
-
-	color: #ffffff;
-
-	border-radius: 5px;
-}
-.marketing-right-Box-BottomRow {
-	display: flex;
-}
-.marketing-right-Box-BottomRow-features {
-	width: 246.84px;
-	height: 360px;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-	border-radius: 5px;
-	display: flex;
-}
-.marketing-right-Box-BottomRow-features p {
-	width: 200.06px;
-	height: 53px;
-	bottom: 0;
-	font-family: Raleway;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 14px;
-	line-height: 166.36%;
-	/* or 23px */
-	flex: 1;
-	justify-content: 'flex-end';
-
-	justify-self: center;
-	align-items: center;
-	text-align: center;
-
-	color: #ffffff;
-}
-.marketing-right-Box-BottomRow-featured-image {
-	display: flex;
-}
 .works-container {
 	padding: 40px;
 	display: flex;
@@ -263,6 +161,56 @@
 	padding-right: 10px;
 	padding-left: 10px;
 	height: 258px;
+}
+
+/*********** TESTIMONIAL ***********/
+.testimonial-container {
+	padding: 40px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.testimonial-card-wrapper {
+	width: 399px;
+	display: flex;
+	flex-direction: column;
+}
+.testimonial-image {
+	width: 399px;
+}
+.testimonial-content {
+	background: #ffffff;
+	box-shadow: 0px 4px 4px rgba(0, 118, 157, 0.1);
+	display: flex;
+	padding-right: 10px;
+	padding-left: 10px;
+	flex-direction: column;
+}
+.testimonial-content p {
+	font-family: Raleway;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 166.36%;
+	align-items: center;
+	text-align: center;
+	color: #000000;
+	/* or 40px */
+}
+.testimonial-button {
+	width: 169px;
+	height: 40px;
+	background-color: #21b787;
+	border-radius: 10px;
+	align-self: center;
+	text-align:center;
+	margin-bottom: 20px;
+	color: #FFFFFF;
+	font-family: Raleway;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 193.5%;
 }
 .carousel-container {
 	width: 1305px;

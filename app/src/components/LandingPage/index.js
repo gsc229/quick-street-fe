@@ -26,39 +26,18 @@ class LandingPage extends React.Component {
 				</div>
 				<div className="marketing-Header"> See What We Offer!</div>
 				<div className="marketing-Container">
-					<div className="marketing-Box">
-						<div className="marketing-featured-Container">
-							<div className="marketing-featured-Image">
-							<Image name="Cookies" />
-
-								<p>Cookie Bites - Dietary friendly cookies with all locally sourced ingredients.</p>
-							</div>
-						</div>
-						<div className="marketing-right-Box">
-							<div className="marketing-right-Box-Toprow">
-								<div className="marketing-right-Box-Toprow-left">
-									<p>Browse, buy, share, your find on local food vendors.</p>
-								</div>
-								<div className="marketing-right-Box-Toprow-right">
-									<p>
-										Not sure yet? That's ok, start by browsing our vendors that are already making
-										moves.
-									</p>
-									<div className="marketing-right-Box-Toprow-right-btn">
-										<p>Start Browsing</p>
-									</div>
-								</div>
-							</div>
-							<div className="marketing-right-Box-BottomRow">
-								<div className="marketing-right-Box-BottomRow-features">
-									<div className="marketing-right-Box-BottomRow-featured-image" />
-									<div className="marketing-right-Box-BottomRow-feature-image-text">
-										<p>Brad’s Bread - Seasonal breads from the region. </p>
-									</div>
-								</div>
-							</div>
+					<div className="marketing-box-top-row">
+					<h1>Browse, buy, share your finds on local food vendors.</h1>
+					<p>Not sure yet? That’s ok, start by browsing our vendors that are already making moves.</p>
+					<div className="marketing-box-top-row-btn ">Start Browsing</div>
+					</div>
+					<div className="marketing-box-bottom-row"> 
+					<div className="marketing-box-bottom-row-card-wrapper">
+						<Image name="Cookies" />
+						<p><span>Cookie Bites - Dietary friendly cookies with all locally sourced ingredients.</span></p>
 						</div>
 					</div>
+				
 				</div>
 				<div className="marketing-Header"> How it Works</div>
 				<div className="works-container">
@@ -93,34 +72,43 @@ class LandingPage extends React.Component {
 				<Image name="Carousel" />
 
 				</div>
-				<div className="marketing-Header"> Testimonials</div>
-				<div className="works-container">
-					<div className="works-card-wrapper">
-						<div className="works-image">
+				<div className="marketing-Header">Testimonials</div>
+				<div className="testimonial-container">
+					<div className="testimonial-card-wrapper">
+						<div className="testimonial-image">
 						<Image name="Testimonial1" />
-
 						</div>
-						<div className="works-content">
-							“I just moved to Austin and wanted to support local from the start. This made it so easy!” -
-							Alandra S.
+						<div className="testimonial-content">
+							<p>“I just moved to Austin and wanted to support local from the start. This made it so easy!” -
+							Alandra S.</p>
+							<div className="testimonial-button">
+							Start Now!
 						</div>
+						</div>
+					
 					</div>
-					<div className="works-card-wrapper">
-						<div className="works-image">
+					<div className="testimonial-card-wrapper">
+						<div className="testimonial-image">
 						<Image name="Testimonial2" />
 						</div>
-						<div className="works-content">
-							“Quick Street helped me find new found favorite vendors. Its like a whole new city to me!” -
-							Sam B.
+						<div className="testimonial-content">
+							<p>“Quick Street helped me find new found favorite vendors. Its like a whole new city to me!” -
+							Sam B.</p>
+							<div className="testimonial-button">
+							Start Now!
+							</div>
 						</div>
 					</div>
-					<div className="works-card-wrapper">
-						<div className="works-image">
+					<div className="testimonial-card-wrapper">
+						<div className="testimonial-image">
 						<Image name="Testimonial3" />
 						</div>
-						<div className="works-content">
-							“As a vendor this helped so many stressors I used to have throughout my week; now I can
-							focus more time on my craft. It’s great!” - Tracee W.
+						<div className="testimonial-content">
+							<p>“As a vendor this helped so many stressors I used to have throughout my week; now I can
+							focus more time on my craft. It’s great!” - Tracee W.</p>
+							<div className="testimonial-button">
+							Start Now!
+						</div>
 						</div>
 					</div>
 				</div>

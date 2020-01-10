@@ -30,47 +30,72 @@ const VendorProfile = () => {
 
   const myWidget = window.cloudinary.createUploadWidget(
     {
-      cloudName: "dxhescd0s",
-      uploadPreset: "quickstreet"
+      cloudName: "quickstlabs",
+      uploadPreset: "product-images",
+      sources: [
+        "local",
+        "url",
+        "camera",
+        "image_search",
+        "facebook",
+        "dropbox",
+        "instagram"
+      ],
+      showAdvancedOptions: true,
+      cropping: true, // if true multiple must be false, set to false [set multiple to true] to upload multiple files
+      multiple: false,
+      defaultSource: "local",
+      styles: {
+        palette: {
+          window: "#FFFFFF",
+          sourceBg: "#00B2ED",
+          windowBorder: "#E1F6FA",
+          tabIcon: "#2B3335",
+          inactiveTabIcon: "#555a5f",
+          menuIcons: "#5B5F63",
+          link: "#00769D",
+          action: "#21B787",
+          inProgress: "#00769D",
+          complete: "#21B787",
+          error: "#E92323",
+          textDark: "#2B3335",
+          textLight: "#FFFFFF"
+        },
+        fonts: {
+          default: null,
+          "'Poppins', sans-serif": {
+            url: "https://fonts.googleapis.com/css?family=Poppins",
+            active: true
+          }
+        }
+      }
     },
     async (error, result) => {
       if (!error && result && result.event === "success") {
         const banner_info = await result.info;
         setBannerInfo(banner_info.public_id);
-        axios
-          .put(
-            `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorInfo.id}`,
-            {
-              avatar: "test",
-              vendor_banner: bannerInfo.public_id,
-              vendor_category: ["Vegetables"],
-              email: "placeholder@theoffice.com",
-              password: "placeholder123",
-              phone: "555-555-5555",
-              business_name: "placeholder's Beets",
-              description: "Root vegies",
-              address: "100 Terminal Dr, Avoca, PA 18641-2221, US"
-            }
-          )
-          .then(res => console.log(`response from put`, res.data.data));
       }
+      axios.put(
+        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5e1887574321360017dbf6b3`,
+
+        { ...vendorInfo, vendor_banner: `${bannerInfo}` }
+      );
     }
   );
 
   useEffect(() => {
     axios
       .get(
-        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5dfc1ea2396390001715f1e3`
+        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5e1887574321360017dbf6b3`
       )
       .then(res => {
-        console.log(`vendor info`, res.data.data);
         setVendorInfo(res.data.data);
         setBannerInfo(res.data.data.vendor_banner);
       });
 
     axios
       .get(
-        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5dfc1ea2396390001715f1e3/products`
+        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5e1887574321360017dbf6b3/products`
       )
       .then(p => {
         setProducts(p.data.data);
@@ -95,7 +120,7 @@ const VendorProfile = () => {
     e.preventDefault();
     axios
       .put(
-        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5dfc1ea2396390001715f1e3`,
+        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5e1887574321360017dbf6b3`,
         {
           ...vendorInfo,
           hours: `${info.hour_from} ${info.hour_to}`,
@@ -116,6 +141,8 @@ const VendorProfile = () => {
     myWidget.open();
   };
 
+  console.log(`vendor info`, vendorInfo);
+
   return (
     <div className="vendor_profile_container">
       <div className="vendor_header_container">
@@ -130,8 +157,8 @@ const VendorProfile = () => {
         </div>
       </div>
       <div className="vendor_banner_container">
-        {bannerInfo ? (
-          <CloudinaryContext cloudName="dxhescd0s">
+        {bannerInfo !== `no-photo.jpg` ? (
+          <CloudinaryContext cloudName="quickstlabs">
             <Image
               className="vendor_banner_image"
               publicId={bannerInfo}

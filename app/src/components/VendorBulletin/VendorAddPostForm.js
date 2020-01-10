@@ -1,31 +1,22 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
 
-const VendorAddPostForm = ({ show, cancelAddPost }) => {
+const VendorAddPostForm = ({
+  post,
+  setPost,
+  show,
+  cancelAddPost,
+  postSubmit
+}) => {
   let today = new Date();
+
   let dd = String(today.getDate()).padStart(2, "0");
   let mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
   let yyyy = today.getFullYear();
   today = mm + "/" + dd + "/" + yyyy;
 
-  const [post, setPost] = useState({
-    content: "",
-    zipcode: ""
-  });
-
   const postChangeHandler = e => {
     setPost({ ...post, [e.target.name]: e.target.value });
     console.log(post);
-  };
-
-  const postSubmit = e => {
-    e.preventDefault();
-    axios
-      .post(
-        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5dfc1ea2396390001715f1e3/posts`,
-        { title: "test title", description: post.content }
-      )
-      .then(res => console.log(res));
   };
 
   return (

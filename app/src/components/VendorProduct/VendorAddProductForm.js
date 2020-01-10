@@ -12,8 +12,45 @@ const VendorAddProductForm = ({ modal, addProductformCancelHandler }) => {
   });
   const myWidget = window.cloudinary.createUploadWidget(
     {
-      cloudName: "dxhescd0s",
-      uploadPreset: "quickstreet"
+      cloudName: "quickstlabs",
+      uploadPreset: "product-images",
+      sources: [
+        "local",
+        "url",
+        "camera",
+        "image_search",
+        "facebook",
+        "dropbox",
+        "instagram"
+      ],
+      showAdvancedOptions: true,
+      cropping: true, // if true multiple must be false, set to false [set multiple to true] to upload multiple files
+      multiple: false,
+      defaultSource: "local",
+      styles: {
+        palette: {
+          window: "#FFFFFF",
+          sourceBg: "#00B2ED",
+          windowBorder: "#E1F6FA",
+          tabIcon: "#2B3335",
+          inactiveTabIcon: "#555a5f",
+          menuIcons: "#5B5F63",
+          link: "#00769D",
+          action: "#21B787",
+          inProgress: "#00769D",
+          complete: "#21B787",
+          error: "#E92323",
+          textDark: "#2B3335",
+          textLight: "#FFFFFF"
+        },
+        fonts: {
+          default: null,
+          "'Poppins', sans-serif": {
+            url: "https://fonts.googleapis.com/css?family=Poppins",
+            active: true
+          }
+        }
+      }
     },
     (error, result) => {
       if (!error && result && result.event === "success") {
@@ -26,7 +63,7 @@ const VendorAddProductForm = ({ modal, addProductformCancelHandler }) => {
             }
           }
         });
-        newInfo = { ...newInfo, vendor: "5dfc1ea2396390001715f1e3" };
+        newInfo = { ...newInfo, vendor: "5e1887574321360017dbf6b3" };
         setProductPictureInfo(newInfo);
       }
     }
@@ -44,7 +81,7 @@ const VendorAddProductForm = ({ modal, addProductformCancelHandler }) => {
   const onSubmit = async e => {
     e.preventDefault();
     const res_1 = await axios.post(
-      `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5dfc1ea2396390001715f1e3/products`,
+      `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5e1887574321360017dbf6b3/products`,
       {
         diet: ["Vegan"],
         name: product.name,
@@ -74,7 +111,7 @@ const VendorAddProductForm = ({ modal, addProductformCancelHandler }) => {
         <div className="input_wrapper">
           <div className="vendor_product_container">
             {productPictureInfo.public_id ? (
-              <CloudinaryContext cloudName="dxhescd0s">
+              <CloudinaryContext cloudName="quickstlabs">
                 <Image
                   className="vendor_product_image"
                   publicId={productPictureInfo.public_id}

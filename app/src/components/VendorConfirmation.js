@@ -44,7 +44,7 @@ const VendorConfirmation = (props) => {
   }
 
   return (
-
+    <div className="main_container_confirm">
     <div className='confirmation_container'>
       <div className='vendor_confirmation_div'>
         <p className ='vendor_confirmation_title'>Email</p>
@@ -100,7 +100,7 @@ const VendorConfirmation = (props) => {
       </div>
 
     </div>
-
+    </div>
   )
 
 }

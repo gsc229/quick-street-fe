@@ -16,7 +16,7 @@ function App() {
       <Route path="/profile" component={VendorProfile} />
       <Route exact path="/browse" component={Browse} />
       <Route path='/browse/:id' component={CustomerFacingVendorProfile} />
-    </div>
+    </>
 
   );
 }

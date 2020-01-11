@@ -10,7 +10,7 @@ import CustomerFacingVendorProfile from "./components/CustomerFacingVendorProfil
 function App() {
   console.log(window.cloudinary);
   return (
-    <>
+    <div>
       <Route path="/register" component={Register} />
       <Route path="/login" component={Login} />
       <Route path="/profile" component={VendorProfile} />

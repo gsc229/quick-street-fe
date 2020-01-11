@@ -1,4 +1,5 @@
 import React from 'react';
+import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
 
 import '../styling/vendorsNearby.css';
 import rectangle from '../assets/rectangle.png';
@@ -29,7 +30,12 @@ const VendorsNearby = (props) => {
       <div className='vendors_div'>
         {props.vendors.vendorDetails.map(vendor => (
           <div className='vendor_details_div' onClick={() => props.history.push(`/browse/${vendor._id}`)} key={vendor._id} >
-          <img className='vendor_banner_image' src={vendor.vendor_banner} alt='Banner Image'></img>
+          <CloudinaryContext cloudName="quickstlabs" >
+            <Image publicId={vendor.vendor_banner} >
+              <Transformation height="128" width="173" crop="fill" />
+            </Image>
+          </CloudinaryContext>
+          {/* <img className='vendor_banner_image' src={vendor.vendor_banner} alt='Banner Image'></img> */}
           <p className='vendor_name'>{vendor.business_name}</p>
           <p className='vendor_category'>{vendor.vendor_category}</p>
           </div>

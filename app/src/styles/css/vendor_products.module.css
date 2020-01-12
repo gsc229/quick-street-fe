@@ -1,0 +1,13 @@
+.vendor_product_list_container {
+  border: 5px solid orangered;
+  height: 745px;
+}
+
+.vendor_product_list_container .vendor_product_list_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+/*# sourceMappingURL=vendor_products.module.css.map */

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,uBAAuB,CAAA;EACrB,MAAM,EAAE,iBAAiB;EACzB,UAAU,EAAE,KAAK;EACjB,UAAU,EAAE,yBAAyB;EACrC,MAAM,EAAE,KAAK;CACd",
+    "sources": [
+        "../scss/vendor_about.module.scss"
+    ],
+    "names": [],
+    "file": "vendor_about.module.css"
+}

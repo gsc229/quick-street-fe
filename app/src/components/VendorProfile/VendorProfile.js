@@ -7,8 +7,12 @@ import create from "../../assets/create.png";
 import save from "../../assets/save.png";
 import upload from "../../assets/upload.png";
 import VendorBulletin from "../VendorBulletin/VendorBulletin";
+import profile from '../../styles/css/vendor_profile.module.css'
+//Font awesom
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSave, faPen, faUpload } from '@fortawesome/free-solid-svg-icons'
 
-import { Image, CloudinaryContext } from "cloudinary-react";
+import { Image, CloudinaryContext, Transformation } from "cloudinary-react";
 import axios from "axios";
 
 const VendorProfile = () => {
@@ -180,55 +184,100 @@ const VendorProfile = () => {
   };
 
   return (
-    <div className="vendor_profile_container">
-      <div className="vendor_header_container">
-        <div className="vendor_profile_name">
-          <p>Name</p>
-          <p>Annie's Eclairs</p>
-        </div>
-        <div className="vendor_profile_btn_group">
-          <img src={create} alt="create" onClick={editProfile} />
+    <div className={profile.vendor_profile_container}>
+      <div className={profile.vendor_header_container}>
 
-          <img src={save} alt="save" onClick={saveProfile} />
-        </div>
+
+        <h1>Market Avenue</h1>
+
+        <div className={profile.header_links}></div>
+        <p className={profile.header_about}>About</p>
+        <p className={profile.header_food}>Food</p>
+        <p className={profile.header_business_name}>{vendorInfo.business_name}</p>
+
+
+
+
       </div>
-      <div className="vendor_banner_container">
-        {bannerInfo !== `no-photo.jpg` ? (
-          <CloudinaryContext cloudName="quickstlabs">
-            <Image
-              className="vendor_banner_image"
-              publicId={bannerInfo}
-              width="50"
+
+
+      <div className={profile.vendor_banner_container}>
+
+        <div className={profile.banner_text_btns}>
+
+
+          <div className={profile.vendor_header_name}>
+            <input value={vendorInfo.business_name} />
+          </div>
+
+          <div className={profile.vendor_profile_btn_group}>
+
+            <FontAwesomeIcon
+              id={profile.pen}
+              className={profile.icon}
+              icon={faPen}
+              onClick={editProfile}
             />
-          </CloudinaryContext>
-        ) : (
-          <img
-            className="vendor_banner_image"
-            src={picture}
-            alt="vendor header"
-          />
-        )}
-        <img
-          className="vendor_banner_upload"
-          src={upload}
-          alt="upload icon"
-          onClick={uploadBanner}
-        />
+            <FontAwesomeIcon
+              id={profile.save}
+              className={profile.icon}
+              icon={faSave}
+              onClick={saveProfile}
+            />
+
+            {/* <img src={create} alt='create' onClick={editProfile} />
+            <img src={save} alt='save' onClick={saveProfile} /> */}
+
+          </div>
+        </div>
+
+
+
+
+
+        <div className={profile.vendor_banner_image_container} >
+          {bannerInfo !== `no-photo.jpg` ? (
+            <CloudinaryContext cloudName='quickstlabs'>
+              <Image
+                className={profile.vendor_banner_image}
+                publicId={bannerInfo}
+              >
+                <Transformation gravity="center" height="318" width="1062" crop="fill" />
+
+              </Image>
+            </CloudinaryContext>
+          ) : (
+              <img
+                className="vendor_banner_image"
+                src={picture}
+                alt="vendor header"
+              />
+            )}
+
+
+          <div className={profile.vendor_banner_upload}>
+
+            <FontAwesomeIcon
+              id={profile.upload}
+              className={profile.icon}
+              icon={faUpload}
+              onClick={uploadBanner}
+            />
+            {/* <img
+              src={upload}
+              alt='upload icon'
+              onClick={uploadBanner}
+            /> */}
+          </div>        </div>
       </div>
-      <nav className="vendor_profile_nav">
-        <ul>
-          <li>About</li>
-          <li>Bulletin</li>
-          <li>Products</li>
-        </ul>
-      </nav>
+
       <VendorAbout
         vendorInfo={vendorInfo}
         info={info}
         setInfo={setInfo}
         edit={edit}
       />
-      <VendorBulletin />
+
       <VendorProducts
         productIds={productIds}
         products={products}
@@ -243,6 +292,7 @@ const VendorProfile = () => {
         setModal={setModal}
         addProductformCancelHandler={addProductformCancelHandler}
       />
+      <VendorBulletin />
     </div>
   );
 };

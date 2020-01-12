@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,8BAA8B,CAAA;EAC5B,MAAM,EAAE,mBAAmB;EAC3B,MAAM,EAAE,KAAK;CAQd;;AAVD,AAKE,8BAL4B,CAK5B,4BAA4B,CAAA;EAC1B,OAAO,EAAE,IAAI;EACb,SAAS,EAAE,IAAI;CAChB",
+    "sources": [
+        "../scss/vendor_products.module.scss"
+    ],
+    "names": [],
+    "file": "vendor_products.module.css"
+}

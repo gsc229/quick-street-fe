@@ -1,7 +1,56 @@
 .vendor_about_container {
   border: hotpink solid 5px;
   margin-top: 100px;
+  position: relative;
   background: rgba(225, 246, 250, 0.45);
-  height: 767px;
+  height: 400px;
+}
+
+.vendor_about_container .vendor_about_btn_group {
+  border: 3px solid red;
+  width: 70px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  position: relative;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  left: 12%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.vendor_about_container .vendor_about_btn_group #pen {
+  color: #00B2ED;
+}
+
+.vendor_about_container .vendor_about_btn_group #save {
+  color: grey;
+}
+
+.vendor_about_container .vendor_about_btn_group .icon {
+  cursor: pointer;
+}
+
+.vendor_info_form {
+  border: 2px solid turquoise;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.vendor_info_form .vendor_info_left {
+  border: 2px solid purple;
+}
+
+.vendor_info_form .vendor_info_right {
+  border: 2px solid purple;
 }
 /*# sourceMappingURL=vendor_about.module.css.map */

@@ -32,8 +32,8 @@ const VendorAddProductForm = ({
         "instagram"
       ],
       showAdvancedOptions: true,
-      cropping: true, // if true multiple must be false, set to false [set multiple to true] to upload multiple files
-      multiple: false,
+      cropping: false, // if true multiple must be false, set to false [set multiple to true] to upload multiple files
+      multiple: true,
       defaultSource: "local",
       styles: {
         palette: {
@@ -141,12 +141,12 @@ const VendorAddProductForm = ({
                 />
               </CloudinaryContext>
             ) : (
-              <img
-                className="vendor_product_image"
-                src={productImg}
-                alt="product"
-              />
-            )}
+                <img
+                  className="vendor_product_image"
+                  src={productImg}
+                  alt="product"
+                />
+              )}
             <img
               className="vendor_product_picture_upload"
               src={upload}

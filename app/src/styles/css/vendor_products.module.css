@@ -10,4 +10,16 @@
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
+
+.vendor_product_list_container .add_product_btn {
+  width: 146px;
+  height: 122px;
+  position: relative;
+  top: 10px;
+  cursor: pointer;
+}
+
+.profile_product_image {
+  margin: 10px;
+}
 /*# sourceMappingURL=vendor_products.module.css.map */

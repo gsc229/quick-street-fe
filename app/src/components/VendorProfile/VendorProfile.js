@@ -15,7 +15,10 @@ import { faSave, faPen, faUpload } from '@fortawesome/free-solid-svg-icons'
 import { Image, CloudinaryContext, Transformation } from "cloudinary-react";
 import axios from "axios";
 
-const VendorProfile = () => {
+const VendorProfile = (props) => {
+
+  console.log('VendorProfile.js props: ', props)
+
   const [modal, setModal] = useState(false);
   const [vendorInfo, setVendorInfo] = useState({ location: "" });
   const [bannerInfo, setBannerInfo] = useState("");
@@ -30,7 +33,7 @@ const VendorProfile = () => {
     hour_to: "",
     location: ""
   });
-
+  const vendorId = props.match.params.id;
   const [edit, setEdit] = useState(false);
 
   const myWidget = window.cloudinary.createUploadWidget(
@@ -89,10 +92,11 @@ const VendorProfile = () => {
   );
 
   useEffect(() => {
+    const fetchId = props.match.params.id;
     async function fetchVendorInfo() {
       try {
         const vendorInfo = await axios.get(
-          `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5e1410234df7fc0fb0a5a5dc`
+          `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`
         );
         console.log(`vendorinfo changed`, vendorInfo);
         setVendorInfo(vendorInfo.data.data);
@@ -106,7 +110,7 @@ const VendorProfile = () => {
     async function fetchProducts() {
       try {
         const products = await axios.get(
-          `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5e1410234df7fc0fb0a5a5dc/products`
+          `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}/products`
         );
 
         setProducts(products.data.data);
@@ -127,7 +131,7 @@ const VendorProfile = () => {
             const imageIds = await axios.get(
               `https://quickstlabs.herokuapp.com/api/v1.0/products/${ids}/product-images`
             );
-            console.log(imageIds);
+
             temp_ids.push(imageIds.data.data[0].public_id);
           } catch (e) {
             console.log(e);
@@ -162,7 +166,7 @@ const VendorProfile = () => {
     e.preventDefault();
     axios
       .put(
-        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5e1410234df7fc0fb0a5a5dc`,
+        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`,
         {
           ...vendorInfo,
           hours: `${info.hour_from}_${info.hour_to}`,
@@ -276,6 +280,8 @@ const VendorProfile = () => {
         info={info}
         setInfo={setInfo}
         edit={edit}
+        editProfile={editProfile}
+        saveProfile={saveProfile}
       />
 
       <VendorProducts

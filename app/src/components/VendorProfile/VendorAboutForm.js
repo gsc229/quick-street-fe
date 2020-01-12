@@ -1,17 +1,19 @@
 import React from 'react'
 import down from "../../assets/down.png"
 
+import about from '../../styles/css/vendor_about.module.css';
+
 const VendorAboutForm = ({ edit, vendorInfo, info, setInfo }) => {
   const changeHandler = e => {
     setInfo({ ...info, [e.target.name]: e.target.value });
   };
   return (
     <div>
-      <form className="vendor_info_form">
-        <div className="vendor_info_left">
-          <div className="vendor_info_hour">
+      <form className={about.vendor_info_form}>
+        <div className={about.vendor_info_left}>
+          <div className={about.vendor_info_hour}>
             <label>Hours of Operation</label>
-            <div className="vendor_info_hour_input_group">
+            <div className={about.vendor_info_hour_input_group}>
               <input
                 type="text"
                 name="hour_from"
@@ -26,7 +28,7 @@ const VendorAboutForm = ({ edit, vendorInfo, info, setInfo }) => {
               />
               to
               <input
-                className="vendor_info_hour_input_2"
+                className={"vendor_info_hour_input_2"}
                 type="text"
                 name="hour_to"
                 value={
@@ -40,7 +42,7 @@ const VendorAboutForm = ({ edit, vendorInfo, info, setInfo }) => {
               />
             </div>
           </div>
-          <div className="vendor_info_days">
+          <div className={"vendor_info_days"}>
             <label>Days of week</label>
             <select
               name="days"
@@ -55,11 +57,11 @@ const VendorAboutForm = ({ edit, vendorInfo, info, setInfo }) => {
               <option value="6">6</option>
               <option value="7">7</option>
             </select>
-            <span className="vendor_info_arrow">
+            <span className={about.vendor_info_arrow}>
               <img src={down} alt="arrow down" />
             </span>
           </div>
-          <div className="vendor_info_phone">
+          <div className={about.vendor_info_phone}>
             <label>Phone</label>
             <input
               type="text"
@@ -68,7 +70,7 @@ const VendorAboutForm = ({ edit, vendorInfo, info, setInfo }) => {
               onChange={changeHandler}
             />
           </div>
-          <div className="vendor_info_about">
+          <div className={about.vendor_info_about}>
             <label>About</label>
             <textarea
               type="text"
@@ -78,8 +80,12 @@ const VendorAboutForm = ({ edit, vendorInfo, info, setInfo }) => {
             />
           </div>
         </div>
-        <div className="vendor_info_right">
-          <div className="vendor_info_location">
+
+
+
+
+        <div className={about.vendor_info_right}>
+          <div className={about.vendor_info_location}>
             <label>Location</label>
             <input
               type="text"

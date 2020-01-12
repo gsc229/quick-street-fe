@@ -1,13 +1,16 @@
 import React from "react";
 import { Image, CloudinaryContext, Transformation } from "cloudinary-react";
+import product from "../../styles/scss/vendor_products.module.scss";
 
 const Product = ({ name, img, price }) => {
   return (
     <div className="vendor_product">
 
       <CloudinaryContext cloudName="quickstlabs" >
-        <Image publicId={img} >
-          <Transformation height="128" width="173" crop="fill" />
+        <Image
+          className={product.profile_product_image}
+          publicId={img} >
+          <Transformation height="122" width="146" crop="fill" />
         </Image>
       </CloudinaryContext>
       <div className="vendor_product_body">

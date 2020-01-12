@@ -36,23 +36,23 @@ const Browse = (props) => {
   };
 
   return (
-    <div>
+    <div className='browse_container'>
       {zipcode === '' && (
-        <p>Enter a location to start browsing</p>
+        <p className='zipcode_title'>Enter a location to start browsing</p>
       )}
       {zipcode !== '' && (
-        <p>Your results for</p>
+        <p className='zipcode_title'>Your results for</p>
       )}
-      <p></p>
       <form onSubmit={handleSubmit}>
         <input
           name='zipcode'
           placeholder='zip code'
           onChange={handleChange}
           value={customerZip}
+          className='zipcode_input'
         />
       </form>
-      <Map zipcode={zipcode} vendors={vendors} />
+      <Map zipcode={zipcode} vendors={vendors} height={300} width={1280} />
       <VendorsNearby zipcode={zipcode} vendors={vendors} history={props.history} location={props.location} match={props.match} />
     </div>
   )

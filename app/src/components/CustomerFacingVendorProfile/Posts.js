@@ -46,7 +46,10 @@ const Posts = (props) => {
       <header className='section_title'>Bulletin Board</header>
       {vendorPost.posts.map(post => (
         <div className='posts_div' key={post._id}>
-          <p className='post_date'>Date {changeDateFormat(post.createdAt)}</p>
+          <div className='post_date_line'>
+          <p className='post_date'>Date {changeDateFormat(post.createdAt)}</p>      
+          <hr></hr>
+          </div>
           <p className='post_content'>{post.title}</p>
         </div>
       ))}

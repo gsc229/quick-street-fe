@@ -59,6 +59,7 @@ const Map = (props) => {
   return (
     // <div style={{width: props.width, height: props.height }} id='map' />
     <h1>Map</h1>
+
   );
   
 }

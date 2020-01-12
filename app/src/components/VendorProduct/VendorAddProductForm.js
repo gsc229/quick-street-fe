@@ -4,12 +4,20 @@ import productImg from "../../assets/rectangle75.png";
 import { Image, CloudinaryContext } from "cloudinary-react";
 import axios from "axios";
 
-const VendorAddProductForm = ({ modal, addProductformCancelHandler }) => {
+const VendorAddProductForm = ({
+  modal,
+  setModal,
+  setProducts,
+
+  products,
+  addProductformCancelHandler
+}) => {
   const [productPictureInfo, setProductPictureInfo] = useState("");
   const [product, setProduct] = useState({
     name: "",
     price: ""
   });
+
   const myWidget = window.cloudinary.createUploadWidget(
     {
       cloudName: "quickstlabs",
@@ -63,7 +71,7 @@ const VendorAddProductForm = ({ modal, addProductformCancelHandler }) => {
             }
           }
         });
-        newInfo = { ...newInfo, vendor: "5e1887574321360017dbf6b3" };
+        newInfo = { ...newInfo, vendor: "5e1410234df7fc0fb0a5a5dc" };
         setProductPictureInfo(newInfo);
       }
     }
@@ -81,7 +89,7 @@ const VendorAddProductForm = ({ modal, addProductformCancelHandler }) => {
   const onSubmit = async e => {
     e.preventDefault();
     const res_1 = await axios.post(
-      `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5e1887574321360017dbf6b3/products`,
+      `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5e1410234df7fc0fb0a5a5dc/products`,
       {
         diet: ["Vegan"],
         name: product.name,
@@ -90,13 +98,26 @@ const VendorAddProductForm = ({ modal, addProductformCancelHandler }) => {
         price: product.price
       }
     );
-    const productId = res_1.data.data._id;
-    console.log(productId);
+    let productInfo = res_1.data.data;
+
     const res_2 = await axios.post(
-      `https://quickstlabs.herokuapp.com/api/v1.0/products/${productId}/product-images`,
+      `https://quickstlabs.herokuapp.com/api/v1.0/products/${productInfo._id}/product-images`,
       productPictureInfo
     );
-    console.log(res_2);
+
+    // have a bug here !!!!!!!
+    if (res_2.data.data.public_id) {
+      productInfo = {
+        image_Id: res_2.data.data.public_id,
+        ...productInfo,
+
+        etag: res_2.data.data.etag,
+        test: "test"
+      };
+    }
+
+    setModal(false);
+    setProducts([...products, productInfo]);
   };
 
   return (

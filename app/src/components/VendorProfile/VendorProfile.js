@@ -13,10 +13,11 @@ import axios from "axios";
 
 const VendorProfile = () => {
   const [modal, setModal] = useState(false);
-  const [vendorInfo, setVendorInfo] = useState("");
+  const [vendorInfo, setVendorInfo] = useState({ location: "" });
   const [bannerInfo, setBannerInfo] = useState("");
   const [products, setProducts] = useState([]);
   const [productIds, setProductIds] = useState([]);
+  const [productImagesIds, setProductImagesIds] = useState([]);
   const [info, setInfo] = useState({
     days: "0",
     phone: "",
@@ -76,7 +77,7 @@ const VendorProfile = () => {
         setBannerInfo(banner_info.public_id);
       }
       axios.put(
-        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5e1887574321360017dbf6b3`,
+        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5e1410234df7fc0fb0a5a5dc`,
 
         { ...vendorInfo, vendor_banner: `${bannerInfo}` }
       );
@@ -84,25 +85,62 @@ const VendorProfile = () => {
   );
 
   useEffect(() => {
-    axios
-      .get(
-        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5e1887574321360017dbf6b3`
-      )
-      .then(res => {
-        setVendorInfo(res.data.data);
-        setBannerInfo(res.data.data.vendor_banner);
-      });
+    async function fetchVendorInfo() {
+      try {
+        const vendorInfo = await axios.get(
+          `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5e1410234df7fc0fb0a5a5dc`
+        );
+        console.log(`vendorinfo changed`, vendorInfo);
+        setVendorInfo(vendorInfo.data.data);
+        setBannerInfo(vendorInfo.data.data.vendor_banner);
+      } catch (e) {
+        console.log(e);
+      }
+    }
+    fetchVendorInfo();
 
-    axios
-      .get(
-        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5e1887574321360017dbf6b3/products`
-      )
-      .then(p => {
-        setProducts(p.data.data);
-        setProductIds(p.data.data.map(p => p._id));
-      });
+    async function fetchProducts() {
+      try {
+        const products = await axios.get(
+          `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5e1410234df7fc0fb0a5a5dc/products`
+        );
+
+        setProducts(products.data.data);
+        setProductIds(products.data.data.map(p => p._id));
+      } catch (e) {
+        console.log(e);
+      }
+    }
+    fetchProducts();
   }, []);
 
+  useEffect(() => {
+    let temp_ids = [];
+    async function fetchImageIds() {
+      if (productIds.length !== 0) {
+        for (const ids of productIds) {
+          try {
+            const imageIds = await axios.get(
+              `https://quickstlabs.herokuapp.com/api/v1.0/products/${ids}/product-images`
+            );
+            console.log(imageIds);
+            temp_ids.push(imageIds.data.data[0].public_id);
+          } catch (e) {
+            console.log(e);
+          }
+        }
+      }
+
+      setProductImagesIds(temp_ids);
+    }
+    fetchImageIds();
+  }, [productIds]);
+
+  if (products.length !== 0 && productImagesIds.length !== 0) {
+    for (let i = 0; i < products.length; i++) {
+      products[i].imageId = productImagesIds[i];
+    }
+  }
   const addProduct = () => {
     setModal(true);
   };
@@ -120,11 +158,11 @@ const VendorProfile = () => {
     e.preventDefault();
     axios
       .put(
-        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5e1887574321360017dbf6b3`,
+        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5e1410234df7fc0fb0a5a5dc`,
         {
           ...vendorInfo,
-          hours: `${info.hour_from} ${info.hour_to}`,
-          zipcode: info.location,
+          hours: `${info.hour_from}_${info.hour_to}`,
+          location: { ...vendorInfo.location, zipcode: info.location },
           days_of_week: info.days,
           phone: info.phone,
           description: info.about
@@ -140,8 +178,6 @@ const VendorProfile = () => {
     e.preventDefault();
     myWidget.open();
   };
-
-  console.log(`vendor info`, vendorInfo);
 
   return (
     <div className="vendor_profile_container">
@@ -199,7 +235,12 @@ const VendorProfile = () => {
         addProduct={addProduct}
       />
       <VendorAddProductForm
+        productIds={productIds}
         modal={modal}
+        products={products}
+        addProduct={addProduct}
+        setProducts={setProducts}
+        setModal={setModal}
         addProductformCancelHandler={addProductformCancelHandler}
       />
     </div>

@@ -26,7 +26,7 @@ const About = ({ edit, vendorInfo, info, setInfo }) => {
                   edit
                     ? info.hour_from
                     : vendorInfo.hours
-                    ? vendorInfo.hours.split(" ")[0]
+                    ? vendorInfo.hours.split("_")[0]
                     : ""
                 }
                 onChange={changeHandler}
@@ -40,7 +40,7 @@ const About = ({ edit, vendorInfo, info, setInfo }) => {
                   edit
                     ? info.hour_to
                     : vendorInfo.hours
-                    ? vendorInfo.hours.split(" ")[1]
+                    ? vendorInfo.hours.split("_")[1]
                     : ""
                 }
                 onChange={changeHandler}
@@ -91,7 +91,7 @@ const About = ({ edit, vendorInfo, info, setInfo }) => {
             <input
               type="text"
               name="location"
-              value={edit ? info.location : vendorInfo.zipcode}
+              value={edit ? info.location : vendorInfo.location.zipcode}
               onChange={changeHandler}
             />
           </div>

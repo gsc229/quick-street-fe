@@ -108,7 +108,7 @@ const VendorAddProductForm = ({
     // have a bug here !!!!!!!
     if (res_2.data.data.public_id) {
       productInfo = {
-        imageId: res_2.data.data.public_id,
+        image_Id: res_2.data.data.public_id,
         ...productInfo,
 
         etag: res_2.data.data.etag,

@@ -14,7 +14,12 @@ const VendorProducts = ({ products, addProduct }) => {
         </button>
         {products ? (
           products.map((p, idx) => (
-            <Product key={idx} name={p.name} price={p.price} img={p.imageId} />
+            <Product
+              key={idx}
+              name={p.name}
+              price={p.price}
+              img={p.imageId ? p.imageId : p.image_Id}
+            />
           ))
         ) : (
           <p>you don't have any product yet</p>

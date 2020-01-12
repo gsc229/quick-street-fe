@@ -91,7 +91,7 @@ const About = ({ edit, vendorInfo, info, setInfo }) => {
             <input
               type="text"
               name="location"
-              value={edit ? info.location : vendorInfo.location}
+              value={edit ? info.location : vendorInfo.location.zipcode}
               onChange={changeHandler}
             />
           </div>

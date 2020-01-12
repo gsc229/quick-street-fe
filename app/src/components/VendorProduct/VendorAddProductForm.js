@@ -8,6 +8,7 @@ const VendorAddProductForm = ({
   modal,
   setModal,
   setProducts,
+
   products,
   addProductformCancelHandler
 }) => {
@@ -16,6 +17,7 @@ const VendorAddProductForm = ({
     name: "",
     price: ""
   });
+
   const myWidget = window.cloudinary.createUploadWidget(
     {
       cloudName: "quickstlabs",
@@ -69,7 +71,7 @@ const VendorAddProductForm = ({
             }
           }
         });
-        newInfo = { ...newInfo, vendor: "5e1887574321360017dbf6b3" };
+        newInfo = { ...newInfo, vendor: "5e1410234df7fc0fb0a5a5dc" };
         setProductPictureInfo(newInfo);
       }
     }
@@ -87,26 +89,32 @@ const VendorAddProductForm = ({
   const onSubmit = async e => {
     e.preventDefault();
     const res_1 = await axios.post(
-      `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5e1887574321360017dbf6b3/products`,
+      `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5e1410234df7fc0fb0a5a5dc/products`,
       {
         diet: ["Vegan"],
         name: product.name,
         description: "test description",
         category: "test cat",
-        price: product.price,
-        imageId: ""
+        price: product.price
       }
     );
     let productInfo = res_1.data.data;
-    console.log(`first`, productInfo);
+
     const res_2 = await axios.post(
       `https://quickstlabs.herokuapp.com/api/v1.0/products/${productInfo._id}/product-images`,
       productPictureInfo
     );
-    console.log(`public_id`, res_2.data.data.public_id);
-    // productInfo = { ...productInfo, imageId: `${res_2.data.data.public_id}` };
-    productInfo.imageId = res_2.data.data.public_id;
-    console.log(`second`, productInfo);
+
+    // have a bug here !!!!!!!
+    if (res_2.data.data.public_id) {
+      productInfo = {
+        imageId: res_2.data.data.public_id,
+        ...productInfo,
+
+        etag: res_2.data.data.etag,
+        test: "test"
+      };
+    }
 
     setModal(false);
     setProducts([...products, productInfo]);

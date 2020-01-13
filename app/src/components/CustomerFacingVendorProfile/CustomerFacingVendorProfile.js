@@ -10,11 +10,11 @@ const CustomerFacingVendorProfile = (props) => {
   const vendorId = props.match.params.id;
 
   return (
-    <div className= 'container'>
+    <>
       <About vendorId={vendorId} />
       <Products vendorId={vendorId} />
       <Posts vendorId={vendorId} />
-    </div>
+    </>
   )
 }
 

@@ -16,12 +16,9 @@ function App() {
         <Route path="/login" component={Login} />
         <Route path="/profile/:id" component={VendorProfile} />
         <Route exact path="/browse" component={Browse} />
-        <Route path='/browse/:id' component={CustomerFacingVendorProfile} />
+        <Route path="/browse/:id" component={CustomerFacingVendorProfile} />
       </div>
-
     </div>
-
-
   );
 }
 

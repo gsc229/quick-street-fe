@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../scss/vendor_bulletin.module.scss"
+    ],
+    "names": [],
+    "file": "vendor_bulletin.module.css"
+}

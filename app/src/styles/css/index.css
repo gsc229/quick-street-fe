@@ -13,9 +13,8 @@ body {
 }
 
 #wrapper {
-  border: 2px solid gold;
   width: 66.6%;
-  text-align: left;
+  border: 5px solid goldenrod;
   margin: 0 auto;
 }
 /*# sourceMappingURL=index.css.map */

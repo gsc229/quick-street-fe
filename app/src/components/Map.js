@@ -5,9 +5,9 @@ import '../styling/vendorsNearby.css';
 
 const Map = (props) => {
 
-  const [ mapDetails, setMapDetails ] = useState({
+  const [mapDetails, setMapDetails] = useState({
     lng: -78.435315,
-    lat: 28.644141, 
+    lat: 28.644141,
     isDefault: false
   });
 
@@ -21,9 +21,9 @@ const Map = (props) => {
           ...mapDetails,
           lat: response.data.results[0].geometry.location.lat,
           lng: response.data.results[0].geometry.location.lng,
-          isDefault :true
+          isDefault: true
         })
-        
+
       })
   };
 
@@ -36,13 +36,13 @@ const Map = (props) => {
   useEffect(() => {
     let options = {
       center: { lat: mapDetails.lat, lng: mapDetails.lng },
-      zoom: mapDetails.isDefault ? 11 : 5, 
-      zoomControl: false, 
+      zoom: mapDetails.isDefault ? 11 : 5,
+      zoomControl: false,
       gestureHandling: 'none'
     }
     const map = new window.google.maps.Map(document.getElementById('map'), options);
-    
-    if (mapDetails.isDefault) { 
+
+    if (mapDetails.isDefault) {
       let cityCircle = new window.google.maps.Circle({
         strokeColor: '#B706F5',
         strokeOpacity: 0.8,
@@ -54,14 +54,14 @@ const Map = (props) => {
         radius: props.radius
       });
     }
-    
-  }, [mapDetails]); 
+
+  }, [mapDetails]);
   return (
-    <div style={{width: props.width, height: props.height }} id='map' />
+    <div id='map' />
     // <h1>Map</h1>
 
   );
-  
+
 }
 
 export default Map;

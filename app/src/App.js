@@ -5,6 +5,7 @@ import VendorProfile from "./components/VendorProfile/VendorProfile";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Browse from "./components/Browse";
+
 import CustomerFacingVendorProfile from "./components/CustomerFacingVendorProfile/CustomerFacingVendorProfile";
 
 function App() {

@@ -8,6 +8,8 @@ const VendorAboutForm = ({ editAbout, vendorInfo, info, setInfo }) => {
   const changeHandler = e => {
     setInfo({ ...info, [e.target.name]: e.target.value });
   };
+
+  console.log(`vendor info`, vendorInfo);
   return (
     <div>
       <form className={about.vendor_info_form}>
@@ -52,7 +54,7 @@ const VendorAboutForm = ({ editAbout, vendorInfo, info, setInfo }) => {
             <div className={about.vendor_info_hour_input_group}>
               <div className={about.inputWithIcon}>
                 <input
-                  type="time"
+                  type="text"
                   name="hour_from"
                   className={about.hour_input}
                   value={
@@ -76,7 +78,7 @@ const VendorAboutForm = ({ editAbout, vendorInfo, info, setInfo }) => {
               <div className={about.inputWithIcon}>
                 <input
                   className={about.vendor_info_hour_input_2}
-                  type="time"
+                  type="text"
                   name="hour_to"
                   className={about.hour_input}
                   id={about.hour_to}

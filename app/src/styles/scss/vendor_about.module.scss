@@ -1,0 +1,223 @@
+.vendor_about_container{
+  border: hotpink solid 5px;
+  margin-top: 100px;
+  position: relative;
+  background: rgba(225, 246, 250, 0.45);
+  height: fit-content;
+  
+  .inner_container{
+    border: 2px solid yellow;
+    margin: 100px 200px 50px 200px;                
+    
+    .about_top{
+      display: flex;
+      justify-content: space-between;
+      border: 2px gold solid;
+      position: relative;
+      h3{
+        font-family: Raleway;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 28px;
+        
+        color: #2B3335;
+      }
+
+      .vendor_about_btn_group{
+          border: 3px solid red;
+          width: 70px;
+          height: fit-content;
+          position: relative;
+          align-self: flex-start;
+          left: 10.5%;
+          display: flex;
+          justify-content: space-between;
+          #pen{
+            color: #00B2ED;
+          }
+          #save{
+            color: grey;            
+          }
+         
+          .icon{
+            cursor: pointer;
+          }
+      }
+
+    }
+    
+      
+      
+  }
+
+  textarea{
+    border: 1px solid rgba(43, 51, 53, 0.5);
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 5px;
+    
+    font-family: Raleway;
+
+    font-size: 18px;
+    line-height: 21px;
+
+    color: #2B3335;
+
+  }
+
+
+
+  input{
+    border: 1px solid rgba(43, 51, 53, 0.5);
+    box-sizing: border-box;
+    border-radius: 7px;
+    width: 120px;
+    padding: 5px;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+/* identical to box height */
+
+    display: flex;
+    align-items: center;
+
+    color: #2B3335;
+  }
+
+  select{
+    border: 1px solid rgba(43, 51, 53, 0.5);
+    box-sizing: border-box;
+    border-radius: 7px;
+    width: 118px;
+    padding: 5px;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+/* identical to box height */
+
+    display: flex;
+    align-items: center;
+
+    color: #2B3335;
+  }
+
+  label{
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #2B3335;
+  }
+
+
+
+  
+
+}
+
+.vendor_info_form{
+  border: 2px solid turquoise;
+  display: flex;
+  justify-content: space-evenly ;
+
+
+
+  .vendor_info_left{
+    width: 50%;
+    border: 2px solid purple; 
+    padding: 20px; 
+    .vendor_info_phone{
+      
+      .inputWithIcon{
+      position: relative;
+      width: 400px;
+      input{
+        width: 400px;
+      }
+      .input_icon{
+      position: absolute;
+      right: 10px;
+      top: 5px; 
+      font-size: 16px   
+      }    
+    }
+    }
+  }
+
+  .vendor_info_right{
+    border: 2px solid purple;
+    width: 50%;
+    padding: 20px;
+
+    .vendor_info_hour{
+      border: solid red 2px;
+      .vendor_info_hour_input_group{
+        border: blue 2px solid;            
+        display: flex;
+        
+        width: 100%;
+        
+
+        p{
+        position: relative;
+        display: inline-block;
+        
+        margin: 0 20px;
+        top: 10px;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+        text-align: center;
+      }   
+      
+        .inputWithIcon{
+          position: relative;
+          width: 120px;
+          
+          .input_icon{
+          position: absolute;
+          right: 33px;
+          top: 8px;  
+          font-size: 16px    
+          }    
+        }
+      }
+    }   
+
+}
+
+
+   .hour_input{
+        background: #FFFFFF;
+        border: 1px solid #D2D2D2;
+        box-sizing: border-box;
+        border-radius: 6px;
+        width: 130px;
+        
+    }
+
+  
+
+  .input_container{
+    display: flex;
+    flex-direction: column;
+    .input-group-text{
+      background-color: white;
+    }
+   
+    select{
+      height: 30px;
+    }
+  }
+
+}
+

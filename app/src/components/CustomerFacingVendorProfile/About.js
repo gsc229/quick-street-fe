@@ -4,10 +4,10 @@ import Map from '../Map';
 import axiosWithAuth from '../../utils/axiosWithAuth';
 import '../../styling/customerFacingVendorProfile.css';
 // import { image } from '../../assets/rectangle.png';
+import { Image, CloudinaryContext, Transformation } from "cloudinary-react";
+const About = (props) => {
 
-const About = (props) => { 
-  
-  const [ vendor, setVendor ] = useState({
+  const [vendor, setVendor] = useState({
     location: {}
   })
 
@@ -27,12 +27,20 @@ const About = (props) => {
   useEffect(() => {
     getVendor(props.vendorId);
   }, [])
-  
+
   return (
     <div>
       <div className='top_section'>
         <p>{vendor.business_name}</p>
-        <img src={vendor.vendor_banner} alt='Vendor Banner Image' />
+        <CloudinaryContext cloudName='quickstlabs'>
+          <Image
+
+            publicId={vendor.vendor_banner}
+          >
+            <Transformation gravity="center" height="318" width="1062" crop="fill" />
+
+          </Image>
+        </CloudinaryContext>
       </div>
       <div className='bottom_section'>
         <div className='vendor_info_section'>

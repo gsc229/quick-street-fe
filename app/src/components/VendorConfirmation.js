@@ -3,6 +3,7 @@ import React from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
 const VendorConfirmation = (props) => {
+  console.log('VendorConfirmation props: ', props);
   const { email, password, businessName, phoneNumber, streetAddress, city, zipcode } = props.values;
 
   const cancel = (event) => {
@@ -20,12 +21,12 @@ const VendorConfirmation = (props) => {
       return zipcode;
     }
   }
-  
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const registerObject = {
       email,
-      password, 
+      password,
       business_name: businessName,
       phone: phoneNumber,
       address: convertAddress()
@@ -34,72 +35,73 @@ const VendorConfirmation = (props) => {
     axiosWithAuth()
       .post('/auth/register', registerObject)
       .then(response => {
-        console.log(response);
+        console.log('POST VendorConfirm res: ', response);
         localStorage.setItem('token', response.data.token);
+        props.history.push(`/profile/${response.data.id}`)
       })
       .catch(error => {
         console.log(error.response);
       });
-    
+
   }
 
   return (
     <div className="main_container_confirm">
-    <div className='confirmation_container'>
-      <div className='vendor_confirmation_div'>
-        <p className ='vendor_confirmation_title'>Email</p>
-        <p className='vendor_confirmation_value'>{email}</p>
-      </div>
-
-      <div className='vendor_confirmation_div'>
-        <p className ='vendor_confirmation_title'>Password</p>
-        <p className='vendor_confirmation_value'>{password}</p>
-      </div>
-      
-      <div className='vendor_confirmation_div'>
-        <p className ='vendor_confirmation_title'>Business Name</p>
-        <p className='vendor_confirmation_value'>{businessName}</p>
-      </div>
-      
-      <div className='vendor_confirmation_div'>
-        <p className ='vendor_confirmation_title'>Phone Number</p>
-        <p className='vendor_confirmation_value'>{phoneNumber}</p>
-      </div>
-      
-
-      {streetAddress.length > 0 && (
+      <div className='confirmation_container'>
         <div className='vendor_confirmation_div'>
-          <p className ='vendor_confirmation_title'>Street Address</p>
-          <p className='vendor_confirmation_value'>{streetAddress}</p>
+          <p className='vendor_confirmation_title'>Email</p>
+          <p className='vendor_confirmation_value'>{email}</p>
         </div>
-      )}
 
-      {city.length > 0 && (
-        <div className='vendor_confirmation_div address_confirmation'>
-          <div className='vendor_city_confirmation'>
-            <p className ='vendor_confirmation_title'>City</p>
-            <p className='vendor_confirmation_value'>{city}</p>
+        <div className='vendor_confirmation_div'>
+          <p className='vendor_confirmation_title'>Password</p>
+          <p className='vendor_confirmation_value'>{password}</p>
+        </div>
+
+        <div className='vendor_confirmation_div'>
+          <p className='vendor_confirmation_title'>Business Name</p>
+          <p className='vendor_confirmation_value'>{businessName}</p>
+        </div>
+
+        <div className='vendor_confirmation_div'>
+          <p className='vendor_confirmation_title'>Phone Number</p>
+          <p className='vendor_confirmation_value'>{phoneNumber}</p>
+        </div>
+
+
+        {streetAddress.length > 0 && (
+          <div className='vendor_confirmation_div'>
+            <p className='vendor_confirmation_title'>Street Address</p>
+            <p className='vendor_confirmation_value'>{streetAddress}</p>
           </div>
-          <div className='vendor_city_confirmation'>
-            <p className ='vendor_confirmation_title'>Zipcode</p>
+        )}
+
+        {city.length > 0 && (
+          <div className='vendor_confirmation_div address_confirmation'>
+            <div className='vendor_city_confirmation'>
+              <p className='vendor_confirmation_title'>City</p>
+              <p className='vendor_confirmation_value'>{city}</p>
+            </div>
+            <div className='vendor_city_confirmation'>
+              <p className='vendor_confirmation_title'>Zipcode</p>
+              <p className='vendor_confirmation_value'>{zipcode}</p>
+            </div>
+          </div>
+        )}
+
+        {city.length === 0 && (
+          <div className='vendor_confirmation_div'>
+            <p className='vendor_confirmation_title'>Zipcode</p>
             <p className='vendor_confirmation_value'>{zipcode}</p>
           </div>
-        </div>
-      )}
+        )}
 
-      {city.length === 0 && (
         <div className='vendor_confirmation_div'>
-        <p className ='vendor_confirmation_title'>Zipcode</p>
-        <p className='vendor_confirmation_value'>{zipcode}</p>
-      </div> 
-      )}
+          <button className='cancel_button' onClick={cancel}>Cancel</button>
+          <button className='confirm_button' onClick={handleSubmit}>Save</button>
+        </div>
 
-      <div className='vendor_confirmation_div'>
-        <button className='cancel_button' onClick={cancel}>Cancel</button>
-        <button className='confirm_button' onClick={handleSubmit}>Save</button>
       </div>
-
-    </div>
     </div>
   )
 

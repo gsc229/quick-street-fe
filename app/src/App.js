@@ -1,21 +1,25 @@
-import React from 'react';
-import { Route } from 'react-router-dom';
-import './App.css';
-import VendorProfile from './components/VendorProfile/VendorProfile';
-import Register from './components/Register';
-import Login from './components/Login';
-import LandingPage from './components/LandingPage/index';
+import React from "react";
+import { Route } from "react-router-dom";
+import "./App.css";
+import VendorProfile from "./components/VendorProfile/VendorProfile";
+import Register from "./components/Register";
+import Login from "./components/Login";
+import Browse from "./components/Browse";
+import CustomerFacingVendorProfile from "./components/CustomerFacingVendorProfile/CustomerFacingVendorProfile";
 
 function App() {
-	return (
-		<div>
-			<LandingPage />
-			<Route path="/landing" component={LandingPage} />
-			<Route path="/register" component={Register} />
-			<Route path="/login" component={Login} />
-			<Route path="/profile" component={VendorProfile} />
-		</div>
-	);
+  console.log(window.cloudinary);
+  return (
+    <div id="wrapper">
+      <div>
+        <Route path="/register" component={Register} />
+        <Route path="/login" component={Login} />
+        <Route path="/profile/:id" component={VendorProfile} />
+        <Route exact path="/browse" component={Browse} />
+        <Route path="/browse/:id" component={CustomerFacingVendorProfile} />
+      </div>
+    </div>
+  );
 }
 
 export default App;

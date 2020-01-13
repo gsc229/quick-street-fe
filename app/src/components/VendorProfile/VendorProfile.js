@@ -1,91 +1,196 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import VendorAbout from "./VendorAbout";
 import VendorProducts from "../VendorProduct/VendorProducts";
 import VendorAddProductForm from "../../components/VendorProduct/VendorAddProductForm";
 import picture from "../../assets/placeholder.png";
-import create from "../../assets/create.png";
-import save from "../../assets/save.png";
-import upload from "../../assets/upload.png";
 import VendorBulletin from "../VendorBulletin/VendorBulletin";
-import rectangle from "../../assets/rectangle.png";
-import {
-  Image,
-  Video,
-  Transformation,
-  CloudinaryContext
-} from "cloudinary-react";
+import profile from "../../styles/css/vendor_profile.module.css";
+//Font awesom
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSave, faPen, faUpload } from "@fortawesome/free-solid-svg-icons";
+
+import { Image, CloudinaryContext, Transformation } from "cloudinary-react";
 import axios from "axios";
 
-const p = [
-  {
-    name: "product",
-    price: "1.00",
-    img: rectangle
-  },
-  {
-    name: "product",
-    price: "1.00",
-    img: rectangle
-  },
-  {
-    name: "product",
-    price: "1.00",
-    img: rectangle
-  },
-  {
-    name: "product",
-    price: "1.00",
-    img: rectangle
-  },
-  {
-    name: "product",
-    price: "1.00",
-    img: rectangle
-  },
-  {
-    name: "product",
-    price: "1.00",
-    img: rectangle
-  },
-  {
-    name: "product",
-    price: "1.00",
-    img: rectangle
-  }
-];
+const VendorProfile = props => {
+  console.log("VendorProfile.js props: ", props);
 
-const VendorProfile = () => {
   const [modal, setModal] = useState(false);
-  const [banner, setBanner] = useState(picture);
+  const [vendorInfo, setVendorInfo] = useState({ location: "" });
   const [bannerInfo, setBannerInfo] = useState("");
+  const [products, setProducts] = useState([]);
+  const [productIds, setProductIds] = useState([]);
+  const [productImagesIds, setProductImagesIds] = useState([]);
+  const [info, setInfo] = useState({
+    business_name: "",
+    days: "0",
+    phone: "",
+    about: "",
+    hour_from: "",
+    hour_to: "",
+    location: ""
+  });
+  const vendorId = props.match.params.id;
+  const [editAbout, setEditAbout] = useState(false);
+  const [editBusinessName, setEditBusinessName] = useState(false);
   const myWidget = window.cloudinary.createUploadWidget(
     {
-      cloudName: "dxhescd0s",
-      uploadPreset: "quickstreet"
-    },
-    (error, result) => {
-      if (!error && result && result.event === "success") {
-        setBannerInfo(result.info);
+      cloudName: "quickstlabs",
+      uploadPreset: "product-images",
+      sources: [
+        "local",
+        "url",
+        "camera",
+        "image_search",
+        "facebook",
+        "dropbox",
+        "instagram"
+      ],
+      showAdvancedOptions: true,
+      cropping: true, // if true multiple must be false, set to false [set multiple to true] to upload multiple files
+      multiple: false,
+      defaultSource: "local",
+      styles: {
+        palette: {
+          window: "#FFFFFF",
+          sourceBg: "#00B2ED",
+          windowBorder: "#E1F6FA",
+          tabIcon: "#2B3335",
+          inactiveTabIcon: "#555a5f",
+          menuIcons: "#5B5F63",
+          link: "#00769D",
+          action: "#21B787",
+          inProgress: "#00769D",
+          complete: "#21B787",
+          error: "#E92323",
+          textDark: "#2B3335",
+          textLight: "#FFFFFF"
+        },
+        fonts: {
+          default: null,
+          "'Poppins', sans-serif": {
+            url: "https://fonts.googleapis.com/css?family=Poppins",
+            active: true
+          }
+        }
       }
+    },
+    async (error, result) => {
+      if (!error && result && result.event === "success") {
+        const banner_info = await result.info;
+        setBannerInfo(banner_info.public_id);
+      }
+      axios.put(
+        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`,
+
+        { ...vendorInfo, vendor_banner: `${bannerInfo}` }
+      );
     }
   );
 
-  console.log(bannerInfo);
+  useEffect(() => {
+    async function fetchVendorInfo() {
+      try {
+        const vendorInfo = await axios.get(
+          `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`
+        );
+        console.log(`vendorinfo changed`, vendorInfo);
+        setVendorInfo(vendorInfo.data.data);
+        setBannerInfo(vendorInfo.data.data.vendor_banner);
+      } catch (e) {
+        console.log(e);
+      }
+    }
+    fetchVendorInfo();
 
+    async function fetchProducts() {
+      try {
+        const products = await axios.get(
+          `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}/products`
+        );
+
+        setProducts(products.data.data);
+        setProductIds(products.data.data.map(p => p._id));
+      } catch (e) {
+        console.log(e);
+      }
+    }
+    fetchProducts();
+  }, []);
+
+  useEffect(() => {
+    let temp_ids = [];
+    async function fetchImageIds() {
+      if (productIds.length !== 0) {
+        for (const ids of productIds) {
+          try {
+            const imageIds = await axios.get(
+              `https://quickstlabs.herokuapp.com/api/v1.0/products/${ids}/product-images`
+            );
+
+            temp_ids.push(imageIds.data.data[0].public_id);
+          } catch (e) {
+            console.log(e);
+          }
+        }
+      }
+
+      setProductImagesIds(temp_ids);
+    }
+    fetchImageIds();
+  }, [productIds]);
+
+  if (products.length !== 0 && productImagesIds.length !== 0) {
+    for (let i = 0; i < products.length; i++) {
+      products[i].imageId = productImagesIds[i];
+    }
+  }
   const addProduct = () => {
     setModal(true);
   };
 
-  const addProductformClickHandler = () => {
+  const addProductformCancelHandler = e => {
+    e.preventDefault();
     setModal(false);
   };
 
-  const editProfile = () => {
-    console.log(`edit profile`);
+  const editName = () => {
+    setEditBusinessName(true);
   };
 
-  const saveProfile = () => {
-    console.log(`save profile`);
+  const saveName = e => {
+    e.preventDefault();
+    axios
+      .put(`https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`, {
+        ...vendorInfo,
+        business_name: info.business_name
+      })
+      .then(res => {
+        console.log(`update vendor info`, res);
+        setVendorInfo(res.data.data);
+      });
+  };
+
+  const editProfile = () => {
+    console.log(`edit profile clicked`);
+    setEditAbout(true);
+  };
+
+  const saveProfile = e => {
+    e.preventDefault();
+    axios
+      .put(`https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`, {
+        ...vendorInfo,
+        hours: `${info.hour_from}_${info.hour_to}`,
+        location: { ...vendorInfo.location, zipcode: info.location },
+        days_of_week: info.days,
+        phone: info.phone,
+        description: info.about
+      })
+      .then(res => {
+        console.log(`update vendor info`, res);
+        setVendorInfo(res.data.data);
+      });
   };
 
   const uploadBanner = e => {
@@ -93,62 +198,115 @@ const VendorProfile = () => {
     myWidget.open();
   };
 
-  // useEffect(() => {
-  //   return setBanner(
-  //     `https://res.cloudinary.com/dkz9kcsqy/image/upload/v1578004173/zzgiw4e7tw8m2r8d10lv.png`
-  //   );
-  // });
-
   return (
-    <div className="vendor_profile_container">
-      <div className="vendor_header_container">
-        <div className="vendor_profile_name">
-          <p>Name</p>
-          <p>Annie's Eclairs</p>
-        </div>
-        <div className="vendor_profile_btn_group">
-          <img src={create} alt="create" onClick={editProfile} />
+    <div className={profile.vendor_profile_container}>
+      <div className={profile.vendor_header_container}>
+        <h1>Market Avenue</h1>
 
-          <img src={save} alt="save" onClick={saveProfile} />
+        <div className={profile.header_links}>
+          <p className={profile.header_about}>About</p>
+          <p className={profile.header_food}>Food</p>
+          <p className={profile.header_business_name}>
+            {vendorInfo.business_name}
+          </p>
         </div>
       </div>
-      <div className="vendor_banner_container">
-        {bannerInfo.public_id ? (
-          <CloudinaryContext cloudName="dxhescd0s">
-            <Image
-              className="vendor_banner_image"
-              publicId={bannerInfo.public_id}
-              width="50"
+
+      <div className={profile.vendor_banner_container}>
+        <div className={profile.banner_text_btns}>
+          <div className={profile.vendor_header_name}>
+            <input
+              onChange={e =>
+                setInfo({ ...info, business_name: e.target.value })
+              }
+              value={
+                editBusinessName ? info.business_name : vendorInfo.business_name
+              }
             />
-          </CloudinaryContext>
-        ) : (
-          <img
-            className="vendor_banner_image"
-            src={banner}
-            alt="vendor header"
-          />
-        )}
-        <img
-          className="vendor_banner_upload"
-          src={upload}
-          alt="upload icon"
-          onClick={uploadBanner}
-        />
+          </div>
+
+          <div className={profile.vendor_profile_btn_group}>
+            <FontAwesomeIcon
+              id={profile.pen}
+              className={profile.icon}
+              icon={faPen}
+              onClick={editName}
+            />
+            <FontAwesomeIcon
+              id={profile.save}
+              className={profile.icon}
+              icon={faSave}
+              onClick={saveName}
+            />
+
+            {/* <img src={create} alt='create' onClick={editProfile} />
+            <img src={save} alt='save' onClick={saveProfile} /> */}
+          </div>
+        </div>
+
+        <div className={profile.vendor_banner_image_container}>
+          {bannerInfo !== `no-photo.jpg` ? (
+            <CloudinaryContext cloudName="quickstlabs">
+              <Image
+                className={profile.vendor_banner_image}
+                publicId={bannerInfo}
+              >
+                <Transformation
+                  gravity="center"
+                  height="318"
+                  width="1062"
+                  crop="fill"
+                />
+              </Image>
+            </CloudinaryContext>
+          ) : (
+            <img
+              className="vendor_banner_image"
+              src={picture}
+              alt="vendor header"
+            />
+          )}
+          <div className={profile.vendor_banner_upload}>
+            <FontAwesomeIcon
+              id={profile.upload}
+              className={profile.icon}
+              icon={faUpload}
+              onClick={uploadBanner}
+            />
+            {/* <img
+              src={upload}
+              alt='upload icon'
+              onClick={uploadBanner}
+            /> */}
+          </div>{" "}
+        </div>
       </div>
-      <nav className="vendor_profile_nav">
-        <ul>
-          <li>About</li>
-          <li>Bulletin</li>
-          <li>Products</li>
-        </ul>
-      </nav>
-      <VendorAbout />
-      <VendorBulletin />
-      <VendorProducts products={p} addProduct={addProduct} />
-      <VendorAddProductForm
-        modal={modal}
-        addProductformClickHandler={addProductformClickHandler}
+
+      <VendorAbout
+        vendorInfo={vendorInfo}
+        info={info}
+        setInfo={setInfo}
+        editAbout={editAbout}
+        editProfile={editProfile}
+        saveProfile={saveProfile}
       />
+
+      <VendorProducts
+        productIds={productIds}
+        products={products}
+        addProduct={addProduct}
+      />
+      <VendorAddProductForm
+        productIds={productIds}
+        modal={modal}
+        products={products}
+        addProduct={addProduct}
+        setProducts={setProducts}
+        setModal={setModal}
+        addProductformCancelHandler={addProductformCancelHandler}
+        vendorId={vendorId}
+      />
+      <VendorBulletin vendorId={vendorId} />
     </div>
   );
 };

@@ -1,0 +1,22 @@
+.vendor_product_list_container{
+  border: 5px solid orangered;
+  height: 745px;
+
+
+  .vendor_product_list_wrapper{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .add_product_btn {
+  width: 146px;
+  height: 122px;
+  position: relative;
+  top: 10px;
+  cursor: pointer;
+  }
+}
+
+.profile_product_image{
+  margin: 10px;
+}

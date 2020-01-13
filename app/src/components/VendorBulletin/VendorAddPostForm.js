@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 
-const VendorAddPostForm = ({ show, cancelAddPost }) => {
+const VendorAddPostForm = ({
+  post,
+  setPost,
+  show,
+  cancelAddPost,
+  postSubmit
+}) => {
   let today = new Date();
 
   let dd = String(today.getDate()).padStart(2, "0");
   let mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
   let yyyy = today.getFullYear();
-
   today = mm + "/" + dd + "/" + yyyy;
-
-  const [post, setPost] = useState({
-    content: "",
-    zipcode: ""
-  });
 
   const postChangeHandler = e => {
     setPost({ ...post, [e.target.name]: e.target.value });
@@ -24,6 +24,7 @@ const VendorAddPostForm = ({ show, cancelAddPost }) => {
       className={
         show ? "vendor_add_post_form_show" : "vendor_add_post_form_hide"
       }
+      onSubmit={postSubmit}
     >
       <p>{`Date ${today}`}</p>
       <textarea

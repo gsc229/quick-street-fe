@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import '../styling/registration.css';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
-const Login = () => {
-  const [ credentials, setCredentials ] = useState({
+const Login = (props) => {
+  const [credentials, setCredentials] = useState({
     email: '',
     emailError: '',
     password: '',
@@ -15,7 +15,7 @@ const Login = () => {
   const handleChange = (event) => {
     setCredentials({
       ...credentials,
-      [event.target.name] : event.target.value,
+      [event.target.name]: event.target.value,
       emailError: '',
       passwordError: ''
     });
@@ -29,7 +29,7 @@ const Login = () => {
       emailError = 'Email cannot be empty';
     }
 
-    if(!credentials.password) {
+    if (!credentials.password) {
       passwordError = 'Password cannot be empty';
     }
 
@@ -40,7 +40,7 @@ const Login = () => {
         passwordError
       });
       return false;
-    } 
+    }
 
     return true;
 
@@ -49,20 +49,28 @@ const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (validate()) {
-      console.log(credentials);
+      // console.log(credentials);
+      axiosWithAuth()
+        .post('/auth/login', { email: credentials.email, password: credentials.password })
+        .then(response => {
+          console.log(response.data.id);
+          localStorage.setItem('token', response.data.token);
+          props.history.push(`profile/${response.data.id}`)
+        })
+        .catch(error => {
+          console.log(error.response);
+        });
     }
-    
-    // implement post request once backend is deployed
   }
 
-  return(
-    <div div className='form_container_login'>
+  return (
+    <div className='form_container_login'>
       <div className='form_details'>
         <h1>Welcome Back!</h1>
         <h1>Log In</h1>
         <h3>Don't have an account? <Link className='link' to="/register">Create One</Link></h3>
         <form onSubmit={handleSubmit}>
-          <div className='form_input'>  
+          <div className='form_input'>
             <label htmlFor='email'>Email</label>
             <input
               type='text'
@@ -76,9 +84,9 @@ const Login = () => {
               {credentials.emailError}
             </p>
           </div>
-          <div className='form_input'> 
+          <div className='form_input'>
             <label htmlFor='password'>Password</label>
-            <input 
+            <input
               type='password'
               name='password'
               id='password'
@@ -95,7 +103,7 @@ const Login = () => {
       </div>
     </div>
   )
-  
+
 }
 
 export default Login;

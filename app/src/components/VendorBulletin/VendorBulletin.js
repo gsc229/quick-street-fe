@@ -1,30 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import VendorAddPostForm from "./VendorAddPostForm";
 import VendorPostList from "./VendorPostList";
-
-const p = [
-  {
-    content:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
-    date: "12/05/2016",
-    location: "New York"
-  },
-  {
-    content:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
-    date: "11/12/2019",
-    location: "New York"
-  },
-  {
-    content:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
-    date: "11/12/2019",
-    location: "New York"
-  }
-];
+import axios from "axios";
 
 const VendorBulletin = props => {
   const [showAddPostForm, setShowAddPostForm] = useState(false);
+  const [posts, setPosts] = useState([]);
+  const [post, setPost] = useState({
+    content: "",
+    zipcode: ""
+  });
 
   const addPost = e => {
     e.preventDefault();
@@ -35,6 +20,30 @@ const VendorBulletin = props => {
     e.preventDefault();
     setShowAddPostForm(false);
   };
+
+  const postSubmit = e => {
+    e.preventDefault();
+    axios
+      .post(
+        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${props.vendorId}/posts`,
+        { title: "test title", description: post.content }
+      )
+      .then(res => setPosts([...posts, res.data.data]));
+
+    setPost({ post: "", content: "" });
+    setShowAddPostForm(false);
+  };
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${props.vendorId}/posts`
+      )
+      .then(res => {
+        console.log(res.data.data);
+        setPosts(res.data.data);
+      });
+  }, []);
 
   return (
     <div className="vendor_bulletin_container">
@@ -47,9 +56,15 @@ const VendorBulletin = props => {
         <button onClick={addPost}>Add Post</button>
       </div>
 
-      <VendorAddPostForm show={showAddPostForm} cancelAddPost={cancelAddPost} />
+      <VendorAddPostForm
+        show={showAddPostForm}
+        cancelAddPost={cancelAddPost}
+        post={post}
+        setPost={setPost}
+        postSubmit={postSubmit}
+      />
 
-      <VendorPostList posts={p} />
+      <VendorPostList posts={posts} />
     </div>
   );
 };

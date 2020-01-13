@@ -1,101 +1,50 @@
-import React, { useState } from "react";
+import React from "react";
+import about from "../../styles/css/vendor_about.module.css";
+import VendorAboutForm from "./VendorAboutForm";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSave, faPen, faPlus } from "@fortawesome/free-solid-svg-icons";
 
-import down from "../../assets/down.png";
-
-const About = props => {
-  const [info, setInfo] = useState({
-    days: "0",
-    phone: "",
-    about: "",
-    hour_from: "",
-    hour_to: "",
-    location: ""
-  });
-
-  const changeHandler = e => {
-    setInfo({ ...info, [e.target.name]: e.target.value });
-  };
-
-  const submitHandler = e => {
-    e.preventDefault();
-    console.log(`submitted`);
-  };
-
+const About = ({
+  editAbout,
+  vendorInfo,
+  info,
+  setInfo,
+  editProfile,
+  saveProfile
+}) => {
   return (
-    <div className="vendor_about_container">
-      <div className="vendor_about_title">
-        <p>About Us</p>
-        <hr />
-      </div>
+    <div className={about.vendor_about_container}>
+      <div className={about.inner_container}>
+        <div className={about.about_top}>
+          <h3>About Us</h3>
+          <div className={about.vendor_about_btn_group}>
+            <FontAwesomeIcon
+              id={about.pen}
+              className={about.icon}
+              icon={faPen}
+              onClick={editProfile}
+            />
+            <FontAwesomeIcon
+              id={about.save}
+              className={about.icon}
+              icon={faSave}
+              onClick={saveProfile}
+            />
 
-      <form className="vendor_info_form">
-        <div className="vendor_info_left">
-          <div className="vendor_info_hour">
-            <label>Hours of Operation</label>
-            <div className="vendor_info_hour_input_group">
-              <input
-                type="time"
-                name="hour_from"
-                value={info.hour_from}
-                onChange={changeHandler}
-              />
-              to
-              <input
-                className="vendor_info_hour_input_2"
-                type="time"
-                name="hour_to"
-                value={info.hour_to}
-                onChange={changeHandler}
-              />
-            </div>
-          </div>
-          <div className="vendor_info_days">
-            <label>Days of week</label>
-            <select name="days" value={info.days} onChange={changeHandler}>
-              <option value="0">Select days</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-            </select>
-            <span className="vendor_info_arrow">
-              <img src={down} alt="arrow down" />
-            </span>
-          </div>
-          <div className="vendor_info_phone">
-            <label>Phone</label>
-            <input
-              type="number"
-              name="phone"
-              value={info.phone}
-              onChange={changeHandler}
-            />
-          </div>
-          <div className="vendor_info_about">
-            <label>About</label>
-            <textarea
-              type="text"
-              name="about"
-              value={info.about}
-              onChange={changeHandler}
-            />
+            {/* <img src={create} alt='create' onClick={editProfile} />
+                <img src={save} alt='save' onClick={saveProfile} /> */}
           </div>
         </div>
-        <div className="vendor_info_right">
-          <div className="vendor_info_location">
-            <label>Location</label>
-            <input
-              type="text"
-              name="location"
-              value={info.location}
-              onChange={changeHandler}
-            />
-          </div>
+
+        <div className={about.bottom}>
+          <VendorAboutForm
+            editAbout={editAbout}
+            vendorInfo={vendorInfo}
+            info={info}
+            setInfo={setInfo}
+          />
         </div>
-      </form>
+      </div>
     </div>
   );
 };

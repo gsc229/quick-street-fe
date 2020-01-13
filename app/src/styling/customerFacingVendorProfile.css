@@ -1,0 +1,141 @@
+.container {
+  width: 1440px;
+  margin: 0 auto;
+  /* max-width: 100%; */
+  
+}
+
+.top_section {
+  /* border: 1px solid red; */
+  margin: 7% 13% 7% 13%;
+}
+
+.top_section p {
+  font-size: 36px;
+  /* line-height: 42px; */
+  font-family: 'Raleway', sans-serif;
+  color: #2B3335;
+}
+
+.top_section img {
+  width: 100%;
+  height: 200px;
+  /* width: 100%;
+  height: 10%; */
+  object-fit: cover;
+  /* border: 1px red solid; */
+}
+
+.bottom_section {
+  background-color: #E1F6FA;
+  display: flex;
+  padding-right: 13%;
+  padding-left: 13%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.vendor_info_section {
+  width: 60%;
+}
+
+.section_title {
+  padding-bottom: 5%;
+  font-size: 36px;
+  color: #2B3335;
+}
+
+
+.location_section {
+
+}
+
+.title {
+  font-size: 16px;
+  color: #2B3335;
+}
+
+.title_content {
+  padding-left: 30px;
+  color: #2B3335;
+}
+
+.map {
+  width: 400px;
+  height: 280px;
+}
+
+.product_section {
+  margin-right: 13%;
+  margin-left: 13%;
+  padding-top: 5%;
+  padding-bottom: 10%;
+}
+
+.products_div {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row
+}
+
+.product {
+  width: 200px;
+  height: 260px; 
+  margin: 15px;
+}
+
+.product_image {
+  width: 200px;
+  height: 180px;
+  object-fit: cover;
+}
+
+.bulletin_board_section {
+  padding-right: 13%;
+  padding-left: 13%;
+  /* background-color:#e9bbfa; */
+  /* opacity: 0.1; */
+  background-color: rgba(233, 187, 250, 0.15);
+  padding-bottom: 5%;
+  padding-top: 3%;
+  color: #000000;
+  margin-bottom: 10%;
+}
+
+.section_title {
+  margin-top: 2%;
+}
+
+.posts_div {
+  /* margin-top: 5%;
+  margin-bottom: 5%; */
+  margin: 0 auto 0 10%;
+}
+
+.post_date {
+  width: 10%;
+  padding-left: 30px;
+  /* border: 1px red solid; */
+}
+
+.post_date_line {
+  width: 900px;
+  display: flex;
+  justify-content: space-between;
+}
+
+hr {
+  width: 85%;
+  text-align: center; 
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2); 
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  line-height: 0.1em;
+  margin:0 0 25px;
+}
+
+.post_content {
+  padding-left: 140px;
+  margin-bottom: 10%;
+}

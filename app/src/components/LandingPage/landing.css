@@ -1,3 +1,4 @@
+
 .landingContainer {
 	width: 100%;
 	margin: auto;
@@ -9,7 +10,7 @@
 }
 .heroContainer {
 	width: 100%;
-	height: 808px;
+	min-height:718px;
 	background-image: url('../../assets/landing/images/hero-banner.png');
 	background-repeat: no-repeat;
 	background-size: 100% auto;
@@ -77,31 +78,28 @@
 }
 
 .marketing-Container {
-	height: 704px;
 	background-color: #00b2ed;
 	margin: auto;
-	padding: 40px;
+	width: 98%;
 	border-radius: 10px;
 }
 .marketing-box-top-row {
 	flex: 1;
 	flex-direction: row;
+	padding: 20px;
 }
 .marketing-box-top-row h1 {
 	color: #fff;
-	font-family: Rubik;
-	font-style: normal;
-	font-weight: 500;
-	font-size: 30px;
-	line-height: 166.86%;
-	/* or 50px */
-	display: flex;
-	align-items: center;
-	border-radius: 5px;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 166.86%;
+    width: 30%;
+    float: left;
 }
 .marketing-box-top-row-btn {
 	width: 161px;
-	height: 43px;
 	background: #e92323;
 	border-radius: 5px;
 	text-align: center;
@@ -113,6 +111,9 @@
 	font-weight: bold;
 	font-size: 14px;
 	line-height: 193.5%;
+	float: right;
+	margin-top: 40px;
+    padding: 15px;
 }
 .marketing-box-bottom-row {
 	flex: 1;
@@ -233,4 +234,23 @@
 }
 .carousel-container img {
 	max-width: 100%;
+}
+.carousel .slide {
+    min-width: 100%;
+    margin: 0;
+    position: relative;
+    text-align: center;
+    background:transparent !important;
+}
+
+.carousel .slide .content {
+    position: absolute;
+    bottom: 45px;
+    left: 50%;
+    margin-left: -45%;
+    width: 90%;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+
 }

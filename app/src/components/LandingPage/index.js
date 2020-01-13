@@ -2,6 +2,7 @@ import React from 'react';
 
 // styling
 import '../LandingPage/landing.css';
+import styles from 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 // Images
 import Image from '../../assets/landing/images/Image';
@@ -9,7 +10,8 @@ import Image from '../../assets/landing/images/Image';
 // Components
 import Footer from '../Footer';
 import Menu from '../Menu';
-
+import CarouselBrowse from './CarouselBrowse';
+import CarouselTop from './CarouselTop';
 class LandingPage extends React.Component {
 	render() {
 		return (
@@ -28,14 +30,10 @@ class LandingPage extends React.Component {
 				<div className="marketing-Container">
 					<div className="marketing-box-top-row">
 					<h1>Browse, buy, share your finds on local food vendors.</h1>
-					<p>Not sure yet? That’s ok, start by browsing our vendors that are already making moves.</p>
 					<div className="marketing-box-top-row-btn ">Start Browsing</div>
 					</div>
 					<div className="marketing-box-bottom-row"> 
-					<div className="marketing-box-bottom-row-card-wrapper">
-						<Image name="Cookies" />
-						<p><span>Cookie Bites - Dietary friendly cookies with all locally sourced ingredients.</span></p>
-						</div>
+						<CarouselTop />
 					</div>
 				
 				</div>
@@ -69,7 +67,7 @@ class LandingPage extends React.Component {
 				</div>
 				<div className="marketing-Header"> Our Spotlight Vendors For This Month</div>
 				<div className="carousel-container">
-				<Image name="Carousel" />
+				<CarouselBrowse />
 
 				</div>
 				<div className="marketing-Header">Testimonials</div>

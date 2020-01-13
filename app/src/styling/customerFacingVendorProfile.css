@@ -51,11 +51,12 @@
 }
 
 .title {
-  font-size: 16px;
+  font-size: 24px;
   color: #2B3335;
 }
 
 .title_content {
+  font-size: 16px;
   padding-left: 30px;
   color: #2B3335;
 }
@@ -75,19 +76,29 @@
 .products_div {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row
+  flex-direction: row;
 }
 
 .product {
-  width: 200px;
-  height: 260px; 
-  margin: 15px;
+  width: 140px;
+  height: 150px; 
+  margin: 10px;
 }
 
 .product_image {
-  width: 200px;
-  height: 180px;
+  width: 140px;
+  height: 122px;
   object-fit: cover;
+}
+
+.product_name {
+  font-size: 14px;
+  margin: 0;
+}
+
+.product_price {
+  font-size: 14px;
+  margin: 0;
 }
 
 .bulletin_board_section {

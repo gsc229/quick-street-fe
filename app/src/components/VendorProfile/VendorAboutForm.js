@@ -1,7 +1,7 @@
 import React from 'react'
 import down from "../../assets/down.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClock, faUserClock } from '@fortawesome/free-solid-svg-icons'
+import { faClock, faPhone } from '@fortawesome/free-solid-svg-icons'
 import about from '../../styles/css/vendor_about.module.css';
 
 const VendorAboutForm = ({ edit, vendorInfo, info, setInfo }) => {
@@ -22,25 +22,60 @@ const VendorAboutForm = ({ edit, vendorInfo, info, setInfo }) => {
               onChange={changeHandler}
             />
           </div>
-          <div className={about.vendor_info_hour}>
-            <label>Hours of Operation</label>
-            <div className={about.vendor_info_hour_input_group}>
-              <label htmlFor="hour_from">
-                <FontAwesomeIcon icon={faClock} regular />
-                <i class="far fa-clock"></i>
-              </label>
+
+
+
+
+          <div className={about.vendor_info_phone, about.input_container}>
+            <label>Phone</label>
+            <div className={about.inputWithIcon}>
               <input
                 type="text"
-                name="hour_from"
-                value={
-                  edit
-                    ? info.hour_from
-                    : vendorInfo.hours
-                      ? vendorInfo.hours.split("_")[0]
-                      : ""
-                }
+                name="phone"
+                value={edit ? info.phone : vendorInfo.phone}
                 onChange={changeHandler}
               />
+              <FontAwesomeIcon className={about.input_icon} icon={faPhone} />
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div className={about.vendor_info_right}>
+          <div className={about.vendor_info_location, about.input_container}>
+            <label>Zipcode: </label>
+            <input
+              type="text"
+              name="location"
+              value={edit ? info.location : vendorInfo.location.zipcode}
+              onChange={changeHandler}
+            />
+          </div>
+
+
+          <div className={about.vendor_info_hour}>
+            <label>Hours of Operation</label>
+            <div className={about.vendor_info_hour_input_group, about.input_container}>
+
+              <div className={about.inputWithIcon}>
+                <input
+                  type="text"
+                  name="hour_from"
+                  value={
+                    edit
+                      ? info.hour_from
+                      : vendorInfo.hours
+                        ? vendorInfo.hours.split("_")[0]
+                        : ""
+                  }
+                  onChange={changeHandler}
+
+                />
+                <FontAwesomeIcon id={about.clock} className={about.input_icon} icon={faClock} />
+
+              </div>
               to
               <input
                 className={about.vendor_info_hour_input_2}
@@ -77,33 +112,12 @@ const VendorAboutForm = ({ edit, vendorInfo, info, setInfo }) => {
               <img src={down} alt="arrow down" />
             </span>
           </div>
-          <div className={about.vendor_info_phone, about.input_container}>
-            <label>Phone</label>
-            <input
-              type="text"
-              name="phone"
-              value={edit ? info.phone : vendorInfo.phone}
-              onChange={changeHandler}
-            />
-          </div>
-
-        </div>
-
-
-
-
-        <div className={about.vendor_info_right}>
-          <div className={about.vendor_info_location}>
-            <label>Location</label>
-            <input
-              type="text"
-              name="location"
-              value={edit ? info.location : vendorInfo.location.zipcode}
-              onChange={changeHandler}
-            />
-          </div>
         </div>
       </form>
+
+
+
+
     </div>
   )
 }

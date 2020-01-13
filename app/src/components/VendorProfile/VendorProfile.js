@@ -92,7 +92,7 @@ const VendorProfile = (props) => {
   );
 
   useEffect(() => {
-    const fetchId = props.match.params.id;
+
     async function fetchVendorInfo() {
       try {
         const vendorInfo = await axios.get(
@@ -299,7 +299,9 @@ const VendorProfile = (props) => {
         addProductformCancelHandler={addProductformCancelHandler}
         vendorId={vendorId}
       />
-      <VendorBulletin />
+      <VendorBulletin
+        vendorId={vendorId}
+      />
     </div>
   );
 };

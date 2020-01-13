@@ -54,6 +54,16 @@
   border: 2px solid purple;
 }
 
+.vendor_info_form .vendor_info_right .inputWithIcon {
+  position: relative;
+}
+
+.vendor_info_form .vendor_info_right .inputWithIcon .input_icon {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+
 .vendor_info_form .input_container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -62,5 +72,16 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  /*  input{
+      height: 30px;
+    } */
+}
+
+.vendor_info_form .input_container .input-group-text {
+  background-color: white;
+}
+
+.vendor_info_form .input_container select {
+  height: 30px;
 }
 /*# sourceMappingURL=vendor_about.module.css.map */

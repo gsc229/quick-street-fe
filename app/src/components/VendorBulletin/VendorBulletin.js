@@ -25,7 +25,7 @@ const VendorBulletin = props => {
     e.preventDefault();
     axios
       .post(
-        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5e1410234df7fc0fb0a5a5dc/posts`,
+        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${props.vendorId}/posts`,
         { title: "test title", description: post.content }
       )
       .then(res => setPosts([...posts, res.data.data]));
@@ -37,7 +37,7 @@ const VendorBulletin = props => {
   useEffect(() => {
     axios
       .get(
-        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5e1410234df7fc0fb0a5a5dc/posts`
+        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${props.vendorId}/posts`
       )
       .then(res => {
         console.log(res.data.data);

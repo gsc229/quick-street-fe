@@ -33,7 +33,7 @@ const Products = (props) => {
 
   return (
     <div className='product_section'>
-      <header className='section_title'>Products</header>
+      <header className='product_section_title'>Products</header>
       <div className='products_div'>
         {vendorProducts.products.map(product => (
           <Product product={product} key={product._id} />

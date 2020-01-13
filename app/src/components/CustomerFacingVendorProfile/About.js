@@ -33,12 +33,8 @@ const About = (props) => {
       <div className='top_section'>
         <p>{vendor.business_name}</p>
         <CloudinaryContext cloudName='quickstlabs'>
-          <Image
-
-            publicId={vendor.vendor_banner}
-          >
-            <Transformation gravity="center" height="318" width="1062" crop="fill" />
-
+          <Image publicId={vendor.vendor_banner}>
+            <Transformation gravity='center' height='318' width='1062' crop='fill' />
           </Image>
         </CloudinaryContext>
       </div>
@@ -55,7 +51,7 @@ const About = (props) => {
         <div className='location_section'>
           <p className='title'>Location</p>
           <p className='title_content'>The vendor can be found at {vendor.location.zipcode} area</p>
-          <Map zipcode={vendor.location.zipcode} />
+          <Map zipcode={vendor.location.zipcode} width={403} height={280} radius={3000} />
         </div>
       </div>
 

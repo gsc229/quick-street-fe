@@ -10,28 +10,15 @@ import CustomerFacingVendorProfile from "./components/CustomerFacingVendorProfil
 function App() {
   console.log(window.cloudinary);
   return (
-<<<<<<< HEAD
-    <>
-      <Route path="/register" component={Register} />
-      <Route path="/login" component={Login} />
-      <Route path="/profile" component={VendorProfile} />
-      <Route exact path="/browse" component={Browse} />
-      <Route path="/browse/:id" component={CustomerFacingVendorProfile} />
-    </>
-=======
     <div id="wrapper">
       <div>
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route path="/profile/:id" component={VendorProfile} />
         <Route exact path="/browse" component={Browse} />
-        <Route path='/browse/:id' component={CustomerFacingVendorProfile} />
+        <Route path="/browse/:id" component={CustomerFacingVendorProfile} />
       </div>
-
     </div>
-
-
->>>>>>> ad21c7bbd166caa07be87b511772e47883c28fa5
   );
 }
 

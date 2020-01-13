@@ -50,7 +50,7 @@ const Posts = (props) => {
           <p className='post_date'>Date {changeDateFormat(post.createdAt)}</p>      
           <hr></hr>
           </div>
-          <p className='post_content'>{post.title}</p>
+          <p className='post_content'>{post.description}</p>
         </div>
       ))}
       {vendorPost.count === 0 && (

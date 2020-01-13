@@ -52,7 +52,7 @@ const Browse = (props) => {
           className='zipcode_input'
         />
       </form>
-      <Map zipcode={zipcode} vendors={vendors} height={300} width={1280} />
+      <Map zipcode={zipcode} vendors={vendors} height={300} width={1280} radius={8046} />
       <VendorsNearby zipcode={zipcode} vendors={vendors} history={props.history} location={props.location} match={props.match} />
     </div>
   )

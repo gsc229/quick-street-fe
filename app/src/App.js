@@ -7,12 +7,13 @@ import Login from "./components/Login";
 import Browse from "./components/Browse";
 
 import CustomerFacingVendorProfile from "./components/CustomerFacingVendorProfile/CustomerFacingVendorProfile";
-
+import Landing from './components/LandingPage/index';
 function App() {
   console.log(window.cloudinary);
   return (
     <div id="wrapper">
       <div>
+        <Route path="/landing" component={Landing} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route path="/profile/:id" component={VendorProfile} />

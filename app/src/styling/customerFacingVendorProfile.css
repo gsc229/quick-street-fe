@@ -1,76 +1,83 @@
 .container {
-  width: 1440px;
-  margin: 0 auto;
-  /* max-width: 100%; */
-  
+  border: 1px solid red;
+  /* width: 100vw; */
+  margin: 0;
+  padding: 0;
 }
+
+/***********    Top Section   *************/
 
 .top_section {
-  /* border: 1px solid red; */
-  margin: 7% 13% 7% 13%;
-}
-
-.top_section p {
-  font-size: 36px;
-  /* line-height: 42px; */
+  border: 1px solid green;
   font-family: 'Raleway', sans-serif;
+  margin: 7% 13% 7% 13%;
   color: #2B3335;
 }
 
 .top_section img {
   width: 100%;
   height: 200px;
-  /* width: 100%;
-  height: 10%; */
   object-fit: cover;
   /* border: 1px red solid; */
 }
 
+/*********** About Us Section ************/
+
+.vendor_info_section {
+  width: 60%;
+  font-family: 'Raleway', sans-serif;
+  color: #2B3335;
+}
+
 .bottom_section {
+  border: 1px solid blue;
+  width: 100%;
   background-color: #E1F6FA;
   display: flex;
   padding-right: 13%;
   padding-left: 13%;
   padding-top: 5%;
   padding-bottom: 5%;
-}
+} 
 
-.vendor_info_section {
-  width: 60%;
-}
-
-.section_title {
-  padding-bottom: 5%;
-  font-size: 36px;
-  color: #2B3335;
-}
-
-
-.location_section {
-
-}
-
-.title {
-  font-size: 24px;
-  color: #2B3335;
+ .title {
+ font-size: 24px;
+ margin-bottom: 1%;
 }
 
 .title_content {
   font-size: 16px;
-  padding-left: 30px;
-  color: #2B3335;
+  padding-left: 10%;
+  margin-bottom: 6%;
 }
+
+.title_content_phone {
+  font-size: 16px;
+  padding-left: 10%;
+  margin-bottom: 1%;
+} 
 
 .map {
   width: 400px;
   height: 280px;
 }
 
+/*********** Product Section ************/
+
 .product_section {
-  margin-right: 13%;
-  margin-left: 13%;
-  padding-top: 5%;
-  padding-bottom: 10%;
+  border: 1px solid purple;
+  /* width: 85%;
+  margin: auto 13%; */
+  padding: 5% 0 10% 13% ;
+  margin:  0;
+  /*padding-top: 5%;
+  padding-bottom: 10%; */
+}
+
+.product_section_title {
+  padding-bottom: 5%;
+  font-size: 24px;
+  color: #2B3335;
 }
 
 .products_div {
@@ -93,15 +100,20 @@
 
 .product_name {
   font-size: 14px;
-  margin: 0;
+  /* line-height: none; */
+  margin-top: 4%;
+  margin-bottom: 3%;
 }
 
 .product_price {
   font-size: 14px;
-  margin: 0;
+  margin-top: 0;
 }
 
+/*********** Bulletin Section ************/
+
 .bulletin_board_section {
+  border: 1px solid black;
   padding-right: 13%;
   padding-left: 13%;
   /* background-color:#e9bbfa; */
@@ -113,8 +125,9 @@
   margin-bottom: 10%;
 }
 
-.section_title {
+.bulletin_section_title {
   margin-top: 2%;
+  font-size: 24px;
 }
 
 .posts_div {
@@ -124,19 +137,20 @@
 }
 
 .post_date {
-  width: 10%;
+  width: 20%;
   padding-left: 30px;
+  font-size: 18px;
   /* border: 1px red solid; */
 }
 
 .post_date_line {
-  width: 900px;
+  width: 500px;
   display: flex;
   justify-content: space-between;
 }
 
 hr {
-  width: 85%;
+  width: 90%;
   text-align: center; 
   border-bottom: 1px solid rgba(0, 0, 0, 0.2); 
   border-top: none;
@@ -149,4 +163,5 @@ hr {
 .post_content {
   padding-left: 140px;
   margin-bottom: 10%;
+  font-size: 18px;
 }

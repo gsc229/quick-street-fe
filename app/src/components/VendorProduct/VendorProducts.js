@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Product from "./Product";
 import axios from "axios";
-import product_list from '../../styles/css/vendor_products.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import product_list from "../../styles/css/vendor_products.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const VendorProducts = ({ products, addProduct }) => {
-  console.log('products: ', products)
   return (
     <div className={product_list.vendor_product_list_container}>
       <div className={product_list.vendor_product_list_title}>
@@ -16,9 +15,7 @@ const VendorProducts = ({ products, addProduct }) => {
       <div className={product_list.vendor_product_list_wrapper}>
         <button className={product_list.add_product_btn} onClick={addProduct}>
           Add product <br />
-          <FontAwesomeIcon
-            icon={faPlus}
-          />
+          <FontAwesomeIcon icon={faPlus} />
         </button>
         {products ? (
           products.map((p, idx) => (
@@ -31,8 +28,8 @@ const VendorProducts = ({ products, addProduct }) => {
             />
           ))
         ) : (
-            <p>you don't have any product yet</p>
-          )}
+          <p>you don't have any product yet</p>
+        )}
       </div>
     </div>
   );

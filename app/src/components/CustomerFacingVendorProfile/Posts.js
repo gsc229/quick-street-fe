@@ -13,7 +13,7 @@ const Posts = (props) => {
     let resultingDate = ''
     const yearMonthArray = date.split('-');
     // console.log(yearMonthArray);
-    const dayArray = yearMonthArray[2].split('T22');
+    const dayArray = yearMonthArray[2].split('T');
     // console.log(dayArray);
     resultingDate = yearMonthArray[1] + '/' + dayArray[0];
     // console.log(resultingDate);
@@ -43,7 +43,7 @@ const Posts = (props) => {
 
   return (
     <div className='bulletin_board_section'>
-      <header className='section_title'>Bulletin Board</header>
+      <header className='bulletin_section_title'>Bulletin Board</header>
       {vendorPost.posts.map(post => (
         <div className='posts_div' key={post._id}>
           <div className='post_date_line'>

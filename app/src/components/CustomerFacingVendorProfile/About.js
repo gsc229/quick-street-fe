@@ -45,7 +45,7 @@ const About = (props) => {
           <p className='title'>Hours of Operation</p>
           <p className='title_content'>{vendor.days_of_week} - {vendor.hours}</p>
           <p className='title'>Contact</p>
-          <p className='title_content'>{vendor.phone}</p>
+          <p className='title_content_phone'>{vendor.phone}</p>
           <p className='title_content'>{vendor.email}</p>
         </div>
         <div className='location_section'>

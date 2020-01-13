@@ -1,12 +1,12 @@
 import React from "react";
 
-const VendorPost = ({ content, date, title }) => {
+const VendorPost = ({ content, date }) => {
   return (
     <li>
       <p>
         <small>Date:{date}</small>
       </p>
-      <p>{title}</p>
+
       <p>{content}</p>
     </li>
   );

@@ -1,8 +1,6 @@
 .browse_container {
-  width: 100%;
-  border: #00769D solid 2px;
-  /* margin-right: 5%;
-  margin-left: 5%; */
+  display: flex;
+  flex-direction: column;
 }
 
 .zipcode_title {
@@ -41,22 +39,27 @@
 .vendor_count {
   font-size: 24px;
   color: #2B3335;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
+
 .vendors_div {
-  border: 3px solid indigo;
   display: flex;
-  width: 100%;
   flex-wrap: wrap;
   justify-content: space-between;
   
   
 }
+.vendors_div p {
+  margin-bottom: 0px;
+}
 
 .vendor_details_div {
-  border: 3px solid orangered;
-  width: fit-content;
-  margin: 10px auto;
+    flex: 1 ;
+    flex-direction: column;
+    margin-left: 5px;
+    margin-bottom: 20px;
 }
 
 .vendor_banner_image {

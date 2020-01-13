@@ -66,13 +66,16 @@
 }
 
 .product_section {
-  margin-right: 13%;
-  margin-left: 13%;
+  width: 85%;
+  margin: auto 13%;
+  /* margin-right: 13%;
+  margin-left: 13%; */
   padding-top: 5%;
   padding-bottom: 10%;
 }
 
 .products_div {
+  
   display: flex;
   flex-wrap: wrap;
   flex-direction: row

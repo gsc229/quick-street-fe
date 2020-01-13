@@ -47,19 +47,18 @@
 .vendors_div {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  
-  
+  justify-content: left;
 }
-.vendors_div p {
+/* .vendors_div p {
   margin-bottom: 0px;
-}
+} */
 
 .vendor_details_div {
-    flex: 1 ;
+    /* flex: 1 ;
     flex-direction: column;
     margin-left: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 20px; */
+    margin: 0 24px 15px 0;
 }
 
 .vendor_banner_image {

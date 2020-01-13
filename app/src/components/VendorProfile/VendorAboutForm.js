@@ -11,10 +11,12 @@ const VendorAboutForm = ({ edit, vendorInfo, info, setInfo }) => {
   return (
     <div>
       <form className={about.vendor_info_form}>
+
+
         <div className={about.vendor_info_left}>
           <div className={about.vendor_info_about, about.input_container
           }>
-            <label for="about">About</label>
+            <label for="about">Bio</label>
             <textarea
               type="text"
               name="about"
@@ -24,9 +26,7 @@ const VendorAboutForm = ({ edit, vendorInfo, info, setInfo }) => {
           </div>
 
 
-
-
-          <div className={about.vendor_info_phone, about.input_container}>
+          <div className={about.vendor_info_phone}>
             <label>Phone</label>
             <div className={about.inputWithIcon}>
               <input
@@ -40,7 +40,7 @@ const VendorAboutForm = ({ edit, vendorInfo, info, setInfo }) => {
 
           </div>
 
-        </div>
+        </div> {/* --vendor_info_left */}
 
 
         <div className={about.vendor_info_right}>
@@ -57,12 +57,14 @@ const VendorAboutForm = ({ edit, vendorInfo, info, setInfo }) => {
 
           <div className={about.vendor_info_hour}>
             <label>Hours of Operation</label>
-            <div className={about.vendor_info_hour_input_group, about.input_container}>
+            <div className={about.vendor_info_hour_input_group}>
 
               <div className={about.inputWithIcon}>
                 <input
-                  type="text"
+                  type="time"
+
                   name="hour_from"
+                  className={about.hour_input}
                   value={
                     edit
                       ? info.hour_from
@@ -76,22 +78,35 @@ const VendorAboutForm = ({ edit, vendorInfo, info, setInfo }) => {
                 <FontAwesomeIcon id={about.clock} className={about.input_icon} icon={faClock} />
 
               </div>
-              to
-              <input
-                className={about.vendor_info_hour_input_2}
-                type="text"
-                name="hour_to"
-                value={
-                  edit
-                    ? info.hour_to
-                    : vendorInfo.hours
-                      ? vendorInfo.hours.split("_")[1]
-                      : ""
-                }
-                onChange={changeHandler}
-              />
+
+
+
+              <p>to</p>
+
+
+              <div className={about.inputWithIcon}>
+                <input
+                  className={about.vendor_info_hour_input_2}
+                  type="time"
+                  name="hour_to"
+                  className={about.hour_input}
+                  id={about.hour_to}
+                  value={
+                    edit
+                      ? info.hour_to
+                      : vendorInfo.hours
+                        ? vendorInfo.hours.split("_")[1]
+                        : ""
+                  }
+                  onChange={changeHandler}
+                />
+                <FontAwesomeIcon id={about.clock} className={about.input_icon} icon={faClock} />
+              </div>
             </div>
           </div>
+
+
+
           <div className={about.vendor_info_days, about.input_container
           }>
             <label>Days of week</label>
@@ -112,7 +127,7 @@ const VendorAboutForm = ({ edit, vendorInfo, info, setInfo }) => {
               <img src={down} alt="arrow down" />
             </span>
           </div>
-        </div>
+        </div> {/* --vendor_info_right */}
       </form>
 
 

@@ -194,12 +194,11 @@ const VendorProfile = (props) => {
 
         <h1>Market Avenue</h1>
 
-        <div className={profile.header_links}></div>
-        <p className={profile.header_about}>About</p>
-        <p className={profile.header_food}>Food</p>
-        <p className={profile.header_business_name}>{vendorInfo.business_name}</p>
-
-
+        <div className={profile.header_links}>
+          <p className={profile.header_about}>About</p>
+          <p className={profile.header_food}>Food</p>
+          <p className={profile.header_business_name}>{vendorInfo.business_name}</p>
+        </div>
 
 
       </div>

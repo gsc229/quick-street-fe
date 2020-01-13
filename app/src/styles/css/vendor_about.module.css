@@ -3,10 +3,37 @@
   margin-top: 100px;
   position: relative;
   background: rgba(225, 246, 250, 0.45);
-  height: 400px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
-.vendor_about_container .vendor_about_btn_group {
+.vendor_about_container .inner_container {
+  border: 2px solid yellow;
+  margin: 100px 200px 50px 200px;
+}
+
+.vendor_about_container .inner_container .about_top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border: 2px gold solid;
+  position: relative;
+}
+
+.vendor_about_container .inner_container .about_top h3 {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  color: #2B3335;
+}
+
+.vendor_about_container .inner_container .about_top .vendor_about_btn_group {
   border: 3px solid red;
   width: 70px;
   height: -webkit-fit-content;
@@ -15,7 +42,7 @@
   position: relative;
   -ms-flex-item-align: start;
       align-self: flex-start;
-  left: 12%;
+  left: 10.5%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -24,16 +51,81 @@
           justify-content: space-between;
 }
 
-.vendor_about_container .vendor_about_btn_group #pen {
+.vendor_about_container .inner_container .about_top .vendor_about_btn_group #pen {
   color: #00B2ED;
 }
 
-.vendor_about_container .vendor_about_btn_group #save {
+.vendor_about_container .inner_container .about_top .vendor_about_btn_group #save {
   color: grey;
 }
 
-.vendor_about_container .vendor_about_btn_group .icon {
+.vendor_about_container .inner_container .about_top .vendor_about_btn_group .icon {
   cursor: pointer;
+}
+
+.vendor_about_container textarea {
+  border: 1px solid rgba(43, 51, 53, 0.5);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 10px;
+  padding: 5px;
+  font-family: Raleway;
+  font-size: 18px;
+  line-height: 21px;
+  color: #2B3335;
+}
+
+.vendor_about_container input {
+  border: 1px solid rgba(43, 51, 53, 0.5);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 7px;
+  width: 120px;
+  padding: 5px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  /* identical to box height */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #2B3335;
+}
+
+.vendor_about_container select {
+  border: 1px solid rgba(43, 51, 53, 0.5);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 7px;
+  width: 118px;
+  padding: 5px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  /* identical to box height */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #2B3335;
+}
+
+.vendor_about_container label {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #2B3335;
 }
 
 .vendor_info_form {
@@ -47,21 +139,77 @@
 }
 
 .vendor_info_form .vendor_info_left {
+  width: 50%;
   border: 2px solid purple;
+  padding: 20px;
+}
+
+.vendor_info_form .vendor_info_left .vendor_info_phone .inputWithIcon {
+  position: relative;
+  width: 400px;
+}
+
+.vendor_info_form .vendor_info_left .vendor_info_phone .inputWithIcon input {
+  width: 400px;
+}
+
+.vendor_info_form .vendor_info_left .vendor_info_phone .inputWithIcon .input_icon {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-size: 16px;
 }
 
 .vendor_info_form .vendor_info_right {
   border: 2px solid purple;
+  width: 50%;
+  padding: 20px;
 }
 
-.vendor_info_form .vendor_info_right .inputWithIcon {
+.vendor_info_form .vendor_info_right .vendor_info_hour {
+  border: solid red 2px;
+}
+
+.vendor_info_form .vendor_info_right .vendor_info_hour .vendor_info_hour_input_group {
+  border: blue 2px solid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.vendor_info_form .vendor_info_right .vendor_info_hour .vendor_info_hour_input_group p {
   position: relative;
+  display: inline-block;
+  margin: 0 20px;
+  top: 10px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
 }
 
-.vendor_info_form .vendor_info_right .inputWithIcon .input_icon {
+.vendor_info_form .vendor_info_right .vendor_info_hour .vendor_info_hour_input_group .inputWithIcon {
+  position: relative;
+  width: 120px;
+}
+
+.vendor_info_form .vendor_info_right .vendor_info_hour .vendor_info_hour_input_group .inputWithIcon .input_icon {
   position: absolute;
-  right: 10px;
-  top: 5px;
+  right: 33px;
+  top: 8px;
+  font-size: 16px;
+}
+
+.vendor_info_form .hour_input {
+  background: #FFFFFF;
+  border: 1px solid #D2D2D2;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 6px;
+  width: 130px;
 }
 
 .vendor_info_form .input_container {
@@ -72,9 +220,6 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  /*  input{
-      height: 30px;
-    } */
 }
 
 .vendor_info_form .input_container .input-group-text {

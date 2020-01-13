@@ -13,9 +13,8 @@ body {
 }
 
 #wrapper {
-  width: 1440px;
-  text-align: left;
-  margin-left: auto;
-  margin-right: auto;
+  width: 66.6%;
+  border: 5px solid goldenrod;
+  margin: 0 auto;
 }
 /*# sourceMappingURL=index.css.map */

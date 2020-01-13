@@ -13,8 +13,6 @@ import { Image, CloudinaryContext, Transformation } from "cloudinary-react";
 import axios from "axios";
 
 const VendorProfile = props => {
-  console.log("VendorProfile.js props: ", props);
-
   const [modal, setModal] = useState(false);
   const [vendorInfo, setVendorInfo] = useState({ location: "" });
   const [bannerInfo, setBannerInfo] = useState("");

@@ -8,7 +8,7 @@ const VendorAddProductForm = ({
   modal,
   setModal,
   setProducts,
-
+  vendorId,
   products,
   addProductformCancelHandler
 }) => {
@@ -71,7 +71,7 @@ const VendorAddProductForm = ({
             }
           }
         });
-        newInfo = { ...newInfo, vendor: "5e1410234df7fc0fb0a5a5dc" };
+        newInfo = { ...newInfo, vendor: vendorId };
         setProductPictureInfo(newInfo);
       }
     }
@@ -89,7 +89,7 @@ const VendorAddProductForm = ({
   const onSubmit = async e => {
     e.preventDefault();
     const res_1 = await axios.post(
-      `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5e1410234df7fc0fb0a5a5dc/products`,
+      `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}/products`,
       {
         diet: ["Vegan"],
         name: product.name,

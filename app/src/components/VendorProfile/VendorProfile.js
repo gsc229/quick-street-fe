@@ -84,7 +84,7 @@ const VendorProfile = (props) => {
         setBannerInfo(banner_info.public_id);
       }
       axios.put(
-        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/5e1410234df7fc0fb0a5a5dc`,
+        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`,
 
         { ...vendorInfo, vendor_banner: `${bannerInfo}` }
       );
@@ -297,6 +297,7 @@ const VendorProfile = (props) => {
         setProducts={setProducts}
         setModal={setModal}
         addProductformCancelHandler={addProductformCancelHandler}
+        vendorId={vendorId}
       />
       <VendorBulletin />
     </div>

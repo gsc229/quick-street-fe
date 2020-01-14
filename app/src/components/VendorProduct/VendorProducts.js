@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Product from "./Product";
-import axios from "axios";
+
 import product_list from "../../styles/css/vendor_products.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";

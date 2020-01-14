@@ -103,17 +103,18 @@ const VendorAboutForm = ({ editAbout, vendorInfo, info, setInfo }) => {
           <div className={(about.vendor_info_days, about.input_container)}>
             <label>Days of week</label>
             <select
+              multiple
               name="days"
               value={editAbout ? info.days : vendorInfo.days_of_week}
               onChange={changeHandler}
             >
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
+              <option value="Monday">Monday</option>
+              <option value="Tuesday">Tuesday</option>
+              <option value="Wednesday">Wednesday</option>
+              <option value="Thursday">Thursday</option>
+              <option value="Friday">Friday</option>
+              <option value="Saturday">Saturday</option>
+              <option value="Sunday">Sunday</option>
             </select>
             <span className={about.vendor_info_arrow}>
               <img src={down} alt="arrow down" />

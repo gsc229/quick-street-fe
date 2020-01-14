@@ -76,7 +76,8 @@ const VendorProfile = props => {
     async (error, result) => {
       if (!error && result && result.event === "success") {
         const banner_info = await result.info;
-        setBannerInfo(banner_info.public_id);
+        console.log(`from cloudinary`, banner_info);
+        setBannerInfo(banner_info.secure_url);
       }
       axios.put(
         `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`,
@@ -186,7 +187,6 @@ const VendorProfile = props => {
         description: info.about
       })
       .then(res => {
-        console.log(`update vendor info`, res);
         setVendorInfo(res.data.data);
       });
   };
@@ -260,7 +260,7 @@ const VendorProfile = props => {
           ) : (
             <img
               className="vendor_banner_image"
-              src={picture}
+              src={bannerInfo ? bannerInfo : picture}
               alt="vendor header"
             />
           )}

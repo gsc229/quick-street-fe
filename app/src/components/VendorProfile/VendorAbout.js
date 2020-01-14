@@ -12,7 +12,6 @@ const About = ({
   editProfile,
   saveProfile
 }) => {
-  console.log(info);
   return (
     <div className={about.vendor_about_container}>
       <div className={about.inner_container}>

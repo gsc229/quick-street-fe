@@ -58,7 +58,8 @@
     flex-direction: column;
     margin-left: 5px;
     margin-bottom: 20px; */
-    margin: 0 24px 15px 0;
+    width: 150px;
+    margin: 0 8px 25px 8px;
 }
 
 .vendor_banner_image {
@@ -70,6 +71,7 @@
 .vendor_name {
   font-size: 16px;
   color: #2B3335;
+  margin: 8px 0 24px 0;
 }
 
 .vendor_category {
@@ -109,6 +111,6 @@
 }
 
 .map {
-  width: 1280;
+  width: 1280; /* px? */
   height: 300;
 }

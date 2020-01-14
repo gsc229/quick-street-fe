@@ -1,5 +1,5 @@
 .vendor_product_list_container{
-  //border: 5px solid orangered;
+  border: 5px solid orangered;
   // height: 745px;
   padding: 5% 13% 15% 13%;
   margin:  0;
@@ -11,13 +11,19 @@
   }
 
   .vendor_product_list_wrapper{
+    border: 5px solid orangered;
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
+    @media only screen and (max-width: 800px) {
+      justify-content: center;
+      
+      }
+    
   }
 
   .add_product_btn {
-    // background-color: rgba(43, 51, 53, 0.1);
+    background-color: rgba(43, 51, 53, 0.1);
     width: 146px;
     height: 122px;
     border: 1px solid rgba(43, 51, 53, 0.5);
@@ -29,7 +35,14 @@
     align-items: center;
     cursor: pointer;
     margin-right: 40px;
+    @media only screen and (max-width: 600px) {
+      margin-bottom: 40px;
+      
+      }
   }
+
+  
+  
 }
 
 .vendor_product {

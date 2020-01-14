@@ -21,7 +21,7 @@ const VendorProfile = props => {
   const [show, setShow] = useState(false);
   const [editingName, setEditingName] = useState(false);
   const [vendorInfo, setVendorInfo] = useState({ location: "" });
-  const [bannerInfo, setBannerInfo] = useState("");
+  const [bannerInfo, setBannerInfo] = useState("no_banner.jpg");
   const [products, setProducts] = useState([]);
   const [productIds, setProductIds] = useState([]);
   const [productImagesIds, setProductImagesIds] = useState([]);
@@ -37,6 +37,9 @@ const VendorProfile = props => {
   const vendorId = props.match.params.id;
   const [editAbout, setEditAbout] = useState(false);
   const [editBusinessName, setEditBusinessName] = useState(false);
+
+
+
   const myWidget = window.cloudinary.createUploadWidget(
     {
       cloudName: "quickstlabs",
@@ -203,9 +206,14 @@ const VendorProfile = props => {
   };
 
 
+  /* setShow(!show) */
+  const reveal = () => {
+    const links = document.getElementById(`${profile.dropdown_links}`)
+    links.style.height = '400px';
+  }
 
-  console.log('banner pen: ', document.getElementById(`${banner.pen}`))
-  console.log('editingName: ', editingName)
+  console.log('dropdown_links', document.getElementById(`${profile.dropdown_links}`))
+
   return (
     <div className={profile.vendor_profile_container}>
       <div className={profile.vendor_header_container}>
@@ -213,13 +221,13 @@ const VendorProfile = props => {
 
 
         <div id={profile.hamburger_dropdown}>
-          <span id={profile.closebtn} onClick={() => setShow(!show)}>
+          <span id={profile.closebtn} onClick={() => reveal()}>
             <span class={profile.line1}></span>
             <span class={profile.line2}></span>
             <span class={profile.line3}></span>
           </span>
 
-          <div className={show ? profile.hamburger_dropdown_links : profile.no_drop}>
+          <div id={profile.dropdown_links} className={show ? profile.hamburger_dropdown_links : profile.no_drop}>
             <p className={profile.header_about}>About</p>
             <p className={profile.header_food}>Food</p>
             <p className={profile.header_business_name}>

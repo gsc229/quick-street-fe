@@ -29,7 +29,7 @@ const VendorAboutForm = ({ editAbout, vendorInfo, info, setInfo }) => {
           </div>
 
 
-
+          {/* 
           <div className={`${about.vendor_info_hour} ${about.input_container}`}>
             <label>Hours of Operation</label>
             <div className={about.vendor_info_hour_input_group}>
@@ -96,10 +96,12 @@ const VendorAboutForm = ({ editAbout, vendorInfo, info, setInfo }) => {
               <option value="6">6</option>
               <option value="7">7</option>
             </select>
-            {/* <span className={about.vendor_info_arrow}>
+
+          </div>
+ */}
+          {/* <span className={about.vendor_info_arrow}>
               <img src={down} alt="arrow down" />
             </span> */}
-          </div>
 
           <div className={`${about.vendor_info_phone} ${about.input_container} `}>
             <h5>Contact</h5>

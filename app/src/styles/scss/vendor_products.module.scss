@@ -35,13 +35,14 @@
     align-items: center;
     cursor: pointer;
     margin-right: 40px;
+     &:hover {
+      background-color: rgba(43, 51, 53, 0.1);
+    }  
     @media only screen and (max-width: 600px) {
       margin-bottom: 40px;
       
       }
-    &:hover {
-      background-color: rgba(43, 51, 53, 0.1);
-    }  
+   
   }
 
   

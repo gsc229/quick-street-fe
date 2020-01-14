@@ -158,6 +158,14 @@
   color: grey;
 }
 
+.vendor_banner_container .banner_text_btns .vendor_profile_btn_group #pen:hover {
+  color: red;
+}
+
+.vendor_banner_container .banner_text_btns .vendor_profile_btn_group #save:hover {
+  color: green;
+}
+
 .vendor_banner_container .banner_text_btns .vendor_profile_btn_group .icon {
   cursor: pointer;
 }

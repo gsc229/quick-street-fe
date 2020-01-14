@@ -134,6 +134,14 @@
           #save{
             color: grey;
           }
+
+          #pen:hover{
+            color: red;
+          }         
+
+          #save:hover{
+            color: green;
+          }
          
           .icon{
             cursor: pointer;

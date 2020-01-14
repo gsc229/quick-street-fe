@@ -3,6 +3,7 @@ import down from "../../assets/down.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faPhone } from "@fortawesome/free-solid-svg-icons";
 import about from "../../styles/css/vendor_about.module.css";
+import Map from '../../components/Map';
 
 const VendorAboutForm = ({ editAbout, vendorInfo, info, setInfo }) => {
   const changeHandler = e => {
@@ -13,6 +14,9 @@ const VendorAboutForm = ({ editAbout, vendorInfo, info, setInfo }) => {
   return (
     <div>
       <form className={about.vendor_info_form}>
+
+
+
         <div className={about.vendor_info_left}>
           <div className={(about.vendor_info_about, about.input_container)}>
             <label for="about">Bio</label>
@@ -36,18 +40,6 @@ const VendorAboutForm = ({ editAbout, vendorInfo, info, setInfo }) => {
               <FontAwesomeIcon className={about.input_icon} icon={faPhone} />
             </div>
           </div>
-        </div>{" "}
-        {/* --vendor_info_left */}
-        <div className={about.vendor_info_right}>
-          <div className={(about.vendor_info_location, about.input_container)}>
-            <label>Zipcode: </label>
-            <input
-              type="text"
-              name="location"
-              value={editAbout ? info.location : vendorInfo.location.zipcode}
-              onChange={changeHandler}
-            />
-          </div>
 
           <div className={about.vendor_info_hour}>
             <label>Hours of Operation</label>
@@ -61,8 +53,8 @@ const VendorAboutForm = ({ editAbout, vendorInfo, info, setInfo }) => {
                     editAbout
                       ? info.hour_from
                       : vendorInfo.hours
-                      ? vendorInfo.hours.split("_")[0]
-                      : ""
+                        ? vendorInfo.hours.split("_")[0]
+                        : ""
                   }
                   onChange={changeHandler}
                 />
@@ -86,8 +78,8 @@ const VendorAboutForm = ({ editAbout, vendorInfo, info, setInfo }) => {
                     editAbout
                       ? info.hour_to
                       : vendorInfo.hours
-                      ? vendorInfo.hours.split("_")[1]
-                      : ""
+                        ? vendorInfo.hours.split("_")[1]
+                        : ""
                   }
                   onChange={changeHandler}
                 />
@@ -119,8 +111,37 @@ const VendorAboutForm = ({ editAbout, vendorInfo, info, setInfo }) => {
               <img src={down} alt="arrow down" />
             </span>
           </div>
+
+        </div>{" "}
+        {/* --vendor_info_left */}
+
+
+
+        <div className={about.vendor_info_right}>
+
+
+          <div className={(about.vendor_info_location, about.input_container)}>
+            <label>Zipcode: </label>
+            <input
+              type="text"
+              name="location"
+              value={editAbout ? info.location : vendorInfo.location.zipcode}
+              onChange={changeHandler}
+            />
+            <div className={about.map_container}  >
+              <Map zipcode={vendorInfo.location.zipcode} width={403} height={280} radius={3000} />
+            </div>
+
+          </div>
+
+
+
+
         </div>{" "}
         {/* --vendor_info_right */}
+
+
+
       </form>
     </div>
   );

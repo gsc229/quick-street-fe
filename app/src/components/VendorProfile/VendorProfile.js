@@ -17,6 +17,7 @@ import axios from "axios";
 const VendorProfile = props => {
   const [modal, setModal] = useState(false);
   const [show, setShow] = useState(false);
+  const [editingName, setEditingName] = useState(false);
   const [vendorInfo, setVendorInfo] = useState({ location: "" });
   const [bannerInfo, setBannerInfo] = useState("");
   const [products, setProducts] = useState([]);
@@ -201,7 +202,8 @@ const VendorProfile = props => {
 
 
 
-  console.log(document)
+  console.log('banner pen: ', document.getElementById(`${banner.pen}`))
+  console.log('editingName: ', editingName)
   return (
     <div className={profile.vendor_profile_container}>
       <div className={profile.vendor_header_container}>
@@ -238,27 +240,33 @@ const VendorProfile = props => {
         <div className={banner.banner_text_btns}>
           <div className={banner.vendor_header_name}>
             <input
+
               onChange={e =>
                 setInfo({ ...info, business_name: e.target.value })
               }
               value={
                 editBusinessName ? info.business_name : vendorInfo.business_name
               }
+              className={editingName ? banner.glowing_border : 'none'}
             />
           </div>
 
           <div className={banner.vendor_profile_btn_group}>
             <FontAwesomeIcon
               id={banner.pen}
-              className={banner.icon}
+              className={`${banner.icon} " " ${editingName ? banner.red_edit : banner.normal_pen}`}
               icon={faPen}
-              onClick={editName}
+              onClick={() => {
+                editName();
+                setEditingName(!editingName);
+              }}
             />
             <FontAwesomeIcon
               id={banner.save}
               className={banner.icon}
               icon={faSave}
-              onClick={saveName}
+              onClick={(e) => { saveName(e); setEditingName(false); }}
+
             />
 
             {/* <img src={create} alt='create' onClick={editProfile} />

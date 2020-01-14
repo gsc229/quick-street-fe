@@ -44,6 +44,17 @@
         color: #2B3335;
         } 
 
+        .glowing_border {
+            border: 2px solid #dadada;
+            border-radius: 7px;
+        }
+
+        .glowing-border:focus { 
+            outline: none;
+            border-color: #9ecaed;
+            box-shadow: 0 0 10px #9ecaed;
+        }
+
       }
       .vendor_profile_btn_group{
           //border: 3px solid red;
@@ -55,15 +66,15 @@
           display: flex;
           justify-content: space-between;
           font-size: 12;
-          #pen{
+          /* #pen{
             color: #00B2ED;
-          }
+          } */
           #save{
             color: grey;
           }
 
           #pen:hover{
-            color: red;
+            color: red
           }         
 
           #save:hover{
@@ -72,6 +83,14 @@
          
           .icon{
             cursor: pointer;
+          }
+
+          .red_edit{
+            color: red;
+          }
+
+          .normal_pen{
+            color: #00B2ED;
           }
       }
 

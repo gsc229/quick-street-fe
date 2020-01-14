@@ -10,7 +10,7 @@ import Login from "./components/Login";
 import Browse from "./components/Browse";
 
 import CustomerFacingVendorProfile from "./components/CustomerFacingVendorProfile/CustomerFacingVendorProfile";
-import Landing from './components/LandingPage/index';
+import Landing from './components/LandingPage/index.js';
 
 
 function App() {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import about from "../../styles/css/vendor_about.module.css";
 import VendorAboutForm from "./VendorAboutForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,6 +14,7 @@ const About = ({
   editProfile,
   saveProfile
 }) => {
+  const [editingDetails, setEditingDetails] = useState(false);
   console.log(info);
   return (
     <div className={about.vendor_about_container}>
@@ -23,15 +24,15 @@ const About = ({
           <div className={about.vendor_about_btn_group}>
             <FontAwesomeIcon
               id={about.pen}
-              className={about.icon}
+              className={`${about.icon} " " ${editingDetails ? about.red_edit : about.normal_pen}`}
               icon={faPen}
-              onClick={editProfile}
+              onClick={() => { editProfile(); setEditingDetails(!editingDetails); }}
             />
             <FontAwesomeIcon
               id={about.save}
               className={about.icon}
               icon={faSave}
-              onClick={saveProfile}
+              onClick={(e) => { saveProfile(e); setEditingDetails(false); }}
             />
 
             {/* <img src={create} alt='create' onClick={editProfile} />

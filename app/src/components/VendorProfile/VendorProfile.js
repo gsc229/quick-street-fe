@@ -12,6 +12,7 @@ import banner from "../../styles/css/vendor_banner.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSave, faPen, faUpload } from "@fortawesome/free-solid-svg-icons";
 
+import BannerUploader from './BannerUploader';
 import { Image, CloudinaryContext, Transformation } from "cloudinary-react";
 import axiosWithAuth from "../../utils/axiosWithAuth";
 
@@ -40,72 +41,12 @@ const VendorProfile = props => {
 
 
 
-  const myWidget = window.cloudinary.createUploadWidget(
-    {
-      cloudName: "quickstlabs",
-      uploadPreset: "product-images",
-      sources: [
-        "local",
-        "url",
-        "camera",
-        "image_search",
-        "facebook",
-        "dropbox",
-        "instagram"
-      ],
-      showAdvancedOptions: true,
-      cropping: true, // if true multiple must be false, set to false [set multiple to true] to upload multiple files
-      multiple: false,
-      defaultSource: "local",
-      styles: {
-        palette: {
-          window: "#FFFFFF",
-          sourceBg: "#00B2ED",
-          windowBorder: "#E1F6FA",
-          tabIcon: "#2B3335",
-          inactiveTabIcon: "#555a5f",
-          menuIcons: "#5B5F63",
-          link: "#00769D",
-          action: "#21B787",
-          inProgress: "#00769D",
-          complete: "#21B787",
-          error: "#E92323",
-          textDark: "#2B3335",
-          textLight: "#FFFFFF"
-        },
-        fonts: {
-          default: null,
-          "'Poppins', sans-serif": {
-            url: "https://fonts.googleapis.com/css?family=Poppins",
-            active: true
-          }
-        }
-      }
-    },
-    async (error, result) => {
-      if (!error && result && result.event === "success") {
-        const banner_info = await result.info;
-        console.log('VendorProfile.js UploadWidget banner_info ', banner_info)
-        axiosWithAuth
-          .put(`https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`,
 
-            { ...vendorInfo, vendor_banner: `${banner_info.public_id}` }
-          )
-          .then(res => {
-            setBannerInfo(banner_info.public_id);
-          })
-          .catch(err => {
-            console.log('PUT VendorProfile.js Upload widget err', err)
-          })
-      }
-
-    }
-  );
 
   useEffect(() => {
     async function fetchVendorInfo() {
       try {
-        const vendorInfo = await axiosWithAuth.get(
+        const vendorInfo = await axiosWithAuth().get(
           `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`
         );
         console.log(`vendorinfo changed`, vendorInfo);
@@ -119,7 +60,7 @@ const VendorProfile = props => {
 
     async function fetchProducts() {
       try {
-        const products = await axiosWithAuth.get(
+        const products = await axiosWithAuth().get(
           `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}/products`
         );
 
@@ -138,7 +79,7 @@ const VendorProfile = props => {
       if (productIds.length !== 0) {
         for (const ids of productIds) {
           try {
-            const imageIds = await axiosWithAuth.get(
+            const imageIds = await axiosWithAuth().get(
               `https://quickstlabs.herokuapp.com/api/v1.0/products/${ids}/product-images`
             );
 
@@ -174,7 +115,7 @@ const VendorProfile = props => {
 
   const saveName = e => {
     e.preventDefault();
-    axiosWithAuth
+    axiosWithAuth()
       .put(`https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`, {
         ...vendorInfo,
         business_name: info.business_name
@@ -192,7 +133,7 @@ const VendorProfile = props => {
 
   const saveProfile = e => {
     e.preventDefault();
-    axiosWithAuth
+    axiosWithAuth()
       .put(`https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`, {
         ...vendorInfo,
         hours: `${info.hour_from}_${info.hour_to}`,
@@ -207,19 +148,10 @@ const VendorProfile = props => {
       });
   };
 
-  const uploadBanner = e => {
-    e.preventDefault();
-    myWidget.open();
-  };
 
 
-  /* setShow(!show) */
-  const reveal = () => {
-    const links = document.getElementById(`${profile.dropdown_links}`)
-    links.style.height = '400px';
-  }
 
-  console.log('dropdown_links', document.getElementById(`${profile.dropdown_links}`))
+
 
   return (
     <div className={profile.vendor_profile_container}>
@@ -228,13 +160,13 @@ const VendorProfile = props => {
 
 
         <div id={profile.hamburger_dropdown}>
-          <span id={profile.closebtn} onClick={() => reveal()}>
+          <span id={profile.closebtn} onClick={() => setShow(!show)}>
             <span class={profile.line1}></span>
             <span class={profile.line2}></span>
             <span class={profile.line3}></span>
           </span>
 
-          <div id={profile.dropdown_links} className={show ? profile.hamburger_dropdown_links : profile.no_drop}>
+          <div className={show ? profile.hamburger_dropdown_links : profile.no_drop}>
             <p className={profile.header_about}>About</p>
             <p className={profile.header_food}>Food</p>
             <p className={profile.header_business_name}>
@@ -308,24 +240,21 @@ const VendorProfile = props => {
             </CloudinaryContext>
           ) : (
               <img
-                className={banner.vendor_banner_image}
+                className="vendor_banner_image"
                 src={picture}
                 alt="vendor header"
               />
             )}
           <div className={banner.vendor_banner_upload}>
-            <FontAwesomeIcon
-              id={banner.upload}
-              className={banner.icon}
-              icon={faUpload}
-              onClick={uploadBanner}
+            <BannerUploader            
+            vendorId={vendorId}
+            vendorInfo={vendorInfo}
+            setBannerInfo={setBannerInfo}
+            bannerInfo={bannerInfo}       
+            
+            
             />
-            {/* <img
-              src={upload}
-              alt='upload icon'
-              onClick={uploadBanner}
-            /> */}
-          </div>{" "}
+          </div>
         </div>
       </div>
 

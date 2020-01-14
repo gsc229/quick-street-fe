@@ -54,7 +54,7 @@ const Posts = (props) => {
         </div>
       ))}
       {vendorPost.count === 0 && (
-        <p>There are no posts to show right now.</p>
+        <p className='no_post_content'>There are no posts to show right now.</p>
       )}
     </div>
   )

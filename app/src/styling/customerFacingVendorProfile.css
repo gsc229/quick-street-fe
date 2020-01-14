@@ -126,6 +126,14 @@
   color: #000000;
 }
 
+.no_products_content {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 28px;
+  color: rgba(43, 51, 53, .6);
+  margin-left: 32%;
+}
+
 /*********** Bulletin Section ************/
 
 .bulletin_board_section {
@@ -172,4 +180,12 @@ hr {
   padding-left: 140px;
   margin-bottom: 14%;
   font-size: 18px;
+}
+
+.no_post_content {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 28px;
+  color: rgba(43, 51, 53, .6);
+  text-align: center;
 }

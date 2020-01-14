@@ -88,7 +88,6 @@ class LandingPage extends React.Component {
 								easy!” - Alandra S.
 							</p>
 							{/* <div className="testimonial-button">Start Now!</div> */}
-
 						</div>
 					</div>
 					<div className="works-card-wrapper">
@@ -97,7 +96,7 @@ class LandingPage extends React.Component {
 						</div>
 						<div className="works-content">
 							<p>
-								“Quick Street helped me find new found favorite vendors. Its like a whole new city to
+								“Market Avenue helped me find new found favorite vendors. Its like a whole new city to
 								me!” - Sam B.
 							</p>
 							{/* <div className="testimonial-button">Start Now!</div> */}

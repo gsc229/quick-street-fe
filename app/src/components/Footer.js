@@ -31,7 +31,7 @@ const Footer = () => {
 			<div className="footer-bottom-row">
 				<div className="footer-bottom-row-blank" />
 				<div className="footer-bottom-row-copyright">
-					<p>© 2019 Quick Street, All rights reserved | Terms Of Service | Privacy Policy</p>
+					<p>© 2019-2020 Market Avenue, All rights reserved | Terms Of Service | Privacy Policy</p>
 				</div>
 				<div className="footer-bottom-row-social">
 					<Icon name="snapchat" width={24} fill={'#000'} />

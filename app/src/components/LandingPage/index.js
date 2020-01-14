@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 // styling
 import '../LandingPage/landing.css';
 import styles from 'react-responsive-carousel/lib/styles/carousel.min.css';

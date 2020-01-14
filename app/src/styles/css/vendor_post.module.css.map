@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,UAAU,CAAC;EACP,SAAS,EAAE,IAAI;CAClB;;AAED,AAAA,aAAa,CAAC;EACV,YAAY,EAAE,KAAK;EACrB,aAAa,EAAE,GAAG;EAChB,SAAS,EAAE,IAAI;CAClB",
+    "sources": [
+        "../scss/vendor_post.module.scss"
+    ],
+    "names": [],
+    "file": "vendor_post.module.css"
+}

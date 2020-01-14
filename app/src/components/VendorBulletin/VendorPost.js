@@ -1,13 +1,17 @@
 import React from "react";
+import post from '../../styles/scss/vendor_post.module.scss';
+
 
 const VendorPost = ({ content, date }) => {
   return (
-    <li>
-      <p>
-        <small>Date:{date}</small>
-      </p>
-
-      <p>{content}</p>
+    <li className={post.post_container}>
+      <div className='post_date_line'>
+        <p className={post.post_date}>
+          Date {date}
+        </p>
+        <hr></hr>
+      </div>
+      <p className={post.post_content}>{content}</p>
     </li>
   );
 };

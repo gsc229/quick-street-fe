@@ -47,8 +47,8 @@ const Posts = (props) => {
       {vendorPost.posts.map(post => (
         <div className='posts_div' key={post._id}>
           <div className='post_date_line'>
-          <p className='post_date'>Date {changeDateFormat(post.createdAt)}</p>      
-          <hr></hr>
+            <p className='post_date'>Date {changeDateFormat(post.createdAt)}</p>      
+            <hr></hr>
           </div>
           <p className='post_content'>{post.description}</p>
         </div>

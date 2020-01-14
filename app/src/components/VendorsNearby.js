@@ -34,7 +34,7 @@ const VendorsNearby = (props) => {
           <div className='vendor_details_div' key={vendor._id} >
           <CloudinaryContext cloudName='quickstlabs' >
             <Image publicId={vendor.vendor_banner} >
-              <Transformation height='160' width='202'crop='fill' />
+              <Transformation height='160' width='150'crop='fill' />
             </Image>
           </CloudinaryContext>
           {/* <img className='vendor_banner_image' src={vendor.vendor_banner} alt='Banner Image'></img> */}

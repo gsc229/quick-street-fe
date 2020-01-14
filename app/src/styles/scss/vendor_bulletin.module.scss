@@ -1,0 +1,45 @@
+.vendor_bulletin_container {
+    font-family: 'Raleway', sans-serif;
+    background-color: rgba(233, 187, 250, 0.15);
+    padding: 3% 13% 5%;
+    // color: #000000;
+    margin-bottom: 10%;
+
+   .vendor_bulletin_header {
+       display: flex;
+       justify-content: space-between;
+
+       .vendor_bulletin_title {
+        color: #2B3335;
+        margin-bottom: 3%;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 28px;
+      }
+
+      .vendor_add_post_btn_wrapper {
+        width: 300px;
+        height: 56px;
+        background-color: #00769D;
+        border-radius: 10px;
+        text-align: center;
+    
+        button {
+            background-color: #00769D;
+            color: #FEF2E4;
+            margin: 10px;
+            font-size: 24px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+      }
+
+   }
+}
+
+
+
+
+  
+
+ 

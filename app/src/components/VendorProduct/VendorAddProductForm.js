@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import upload from "../../assets/upload.png";
 import productImg from "../../assets/rectangle75.png";
 import { Image, CloudinaryContext } from "cloudinary-react";
-import axios from "axios";
+import axiosWithAuth from '../../utils/axiosWithAuth';
 
 const VendorAddProductForm = ({
   modal,
@@ -88,7 +88,7 @@ const VendorAddProductForm = ({
 
   const onSubmit = async e => {
     e.preventDefault();
-    const res_1 = await axios.post(
+    const res_1 = await axiosWithAuth().post(
       `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}/products`,
       {
         diet: ["Vegan"],
@@ -100,7 +100,7 @@ const VendorAddProductForm = ({
     );
     let productInfo = res_1.data.data;
 
-    const res_2 = await axios.post(
+    const res_2 = await axiosWithAuth().post(
       `https://quickstlabs.herokuapp.com/api/v1.0/products/${productInfo._id}/product-images`,
       productPictureInfo
     );
@@ -129,7 +129,7 @@ const VendorAddProductForm = ({
       }
     >
       <form className="vendor_add_product_form" onSubmit={onSubmit}>
-      <header className='add_product_section_title'>Adding an Item</header>
+        <header className='add_product_section_title'>Adding an Item</header>
         <div className='add_product_main_content'>
           <div className='left_side_add_item_form'>
             <div className="input_wrapper">

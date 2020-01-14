@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,qBAAqB,CAAC,MAAM,CAAC;EAC3B,gBAAgB,EAAE,OAAO;CAC1B",
+    "sources": [
+        "../scss/vendor_add_post_form.module.scss"
+    ],
+    "names": [],
+    "file": "vendor_add_post_form.module.css"
+}

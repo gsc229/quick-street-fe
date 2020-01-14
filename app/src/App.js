@@ -11,16 +11,19 @@ import Landing from './components/LandingPage/index';
 function App() {
   console.log(window.cloudinary);
   return (
-    <div id="wrapper">
-      <div>
-        <Route path="/landing" component={Landing} />
+    <>
+      <div id="wrapper">
+    <Route path="/landing" component={Landing} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route path="/profile/:id" component={VendorProfile} />
         <Route exact path="/browse" component={Browse} />
-        <Route path="/browse/:id" component={CustomerFacingVendorProfile} />
+        {/* <Route path="/browse/:id" component={CustomerFacingVendorProfile} /> */}
       </div>
-    </div>
+      <div>
+      <Route path="/browse/:id" component={CustomerFacingVendorProfile} />
+      </div>
+    </>
   );
 }
 

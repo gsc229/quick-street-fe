@@ -90,6 +90,7 @@ h3 {
 
 .link {
 	color: #00b2ed;
+	text-decoration: underline;
 }
 
 .cancel_button {

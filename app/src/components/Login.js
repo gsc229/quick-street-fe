@@ -100,6 +100,7 @@ const Login = (props) => {
           </div>
           <button className='confirm_button'>Login</button>
         </form>
+        <h3>Not a vendor? Start browsing <Link className='link' to="/browse">here.</Link></h3>
       </div>
     </div>
   )

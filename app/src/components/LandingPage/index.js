@@ -61,7 +61,7 @@ class LandingPage extends React.Component {
 						<Image name="Works3" />
 						</div>
 						<div className="works-content">
-							See what you like? We have a seamless order request process for both sides. Win-win.{' '}
+							See what you like? We have a seamless order request process for both sides. Win-win.
 						</div>
 					</div>
 				</div>
@@ -71,45 +71,46 @@ class LandingPage extends React.Component {
 
 				</div>
 				<div className="marketing-Header">Testimonials</div>
-				<div className="testimonial-container">
-					<div className="testimonial-card-wrapper">
-						<div className="testimonial-image">
+				<div className="works-container">
+					<div className="works-card-wrapper">
+						<div className="works-image">
 						<Image name="Testimonial1" />
 						</div>
-						<div className="testimonial-content">
-							<p>“I just moved to Austin and wanted to support local from the start. This made it so easy!” -
-							Alandra S.</p>
+						<div className="works-content">
+						“I just moved to Austin and wanted to support local from the start. This made it so easy!” -
+							Alandra S.
 							<div className="testimonial-button">
 							Start Now!
 						</div>
 						</div>
-					
+
 					</div>
-					<div className="testimonial-card-wrapper">
-						<div className="testimonial-image">
+					<div className="works-card-wrapper">
+						<div className="works-image">
 						<Image name="Testimonial2" />
 						</div>
-						<div className="testimonial-content">
-							<p>“Quick Street helped me find new found favorite vendors. Its like a whole new city to me!” -
+						<div className="works-content">
+						<p>“Quick Street helped me find new found favorite vendors. Its like a whole new city to me!” -
 							Sam B.</p>
 							<div className="testimonial-button">
 							Start Now!
-							</div>
+						</div>
 						</div>
 					</div>
-					<div className="testimonial-card-wrapper">
-						<div className="testimonial-image">
+					<div className="works-card-wrapper">
+						<div className="works-image">
 						<Image name="Testimonial3" />
 						</div>
-						<div className="testimonial-content">
-							<p>“As a vendor this helped so many stressors I used to have throughout my week; now I can
-							focus more time on my craft. It’s great!” - Tracee W.</p>
+						<div className="works-content">
+						<p>“Quick Street helped me find new found favorite vendors. Its like a whole new city to me!” -
+							Sam B.</p>
 							<div className="testimonial-button">
 							Start Now!
 						</div>
 						</div>
 					</div>
 				</div>
+
 				<div className="footer-container">
 					<div className="footer-top-row">
 						<div className="footer-top-row-column">

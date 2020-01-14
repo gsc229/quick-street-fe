@@ -129,54 +129,62 @@ const VendorAddProductForm = ({
       }
     >
       <form className="vendor_add_product_form" onSubmit={onSubmit}>
-        <div className="input_wrapper">
-          <div className="vendor_product_container">
-            {productPictureInfo.public_id ? (
-              <CloudinaryContext cloudName="quickstlabs">
-                <Image
-                  className="vendor_product_image"
-                  publicId={productPictureInfo.public_id}
-                  width="50"
-                  height="100"
-                />
-              </CloudinaryContext>
-            ) : (
+      <header className='add_product_section_title'>Adding an Item</header>
+        <div className='add_product_main_content'>
+          <div className='left_side_add_item_form'>
+            <div className="input_wrapper">
+              <label>Name of item</label>
+              <input
+                type="text"
+                name="name"
+                value={product.name}
+                onChange={changeHandler}
+              />
+            </div>
+            <div className="input_wrapper">
+              <label>Price</label>
+              <input
+                type="text"
+                name="price"
+                value={product.price}
+                onChange={changeHandler}
+                placeholder='$'
+              />
+            </div>
+          </div>
+
+          <div className='right_side_add_item_form'>
+            <div className="input_wrapper">
+              <div className="vendor_product_image_container">
+                {productPictureInfo.public_id ? (
+                  <CloudinaryContext cloudName="quickstlabs">
+                    <Image
+                      className="vendor_product_image"
+                      publicId={productPictureInfo.public_id}
+                      width="50"
+                      height="100"
+                    />
+                  </CloudinaryContext>
+                ) : (
+                    <img
+                      className="vendor_product_image"
+                      src={productImg}
+                      alt="product"
+                    />
+                  )}
                 <img
-                  className="vendor_product_image"
-                  src={productImg}
-                  alt="product"
+                  className="vendor_product_picture_upload"
+                  src={upload}
+                  alt="upload icon"
+                  onClick={uploadProductPicture}
                 />
-              )}
-            <img
-              className="vendor_product_picture_upload"
-              src={upload}
-              alt="upload icon"
-              onClick={uploadProductPicture}
-            />
+              </div>
+            </div>
           </div>
         </div>
-
-        <div className="input_wrapper">
-          <label>Name of item</label>
-          <input
-            type="text"
-            name="name"
-            value={product.name}
-            onChange={changeHandler}
-          />
-        </div>
-        <div className="input_wrapper">
-          <label>Price Point</label>
-          <input
-            type="text"
-            name="price"
-            value={product.price}
-            onChange={changeHandler}
-          />
-        </div>
         <div className="vendor_product_btn_group">
-          <button onClick={addProductformCancelHandler}>Cancel</button>
-          <button>save</button>
+          <button className='cancel' onClick={addProductformCancelHandler}>Cancel</button>
+          <button className='save'>Save</button>
         </div>
       </form>
     </div>

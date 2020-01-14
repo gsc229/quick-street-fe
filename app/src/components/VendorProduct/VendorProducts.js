@@ -8,14 +8,14 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 const VendorProducts = ({ products, addProduct }) => {
   return (
     <div className={product_list.vendor_product_list_container}>
-      <div className={product_list.vendor_product_list_title}>
+      <header className={product_list.vendor_product_list_title}>Products</header>
+      {/* <div className={product_list.vendor_product_list_title}>
         <p>Products</p>
-        <hr />
-      </div>
+      </div> */}
       <div className={product_list.vendor_product_list_wrapper}>
         <button className={product_list.add_product_btn} onClick={addProduct}>
+        <FontAwesomeIcon icon={faPlus} />
           Add product <br />
-          <FontAwesomeIcon icon={faPlus} />
         </button>
         {products ? (
           products.map((p, idx) => (

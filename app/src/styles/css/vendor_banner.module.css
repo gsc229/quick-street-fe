@@ -1,5 +1,4 @@
 .vendor_banner_container {
-  border: 5px solid blue;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -16,15 +15,16 @@
 }
 
 .vendor_banner_container .banner_text_btns {
-  border: 3px solid blue;
-  width: 100%;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   height: 100px;
+  width: 78%;
+  margin: 0 auto;
 }
 
 .vendor_banner_container .banner_text_btns .vendor_header_name {
@@ -36,7 +36,10 @@
   width: fit-content;
   position: relative;
   cursor: pointer;
-  right: 6%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  right: 2%;
 }
 
 .vendor_banner_container .banner_text_btns .vendor_header_name input {
@@ -58,21 +61,21 @@
 }
 
 .vendor_banner_container .banner_text_btns .vendor_profile_btn_group {
-  border: 3px solid red;
-  width: 70px;
+  width: 85px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   position: relative;
   -ms-flex-item-align: start;
       align-self: flex-start;
-  left: 12%;
+  left: 11.5%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  font-size: 12;
 }
 
 .vendor_banner_container .banner_text_btns .vendor_profile_btn_group #pen {
@@ -100,7 +103,7 @@
 }
 
 .vendor_banner_container .vendor_banner_image_container .vendor_banner_image {
-  width: 74%;
+  width: 78%;
   height: 316px;
   margin: 0 auto;
 }

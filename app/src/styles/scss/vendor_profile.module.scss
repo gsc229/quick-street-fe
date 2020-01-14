@@ -1,5 +1,5 @@
 .vendor_profile_container{  
-  border: lawngreen 5px solid;
+  //border: lawngreen 5px solid;
   width: 100%;
   .vendor_header_container{
     /* border: 3px solid purple; */
@@ -96,7 +96,7 @@
     }
 
     .header_links{
-      border: 3px solid yellow;
+      //border: 3px solid yellow;
       @media only screen and (max-width: 1000px) {
         display: none;
         
@@ -107,7 +107,7 @@
       justify-content: space-around;
       align-items: center;
       p{
-        border: black solid 1px;
+        
         cursor: pointer;
         position: relative;
         top: 9px;

@@ -1,5 +1,5 @@
 .vendor_banner_container{
-  border: 5px solid blue;
+  //border: 5px solid blue;
   height: fit-content;
   margin-top: 7vh;
   text-align: center;
@@ -8,21 +8,22 @@
   flex-direction: column;
 
   .banner_text_btns{ 
-    border: 3px solid blue;
-    width: 100%;
+    //border: 3px solid blue;    
     position: relative;    
     display: flex;
     //align-items: center;  
-    justify-content: space-around; 
+    justify-content: space-between; 
     height: 100px; 
-
+    width: 78%;
+    margin: 0 auto;
       .vendor_header_name{
         //border: blue solid 2px;
         height: fit-content;
         width: fit-content;
         position: relative;
         cursor: pointer;
-        right: 6%;
+        align-self: center;
+        right: 2%;
         input{
 
         width: 278px;
@@ -45,14 +46,15 @@
 
       }
       .vendor_profile_btn_group{
-          border: 3px solid red;
-          width: 70px;
+          //border: 3px solid red;
+          width: 85px;
           height: fit-content;
           position: relative;
           align-self: flex-start;
-          left: 12%;
+          left: 11.5%;
           display: flex;
           justify-content: space-between;
+          font-size: 12;
           #pen{
             color: #00B2ED;
           }
@@ -77,8 +79,8 @@
 
   .vendor_banner_image_container{ 
     position: relative;
-    .vendor_banner_image{
-          width: 74%;
+     .vendor_banner_image{
+          width: 78%;
           height: 316px;   
           margin: 0 auto;          
     }  

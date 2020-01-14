@@ -1,5 +1,4 @@
 .vendor_profile_container {
-  border: lawngreen 5px solid;
   width: 100%;
 }
 
@@ -109,7 +108,6 @@
 }
 
 .vendor_profile_container .vendor_header_container .header_links {
-  border: 3px solid yellow;
   height: 100%;
   width: 50%;
   display: -webkit-box;
@@ -129,7 +127,6 @@
 }
 
 .vendor_profile_container .vendor_header_container .header_links p {
-  border: black solid 1px;
   cursor: pointer;
   position: relative;
   top: 9px;

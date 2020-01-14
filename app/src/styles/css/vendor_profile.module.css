@@ -50,6 +50,15 @@
           align-items: center;
 }
 
+@media only screen and (max-width: 600px) {
+  .vendor_profile_container .vendor_header_container .header_links {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .vendor_profile_container .vendor_header_container .header_links p {
   cursor: pointer;
   position: relative;

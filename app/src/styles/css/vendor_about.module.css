@@ -74,11 +74,16 @@
 }
 
 .vendor_about_container .inner_container {
-  border: 2px solid yellow;
+  border: 5px solid yellow;
   margin: 100px 200px 50px 200px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .vendor_about_container .inner_container .about_top {
+  border: 5px solid indigo;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -137,6 +142,10 @@
 
 .vendor_about_container .inner_container .about_bottom {
   border: blue solid 5px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .vendor_about_container .inner_container .about_bottom .vendor_info_form {

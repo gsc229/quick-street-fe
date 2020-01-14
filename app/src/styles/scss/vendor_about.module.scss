@@ -70,11 +70,12 @@
   } 
   
   .inner_container{
-    border: 2px solid yellow;
+    border: 5px solid yellow;
     margin: 100px 200px 50px 200px;                
-    
+    width: fit-content;
+    margin: 0 auto;
     .about_top{
-      
+      border: 5px solid indigo;
       display: flex;
       justify-content: space-between;
       
@@ -123,7 +124,8 @@
     
     .about_bottom{
       border: blue solid 5px;
-      
+      width: fit-content;
+      margin: 0 auto;
       .vendor_info_form{
         border: 2px solid turquoise;
         display: flex;

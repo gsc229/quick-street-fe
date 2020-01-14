@@ -33,7 +33,9 @@
 
     .header_links{
       border: 3px solid yellow;
-      
+      @media only screen and (max-width: 600px) {
+        flex-direction: column;
+      }
       height: 100%;
       width: 50%;
       display: flex;

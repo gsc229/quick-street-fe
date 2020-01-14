@@ -4,6 +4,7 @@ import VendorProducts from "../VendorProduct/VendorProducts";
 import VendorAddProductForm from "../../components/VendorProduct/VendorAddProductForm";
 import picture from "../../assets/placeholder.png";
 import VendorBulletin from "../VendorBulletin/VendorBulletin";
+import Footer from '../Footer';
 //Styles
 import profile from "../../styles/css/vendor_profile.module.css";
 import banner from "../../styles/css/vendor_banner.module.css";
@@ -13,6 +14,7 @@ import { faSave, faPen, faUpload } from "@fortawesome/free-solid-svg-icons";
 
 import { Image, CloudinaryContext, Transformation } from "cloudinary-react";
 import axios from "axios";
+import axiosWithAuth from '../../utils/axiosWithAuth';
 
 const VendorProfile = props => {
   const [modal, setModal] = useState(false);
@@ -85,11 +87,11 @@ const VendorProfile = props => {
         const banner_info = await result.info;
         setBannerInfo(banner_info.public_id);
       }
-      axios.put(
+      axiosWithAuth().put(
         `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`,
 
         { ...vendorInfo, vendor_banner: `${bannerInfo}` }
-      );
+      ).then(console.log('PUT request Issue'));
     }
   );
 
@@ -165,7 +167,7 @@ const VendorProfile = props => {
 
   const saveName = e => {
     e.preventDefault();
-    axios
+    axiosWithAuth()
       .put(`https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`, {
         ...vendorInfo,
         business_name: info.business_name
@@ -183,7 +185,7 @@ const VendorProfile = props => {
 
   const saveProfile = e => {
     e.preventDefault();
-    axios
+    axiosWithAuth()
       .put(`https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`, {
         ...vendorInfo,
         hours: `${info.hour_from}_${info.hour_to}`,
@@ -299,7 +301,7 @@ const VendorProfile = props => {
             </CloudinaryContext>
           ) : (
               <img
-                className="vendor_banner_image"
+                className={banner.vendor_banner_image}
                 src={picture}
                 alt="vendor header"
               />
@@ -345,6 +347,8 @@ const VendorProfile = props => {
         vendorId={vendorId}
       />
       <VendorBulletin vendorId={vendorId} />
+
+      <Footer />
     </div >
   );
 };

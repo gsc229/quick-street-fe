@@ -101,7 +101,8 @@
      .vendor_banner_image{
           width: 78%;
           height: 316px;   
-          margin: 0 auto;          
+          margin: 0 auto;  
+          object-fit: fill;        
     }  
 
     .vendor_banner_upload{

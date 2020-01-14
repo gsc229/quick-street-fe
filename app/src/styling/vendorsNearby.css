@@ -3,6 +3,10 @@
 	flex-direction: column;
 }
 
+.menu-container {
+	width: 100%;
+}
+
 .zipcode_title {
 	font-size: 24px;
 	margin-top: 3%;

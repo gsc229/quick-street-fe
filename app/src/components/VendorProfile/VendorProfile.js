@@ -4,6 +4,7 @@ import VendorProducts from "../VendorProduct/VendorProducts";
 import VendorAddProductForm from "../../components/VendorProduct/VendorAddProductForm";
 import picture from "../../assets/placeholder.png";
 import VendorBulletin from "../VendorBulletin/VendorBulletin";
+import Footer from '../Footer';
 //Styles
 import profile from "../../styles/css/vendor_profile.module.css";
 import banner from "../../styles/css/vendor_banner.module.css";
@@ -345,6 +346,8 @@ const VendorProfile = props => {
         vendorId={vendorId}
       />
       <VendorBulletin vendorId={vendorId} />
+
+      <Footer />
     </div >
   );
 };

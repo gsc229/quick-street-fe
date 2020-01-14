@@ -40,7 +40,7 @@ const VendorsNearby = (props) => {
           {/* <img className='vendor_banner_image' src={vendor.vendor_banner} alt='Banner Image'></img> */}
           <p className='vendor_name'>{vendor.business_name}</p>
           <p className='vendor_category'>{vendor.vendor_category}</p>
-          <Link className='view_vendor' onClick={() => props.history.push(`/browse/${vendor._id}`)}>View</Link>
+          <Link className='view_vendor' to={`/browse/${vendor._id}`}>View</Link>
           </div>
         ))}
       </div>

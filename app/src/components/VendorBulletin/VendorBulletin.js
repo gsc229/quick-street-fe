@@ -12,6 +12,7 @@ const VendorBulletin = props => {
     zipcode: ""
   });
 
+
   const addPost = e => {
     e.preventDefault();
     setShowAddPostForm(true);

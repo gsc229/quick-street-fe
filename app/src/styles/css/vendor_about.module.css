@@ -113,10 +113,9 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-}
-
-.vendor_about_container .inner_container .about_top .vendor_about_btn_group #pen {
-  color: #00B2ED;
+  /* #pen{
+            color: #00B2ED;
+          } */
 }
 
 .vendor_about_container .inner_container .about_top .vendor_about_btn_group #save {
@@ -133,6 +132,14 @@
 
 .vendor_about_container .inner_container .about_top .vendor_about_btn_group .icon {
   cursor: pointer;
+}
+
+.vendor_about_container .inner_container .about_top .vendor_about_btn_group .red_edit {
+  color: red;
+}
+
+.vendor_about_container .inner_container .about_top .vendor_about_btn_group .normal_pen {
+  color: #00B2ED;
 }
 
 .vendor_about_container .inner_container .about_bottom {

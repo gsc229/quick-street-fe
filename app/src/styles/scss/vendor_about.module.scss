@@ -99,9 +99,9 @@
           left: 11.5%;
           display: flex;
           justify-content: space-between;
-          #pen{
+          /* #pen{
             color: #00B2ED;
-          }
+          } */
 
           #save{
             color: grey;            
@@ -117,6 +117,14 @@
          
           .icon{
             cursor: pointer;
+          }
+
+          .red_edit{
+            color: red;
+          }
+
+          .normal_pen{
+            color: #00B2ED;
           }
       }
 

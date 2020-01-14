@@ -5,6 +5,8 @@ import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
 import '../styling/vendorsNearby.css';
 import rectangle from '../assets/rectangle.png';
 import placeholder from '../assets/placeholder.png';
+import Footer from './Footer';
+import Menu from './Menu';
 
 const VendorsNearby = (props) => {
   // console.log(props);
@@ -12,6 +14,7 @@ const VendorsNearby = (props) => {
   
   return (
     <>
+
       {props.zipcode === '' ? (
         <>
           <p className='result_para'>Your results will display here once you have set a location</p>
@@ -44,6 +47,8 @@ const VendorsNearby = (props) => {
           </div>
         ))}
       </div>
+      <Footer />
+
     </>
   )
 } 

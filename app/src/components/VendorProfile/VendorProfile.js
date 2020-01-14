@@ -292,7 +292,7 @@ const VendorProfile = props => {
             </CloudinaryContext>
           ) : (
               <img
-                className="vendor_banner_image"
+                className={banner.vendor_banner_image}
                 src={picture}
                 alt="vendor header"
               />

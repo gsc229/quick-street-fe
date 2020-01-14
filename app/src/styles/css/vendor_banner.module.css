@@ -125,6 +125,8 @@
   width: 78%;
   height: 316px;
   margin: 0 auto;
+  -o-object-fit: fill;
+     object-fit: fill;
 }
 
 .vendor_banner_container .vendor_banner_image_container .vendor_banner_upload {

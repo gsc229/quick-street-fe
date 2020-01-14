@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Switch, Route } from 'react-router-dom';
 // styling
 import '../LandingPage/landing.css';
 import styles from 'react-responsive-carousel/lib/styles/carousel.min.css';
@@ -21,8 +21,12 @@ class LandingPage extends React.Component {
 					<div className="landingInfo">
 						<p>Finally , A Way For Vendors and Lovers of Food to Come Together in Harmony </p>
 						<div className="button-container">
-							<div className="vendorButton">I'm a Vendor!</div>
-							<div className="customerButton">I'm a Customer!</div>
+							<div className="vendorButton">
+								<Link to="/register">I'm a Vendor!</Link>
+							</div>
+							<div className="customerButton">
+								<Link to="/browse">I'm a Customer!</Link>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -84,6 +88,7 @@ class LandingPage extends React.Component {
 								easy!” - Alandra S.
 							</p>
 							{/* <div className="testimonial-button">Start Now!</div> */}
+
 						</div>
 					</div>
 					<div className="works-card-wrapper">

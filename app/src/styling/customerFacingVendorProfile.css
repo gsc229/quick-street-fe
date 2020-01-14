@@ -1,17 +1,22 @@
-.container {
+/* .container {
   border: 1px solid red;
-  /* width: 100vw; */
   margin: 0;
   padding: 0;
-}
+  color: #2B3335;
+  font-family: 'Raleway', sans-serif;
+} */
 
 /***********    Top Section   *************/
 
 .top_section {
-  border: 1px solid green;
+  /* border: 1px solid green; */
   font-family: 'Raleway', sans-serif;
   margin: 7% 13% 7% 13%;
   color: #2B3335;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 42px;
 }
 
 .top_section img {
@@ -23,37 +28,47 @@
 
 /*********** About Us Section ************/
 
+.bottom_section {
+  /* border: 1px solid blue; */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #E1F6FA;
+  display: flex;
+  padding: 5% 13%;
+} 
+
 .vendor_info_section {
   width: 60%;
   font-family: 'Raleway', sans-serif;
   color: #2B3335;
 }
 
-.bottom_section {
-  border: 1px solid blue;
-  width: 100%;
-  background-color: #E1F6FA;
-  display: flex;
-  padding-right: 13%;
-  padding-left: 13%;
-  padding-top: 5%;
-  padding-bottom: 5%;
-} 
-
  .title {
- font-size: 24px;
- margin-bottom: 1%;
+  font-size: 24px;
+  /* margin-bottom: 1%; */
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+.title_description {
+  padding-left: 1%;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 21px;
 }
 
 .title_content {
   font-size: 16px;
-  padding-left: 10%;
+  padding-left: 2%;
   margin-bottom: 6%;
 }
 
 .title_content_phone {
   font-size: 16px;
-  padding-left: 10%;
+  padding-left: 2%;
   margin-bottom: 1%;
 } 
 
@@ -65,17 +80,17 @@
 /*********** Product Section ************/
 
 .product_section {
-  border: 1px solid purple;
+  /* border: 1px solid purple; */
   /* width: 85%;
   margin: auto 13%; */
-  padding: 5% 0 10% 13% ;
+  padding: 5% 13% 15% 13%;
   margin:  0;
   /*padding-top: 5%;
   padding-bottom: 10%; */
 }
 
 .product_section_title {
-  padding-bottom: 5%;
+  padding-bottom: 2%;
   font-size: 24px;
   color: #2B3335;
 }
@@ -83,24 +98,24 @@
 .products_div {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
+  justify-content: left;
 }
 
 .product {
-  width: 140px;
-  height: 150px; 
-  margin: 10px;
+  width: 146px;
+  height: 173px; 
+  margin: 0 40px 27px 0;
 }
 
 .product_image {
-  width: 140px;
+  width: 146px;
   height: 122px;
   object-fit: cover;
 }
 
 .product_name {
   font-size: 14px;
-  /* line-height: none; */
+  color: #000000;
   margin-top: 4%;
   margin-bottom: 3%;
 }
@@ -108,25 +123,21 @@
 .product_price {
   font-size: 14px;
   margin-top: 0;
+  color: #000000;
 }
 
 /*********** Bulletin Section ************/
 
 .bulletin_board_section {
-  border: 1px solid black;
-  padding-right: 13%;
-  padding-left: 13%;
-  /* background-color:#e9bbfa; */
-  /* opacity: 0.1; */
+  /* border: 1px solid black; */
+  padding: 3% 13% 5%;
   background-color: rgba(233, 187, 250, 0.15);
-  padding-bottom: 5%;
-  padding-top: 3%;
   color: #000000;
   margin-bottom: 10%;
 }
 
 .bulletin_section_title {
-  margin-top: 2%;
+  margin-bottom: 3%;
   font-size: 24px;
 }
 
@@ -137,31 +148,28 @@
 }
 
 .post_date {
-  width: 20%;
-  padding-left: 30px;
+  width: 10%;
   font-size: 18px;
   /* border: 1px red solid; */
 }
 
 .post_date_line {
-  width: 500px;
   display: flex;
   justify-content: space-between;
 }
 
 hr {
-  width: 90%;
-  text-align: center; 
+  width: 86%;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2); 
   border-top: none;
   border-left: none;
   border-right: none;
   line-height: 0.1em;
-  margin:0 0 25px;
+  margin-bottom: 7%;
 }
 
 .post_content {
   padding-left: 140px;
-  margin-bottom: 10%;
+  margin-bottom: 14%;
   font-size: 18px;
 }

@@ -34,13 +34,13 @@ const VendorsNearby = (props) => {
           <div className='vendor_details_div' key={vendor._id} >
           <CloudinaryContext cloudName='quickstlabs' >
             <Image publicId={vendor.vendor_banner} >
-              <Transformation height='160' width='192'crop='fill' />
+              <Transformation height='160' width='202'crop='fill' />
             </Image>
           </CloudinaryContext>
           {/* <img className='vendor_banner_image' src={vendor.vendor_banner} alt='Banner Image'></img> */}
           <p className='vendor_name'>{vendor.business_name}</p>
           <p className='vendor_category'>{vendor.vendor_category}</p>
-          <Link className='view_vendor' onClick={() => props.history.push(`/browse/${vendor._id}`)}>View</Link>
+          <Link className='view_vendor' to={`/browse/${vendor._id}`}>View</Link>
           </div>
         ))}
       </div>

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import VendorAddPostForm from "./VendorAddPostForm";
 import VendorPostList from "./VendorPostList";
 import axios from "axios";
+import axiosWithAuth from '../../utils/axiosWithAuth';
+
 import bulletin from '../../styles/scss/vendor_bulletin.module.scss';
 
 const VendorBulletin = props => {
@@ -25,7 +27,7 @@ const VendorBulletin = props => {
 
   const postSubmit = e => {
     e.preventDefault();
-    axios
+    axiosWithAuth()
       .post(
         `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${props.vendorId}/posts`,
         { title: "test title", description: post.content }

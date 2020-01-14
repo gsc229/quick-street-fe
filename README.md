@@ -1,93 +1,92 @@
-🚫 Note: All lines that start with 🚫 are instructions and should be deleted before this is posted to your portfolio. This is intended to be a guideline, feel free to add your own flare to it.
-
-🚫 The numbers 1️⃣ through 5️⃣ next to each item represent the week that part of the docs needs to be comepleted by.  Make sure to delete the numbers by the end of Labs.
-
-🚫 Each student has a required minimum number of meaningful PRs each week per the rubric. Contributing to docs does NOT count as a PR to meet your weekly requirements.
-
-# 1️⃣ Title of project goes here
+# Market Avenue
 
 1️⃣ You can find the deployed project at [🚫URL NAME GOES HERE](🚫copy and paste URL here).
 
-## 4️⃣ Contributors
+## Contributors
 
-🚫Add contributor info below, make sure add images and edit the social links for each member. Add to or delete these place-holders as needed
 
-|                                       [Student 1](https://github.com/)                                        |                                       [Student 2](https://github.com/)                                        |                                       [Student 3](https://github.com/)                                        |                                       [Student 4](https://github.com/)                                        |                                       [Student 5](https://github.com/)                                        |
+|[Richard Lawson](https://github.com/lawsonarichard)|                                       [Chao Ji](https://github.com/cjgodfather)                                        |                                       [Rashmi Poddar](https://github.com/rashmipoddar)                                        |                                       [Dominique Maack](https://github.com/dmaack)                                        |                                       [Greg Cameron](https://github.com/gsc229)                                        |                                       [Luis Ocasio](https://github.com/LuisOcasio)                                        |
 | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
-|                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |
-|                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)           |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wvandolah)             |
-| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) |
+| [<img src="https://ca.slack-edge.com/T4JUEB3ME-UJRACG1SQ-443632831451-512" width = "200" />](https://github.com/lawsonarichard) |
+|                      [<img src="https://ca.slack-edge.com/T4JUEB3ME-ULVDSJDLG-3313f82a2992-512" width = "200" />](https://github.com/cjgodfather)                       |                      [<img src="https://ca.slack-edge.com/T4JUEB3ME-ULJ1T89DY-9fcc77e18fe9-512" width = "200" />](https://github.com/rashmipoddar)                       |                      [<img src="https://ca.slack-edge.com/T4JUEB3ME-UJQLGLDB5-79302f48ee3c-512" width = "200" />](https://github.com/dmaack)                       |                      [<img src="https://ca.slack-edge.com/T4JUEB3ME-UJG4U8BNZ-917ae58a74d9-512" width = "200" />](https://github.com/gsc229)                       |                      [<img src="https://ca.slack-edge.com/T4JUEB3ME-UHADUPR0B-5b039d19981f-512" width = "200" />](https://github.com/LuisOcasio)  
+| [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/lawsonarichard)
+|                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/cjgodfather)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/rashmipoddar)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/dmaack)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/gsc229)           |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/LuisOcasio)             |
+| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](www.linkedin.com/in/lawsonarichard) |
+| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/chao-ji-113b594a/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](www.linkedin.com/in/rashmi-poddar) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/dominique-maack-414bab58/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/greg-cameron-90488b30/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/ocasio-perez/) |
 
 <br>
 <br>
-
-🚫 4️⃣ Optional examples of using images with links for your tech stack, make sure to change these to fit your project
-
-![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
-![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
-![Typescript](https://img.shields.io/npm/types/typescript.svg?style=flat)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b5c4db1c-b10d-42c3-b157-3746edd9e81d/deploy-status)](netlify link goes in these parenthesis)
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
-
-🚫 more info on using badges [here](https://github.com/badges/shields)
 
 ## Project Overview
 
-1️⃣ [Trello Board](🚫add link to trello board here)
+[Trello Board](https://trello.com/b/QXUkqLLu/labs-19-quick-street)
 
-1️⃣ [Product Canvas](🚫add link to product canvas here)
+[Product Canvas](https://www.notion.so/Quick-Street-fcd89be6b3d5462c90a0033f40a32287)
 
-1️⃣ [UX Design files](🚫add link to design files here) - 🚫 delete if not applicable
+[UX Design files](https://www.figma.com/file/BirDv4xu8PdyJNpwFJLvmN/Quick-Street%2C-Kimberly-Ho?node-id=826%3A9834)
 
-🚫 Replace lorem ipsum with a description of your project
+Description
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+It is a one stop platform for like-minded users and local vendors to connect. The vendors are able to market their product online. The users will be able to browse and buy products in their area from vendors that can sell at a reduced overhead cost by removing the entry and time constraints involved in participation at a physical farmers market
 
 
-### 4️⃣ Key Features
+### Key Features
 
--    feature one
--    feature two
--    feature three
--    feature four
--    feature five
+- Vendors can register and create their account.
+- Vendors can add, update and delete their profile which contains three main things
+    - An about section that has information about the vendor
+    - A product section that showcases all the products that the vendor has to offer along with images
+    - A bulletin board section that displays special updates and news
+- Customers can view all the vendors in their area by inputting a zipcode
 
-## 1️⃣ Tech Stack
+
+## Tech Stack
 
 ### Front end built using:
 
-#### _Front end framework goes here_
+#### React
 
-🚫 Why did you choose this framework?
+- React is great choice for building interactive and dynamic UIs. It is component based which is perfect for an      application like Market Avenue which has a nested component structure.            
 
--    point one
--    point two
--    point three
--    point four
+#### Sass/SCSS
 
-🚫List the rest of the front end features and libraries in the same format as the framework above.
+- It allows us to create variables, mixins and functions which makes it easy to reuse styles across the app. It      allows us to write nested CSS which is easy to write and understand
+
+#### Cloudinary React
+
+-    
+
+#### Axios
+
+-  
+
 
 #### Front end deployed to `🚫insert service here`
 
-#### [Back end](🚫link to back end repo here) built using:
+#### [Back end](https://github.com/Lambda-School-Labs/quick-street-be) built using:
 
-#### 🚫 back end framework goes here
+#### Express
 
--    point one
--    point two
--    point three
+- made it fast and easy to set up
+- allowed us to create Restful API
+- made it easy to connect to mongooseDB
+- made it easy to incorporate middleware
 
-🚫 List the rest of the back end end features and libraries in the same format as the framework above
+#### MongoDB
 
 # APIs
 
-## 2️⃣ Authentication API here
+## Authentication API here
 
-🚫Replace text below with a description of the API
+The API allows users to register and login to Market Avenue. There are two user types - vendors and customers.
 
-Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do things A little happy sunlight shining through there. Let all these little things happen. Don't fight them. Learn to use them. Even the worst thing we can do here is good.
+## Google Maps JavaScript API 
+
+We are using the Google Maps JavaScript API to display a map to the users which points out the area in which a vendor works. 
+
+## Google Geocoding API
+
+We are using the Google Geocoding API to convert a zipcode into geographic coordinates (like latitude and longitude), to position the map.
 
 ## 2️⃣ Payment API here
 
@@ -95,40 +94,13 @@ Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do
 
 This is the way you take out your flustrations. Get away from those little Christmas tree things we used to make in school. Isn't it fantastic that you can change your mind and create all these happy things? Everything's not great in life, but we can still find beauty in it.
 
-## 3️⃣ Misc API here
 
-🚫Replace text below with a description of the API
+# Environment Variables
 
-You can do anything your heart can imagine. In life you need colors. This is where you take out all your hostilities and frustrations. It's better than kicking the puppy dog around and all that so. I'm sort of a softy, I couldn't shoot Bambi except with a camera. Trees get lonely too, so we'll give him a little friend. We'll lay all these little funky little things in there.
+In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file at the root level containing the following:
 
-## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-When you do it your way you can go anywhere you choose. Let your heart take you to wherever you want to be. If I paint something, I don't want to have to explain what it is. A tree needs to be your friend if you're going to paint him. That's a son of a gun of a cloud. Even the worst thing we can do here is good.
-
-## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-Volunteering your time; it pays you and your whole community fantastic dividends. Maybe there's a happy little waterfall happening over here. You can spend all day playing with mountains. We don't have to be committed. We are just playing here. You have freedom here. The only guide is your heart. It's cold, but it's beautiful.
-
-# 3️⃣ Environment Variables
-
-In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
-
-🚫These are just examples, replace them with the specifics for your app
-
-    *  REACT_APP_apiKey - this is your Google API key, which can be generated in the Google Cloud Console
-    *  REACT_APP_authDomain - when you set up your Firebase project, this information will be in the dashboard
-    *  REACT_APP_databaseURL - in the Firebase dashboard
-    *  REACT_APP_projectID - in the Firebase dashboard
-    *  REACT_APP_storageBucket - in the Firebase dashboard
-    *  REACT_APP_messagingSenderId - in the Firebase dashboard
-    *  REACT_APP_stripe_API - this is your public Stripe API key, generated in the Stripe dashboard
-    *  REACT_APP_backendURL - optional for your local development server
-    *  REACT_APP_clientid - this is the Stripe_connect clientID, generated in Stripe_connect settings
-    *  REACT_APP_stripe_plan - this is the ID for a second Stripe subscription plan, generated under Stripe products
+    *  REACT_APP_GOOGLE_MAPS_API_KEY - This is your Google API key, which can be generated in the Google Cloud Console
+   
 
 # 5️⃣ Content Licenses
 
@@ -143,18 +115,11 @@ In order for the app to function correctly, the user must set up their own envir
 
 🚫Document what you used for testing and why
 
-# 4️⃣ Installation Instructions
+# Installation Instructions
 
-🚫explain how to install the required dependencies to get this project up and running with yarn and NPM
-
-## Other Scripts
-
-🚫replace these examples with your own
-
-    * typecheck - runs the TypeScript compiler
-    * build - creates a build of the application
-    * start - starts the production server after a build is created
-    * test - runs tests in **tests** directory \* eject - copy the configuration files and dependencies into the project so you have full control over them
+- Clone this repo
+- **npm install** to install all required dependencies
+- **npm start** to run the app in the development mode
 
 # Contributing
 
@@ -194,4 +159,4 @@ These contribution guidelines have been adapted from [this good-Contributing.md-
 
 ## Documentation
 
-See [Backend Documentation](🚫_link to your backend readme here_) for details on the backend of our project.
+See [Backend Documentation](https://github.com/Lambda-School-Labs/quick-street-be) for details on the backend of our project.

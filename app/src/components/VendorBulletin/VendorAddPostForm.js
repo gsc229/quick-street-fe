@@ -1,5 +1,4 @@
 import React from "react";
-import post from '../../styles/scss/vendor_add_post_form.module.scss';
 
 
 const VendorAddPostForm = ({

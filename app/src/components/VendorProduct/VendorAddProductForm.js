@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import upload from "../../assets/upload.png";
 import productImg from "../../assets/rectangle75.png";
 import { Image, CloudinaryContext } from "cloudinary-react";
+import axios from "axios";
 import axiosWithAuth from '../../utils/axiosWithAuth';
 
 const VendorAddProductForm = ({

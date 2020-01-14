@@ -1,6 +1,18 @@
 import React from "react";
 import VendorPost from "./VendorPost";
 
+const changeDateFormat = (date) => {
+  let resultingDate = ''
+  const yearMonthArray = date.split('-');
+  // console.log(yearMonthArray);
+  const dayArray = yearMonthArray[2].split('T');
+  // console.log(dayArray);
+  resultingDate = yearMonthArray[1] + '/' + dayArray[0];
+  // console.log(resultingDate);
+  return resultingDate;
+  
+}
+
 const VendorPostList = ({ posts }) => {
   return (
     <div className="vendor_post_list_container">
@@ -12,7 +24,7 @@ const VendorPostList = ({ posts }) => {
                 <VendorPost
                   key={idx}
                   content={p.description}
-                  date={p.createdAt.split("T")[0]}
+                  date={changeDateFormat(p.createdAt.split("T")[0])}
                 />
               ))
           : null}

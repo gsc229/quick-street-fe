@@ -1,4 +1,6 @@
 import React from "react";
+import post from '../../styles/scss/vendor_add_post_form.module.scss';
+
 
 const VendorAddPostForm = ({
   post,
@@ -40,7 +42,7 @@ const VendorAddPostForm = ({
         placeholder="zipcode"
       />
       <div className="vendor_add_post_btn_group">
-        <button>Save</button>
+        <button className='save_button'>Save</button>
         <button onClick={cancelAddPost}>Cancel</button>
       </div>
     </form>

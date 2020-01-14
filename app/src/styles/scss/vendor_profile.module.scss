@@ -52,20 +52,24 @@
         z-index: 2;
         margin-top: 5px;
         padding: 10px;
+        height: 0px;
          p{        
-        cursor: pointer;
-        position: relative;
-        top: 9px;       
-        font-family: Raleway;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 18px;
-        line-height: 170.5%;        
-        align-items: baseline;
-        color: #FEF2E4;         
-      }
+          cursor: pointer;
+          position: relative;
+          top: 9px;       
+          font-family: Raleway;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 18px;
+          line-height: 170.5%;        
+          align-items: baseline;
+          color: #FEF2E4; 
+          &:hover{
+            color: lightblue
+          }        
+        }
       
-    }
+      }
 
       .no_drop{
         display: none;

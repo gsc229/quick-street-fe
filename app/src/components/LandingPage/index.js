@@ -34,7 +34,9 @@ class LandingPage extends React.Component {
 				<div className="marketing-Container">
 					<div className="marketing-box-top-row">
 						<h1>Browse, buy, share your finds on local food vendors.</h1>
-						<div className="marketing-box-top-row-btn ">Start Browsing</div>
+						<div className="marketing-box-top-row-btn ">
+							<Link to="/browse">Start Browsing</Link>
+						</div>
 					</div>
 					<div className="marketing-box-bottom-row">
 						<CarouselTop />
@@ -47,7 +49,7 @@ class LandingPage extends React.Component {
 							<Image name="Works1" />
 						</div>
 						<div className="works-content">
-							We help vendors gain visibility more consistently to their customer base
+							<p>We help vendors gain visibility more consistently to their customer base.</p>
 						</div>
 					</div>
 					<div className="works-card-wrapper">
@@ -55,8 +57,10 @@ class LandingPage extends React.Component {
 							<Image name="Works2" />
 						</div>
 						<div className="works-content">
-							As the customer, we can seamlessly support your local food vendor through a one stop shop
-							search platform.
+							<p>
+								As the customer, we can seamlessly support your local food vendor through a one stop
+								shop search platform.
+							</p>
 						</div>
 					</div>
 					<div className="works-card-wrapper">
@@ -64,7 +68,7 @@ class LandingPage extends React.Component {
 							<Image name="Works3" />
 						</div>
 						<div className="works-content">
-							See what you like? We have a seamless order request process for both sides. Win-win.
+							<p>See what you like? We have a seamless order request process for both sides. Win-win</p>
 						</div>
 					</div>
 				</div>
@@ -79,9 +83,12 @@ class LandingPage extends React.Component {
 							<Image name="Testimonial1" />
 						</div>
 						<div className="works-content">
-							“I just moved to Austin and wanted to support local from the start. This made it so easy!” -
-							Alandra S.
-							<div className="testimonial-button">Start Now!</div>
+							<p>
+								“I just moved to Austin and wanted to support local from the start. This made it so
+								easy!” - Alandra S.
+							</p>
+							{/* <div className="testimonial-button">Start Now!</div> */}
+
 						</div>
 					</div>
 					<div className="works-card-wrapper">
@@ -93,7 +100,7 @@ class LandingPage extends React.Component {
 								“Quick Street helped me find new found favorite vendors. Its like a whole new city to
 								me!” - Sam B.
 							</p>
-							<div className="testimonial-button">Start Now!</div>
+							{/* <div className="testimonial-button">Start Now!</div> */}
 						</div>
 					</div>
 					<div className="works-card-wrapper">
@@ -102,38 +109,14 @@ class LandingPage extends React.Component {
 						</div>
 						<div className="works-content">
 							<p>
-								“Quick Street helped me find new found favorite vendors. Its like a whole new city to
-								me!” - Sam B.
+								“As a vendor this helped so many stressors I used to have throughout my week; now I can
+								focus more time on my craft. It’s great!” - Tracee W.
 							</p>
-							<div className="testimonial-button">Start Now!</div>
+							{/* <div className="testimonial-button">Start Now!</div> */}
 						</div>
 					</div>
 				</div>
-
-				<div className="footer-container">
-					<div className="footer-top-row">
-						<div className="footer-top-row-column">
-							<p>Company</p>
-							<p>About Us</p>
-							<p>Careers</p>
-							<p>Contact</p>
-						</div>
-						<div className="footer-top-row-column">
-							<p>Community</p>
-							<p>Blogs</p>
-							<p>Expert Directory</p>
-							<p>Events</p>
-							<p>Food/Vendor Glossary</p>
-						</div>
-						<div className="footer-top-row-column">
-							<p>Product</p>
-							<p>Mobile App</p>
-							<p>Help</p>
-							<p>Swag</p>
-						</div>
-					</div>
-					<Footer />
-				</div>
+				<Footer />
 			</div>
 		);
 	}

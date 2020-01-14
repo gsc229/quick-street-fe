@@ -14,13 +14,8 @@ import { faSave, faPen, faUpload } from "@fortawesome/free-solid-svg-icons";
 
 import BannerUploader from './BannerUploader';
 import { Image, CloudinaryContext, Transformation } from "cloudinary-react";
-<<<<<<< HEAD
 import axiosWithAuth from "../../utils/axiosWithAuth";
 
-=======
-import axios from "axios";
-import axiosWithAuth from '../../utils/axiosWithAuth';
->>>>>>> d846c871f416710e4caea151213c2222d582f636
 
 const VendorProfile = props => {
   const [modal, setModal] = useState(false);

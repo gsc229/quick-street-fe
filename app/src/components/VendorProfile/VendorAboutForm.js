@@ -1,8 +1,9 @@
 import React from "react";
 import down from "../../assets/down.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClock, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faClock, faPhone, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import about from "../../styles/css/vendor_about.module.css";
+import Map from '../../components/Map';
 
 const VendorAboutForm = ({ editAbout, vendorInfo, info, setInfo }) => {
   const changeHandler = e => {
@@ -13,8 +14,11 @@ const VendorAboutForm = ({ editAbout, vendorInfo, info, setInfo }) => {
   return (
     <div>
       <form className={about.vendor_info_form}>
+
+
+
         <div className={about.vendor_info_left}>
-          <div className={(about.vendor_info_about, about.input_container)}>
+          <div className={`${about.vendor_info_about} ${about.input_container}`}>
             <label for="about">Bio</label>
             <textarea
               type="text"
@@ -24,32 +28,9 @@ const VendorAboutForm = ({ editAbout, vendorInfo, info, setInfo }) => {
             />
           </div>
 
-          <div className={about.vendor_info_phone}>
-            <label>Phone</label>
-            <div className={about.inputWithIcon}>
-              <input
-                type="text"
-                name="phone"
-                value={editAbout ? info.phone : vendorInfo.phone}
-                onChange={changeHandler}
-              />
-              <FontAwesomeIcon className={about.input_icon} icon={faPhone} />
-            </div>
-          </div>
-        </div>{" "}
-        {/* --vendor_info_left */}
-        <div className={about.vendor_info_right}>
-          <div className={(about.vendor_info_location, about.input_container)}>
-            <label>Zipcode: </label>
-            <input
-              type="text"
-              name="location"
-              value={editAbout ? info.location : vendorInfo.location.zipcode}
-              onChange={changeHandler}
-            />
-          </div>
 
-          <div className={about.vendor_info_hour}>
+
+          <div className={`${about.vendor_info_hour} ${about.input_container}`}>
             <label>Hours of Operation</label>
             <div className={about.vendor_info_hour_input_group}>
               <div className={about.inputWithIcon}>
@@ -61,8 +42,8 @@ const VendorAboutForm = ({ editAbout, vendorInfo, info, setInfo }) => {
                     editAbout
                       ? info.hour_from
                       : vendorInfo.hours
-                      ? vendorInfo.hours.split("_")[0]
-                      : ""
+                        ? vendorInfo.hours.split("_")[0]
+                        : ""
                   }
                   onChange={changeHandler}
                 />
@@ -86,8 +67,8 @@ const VendorAboutForm = ({ editAbout, vendorInfo, info, setInfo }) => {
                     editAbout
                       ? info.hour_to
                       : vendorInfo.hours
-                      ? vendorInfo.hours.split("_")[1]
-                      : ""
+                        ? vendorInfo.hours.split("_")[1]
+                        : ""
                   }
                   onChange={changeHandler}
                 />
@@ -100,7 +81,7 @@ const VendorAboutForm = ({ editAbout, vendorInfo, info, setInfo }) => {
             </div>
           </div>
 
-          <div className={(about.vendor_info_days, about.input_container)}>
+          <div className={`${about.vendor_info_days} ${about.input_container}`}>
             <label>Days of week</label>
             <select
               name="days"
@@ -115,12 +96,69 @@ const VendorAboutForm = ({ editAbout, vendorInfo, info, setInfo }) => {
               <option value="6">6</option>
               <option value="7">7</option>
             </select>
-            <span className={about.vendor_info_arrow}>
+            {/* <span className={about.vendor_info_arrow}>
               <img src={down} alt="arrow down" />
-            </span>
+            </span> */}
           </div>
+
+          <div className={`${about.vendor_info_phone} ${about.input_container} `}>
+            <h5>Contact</h5>
+            <label>Phone</label>
+            <div className={about.inputWithIcon}>
+              <input
+                type="text"
+                name="phone"
+                value={editAbout ? info.phone : vendorInfo.phone}
+                onChange={changeHandler}
+              />
+              <FontAwesomeIcon className={about.input_icon} icon={faPhone} />
+            </div>
+            <label>Email</label>
+            <div className={about.inputWithIcon}>
+              <input
+                type="text"
+                name="phone"
+                value={editAbout ? info.email : vendorInfo.email}
+                onChange={changeHandler}
+              />
+              <FontAwesomeIcon className={about.input_icon} icon={faPaperPlane} />
+            </div>
+
+
+
+
+          </div>
+
+        </div>{" "}
+        {/* --vendor_info_left */}
+
+
+
+        <div className={about.vendor_info_right}>
+
+
+          <div className={(about.vendor_info_location, about.input_container)}>
+            <label>Zipcode: </label>
+            <input
+              type="text"
+              name="location"
+              value={editAbout ? info.location : vendorInfo.location.zipcode}
+              onChange={changeHandler}
+            />
+            <div className={about.map_container}  >
+              <Map zipcode={vendorInfo.location.zipcode} width={403} height={280} radius={3000} />
+            </div>
+
+          </div>
+
+
+
+
         </div>{" "}
         {/* --vendor_info_right */}
+
+
+
       </form>
     </div>
   );

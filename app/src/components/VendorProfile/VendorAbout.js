@@ -3,6 +3,8 @@ import about from "../../styles/css/vendor_about.module.css";
 import VendorAboutForm from "./VendorAboutForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSave, faPen, faPlus } from "@fortawesome/free-solid-svg-icons";
+import Map from '../../components/Map';
+
 
 const About = ({
   editAbout,
@@ -37,13 +39,14 @@ const About = ({
           </div>
         </div>
 
-        <div className={about.bottom}>
+        <div className={about.about_bottom}>
           <VendorAboutForm
             editAbout={editAbout}
             vendorInfo={vendorInfo}
             info={info}
             setInfo={setInfo}
           />
+
         </div>
       </div>
     </div>

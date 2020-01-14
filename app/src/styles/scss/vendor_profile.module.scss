@@ -1,8 +1,8 @@
 .vendor_profile_container{  
-  border: lawngreen 5px solid;
+  //border: lawngreen 5px solid;
   width: 100%;
   .vendor_header_container{
-    border: 3px solid purple;
+    /* border: 3px solid purple; */
     position: relative;
     background-color: #00B2ED;
     top: 0;
@@ -11,6 +11,70 @@
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+   
+
+    #hamburger_dropdown{ 
+      
+      position: relative;
+      margin: 20px;     
+      display: none;
+      align-items: flex-end;
+      
+      height: fit-content;
+      transition: display 1s ease-in-out;
+      @media only screen and (max-width: 1000px) {
+      display: flex;
+      flex-direction: column;
+      
+      }
+      #closebtn{
+        position: relative;
+        right: 0;
+        cursor: pointer;
+        
+        .line1, .line2, .line3 {
+        margin-top:5px;
+        background-color:#fff;
+        width:25px;
+        height:3px;
+        display:block;
+        position:relative;
+        opacity:1.0;
+        border-radius:15%;
+        transition: all .3s;
+      }
+
+      }
+
+      .hamburger_dropdown_links{    
+        display: block;
+        background-color: #00B2ED;
+        z-index: 2;
+        margin-top: 5px;
+        padding: 10px;
+         p{        
+        cursor: pointer;
+        position: relative;
+        top: 9px;       
+        font-family: Raleway;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 170.5%;        
+        align-items: baseline;
+        color: #FEF2E4;         
+      }
+      
+    }
+
+      .no_drop{
+        display: none;
+      }
+
+      
+    }
+
+
 
     h1{
       cursor: pointer;
@@ -32,18 +96,22 @@
     }
 
     .header_links{
-      border: 3px solid yellow;
-      
+      //border: 3px solid yellow;
+      @media only screen and (max-width: 1000px) {
+        display: none;
+        
+      }
       height: 100%;
       width: 50%;
       display: flex;
       justify-content: space-around;
       align-items: center;
       p{
+        
         cursor: pointer;
         position: relative;
         top: 9px;
-        
+       
         font-family: Raleway;
         font-style: normal;
         font-weight: 500;
@@ -54,14 +122,22 @@
         align-items: baseline;
 
         color: #FEF2E4;
+        
       }
 
       .header_food{
         left: 62px;
+        @media only screen and (max-width: 1600px) {
+        left: 0;
+        
+        }
       }
 
       .header_about{
         left:  172px;
+         @media only screen and (max-width: 1600px) {
+        left: 0;        
+        }
       }
 
 
@@ -73,97 +149,3 @@
   
 }
 
-.vendor_banner_container{
-  border: 5px solid blue;
-  height: fit-content;
-  margin-top: 7vh;
-  text-align: center;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-
-  .banner_text_btns{ 
-    border: 3px solid blue;
-    width: 100%;
-    position: relative;    
-    display: flex;
-    //align-items: center;  
-    justify-content: space-around; 
-    height: 100px; 
-
-      .vendor_header_name{
-        //border: blue solid 2px;
-        height: fit-content;
-        width: fit-content;
-        position: relative;
-        cursor: pointer;
-        right: 6%;
-        input{
-
-        width: 278px;
-        height: 49px;
-        border: 1px solid rgba(43, 51, 53, 0.5);
-        box-sizing: border-box;
-        border-radius: 10px;
-        font-family: Raleway;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 24px;
-        line-height: 28px;
-        margin: 0px;
-        display: table-cell;
-        //vertical-align: middle;
-        padding: 10px;
-        
-        color: #2B3335;
-        } 
-
-      }
-      .vendor_profile_btn_group{
-          border: 3px solid red;
-          width: 70px;
-          height: fit-content;
-          position: relative;
-          align-self: flex-start;
-          left: 12%;
-          display: flex;
-          justify-content: space-between;
-          #pen{
-            color: #00B2ED;
-          }
-          #save{
-            color: grey;
-          }
-         
-          .icon{
-            cursor: pointer;
-          }
-      }
-
-  }
-
-  .vendor_banner_image_container{ 
-    position: relative;
-    .vendor_banner_image{
-          width: 74%;
-          height: 316px;   
-          margin: 0 auto;          
-    }  
-
-    .vendor_banner_upload{
-      #upload{
-          color: #696E6F;
-        }
-      //border: solid 2px red;
-      display: inline-block;
-      position: absolute;
-      width: fit-content;
-      cursor: pointer;
-      align-self: flex-end;
-      right: 15%;
-      bottom: 0;
-    }
-  }
-
-
-}

@@ -6,7 +6,7 @@ const Slide3 = require('../../assets/landing/images/carousel/KenChiBanner.png')
 
 function CarouselBrowse() {
   const [index, setIndex] = React.useState(0);
- 
+
   const images = [
     {
       src:
@@ -18,10 +18,10 @@ function CarouselBrowse() {
     },
     {
       src:
-      `${Slide3}`
-        },
+        `${Slide3}`
+    },
   ];
- 
+
   return (
     <div style={{ background: "white", width: "90vw", height: "90vh" }}>
       <Gallery

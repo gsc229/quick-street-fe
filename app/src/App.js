@@ -8,12 +8,14 @@ import Browse from "./components/Browse";
 
 import CustomerFacingVendorProfile from "./components/CustomerFacingVendorProfile/CustomerFacingVendorProfile";
 import Landing from './components/LandingPage/index';
+
+
 function App() {
   console.log(window.cloudinary);
   return (
     <>
       <div id="wrapper">
-    <Route path="/landing" component={Landing} />
+        <Route path="/landing" component={Landing} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route path="/profile/:id" component={VendorProfile} />
@@ -21,7 +23,7 @@ function App() {
         {/* <Route path="/browse/:id" component={CustomerFacingVendorProfile} /> */}
       </div>
       <div>
-      <Route path="/browse/:id" component={CustomerFacingVendorProfile} />
+        <Route path="/browse/:id" component={CustomerFacingVendorProfile} />
       </div>
     </>
   );

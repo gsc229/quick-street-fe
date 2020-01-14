@@ -1,0 +1,104 @@
+.vendor_banner_container{
+  //border: 5px solid blue;
+  height: fit-content;
+  margin-top: 7vh;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  .banner_text_btns{ 
+    //border: 3px solid blue;    
+    position: relative;    
+    display: flex;
+    //align-items: center;  
+    justify-content: space-between; 
+    height: 100px; 
+    width: 78%;
+    margin: 0 auto;
+      .vendor_header_name{
+        //border: blue solid 2px;
+        height: fit-content;
+        width: fit-content;
+        position: relative;
+        cursor: pointer;
+        align-self: center;
+        right: 2%;
+        input{
+
+        width: 278px;
+        height: 49px;
+        border: 1px solid rgba(43, 51, 53, 0.5);
+        box-sizing: border-box;
+        border-radius: 10px;
+        font-family: Raleway;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 28px;
+        margin: 0px;
+        display: table-cell;
+        //vertical-align: middle;
+        padding: 10px;
+        
+        color: #2B3335;
+        } 
+
+      }
+      .vendor_profile_btn_group{
+          //border: 3px solid red;
+          width: 85px;
+          height: fit-content;
+          position: relative;
+          align-self: flex-start;
+          left: 11.5%;
+          display: flex;
+          justify-content: space-between;
+          font-size: 12;
+          #pen{
+            color: #00B2ED;
+          }
+          #save{
+            color: grey;
+          }
+
+          #pen:hover{
+            color: red;
+          }         
+
+          #save:hover{
+            color: green;
+          }
+         
+          .icon{
+            cursor: pointer;
+          }
+      }
+
+  }
+
+  .vendor_banner_image_container{ 
+    position: relative;
+     .vendor_banner_image{
+          width: 78%;
+          height: 316px;   
+          margin: 0 auto;          
+    }  
+
+    .vendor_banner_upload{
+      #upload{
+          color: #696E6F;
+        }
+      //border: solid 2px red;
+      display: inline-block;
+      position: absolute;
+      width: fit-content;
+      cursor: pointer;
+      align-self: flex-end;
+      right: 15%;
+      bottom: 0;
+    }
+  }
+
+
+}

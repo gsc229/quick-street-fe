@@ -4,7 +4,9 @@ import VendorProducts from "../VendorProduct/VendorProducts";
 import VendorAddProductForm from "../../components/VendorProduct/VendorAddProductForm";
 import picture from "../../assets/placeholder.png";
 import VendorBulletin from "../VendorBulletin/VendorBulletin";
+//Styles
 import profile from "../../styles/css/vendor_profile.module.css";
+import banner from "../../styles/css/vendor_banner.module.css";
 //Font awesom
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSave, faPen, faUpload } from "@fortawesome/free-solid-svg-icons";
@@ -14,6 +16,7 @@ import axios from "axios";
 
 const VendorProfile = props => {
   const [modal, setModal] = useState(false);
+  const [show, setShow] = useState(false);
   const [vendorInfo, setVendorInfo] = useState({ location: "" });
   const [bannerInfo, setBannerInfo] = useState("");
   const [products, setProducts] = useState([]);
@@ -196,10 +199,31 @@ const VendorProfile = props => {
     myWidget.open();
   };
 
+
+
+  console.log(document)
   return (
     <div className={profile.vendor_profile_container}>
       <div className={profile.vendor_header_container}>
         <h1>Market Avenue</h1>
+
+
+        <div id={profile.hamburger_dropdown}>
+          <span id={profile.closebtn} onClick={() => setShow(!show)}>
+            <span class={profile.line1}></span>
+            <span class={profile.line2}></span>
+            <span class={profile.line3}></span>
+          </span>
+
+          <div className={show ? profile.hamburger_dropdown_links : profile.no_drop}>
+            <p className={profile.header_about}>About</p>
+            <p className={profile.header_food}>Food</p>
+            <p className={profile.header_business_name}>
+              {vendorInfo.business_name}
+            </p>
+          </div>
+
+        </div>
 
         <div className={profile.header_links}>
           <p className={profile.header_about}>About</p>
@@ -210,9 +234,9 @@ const VendorProfile = props => {
         </div>
       </div>
 
-      <div className={profile.vendor_banner_container}>
-        <div className={profile.banner_text_btns}>
-          <div className={profile.vendor_header_name}>
+      <div className={banner.vendor_banner_container}>
+        <div className={banner.banner_text_btns}>
+          <div className={banner.vendor_header_name}>
             <input
               onChange={e =>
                 setInfo({ ...info, business_name: e.target.value })
@@ -223,16 +247,16 @@ const VendorProfile = props => {
             />
           </div>
 
-          <div className={profile.vendor_profile_btn_group}>
+          <div className={banner.vendor_profile_btn_group}>
             <FontAwesomeIcon
-              id={profile.pen}
-              className={profile.icon}
+              id={banner.pen}
+              className={banner.icon}
               icon={faPen}
               onClick={editName}
             />
             <FontAwesomeIcon
-              id={profile.save}
-              className={profile.icon}
+              id={banner.save}
+              className={banner.icon}
               icon={faSave}
               onClick={saveName}
             />
@@ -242,11 +266,11 @@ const VendorProfile = props => {
           </div>
         </div>
 
-        <div className={profile.vendor_banner_image_container}>
+        <div className={banner.vendor_banner_image_container}>
           {bannerInfo !== `no-photo.jpg` ? (
             <CloudinaryContext cloudName="quickstlabs">
               <Image
-                className={profile.vendor_banner_image}
+                className={banner.vendor_banner_image}
                 publicId={bannerInfo}
               >
                 <Transformation
@@ -258,16 +282,16 @@ const VendorProfile = props => {
               </Image>
             </CloudinaryContext>
           ) : (
-            <img
-              className="vendor_banner_image"
-              src={picture}
-              alt="vendor header"
-            />
-          )}
-          <div className={profile.vendor_banner_upload}>
+              <img
+                className="vendor_banner_image"
+                src={picture}
+                alt="vendor header"
+              />
+            )}
+          <div className={banner.vendor_banner_upload}>
             <FontAwesomeIcon
-              id={profile.upload}
-              className={profile.icon}
+              id={banner.upload}
+              className={banner.icon}
               icon={faUpload}
               onClick={uploadBanner}
             />
@@ -305,7 +329,7 @@ const VendorProfile = props => {
         vendorId={vendorId}
       />
       <VendorBulletin vendorId={vendorId} />
-    </div>
+    </div >
   );
 };
 

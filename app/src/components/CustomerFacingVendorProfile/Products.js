@@ -38,6 +38,9 @@ const Products = (props) => {
         {vendorProducts.products.map(product => (
           <Product product={product} key={product._id} />
         ))}
+        {vendorProducts.count === 0 && (
+        <p className='no_products_content'>There are no products to show right now.</p>
+      )}
       </div>
     </div>
   )

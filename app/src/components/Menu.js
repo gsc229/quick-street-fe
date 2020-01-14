@@ -7,7 +7,7 @@ const Menu = () => {
 	return (
 		<div className="menu-container">
 			<nav class="navbar">
-				Market Aveune
+				Market Avenue
 				<ul class="nav-links">
 					{/* <li class="nav-item">
                 <a href="#">Food</a>

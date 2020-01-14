@@ -18,19 +18,22 @@
       }
 
       .vendor_add_post_btn_wrapper {
-        width: 300px;
-        height: 56px;
-        background-color: #00769D;
-        border-radius: 10px;
-        text-align: center;
-    
         button {
-            background-color: #00769D;
-            color: #FEF2E4;
-            margin: 10px;
-            font-size: 24px;
-            font-weight: 600;
-            cursor: pointer;
+          width: 300px;
+          height: 56px;
+          background-color: #00769D;
+          border-radius: 10px;
+          text-align: center;
+          color: #FEF2E4;
+          margin: 10px;
+          font-size: 24px;
+          font-weight: 600;
+          cursor: pointer;
+          &:hover {
+            background-color: #FEF2E4;
+            color: #00769D;
+            border: 3px solid #00769D;
+            }
         }
       }
 

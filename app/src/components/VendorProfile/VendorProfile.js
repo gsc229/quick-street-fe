@@ -13,7 +13,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSave, faPen, faUpload } from "@fortawesome/free-solid-svg-icons";
 
 import { Image, CloudinaryContext, Transformation } from "cloudinary-react";
-import axios from "axios";
+import axiosWithAuth from "../../utils/axiosWithAuth";
+
 
 const VendorProfile = props => {
   const [modal, setModal] = useState(false);
@@ -84,20 +85,27 @@ const VendorProfile = props => {
     async (error, result) => {
       if (!error && result && result.event === "success") {
         const banner_info = await result.info;
-        setBannerInfo(banner_info.public_id);
-      }
-      axios.put(
-        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`,
+        console.log('VendorProfile.js UploadWidget banner_info ', banner_info)
+        axiosWithAuth
+          .put(`https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`,
 
-        { ...vendorInfo, vendor_banner: `${bannerInfo}` }
-      );
+            { ...vendorInfo, vendor_banner: `${banner_info.public_id}` }
+          )
+          .then(res => {
+            setBannerInfo(banner_info.public_id);
+          })
+          .catch(err => {
+            console.log('PUT VendorProfile.js Upload widget err', err)
+          })
+      }
+
     }
   );
 
   useEffect(() => {
     async function fetchVendorInfo() {
       try {
-        const vendorInfo = await axios.get(
+        const vendorInfo = await axiosWithAuth.get(
           `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`
         );
         console.log(`vendorinfo changed`, vendorInfo);
@@ -111,7 +119,7 @@ const VendorProfile = props => {
 
     async function fetchProducts() {
       try {
-        const products = await axios.get(
+        const products = await axiosWithAuth.get(
           `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}/products`
         );
 
@@ -130,7 +138,7 @@ const VendorProfile = props => {
       if (productIds.length !== 0) {
         for (const ids of productIds) {
           try {
-            const imageIds = await axios.get(
+            const imageIds = await axiosWithAuth.get(
               `https://quickstlabs.herokuapp.com/api/v1.0/products/${ids}/product-images`
             );
 
@@ -166,7 +174,7 @@ const VendorProfile = props => {
 
   const saveName = e => {
     e.preventDefault();
-    axios
+    axiosWithAuth
       .put(`https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`, {
         ...vendorInfo,
         business_name: info.business_name
@@ -184,7 +192,7 @@ const VendorProfile = props => {
 
   const saveProfile = e => {
     e.preventDefault();
-    axios
+    axiosWithAuth
       .put(`https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`, {
         ...vendorInfo,
         hours: `${info.hour_from}_${info.hour_to}`,

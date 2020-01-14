@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
-
+a {
+	color: white;
+}
+a:hover {
+	text-decoration: none;
+	color: white;
+}
 .landingContainer {
 	width: 100%;
 	margin: auto;
@@ -11,7 +17,7 @@
 }
 .heroContainer {
 	width: 100%;
-	min-height:980px;
+	min-height: 980px;
 	background-image: url('../../assets/landing/images/hero-banner.png');
 	background-repeat: no-repeat;
 	background-size: 100% auto;
@@ -62,6 +68,11 @@
 	text-align: center;
 	border-radius: 8px;
 	margin-bottom: 20px;
+	cursor: pointer;
+}
+.vendorButton:hover {
+	transform: scale(0.9, 0.9);
+	box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25), -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
 }
 .customerButton {
 	width: 302px;
@@ -77,8 +88,12 @@
 	align-self: center;
 	text-align: center;
 	border-radius: 8px;
+	cursor: pointer;
 }
-
+.customerButton:hover {
+	transform: scale(0.9, 0.9);
+	box-shadow: 2px 2px 15px 7px rgba(0, 0, 0, 0.25), -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
+}
 .marketing-Container {
 	background-color: #00b2ed;
 	margin: auto;
@@ -92,30 +107,31 @@
 }
 .marketing-box-top-row h1 {
 	color: #fff;
-    font-family: Rubik;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 30px;
-    line-height: 166.86%;
-    width: 30%;
-    float: left;
+	font-family: Rubik;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 30px;
+	line-height: 166.86%;
+	width: 30%;
+	float: left;
 }
 .marketing-box-top-row-btn {
-	width: 161px;
 	background: #e92323;
 	border-radius: 5px;
 	text-align: center;
-	flex: 1;
+	flex: 1 1;
 	color: #fff;
 	align-items: center;
 	font-family: Raleway;
 	font-style: normal;
 	font-weight: bold;
-	font-size: 1rem;
-	line-height: 193.5%;
+	font-size: 0.8rem;
 	float: right;
-	margin-top: 40px;
-    padding: 15px;
+	padding: 15px;
+	cursor: pointer;
+}
+.marketing-box-top-row-btn:hover {
+	transform: scale(0.9, 0.9);
 }
 .marketing-box-bottom-row {
 	flex: 1;
@@ -151,7 +167,6 @@
 }
 
 .works-card-wrapper {
-
 	flex: 1;
 	margin-left: 10px;
 	margin-right: 10px;
@@ -179,6 +194,9 @@
 	padding-left: 10px;
 	height: 258px;
 	flex-direction: column;
+}
+.works-content p {
+	padding: 20px;
 }
 
 /*********** TESTIMONIAL ***********/
@@ -210,7 +228,6 @@
 	min-height: 312px;
 }
 .testimonial-content p {
-
 	font-style: normal;
 	font-weight: 600;
 	font-size: 24px;
@@ -240,22 +257,20 @@
 	max-width: 100%;
 }
 .carousel .slide {
-    min-width: 100%;
-    margin: 0;
-    position: relative;
-    text-align: center;
-    background:transparent !important;
+	min-width: 100%;
+	margin: 0;
+	position: relative;
+	text-align: center;
+	background: transparent !important;
 }
 
 .carousel .slide .content {
-    position: absolute;
-    bottom: 45px;
-    left: 50%;
-    margin-left: -45%;
-    width: 90%;
-    color: #fff;
-    font-size: 14px;
-    text-align: center;
-
+	position: absolute;
+	bottom: 45px;
+	left: 50%;
+	margin-left: -45%;
+	width: 90%;
+	color: #fff;
+	font-size: 14px;
+	text-align: center;
 }
-

@@ -7,13 +7,24 @@ import styles from 'react-responsive-carousel/lib/styles/carousel.min.css';
 // Images
 import Image from '../../assets/landing/images/Image';
 
+
 // Components
 import Footer from '../Footer';
 import Menu from '../Menu';
 import CarouselBrowse from './CarouselBrowse';
 import CarouselTop from './CarouselTop';
 class LandingPage extends React.Component {
+	
 	render() {
+		// Mixpanel
+// grab the Mixpanel factory
+var Mixpanel = require('mixpanel');
+
+// create an instance of the mixpanel client
+var mixpanel = Mixpanel.init(`${process.env.REACT_APP_MIXPANEL_API_KEY}`);
+mixpanel.track("Landing Page");
+
+console.log(`${process.env.REACT_APP_MIXPANEL_API_KEY}`)
 		return (
 			<div className="landingContainer">
 				<div className="heroContainer">

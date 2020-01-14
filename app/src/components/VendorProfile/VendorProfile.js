@@ -14,6 +14,7 @@ import { faSave, faPen, faUpload } from "@fortawesome/free-solid-svg-icons";
 
 import { Image, CloudinaryContext, Transformation } from "cloudinary-react";
 import axios from "axios";
+import axiosWithAuth from '../../utils/axiosWithAuth';
 
 const VendorProfile = props => {
   const [modal, setModal] = useState(false);
@@ -83,11 +84,11 @@ const VendorProfile = props => {
         const banner_info = await result.info;
         setBannerInfo(banner_info.public_id);
       }
-      axios.put(
+      axiosWithAuth().put(
         `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`,
 
         { ...vendorInfo, vendor_banner: `${bannerInfo}` }
-      );
+      ).then(console.log('PUT request Issue'));
     }
   );
 
@@ -163,7 +164,7 @@ const VendorProfile = props => {
 
   const saveName = e => {
     e.preventDefault();
-    axios
+    axiosWithAuth()
       .put(`https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`, {
         ...vendorInfo,
         business_name: info.business_name
@@ -181,7 +182,7 @@ const VendorProfile = props => {
 
   const saveProfile = e => {
     e.preventDefault();
-    axios
+    axiosWithAuth()
       .put(`https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`, {
         ...vendorInfo,
         hours: `${info.hour_from}_${info.hour_to}`,

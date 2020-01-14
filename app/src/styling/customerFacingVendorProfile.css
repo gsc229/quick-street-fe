@@ -28,19 +28,21 @@
 
 /*********** About Us Section ************/
 
+.bottom_section {
+  /* border: 1px solid blue; */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #E1F6FA;
+  display: flex;
+  padding: 5% 13%;
+} 
+
 .vendor_info_section {
   width: 60%;
   font-family: 'Raleway', sans-serif;
   color: #2B3335;
 }
-
-.bottom_section {
-  /* border: 1px solid blue; */
-  width: 100%;
-  background-color: #E1F6FA;
-  display: flex;
-  padding: 5% 13%;
-} 
 
  .title {
   font-size: 24px;

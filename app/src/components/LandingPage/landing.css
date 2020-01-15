@@ -2,7 +2,11 @@
 a {
 	color: white;
 }
-a:hover {
+.vendorButton a:hover {
+	text-decoration: none;
+	color: white;
+}
+.customerButton a:hover {
 	text-decoration: none;
 	color: white;
 }

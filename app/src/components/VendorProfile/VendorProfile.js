@@ -12,10 +12,9 @@ import banner from "../../styles/css/vendor_banner.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSave, faPen, faUpload } from "@fortawesome/free-solid-svg-icons";
 
-import BannerUploader from './BannerUploader';
 import { Image, CloudinaryContext, Transformation } from "cloudinary-react";
-import axiosWithAuth from "../../utils/axiosWithAuth";
-
+import axios from "axios";
+import axiosWithAuth from '../../utils/axiosWithAuth';
 
 const VendorProfile = props => {
   const [modal, setModal] = useState(false);
@@ -39,11 +38,10 @@ const VendorProfile = props => {
   const [editAbout, setEditAbout] = useState(false);
   const [editBusinessName, setEditBusinessName] = useState(false);
 
-
   useEffect(() => {
     async function fetchVendorInfo() {
       try {
-        const vendorInfo = await axiosWithAuth().get(
+        const vendorInfo = await axios.get(
           `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`
         );
         console.log(`vendorinfo changed`, vendorInfo);
@@ -57,7 +55,7 @@ const VendorProfile = props => {
 
     async function fetchProducts() {
       try {
-        const products = await axiosWithAuth().get(
+        const products = await axios.get(
           `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}/products`
         );
 
@@ -76,7 +74,7 @@ const VendorProfile = props => {
       if (productIds.length !== 0) {
         for (const ids of productIds) {
           try {
-            const imageIds = await axiosWithAuth().get(
+            const imageIds = await axios.get(
               `https://quickstlabs.herokuapp.com/api/v1.0/products/${ids}/product-images`
             );
 
@@ -145,7 +143,10 @@ const VendorProfile = props => {
       });
   };
 
-
+  const uploadBanner = e => {
+    e.preventDefault();
+    myWidget.open();
+  };
   return (
     <div className={profile.vendor_profile_container}>
       <div className={profile.vendor_header_container}>
@@ -153,13 +154,13 @@ const VendorProfile = props => {
 
 
         <div id={profile.hamburger_dropdown}>
-          <span id={profile.closebtn} onClick={() => setShow(!show)}>
+          <span id={profile.closebtn} onClick={() => reveal()}>
             <span class={profile.line1}></span>
             <span class={profile.line2}></span>
             <span class={profile.line3}></span>
           </span>
 
-          <div className={show ? profile.hamburger_dropdown_links : profile.no_drop}>
+          <div id={profile.dropdown_links} className={show ? profile.hamburger_dropdown_links : profile.no_drop}>
             <p className={profile.header_about}>About</p>
             <p className={profile.header_food}>Food</p>
             <p className={profile.header_business_name}>
@@ -195,7 +196,7 @@ const VendorProfile = props => {
           <div className={banner.vendor_profile_btn_group}>
             <FontAwesomeIcon
               id={banner.pen}
-              className={`${banner.icon} " " ${editingName ? banner.red_edit : banner.normal_pen}`}
+              className={`${banner.icon} ${editingName ? banner.red_edit : banner.normal_pen}`}
               icon={faPen}
               onClick={() => {
                 editName();
@@ -232,21 +233,24 @@ const VendorProfile = props => {
             </CloudinaryContext>
           ) : (
               <img
-                className="vendor_banner_image"
+                className={banner.vendor_banner_image}
                 src={picture}
                 alt="vendor header"
               />
             )}
           <div className={banner.vendor_banner_upload}>
-            <BannerUploader
-              vendorId={vendorId}
-              vendorInfo={vendorInfo}
-              setBannerInfo={setBannerInfo}
-              bannerInfo={bannerInfo}
-
-
+            <FontAwesomeIcon
+              id={banner.upload}
+              className={banner.icon}
+              icon={faUpload}
+              onClick={uploadBanner}
             />
-          </div>
+            {/* <img
+              src={upload}
+              alt='upload icon'
+              onClick={uploadBanner}
+            /> */}
+          </div>{" "}
         </div>
       </div>
 

@@ -4,64 +4,70 @@ import axios from 'axios';
 import '../styling/vendorsNearby.css';
 
 const Map = (props) => {
+	const [ mapDetails, setMapDetails ] = useState({
+		lng: -78.435315,
+		lat: 28.644141,
+		isDefault: false
+	});
 
-  const [mapDetails, setMapDetails] = useState({
-    lng: -78.435315,
-    lat: 28.644141,
-    isDefault: false
-  });
+	console.log(process.env.NETLIFY_GOOGLE_MAPS_API_KEY);
+	const getGeocode = () => {
+		// console.log(props.zipcode);
+		axios
+			.get(
+				`https://maps.googleapis.com/maps/api/geocode/json?address=${props.zipcode}&key=${process.env
+					.NETLIFY_GOOGLE_MAPS_API_KEY}`
+			)
+			.then((response) => {
+				// console.log(response);
+				// console.log(response.data.results[0].geometry.location);
+				setMapDetails({
+					...mapDetails,
+					lat: response.data.results[0].geometry.location.lat,
+					lng: response.data.results[0].geometry.location.lng,
+					isDefault: true
+				});
+			});
+	};
 
-  const getGeocode = () => {
-    // console.log(props.zipcode);
-    axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${props.zipcode}&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`)
-      .then(response => {
-        // console.log(response);
-        // console.log(response.data.results[0].geometry.location);
-        setMapDetails({
-          ...mapDetails,
-          lat: response.data.results[0].geometry.location.lat,
-          lng: response.data.results[0].geometry.location.lng,
-          isDefault: true
-        })
+	useEffect(
+		() => {
+			if (props.zipcode !== '') {
+				getGeocode();
+			}
+		},
+		[ props.zipcode ]
+	);
 
-      })
-  };
+	useEffect(
+		() => {
+			let options = {
+				center: { lat: mapDetails.lat, lng: mapDetails.lng },
+				zoom: mapDetails.isDefault ? 11 : 5,
+				zoomControl: false,
+				gestureHandling: 'none'
+			};
+			const map = new window.google.maps.Map(document.getElementById('map'), options);
 
-  useEffect(() => {
-    if (props.zipcode !== '') {
-      getGeocode();
-    }
-  }, [props.zipcode]);
-
-  useEffect(() => {
-    let options = {
-      center: { lat: mapDetails.lat, lng: mapDetails.lng },
-      zoom: mapDetails.isDefault ? 11 : 5,
-      zoomControl: false,
-      gestureHandling: 'none'
-    }
-    const map = new window.google.maps.Map(document.getElementById('map'), options);
-
-    if (mapDetails.isDefault) {
-      let cityCircle = new window.google.maps.Circle({
-        strokeColor: '#B706F5',
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
-        fillColor: 'transparent',
-        fillOpacity: 0.35,
-        map: map,
-        center: { lat: mapDetails.lat, lng: mapDetails.lng },
-        radius: props.radius
-      });
-    }
-
-  }, [mapDetails]);
-  return (
-    <div id='map' />
-    // <h1>Map</h1>
-
-  );
-
-}
+			if (mapDetails.isDefault) {
+				let cityCircle = new window.google.maps.Circle({
+					strokeColor: '#B706F5',
+					strokeOpacity: 0.8,
+					strokeWeight: 2,
+					fillColor: 'transparent',
+					fillOpacity: 0.35,
+					map: map,
+					center: { lat: mapDetails.lat, lng: mapDetails.lng },
+					radius: props.radius
+				});
+			}
+		},
+		[ mapDetails ]
+	);
+	return (
+		<div id="map" />
+		// <h1>Map</h1>
+	);
+};
 
 export default Map;

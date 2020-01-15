@@ -69,7 +69,9 @@
   z-index: 2;
   margin-top: 5px;
   padding: 10px;
-  height: 0px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 .vendor_profile_container .vendor_header_container #hamburger_dropdown .hamburger_dropdown_links p {

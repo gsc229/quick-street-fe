@@ -12,9 +12,10 @@ import banner from "../../styles/css/vendor_banner.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSave, faPen, faUpload } from "@fortawesome/free-solid-svg-icons";
 
+import BannerUploader from './BannerUploader';
 import { Image, CloudinaryContext, Transformation } from "cloudinary-react";
-import axios from "axios";
-import axiosWithAuth from '../../utils/axiosWithAuth';
+import axiosWithAuth from "../../utils/axiosWithAuth";
+
 
 const VendorProfile = props => {
   const [modal, setModal] = useState(false);
@@ -37,8 +38,6 @@ const VendorProfile = props => {
   const vendorId = props.match.params.id;
   const [editAbout, setEditAbout] = useState(false);
   const [editBusinessName, setEditBusinessName] = useState(false);
-
-
 
   const myWidget = window.cloudinary.createUploadWidget(
     {
@@ -90,15 +89,10 @@ const VendorProfile = props => {
       axiosWithAuth().put(
         `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`,
 
-        { ...vendorInfo, vendor_banner: `${bannerInfo}` }
-      ).then(console.log('PUT request Issue'));
-    }
-  );
-
   useEffect(() => {
     async function fetchVendorInfo() {
       try {
-        const vendorInfo = await axios.get(
+        const vendorInfo = await axiosWithAuth().get(
           `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`
         );
         console.log(`vendorinfo changed`, vendorInfo);
@@ -112,7 +106,7 @@ const VendorProfile = props => {
 
     async function fetchProducts() {
       try {
-        const products = await axios.get(
+        const products = await axiosWithAuth().get(
           `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}/products`
         );
 
@@ -131,7 +125,7 @@ const VendorProfile = props => {
       if (productIds.length !== 0) {
         for (const ids of productIds) {
           try {
-            const imageIds = await axios.get(
+            const imageIds = await axiosWithAuth().get(
               `https://quickstlabs.herokuapp.com/api/v1.0/products/${ids}/product-images`
             );
 
@@ -200,11 +194,6 @@ const VendorProfile = props => {
       });
   };
 
-  const uploadBanner = e => {
-    e.preventDefault();
-    myWidget.open();
-  };
-
 
   /* setShow(!show) */
   const reveal = () => {
@@ -213,7 +202,6 @@ const VendorProfile = props => {
   }
 
   console.log('dropdown_links', document.getElementById(`${profile.dropdown_links}`))
-
   return (
     <div className={profile.vendor_profile_container}>
       <div className={profile.vendor_header_container}>
@@ -301,24 +289,21 @@ const VendorProfile = props => {
             </CloudinaryContext>
           ) : (
               <img
-                className={banner.vendor_banner_image}
+                className="vendor_banner_image"
                 src={picture}
                 alt="vendor header"
               />
             )}
           <div className={banner.vendor_banner_upload}>
-            <FontAwesomeIcon
-              id={banner.upload}
-              className={banner.icon}
-              icon={faUpload}
-              onClick={uploadBanner}
+            <BannerUploader
+              vendorId={vendorId}
+              vendorInfo={vendorInfo}
+              setBannerInfo={setBannerInfo}
+              bannerInfo={bannerInfo}
+
+
             />
-            {/* <img
-              src={upload}
-              alt='upload icon'
-              onClick={uploadBanner}
-            /> */}
-          </div>{" "}
+          </div>
         </div>
       </div>
 

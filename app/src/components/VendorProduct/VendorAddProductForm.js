@@ -130,7 +130,7 @@ const VendorAddProductForm = ({
       }
     >
       <form className="vendor_add_product_form" onSubmit={onSubmit}>
-      <header className='add_product_section_title'>Adding an Item</header>
+        <header className='add_product_section_title'>Adding an Item</header>
         <div className='add_product_main_content'>
           <div className='left_side_add_item_form'>
             <div className="input_wrapper">

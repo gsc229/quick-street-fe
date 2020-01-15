@@ -5,11 +5,28 @@ import { faClock, faPhone, faPaperPlane } from "@fortawesome/free-solid-svg-icon
 import about from "../../styles/css/vendor_about.module.css";
 import Map from '../../components/Map';
 
-const VendorAboutForm = ({ editAbout, vendorInfo, info, setInfo }) => {
+const VendorAboutForm = ({ editAbout, vendorInfo, info, setInfo, setVendorInfo }) => {
+
   const changeHandler = e => {
-    setInfo({ ...info, [e.target.name]: e.target.value });
+    if (editAbout) {
+      setVendorInfo({ ...vendorInfo, [e.target.name]: e.target.value });
+      console.log("CHANGE HANDLER VendorABout")
+    }
+
+
   };
 
+  const changeZip = e => {
+    if (editAbout) {
+      setVendorInfo({
+        ...vendorInfo,
+        location: { ...vendorInfo.location, zipcode: e.target.value }
+      })
+    }
+  }
+
+
+  console.log('info', info)
   console.log(`vendor info`, vendorInfo);
   return (
     <div>
@@ -22,8 +39,8 @@ const VendorAboutForm = ({ editAbout, vendorInfo, info, setInfo }) => {
             <label for="about">Bio</label>
             <textarea
               type="text"
-              name="about"
-              value={editAbout ? info.about : vendorInfo.description}
+              name="description"
+              value={vendorInfo.description}
               onChange={changeHandler}
             />
           </div>
@@ -110,7 +127,7 @@ const VendorAboutForm = ({ editAbout, vendorInfo, info, setInfo }) => {
               <input
                 type="text"
                 name="phone"
-                value={editAbout ? info.phone : vendorInfo.phone}
+                value={vendorInfo.phone}
                 onChange={changeHandler}
               />
               <FontAwesomeIcon className={about.input_icon} icon={faPhone} />
@@ -119,8 +136,8 @@ const VendorAboutForm = ({ editAbout, vendorInfo, info, setInfo }) => {
             <div className={about.inputWithIcon}>
               <input
                 type="text"
-                name="phone"
-                value={editAbout ? info.email : vendorInfo.email}
+                name="email"
+                value={vendorInfo.email}
                 onChange={changeHandler}
               />
               <FontAwesomeIcon className={about.input_icon} icon={faPaperPlane} />
@@ -143,9 +160,9 @@ const VendorAboutForm = ({ editAbout, vendorInfo, info, setInfo }) => {
             <label>Zipcode: </label>
             <input
               type="text"
-              name="location"
-              value={editAbout ? info.location : vendorInfo.location.zipcode}
-              onChange={changeHandler}
+              name="zipcode"
+              value={vendorInfo.location.zipcode}
+              onChange={changeZip}
             />
             <div className={about.map_container}  >
               <Map zipcode={vendorInfo.location.zipcode} width={403} height={280} radius={3000} />

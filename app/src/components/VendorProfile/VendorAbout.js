@@ -12,7 +12,8 @@ const About = ({
   info,
   setInfo,
   editProfile,
-  saveProfile
+  saveProfile,
+  setVendorInfo
 }) => {
   const [editingDetails, setEditingDetails] = useState(false);
   console.log(info);
@@ -46,6 +47,7 @@ const About = ({
             vendorInfo={vendorInfo}
             info={info}
             setInfo={setInfo}
+            setVendorInfo={setVendorInfo}
           />
 
         </div>

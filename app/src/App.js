@@ -22,12 +22,13 @@ function App() {
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         {/* <Route path="/profile/:id" component={VendorProfile} /> */}
-        <Route exact path="/browse" component={Browse} />
+        
         {/* <Route path="/browse/:id" component={CustomerFacingVendorProfile} /> */}
       </div>
       <div>
       <Route path="/profile/:id" component={VendorProfile} />
         <Route path="/browse/:id" component={CustomerFacingVendorProfile} />
+        <Route exact path="/browse" component={Browse} />
       </div>
     </>
   );

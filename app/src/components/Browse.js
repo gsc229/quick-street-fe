@@ -4,6 +4,7 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 import Map from './Map';
 import VendorsNearby from './VendorsNearby';
 import Menu from './Menu';
+import Footer from './Footer';
 const Browse = (props) => {
 	const [ zipcode, setZipcode ] = useState('');
 	const [ vendors, setVendors ] = useState({
@@ -39,25 +40,29 @@ const Browse = (props) => {
 			<div className="menu-container">
 				<Menu />
 			</div>
-			{zipcode === '' && <p className="zipcode_title">Enter a location to start browsing</p>}
-			{zipcode !== '' && <p className="zipcode_title">Your results for</p>}
-			<form onSubmit={handleSubmit}>
-				<input
-					name="zipcode"
-					placeholder="zip code"
-					onChange={handleChange}
-					value={customerZip}
-					className="zipcode_input"
+			<div className="search_wrapper">
+				{zipcode === '' && <p className="zipcode_title">Enter a location to start browsing</p>}
+				{zipcode !== '' && <p className="zipcode_title">Your results for</p>}
+				<form onSubmit={handleSubmit}>
+					<input
+						name="zipcode"
+						placeholder="zip code"
+						onChange={handleChange}
+						value={customerZip}
+						className="zipcode_input"
+					/>
+				</form>
+
+				<Map zipcode={zipcode} vendors={vendors} height={300} width={1280} radius={8046} />
+				<VendorsNearby
+					zipcode={zipcode}
+					vendors={vendors}
+					history={props.history}
+					location={props.location}
+					match={props.match}
 				/>
-			</form>
-			<Map zipcode={zipcode} vendors={vendors} height={300} width={1280} radius={8046} />
-			<VendorsNearby
-				zipcode={zipcode}
-				vendors={vendors}
-				history={props.history}
-				location={props.location}
-				match={props.match}
-			/>
+			</div>
+			<Footer />
 		</div>
 	);
 };

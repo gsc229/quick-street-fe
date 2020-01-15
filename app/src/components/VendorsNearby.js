@@ -13,7 +13,7 @@ const VendorsNearby = (props) => {
   const noZipcodeArray = [1, 2, 3, 4, 5, 6];
   
   return (
-    <>
+    <div className="browse_wrapper">
 
       {props.zipcode === '' ? (
         <>
@@ -47,9 +47,9 @@ const VendorsNearby = (props) => {
           </div>
         ))}
       </div>
-      <Footer />
 
-    </>
+
+    </div>
   )
 } 
 

@@ -3,37 +3,41 @@
 	margin: auto;
 }
 .form_container {
-	width: 100%;
 	height: 100vh;
-	background-image: url('../assets/meditate_girl.png');
+	background-image: url(/static/media/meditate_girl.f2a3139c.png);
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: right;
 	margin: 0 auto;
 	background-color: white;
+	background-size: 100% auto;
 }
 
 .form_container_login {
-	width: 1100px;
 	height: 100vh;
-	background-image: url('../assets/thinking_man.svg');
+	background-image: url(/static/media/thinking_man.24e98605.svg);
 	background-size: contain;
 	background-repeat: no-repeat;
-	background-position: right;
 	margin: 0 auto;
+	background-size: 100% auto;
 }
 
 .form_details {
 	margin-left: 30px;
 	width: 40%;
+	padding-top: 125px;
+}
+.form_details_reg {
+	margin-left: 30px;
+	width: 40%;
+	padding-top: 90px;
 }
 
 h1 {
 	line-height: 155%;
 	font-size: 40px;
-  color: #00b2ed;
-  margin: 0;
-
+	color: #00b2ed;
+	margin: 0;
 }
 
 h3 {
@@ -161,26 +165,29 @@ h3 {
 }
 
 .confirmation_container {
-	background: #ffffff;
-	border-radius: 10px;
-  flex: 1;
-  justify-content: center;
-
+	padding-top: 90px;
+	flex: 1;
 }
 .main_container_confirm {
-  background-color: #00b2ed;
-  width: 1440px;
-  margin: auto;
-  display: flex;
+	height: 100vh;
+	background-image: url(/static/media/meditate_girl.f2a3139c.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: right;
+	margin: 0 auto;
+	background-color: white;
+	background-size: 100% auto;
+}
+.vendor_confrim_wapper {
+	padding-top: 90px;
 }
 .vendor_confirmation_div {
-	width: 50%;
-	margin: 0 auto;
+	width: 40%;
 }
 
 .vendor_confirmation_title {
-  font-size: 24px;
-  margin:0;
+	font-size: 24px;
+	margin: 0;
 }
 
 .vendor_confirmation_value {
@@ -206,4 +213,8 @@ h3 {
 	color: red;
 	margin-top: 0px;
 	line-height: 0%;
+}
+.customer_confrim_wapper {
+	width: 40%;
+	padding-top: 250px;
 }

@@ -55,10 +55,8 @@ const UserDetails = (props) => {
 				{/* <div className='signup_image'> */}
 				{/* <img src={meditateGirlImg} alt='Sign Up Form' /> */}
 				{/* </div> */}
-				<div className="form_details">
-					<h1>
-						Create An <br /> Account With <br /> Market Avenue
-					</h1>
+				<div className="form_details_reg">
+					<h1>Create An Account With Market Avenue</h1>
 					<h3>
 						Already have an account?{' '}
 						<Link className="link" to="/login">

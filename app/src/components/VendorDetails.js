@@ -53,8 +53,8 @@ const VendorDetails = (props) => {
       {/* <div>
         <img alt='Signup Image'/>
       </div> */}
-      <div className='form_details'>
-        <h1>Great! <br/>Let's get you <br/>set up.</h1>
+      <div className='form_details_reg'>
+        <h1>Great! Let's get you set up.</h1>
         <form>
           <div className='form_input_vendor_details'>
             <label htmlFor='businessName'>Business Name</label>

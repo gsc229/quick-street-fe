@@ -230,6 +230,7 @@
 .vendor_add_post_btn_group .save_button{
   background-color: #00769D;
   color: #FEF2E4;
+  cursor: pointer;
 }
 
 .vendor_add_post_form_show button {
@@ -361,6 +362,7 @@
   position: absolute;
   bottom: 5px;
   right: 0px;
+  cursor: pointer;
 }
 
 .vendor_product_btn_group {
@@ -384,12 +386,26 @@
 .vendor_product_btn_group .cancel {
   border: 3px solid #E92323;
   color: #E92323;
+  cursor: pointer;
 }
+
+.vendor_product_btn_group .cancel:hover{
+  /* border: 3px solid white; */
+  background-color: #E92323;
+  color: white;
+}
+
 
 .vendor_product_btn_group .save {
   border: 3px solid #21B7B7;
   background-color: #21B7B7;
   color: #FEF2E4;
+  cursor: pointer;
+}
+
+.vendor_product_btn_group .save:hover{
+  background-color: whitesmoke;
+  color: #21B7B7;
 }
 
 .vendor_product_list_wrapper {

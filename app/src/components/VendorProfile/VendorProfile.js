@@ -38,63 +38,6 @@ const VendorProfile = props => {
   const [editAbout, setEditAbout] = useState(false);
   const [editBusinessName, setEditBusinessName] = useState(false);
 
-
-
-  const myWidget = window.cloudinary.createUploadWidget(
-    {
-      cloudName: "quickstlabs",
-      uploadPreset: "product-images",
-      sources: [
-        "local",
-        "url",
-        "camera",
-        "image_search",
-        "facebook",
-        "dropbox",
-        "instagram"
-      ],
-      showAdvancedOptions: true,
-      cropping: true, // if true multiple must be false, set to false [set multiple to true] to upload multiple files
-      multiple: false,
-      defaultSource: "local",
-      styles: {
-        palette: {
-          window: "#FFFFFF",
-          sourceBg: "#00B2ED",
-          windowBorder: "#E1F6FA",
-          tabIcon: "#2B3335",
-          inactiveTabIcon: "#555a5f",
-          menuIcons: "#5B5F63",
-          link: "#00769D",
-          action: "#21B787",
-          inProgress: "#00769D",
-          complete: "#21B787",
-          error: "#E92323",
-          textDark: "#2B3335",
-          textLight: "#FFFFFF"
-        },
-        fonts: {
-          default: null,
-          "'Poppins', sans-serif": {
-            url: "https://fonts.googleapis.com/css?family=Poppins",
-            active: true
-          }
-        }
-      }
-    },
-    async (error, result) => {
-      if (!error && result && result.event === "success") {
-        const banner_info = await result.info;
-        setBannerInfo(banner_info.public_id);
-      }
-      axiosWithAuth().put(
-        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`,
-
-        { ...vendorInfo, vendor_banner: `${bannerInfo}` }
-      ).then(console.log('PUT request Issue'));
-    }
-  );
-
   useEffect(() => {
     async function fetchVendorInfo() {
       try {
@@ -204,16 +147,6 @@ const VendorProfile = props => {
     e.preventDefault();
     myWidget.open();
   };
-
-
-  /* setShow(!show) */
-  const reveal = () => {
-    const links = document.getElementById(`${profile.dropdown_links}`)
-    links.style.height = '400px';
-  }
-
-  console.log('dropdown_links', document.getElementById(`${profile.dropdown_links}`))
-
   return (
     <div className={profile.vendor_profile_container}>
       <div className={profile.vendor_header_container}>
@@ -250,7 +183,6 @@ const VendorProfile = props => {
         <div className={banner.banner_text_btns}>
           <div className={banner.vendor_header_name}>
             <input
-
               onChange={e =>
                 setInfo({ ...info, business_name: e.target.value })
               }
@@ -264,7 +196,7 @@ const VendorProfile = props => {
           <div className={banner.vendor_profile_btn_group}>
             <FontAwesomeIcon
               id={banner.pen}
-              className={`${banner.icon} " " ${editingName ? banner.red_edit : banner.normal_pen}`}
+              className={`${banner.icon} ${editingName ? banner.red_edit : banner.normal_pen}`}
               icon={faPen}
               onClick={() => {
                 editName();

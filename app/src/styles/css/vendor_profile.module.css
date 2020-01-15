@@ -5,7 +5,7 @@
 .vendor_profile_container .vendor_header_container {
   /* border: 3px solid purple; */
   position: relative;
-  background-color: #00B2ED;
+  background-color: #00b2ed;
   top: 0;
   width: 100%;
   height: 85px;
@@ -50,7 +50,9 @@
   cursor: pointer;
 }
 
-.vendor_profile_container .vendor_header_container #hamburger_dropdown #closebtn .line1, .vendor_profile_container .vendor_header_container #hamburger_dropdown #closebtn .line2, .vendor_profile_container .vendor_header_container #hamburger_dropdown #closebtn .line3 {
+.vendor_profile_container .vendor_header_container #hamburger_dropdown #closebtn .line1,
+.vendor_profile_container .vendor_header_container #hamburger_dropdown #closebtn .line2,
+.vendor_profile_container .vendor_header_container #hamburger_dropdown #closebtn .line3 {
   margin-top: 5px;
   background-color: #fff;
   width: 25px;
@@ -65,10 +67,13 @@
 
 .vendor_profile_container .vendor_header_container #hamburger_dropdown .hamburger_dropdown_links {
   display: block;
-  background-color: #00B2ED;
+  background-color: #00b2ed;
   z-index: 2;
   margin-top: 5px;
   padding: 10px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 .vendor_profile_container .vendor_header_container #hamburger_dropdown .hamburger_dropdown_links p {
@@ -83,7 +88,11 @@
   -webkit-box-align: baseline;
       -ms-flex-align: baseline;
           align-items: baseline;
-  color: #FEF2E4;
+  color: #fef2e4;
+}
+
+.vendor_profile_container .vendor_header_container #hamburger_dropdown .hamburger_dropdown_links p:hover {
+  color: lightblue;
 }
 
 .vendor_profile_container .vendor_header_container #hamburger_dropdown .no_drop {
@@ -104,7 +113,7 @@
   font-weight: 600;
   font-size: 36px;
   line-height: 42px;
-  color: #FEF2E4;
+  color: #fef2e4;
 }
 
 .vendor_profile_container .vendor_header_container .header_links {
@@ -138,7 +147,7 @@
   -webkit-box-align: baseline;
       -ms-flex-align: baseline;
           align-items: baseline;
-  color: #FEF2E4;
+  color: #fef2e4;
 }
 
 .vendor_profile_container .vendor_header_container .header_links .header_food {

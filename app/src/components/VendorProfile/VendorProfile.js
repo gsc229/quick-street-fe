@@ -12,16 +12,17 @@ import banner from "../../styles/css/vendor_banner.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSave, faPen, faUpload } from "@fortawesome/free-solid-svg-icons";
 
+import BannerUploader from './BannerUploader';
 import { Image, CloudinaryContext, Transformation } from "cloudinary-react";
-import axios from "axios";
-import axiosWithAuth from '../../utils/axiosWithAuth';
+import axiosWithAuth from "../../utils/axiosWithAuth";
+
 
 const VendorProfile = props => {
   const [modal, setModal] = useState(false);
   const [show, setShow] = useState(false);
   const [editingName, setEditingName] = useState(false);
   const [vendorInfo, setVendorInfo] = useState({ location: "" });
-  const [bannerInfo, setBannerInfo] = useState("");
+  const [bannerInfo, setBannerInfo] = useState("no_banner.jpg");
   const [products, setProducts] = useState([]);
   const [productIds, setProductIds] = useState([]);
   const [productImagesIds, setProductImagesIds] = useState([]);
@@ -37,65 +38,12 @@ const VendorProfile = props => {
   const vendorId = props.match.params.id;
   const [editAbout, setEditAbout] = useState(false);
   const [editBusinessName, setEditBusinessName] = useState(false);
-  const myWidget = window.cloudinary.createUploadWidget(
-    {
-      cloudName: "quickstlabs",
-      uploadPreset: "product-images",
-      sources: [
-        "local",
-        "url",
-        "camera",
-        "image_search",
-        "facebook",
-        "dropbox",
-        "instagram"
-      ],
-      showAdvancedOptions: true,
-      cropping: true, // if true multiple must be false, set to false [set multiple to true] to upload multiple files
-      multiple: false,
-      defaultSource: "local",
-      styles: {
-        palette: {
-          window: "#FFFFFF",
-          sourceBg: "#00B2ED",
-          windowBorder: "#E1F6FA",
-          tabIcon: "#2B3335",
-          inactiveTabIcon: "#555a5f",
-          menuIcons: "#5B5F63",
-          link: "#00769D",
-          action: "#21B787",
-          inProgress: "#00769D",
-          complete: "#21B787",
-          error: "#E92323",
-          textDark: "#2B3335",
-          textLight: "#FFFFFF"
-        },
-        fonts: {
-          default: null,
-          "'Poppins', sans-serif": {
-            url: "https://fonts.googleapis.com/css?family=Poppins",
-            active: true
-          }
-        }
-      }
-    },
-    async (error, result) => {
-      if (!error && result && result.event === "success") {
-        const banner_info = await result.info;
-        setBannerInfo(banner_info.public_id);
-      }
-      axiosWithAuth().put(
-        `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`,
 
-        { ...vendorInfo, vendor_banner: `${bannerInfo}` }
-      ).then(console.log('PUT request Issue', result));
-    }
-  );
 
   useEffect(() => {
     async function fetchVendorInfo() {
       try {
-        const vendorInfo = await axios.get(
+        const vendorInfo = await axiosWithAuth().get(
           `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`
         );
         console.log(`vendorinfo changed`, vendorInfo);
@@ -109,7 +57,7 @@ const VendorProfile = props => {
 
     async function fetchProducts() {
       try {
-        const products = await axios.get(
+        const products = await axiosWithAuth().get(
           `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}/products`
         );
 
@@ -128,7 +76,7 @@ const VendorProfile = props => {
       if (productIds.length !== 0) {
         for (const ids of productIds) {
           try {
-            const imageIds = await axios.get(
+            const imageIds = await axiosWithAuth().get(
               `https://quickstlabs.herokuapp.com/api/v1.0/products/${ids}/product-images`
             );
 
@@ -159,53 +107,42 @@ const VendorProfile = props => {
   };
 
   const editName = () => {
-    setEditBusinessName(true);
+    setEditBusinessName(!editBusinessName);
   };
 
   const saveName = e => {
     e.preventDefault();
     axiosWithAuth()
-      .put(`https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`, {
-        ...vendorInfo,
-        business_name: info.business_name
-      })
+      .put(`https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`, vendorInfo)
       .then(res => {
         console.log(`update vendor info`, res);
         setVendorInfo(res.data.data);
-      });
+      })
+      .catch(err => {
+        console.log('ERROR PUT SAVE NAME', err);
+      })
   };
 
   const editProfile = () => {
     console.log(`edit profile clicked`);
-    setEditAbout(true);
+    setEditAbout(!editAbout);
   };
 
   const saveProfile = e => {
     e.preventDefault();
+    console.log('PRE PUT vendorInfo', vendorInfo);
     axiosWithAuth()
-      .put(`https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`, {
-        ...vendorInfo,
-        hours: `${info.hour_from}_${info.hour_to}`,
-        location: { ...vendorInfo.location, zipcode: info.location },
-        days_of_week: info.days,
-        phone: info.phone,
-        description: info.about
-      })
+      .put(`https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`, vendorInfo)
       .then(res => {
         console.log(`update vendor info`, res);
         setVendorInfo(res.data.data);
-      });
+      })
+      .catch(err => {
+        console.log("VendorProf. PUT error ", err)
+      })
   };
 
-  const uploadBanner = e => {
-    e.preventDefault();
-    myWidget.open();
-  };
 
-
-
-  console.log('banner pen: ', document.getElementById(`${banner.pen}`))
-  console.log('editingName: ', editingName)
   return (
     <div className={profile.vendor_profile_container}>
       <div className={profile.vendor_header_container}>
@@ -242,13 +179,13 @@ const VendorProfile = props => {
         <div className={banner.banner_text_btns}>
           <div className={banner.vendor_header_name}>
             <input
-
-              onChange={e =>
-                setInfo({ ...info, business_name: e.target.value })
+              onChange={e => {
+                if (editBusinessName) {
+                  setVendorInfo({ ...vendorInfo, business_name: e.target.value })
+                }
               }
-              value={
-                editBusinessName ? info.business_name : vendorInfo.business_name
               }
+              value={vendorInfo.business_name}
               className={editingName ? banner.glowing_border : 'none'}
             />
           </div>
@@ -293,24 +230,19 @@ const VendorProfile = props => {
             </CloudinaryContext>
           ) : (
               <img
-                className={banner.vendor_banner_image}
+                className="vendor_banner_image"
                 src={picture}
                 alt="vendor header"
               />
             )}
           <div className={banner.vendor_banner_upload}>
-            <FontAwesomeIcon
-              id={banner.upload}
-              className={banner.icon}
-              icon={faUpload}
-              onClick={uploadBanner}
+            <BannerUploader
+              vendorId={vendorId}
+              vendorInfo={vendorInfo}
+              setBannerInfo={setBannerInfo}
+              bannerInfo={bannerInfo}
             />
-            {/* <img
-              src={upload}
-              alt='upload icon'
-              onClick={uploadBanner}
-            /> */}
-          </div>{" "}
+          </div>
         </div>
       </div>
 
@@ -321,6 +253,7 @@ const VendorProfile = props => {
         editAbout={editAbout}
         editProfile={editProfile}
         saveProfile={saveProfile}
+        setVendorInfo={setVendorInfo}
       />
 
       <VendorProducts

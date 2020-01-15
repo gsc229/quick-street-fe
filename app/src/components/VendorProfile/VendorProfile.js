@@ -88,7 +88,7 @@ const VendorProfile = props => {
         `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`,
 
         { ...vendorInfo, vendor_banner: `${bannerInfo}` }
-      ).then(console.log('PUT request Issue'));
+      ).then(console.log('PUT request Issue', result));
     }
   );
 

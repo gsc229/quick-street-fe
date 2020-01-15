@@ -4,7 +4,7 @@ import axiosWithAuth from '../../utils/axiosWithAuth';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSave, faPen, faUpload } from "@fortawesome/free-solid-svg-icons";
 
-/* This is the banner uploader */
+/* This is the banner uploader! */
 
 export default function BannerUploader(props) {
 

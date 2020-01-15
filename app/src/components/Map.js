@@ -10,13 +10,12 @@ const Map = (props) => {
 		isDefault: false
 	});
 
-	console.log(process.env.NETLIFY_GOOGLE_MAPS_API_KEY);
 	const getGeocode = () => {
 		// console.log(props.zipcode);
 		axios
 			.get(
 				`https://maps.googleapis.com/maps/api/geocode/json?address=${props.zipcode}&key=${process.env
-					.NETLIFY_GOOGLE_MAPS_API_KEY}`
+					.REACT_APP_GOOGLE_MAPS_API_KEY}`
 			)
 			.then((response) => {
 				// console.log(response);

@@ -40,9 +40,6 @@ const VendorProfile = props => {
   const [editBusinessName, setEditBusinessName] = useState(false);
 
 
-
-
-
   useEffect(() => {
     async function fetchVendorInfo() {
       try {
@@ -149,10 +146,6 @@ const VendorProfile = props => {
   };
 
 
-
-
-
-
   return (
     <div className={profile.vendor_profile_container}>
       <div className={profile.vendor_header_container}>
@@ -189,7 +182,6 @@ const VendorProfile = props => {
         <div className={banner.banner_text_btns}>
           <div className={banner.vendor_header_name}>
             <input
-
               onChange={e =>
                 setInfo({ ...info, business_name: e.target.value })
               }

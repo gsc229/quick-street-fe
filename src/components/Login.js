@@ -54,7 +54,7 @@ const Login = props => {
           password: credentials.password
         })
         .then(response => {
-          console.log(response.data.id);
+          // console.log(response.data.id);
           localStorage.setItem('token', response.data.token);
           props.history.push(`profile/${response.data.id}`);
         })

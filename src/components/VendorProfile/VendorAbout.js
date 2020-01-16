@@ -14,7 +14,7 @@ const About = ({
   setVendorInfo
 }) => {
   const [editingDetails, setEditingDetails] = useState(false);
-  console.log(info);
+  // console.log(info);
   return (
     <div className={about.vendor_about_container}>
       <div className={about.inner_container}>

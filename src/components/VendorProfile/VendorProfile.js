@@ -46,11 +46,11 @@ const VendorProfile = props => {
         const vendorInfo = await axiosWithAuth().get(
           `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`
         );
-        console.log(`vendorinfo changed`, vendorInfo);
+        // console.log(`vendorinfo changed`, vendorInfo);
         setVendorInfo(vendorInfo.data.data);
         setBannerInfo(vendorInfo.data.data.vendor_banner);
       } catch (e) {
-        console.log(e);
+        // console.log(e);
       }
     }
     fetchVendorInfo();
@@ -64,7 +64,7 @@ const VendorProfile = props => {
         setProducts(products.data.data);
         setProductIds(products.data.data.map(p => p._id));
       } catch (e) {
-        console.log(e);
+        // console.log(e);
       }
     }
     fetchProducts();
@@ -82,7 +82,7 @@ const VendorProfile = props => {
 
             temp_ids.push(imageIds.data.data[0].public_id);
           } catch (e) {
-            console.log(e);
+            // console.log(e);
           }
         }
       }
@@ -118,7 +118,7 @@ const VendorProfile = props => {
         vendorInfo
       )
       .then(res => {
-        console.log(`update vendor info`, res);
+        // console.log(`update vendor info`, res);
         setVendorInfo(res.data.data);
       })
       .catch(err => {
@@ -127,20 +127,20 @@ const VendorProfile = props => {
   };
 
   const editProfile = () => {
-    console.log(`edit profile clicked`);
+    // console.log(`edit profile clicked`);
     setEditAbout(!editAbout);
   };
 
   const saveProfile = e => {
     e.preventDefault();
-    console.log('PRE PUT vendorInfo', vendorInfo);
+    // console.log('PRE PUT vendorInfo', vendorInfo);
     axiosWithAuth()
       .put(
         `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`,
         vendorInfo
       )
       .then(res => {
-        console.log(`update vendor info`, res);
+        // console.log(`update vendor info`, res);
         setVendorInfo(res.data.data);
       })
       .catch(err => {

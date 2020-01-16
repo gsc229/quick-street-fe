@@ -5,8 +5,8 @@ import VendorDetails from './VendorDetails';
 import VendorConfirmation from './VendorConfirmation';
 import CustomerConfirmation from './CustomerConfirmation';
 
-const Register = (props) => {
-  console.log('Register.js props: ', props);
+const Register = props => {
+  // console.log('Register.js props: ', props);
 
   const [userInfo, setUserInfo] = useState({
     step: 1,
@@ -42,7 +42,7 @@ const Register = (props) => {
     });
   };
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     setUserInfo({
       ...userInfo,
       [event.target.name]: event.target.value,
@@ -64,9 +64,9 @@ const Register = (props) => {
           nextStep={nextStep}
           setUserInfo={setUserInfo}
         />
-      )
+      );
     }
-  }
+  };
 
   const vendorDetails = () => {
     if (userInfo.step === 2 && userInfo.role === 'vendor') {
@@ -78,10 +78,9 @@ const Register = (props) => {
           previousStep={previousStep}
           setUserInfo={setUserInfo}
         />
-      )
+      );
     }
-
-  }
+  };
 
   const vendorConfirmation = () => {
     if (userInfo.step === 3) {
@@ -91,7 +90,7 @@ const Register = (props) => {
           previousStep={previousStep}
           history={props.history}
         />
-      )
+      );
     }
   };
 
@@ -103,7 +102,7 @@ const Register = (props) => {
           previousStep={previousStep}
           history={props.history}
         />
-      )
+      );
     }
   };
 
@@ -114,8 +113,7 @@ const Register = (props) => {
       {vendorConfirmation()}
       {customerConfirmation()}
     </>
-  )
-
-}
+  );
+};
 
 export default Register;

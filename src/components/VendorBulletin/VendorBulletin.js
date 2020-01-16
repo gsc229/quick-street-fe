@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import VendorAddPostForm from "./VendorAddPostForm";
-import VendorPostList from "./VendorPostList";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import VendorAddPostForm from './VendorAddPostForm';
+import VendorPostList from './VendorPostList';
+import axios from 'axios';
 import axiosWithAuth from '../../utils/axiosWithAuth';
 
 import bulletin from '../../styles/scss/vendor_bulletin.module.scss';
@@ -10,10 +10,9 @@ const VendorBulletin = props => {
   const [showAddPostForm, setShowAddPostForm] = useState(false);
   const [posts, setPosts] = useState([]);
   const [post, setPost] = useState({
-    content: "",
-    zipcode: ""
+    content: '',
+    zipcode: ''
   });
-
 
   const addPost = e => {
     e.preventDefault();
@@ -30,11 +29,11 @@ const VendorBulletin = props => {
     axiosWithAuth()
       .post(
         `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${props.vendorId}/posts`,
-        { title: "test title", description: post.content }
+        { title: 'test title', description: post.content }
       )
       .then(res => setPosts([...posts, res.data.data]));
 
-    setPost({ post: "", content: "" });
+    setPost({ post: '', content: '' });
     setShowAddPostForm(false);
   };
 
@@ -44,7 +43,7 @@ const VendorBulletin = props => {
         `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${props.vendorId}/posts`
       )
       .then(res => {
-        console.log(res.data.data);
+        // console.log(res.data.data);
         setPosts(res.data.data);
       });
   }, []);
@@ -58,7 +57,9 @@ const VendorBulletin = props => {
         </div>
 
         <div className={bulletin.vendor_add_post_btn_wrapper}>
-          <button className={bulletin.vendor_bulletin_button} onClick={addPost}>Add Post</button>
+          <button className={bulletin.vendor_bulletin_button} onClick={addPost}>
+            Add Post
+          </button>
         </div>
       </div>
 

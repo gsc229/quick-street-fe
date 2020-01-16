@@ -54,7 +54,7 @@ export default function BannerUploader(props) {
     async (error, result) => {
       if (!error && result && result.event === 'success') {
         const banner_info = await result.info;
-        console.log('BannerUpload.js UploadWidget banner_info ', banner_info);
+        // console.log('BannerUpload.js UploadWidget banner_info ', banner_info);
         axiosWithAuth()
           .put(
             `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`,

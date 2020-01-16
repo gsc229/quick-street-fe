@@ -62,6 +62,7 @@ export default function BannerUploader(props) {
             { ...vendorInfo, vendor_banner: `${banner_info.public_id}` }
           )
           .then(res => {
+            console.log('PUT BannerUploader success', res)
             setBannerInfo(banner_info.public_id);
           })
           .catch(err => {
@@ -69,9 +70,6 @@ export default function BannerUploader(props) {
           })
 
       }
-
-
-
     }
   );
 

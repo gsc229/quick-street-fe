@@ -46,7 +46,7 @@ const VendorProfile = props => {
         const vendorInfo = await axiosWithAuth().get(
           `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`
         );
-        console.log(`vendorinfo changed`, vendorInfo);
+        console.log(`GET setVendorInfo`, vendorInfo);
         setVendorInfo(vendorInfo.data.data);
         setBannerInfo(vendorInfo.data.data.vendor_banner);
       } catch (e) {

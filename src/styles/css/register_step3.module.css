@@ -1,5 +1,4 @@
 .container {
-  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -19,7 +18,6 @@
       -ms-flex-direction: column;
           flex-direction: column;
   background-color: white;
-  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -27,18 +25,72 @@
       -ms-flex-align: center;
           align-items: center;
   border-radius: 10px;
-  height: 100vh;
-  width: 950px;
-  color: #00b2ed;
+  height: 1480px;
+  width: 846px;
+  color: black;
   font-family: 'Raleway', sans-serif;
-  font-weight: 800;
 }
 
-.form p {
+.form button:hover {
+  border: 3px solid black;
+}
+
+.form h5 {
+  margin: 20px;
+}
+
+.form .top_section div {
   border: 1px solid black;
   height: 60px;
   width: 410px;
-  border-radius: 10px;
+  border-radius: 7px;
+  margin: 20px;
+}
+
+.form .middle_section {
+  margin-top: 75px;
+}
+
+.form .middle_section div {
+  border: 1px solid black;
+  height: 60px;
+  width: 410px;
+  border-radius: 7px;
+  margin: 20px;
+}
+
+.form .streetAddress {
+  margin: 50px;
+}
+
+.form .streetAddress div {
+  border: 1px solid black;
+  height: 120px;
+  width: 410px;
+  border-radius: 7px;
+  margin: 20px;
+}
+
+.form .city_zip_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.form .city_zip_container .city div {
+  border: 1px solid black;
+  height: 60px;
+  width: 193px;
+  border-radius: 7px;
+  margin: 20px;
+}
+
+.form .city_zip_container .zip div {
+  border: 1px solid black;
+  height: 60px;
+  width: 193px;
+  border-radius: 7px;
   margin: 20px;
 }
 
@@ -60,15 +112,5 @@
   border: 3px solid #21b787;
   font-size: 1rem;
   margin: 10px;
-}
-
-.city_zip_container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  width: 219px;
 }
 /*# sourceMappingURL=register_step3.module.css.map */

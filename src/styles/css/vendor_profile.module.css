@@ -59,10 +59,10 @@
   height: 3px;
   display: block;
   position: relative;
-  opacity: 1.0;
+  opacity: 1;
   border-radius: 15%;
-  -webkit-transition: all .3s;
-  transition: all .3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .vendor_profile_container .vendor_header_container #hamburger_dropdown .hamburger_dropdown_links {

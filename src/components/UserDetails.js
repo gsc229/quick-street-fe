@@ -8,7 +8,7 @@ const UserDetails = props => {
   const proceed = event => {
     event.preventDefault();
     if (validate()) {
-      console.log(values);
+      // console.log(values);
       nextStep();
     }
   };

@@ -10,6 +10,9 @@
 }
 
 .form {
+  font-size: 1rem;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -32,10 +35,18 @@
 }
 
 .form button:hover {
-  border: 3px solid black;
+  border: 2px solid black;
 }
 
 .form h5 {
+  margin: 20px;
+}
+
+.form .top_section input {
+  border: 1px solid black;
+  height: 60px;
+  width: 410px;
+  border-radius: 7px;
   margin: 20px;
 }
 

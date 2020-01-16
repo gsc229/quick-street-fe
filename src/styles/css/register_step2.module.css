@@ -29,6 +29,10 @@
   margin: 50px;
 }
 
+.form button:hover {
+  border: 2px solid black;
+}
+
 .form p {
   padding: 10px;
 }

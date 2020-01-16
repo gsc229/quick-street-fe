@@ -9,29 +9,26 @@ export const testimonial2 = require('./testimonial-2.png');
 export const testimonial3 = require('./testimonial-3.png');
 
 const Image = props => {
-    switch (props.name) {
-        case "Works1": 
-        return <img src={works1} />;
-        case "Works2": 
-        return <img src={works2} />;
-        case "Works3": 
-        return <img src={works3} />;
-        case "Carousel": 
-        return <img src={carousel} />;
-        case "Cookies": 
-        return <img src={cookies} />;
-        case "Testimonial1": 
-        return <img src={testimonial1} />;
-        case "Testimonial2": 
-        return <img src={testimonial2} />;
-        case "Testimonial3": 
-        return <img src={testimonial3} />;
-        default:
-            return;
-    }
-}
+  switch (props.name) {
+    case 'Works1':
+      return <img src={works1} alt='img' />;
+    case 'Works2':
+      return <img src={works2} alt='img' />;
+    case 'Works3':
+      return <img src={works3} alt='img' />;
+    case 'Carousel':
+      return <img src={carousel} alt='img' />;
+    case 'Cookies':
+      return <img src={cookies} alt='img' />;
+    case 'Testimonial1':
+      return <img src={testimonial1} alt='img' />;
+    case 'Testimonial2':
+      return <img src={testimonial2} alt='img' />;
+    case 'Testimonial3':
+      return <img src={testimonial3} alt='img' />;
+    default:
+      return;
+  }
+};
 
 export default Image;
-
- 
-

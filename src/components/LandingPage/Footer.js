@@ -1,5 +1,4 @@
 import React from 'react';
-import Icon from '../../assets/landing/icons/Icon';
 import footer from '../../styles/scss/footer.module.scss';
 
 const Footer = () => {

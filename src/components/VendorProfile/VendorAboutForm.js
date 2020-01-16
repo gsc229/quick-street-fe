@@ -1,21 +1,10 @@
 import React from 'react';
-import down from '../../assets/down.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faClock,
-  faPhone,
-  faPaperPlane
-} from '@fortawesome/free-solid-svg-icons';
+import { faPhone, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import about from '../../styles/css/vendor_about.module.css';
 import Map from '../Map';
 
-const VendorAboutForm = ({
-  editAbout,
-  vendorInfo,
-  info,
-  setInfo,
-  setVendorInfo
-}) => {
+const VendorAboutForm = ({ editAbout, vendorInfo, info, setVendorInfo }) => {
   const changeHandler = e => {
     if (editAbout) {
       setVendorInfo({ ...vendorInfo, [e.target.name]: e.target.value });

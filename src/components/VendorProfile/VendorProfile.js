@@ -12,7 +12,7 @@ import profile from '../../styles/css/vendor_profile.module.css';
 import banner from '../../styles/css/vendor_banner.module.css';
 //Font awesom
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSave, faPen, faUpload } from '@fortawesome/free-solid-svg-icons';
+import { faSave, faPen } from '@fortawesome/free-solid-svg-icons';
 
 import BannerUploader from './BannerUploader';
 import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';

@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import about from '../../styles/css/vendor_about.module.css';
 import VendorAboutForm from './VendorAboutForm';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSave, faPen, faPlus } from '@fortawesome/free-solid-svg-icons';
-import Map from '../Map';
+import { faSave, faPen } from '@fortawesome/free-solid-svg-icons';
 
 const About = ({
   editAbout,

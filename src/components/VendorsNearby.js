@@ -19,9 +19,9 @@ const VendorsNearby = props => {
           <div className='vendor_div_empty'>
             {noZipcodeArray.map((value, index) => (
               <div className='vendor_details_div_empty' key={index}>
-                <img className='placeholder_image' src={rectangle} />
-                <img className='placeholder_text' src={placeholder} />
-                <img className='placeholder_text' src={placeholder} />
+                <img className='placeholder_image' src={rectangle} alt='img' />
+                <img className='placeholder_text' src={placeholder} alt='img' />
+                <img className='placeholder_text' src={placeholder} alt='img' />
               </div>
             ))}
           </div>

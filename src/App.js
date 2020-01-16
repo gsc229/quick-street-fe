@@ -12,7 +12,7 @@ import {
 } from './components/index';
 
 const App = () => {
-  console.log(window.cloudinary);
+  // console.log(window.cloudinary);
   return (
     <>
       <div id='wrapper'>

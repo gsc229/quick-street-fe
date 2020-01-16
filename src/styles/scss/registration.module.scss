@@ -68,7 +68,8 @@
   display: flex;
   align-items: center;
 
-  input {
+  input[type='radio'] {
+    appearance: checkbox;
     width: 24px;
   }
 }

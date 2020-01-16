@@ -118,7 +118,10 @@
           align-items: center;
 }
 
-.radio_buttons input {
+.radio_buttons input[type='radio'] {
+  -webkit-appearance: checkbox;
+     -moz-appearance: checkbox;
+          appearance: checkbox;
   width: 24px;
 }
 /*# sourceMappingURL=registration.module.css.map */

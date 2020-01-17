@@ -5,7 +5,7 @@ import '../../../styles/scss/vendorsNearby.scss';
 import rectangle from '../../../assets/images/Profile/rectangle.png';
 import placeholder from '../../../assets/images/Profile/placeholder.png';
 
-const VendorsNearby = props => {
+const Search = props => {
   // console.log(props);
   const noZipcodeArray = [1, 2, 3, 4, 5, 6];
 
@@ -50,4 +50,4 @@ const VendorsNearby = props => {
   );
 };
 
-export default VendorsNearby;
+export default Search;

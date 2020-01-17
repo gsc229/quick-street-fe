@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
 import axiosWithAuth from '../../../../utils/axiosWithAuth';
-import Product from './Product';
+import Product from './ViewVendorProduct';
 import '../../../../styles/scss/customerFacingVendorProfile.scss';
 
-const Products = (props) => {
+const ViewVendorProducts = (props) => {
 	const [ vendorProducts, setVendorProducts ] = useState({
 		products: [],
 		count: 0
@@ -43,4 +43,4 @@ const Products = (props) => {
 	);
 };
 
-export default Products;
+export default ViewVendorProducts;

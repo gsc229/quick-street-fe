@@ -4,7 +4,7 @@ import productImg from '../../../assets/images/Profile/rectangle75.png';
 import { Image, CloudinaryContext } from 'cloudinary-react';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 
-const VendorAddProductForm = ({ modal, setModal, setProducts, vendorId, products, addProductformCancelHandler }) => {
+const AddProductForm = ({ modal, setModal, setProducts, vendorId, products, addProductformCancelHandler }) => {
 	const [ productPictureInfo, setProductPictureInfo ] = useState('');
 	const [ product, setProduct ] = useState({
 		name: '',
@@ -163,4 +163,4 @@ const VendorAddProductForm = ({ modal, setModal, setProducts, vendorId, products
 	);
 };
 
-export default VendorAddProductForm;
+export default AddProductForm;

@@ -6,7 +6,7 @@ import axiosWithAuth from '../../../utils/axiosWithAuth';
 
 import bulletin from '../../../styles/scss/vendor_bulletin.module.scss';
 
-const VendorBulletin = (props) => {
+const Bulletin = (props) => {
 	const [ showAddPostForm, setShowAddPostForm ] = useState(false);
 	const [ posts, setPosts ] = useState([]);
 	const [ post, setPost ] = useState({
@@ -72,4 +72,4 @@ const VendorBulletin = (props) => {
 	);
 };
 
-export default VendorBulletin;
+export default Bulletin;

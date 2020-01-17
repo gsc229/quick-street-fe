@@ -4,7 +4,7 @@ import axiosWithAuth from '../../../../utils/axiosWithAuth';
 import '../../../../styles/scss/customerFacingVendorProfile.scss';
 // import { image } from '../../assets/rectangle.png';
 import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
-const About = (props) => {
+const ViewAboutVendor = (props) => {
 	const [ vendor, setVendor ] = useState({
 		location: {}
 	});
@@ -56,4 +56,4 @@ const About = (props) => {
 	);
 };
 
-export default About;
+export default ViewAboutVendor;

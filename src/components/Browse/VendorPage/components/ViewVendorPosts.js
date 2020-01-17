@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import axiosWithAuth from '../../../../utils/axiosWithAuth';
 
-const Posts = (props) => {
+const ViewVendorPosts = (props) => {
 	const [ vendorPost, setVendorPost ] = useState({
 		posts: [],
 		count: 0
@@ -56,4 +56,4 @@ const Posts = (props) => {
 	);
 };
 
-export default Posts;
+export default ViewVendorPosts;

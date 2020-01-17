@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axiosWithAuth from '../../../../utils/axiosWithAuth';
 import '../../../../styles/scss/customerFacingVendorProfile.scss';
 
-const Product = (props) => {
+const ViewVendorProduct = (props) => {
 	const [ image, setImage ] = useState('');
 
 	useEffect(() => {
@@ -27,4 +27,4 @@ const Product = (props) => {
 	);
 };
 
-export default Product;
+export default ViewVendorProduct;

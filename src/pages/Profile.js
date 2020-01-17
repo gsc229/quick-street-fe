@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { VendorAbout, VendorProducts, VendorAddProductForm, VendorBulletin } from '../components/index';
+import { AboutVendor, VendorProducts, AddProductForm, Bulletin } from '../components/index';
 import { Placeholder } from '../assets/images/index';
 //Styles
 import profile from '../styles/css/vendor_profile.module.css';
@@ -228,7 +228,7 @@ const Profile = (props) => {
 				addProductformCancelHandler={addProductformCancelHandler}
 				vendorId={vendorId}
 			/>
-			<VendorBulletin vendorId={vendorId} />
+			<Bulletin vendorId={vendorId} />
 		</div>
 	);
 };

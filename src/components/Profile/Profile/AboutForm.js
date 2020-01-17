@@ -4,7 +4,7 @@ import { faPhone, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import about from '../../../styles/css/vendor_about.module.css';
 import Map from '../../shared/Map';
 
-const VendorAboutForm = ({ editAbout, vendorInfo, info, setVendorInfo }) => {
+const AboutForm = ({ editAbout, vendorInfo, info, setVendorInfo }) => {
 	const changeHandler = (e) => {
 		if (editAbout) {
 			setVendorInfo({ ...vendorInfo, [e.target.name]: e.target.value });
@@ -141,4 +141,4 @@ const VendorAboutForm = ({ editAbout, vendorInfo, info, setVendorInfo }) => {
 	);
 };
 
-export default VendorAboutForm;
+export default AboutForm;

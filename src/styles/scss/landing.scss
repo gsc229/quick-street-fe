@@ -25,9 +25,13 @@ a {
 }
 .heroContainer {
 	@include phone {
-		min-height: 200px;
+		height: 500px;
 		background-image: none;
 		background-color: #00b2ed;
+		background-image: url('../../assets/images/landing/images/hero-banner320.png');
+		background-repeat: no-repeat;
+		background-position: center bottom;
+		padding-bottom: 30px;
 	}
 	@include lg {
 		width: 100%;
@@ -51,9 +55,8 @@ a {
 }
 .landingInfo {
 	@include phone {
-		width: 100vw;
-		font-size: 1rem;
-		padding: 10px;
+		font-size: 1.2rem;
+		padding: 20px;
 		margin: 0px;
 		color: #fff;
 	}

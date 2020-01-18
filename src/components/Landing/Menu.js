@@ -9,15 +9,6 @@ const Menu = () => {
 			<nav class="navbar">
 				Market Avenue
 				<ul class="nav-links">
-					{/* <li class="nav-item">
-                <a href="#">Food</a>
-            </li>
-            <li class="nav-item">
-                <a href="#">Services</a>
-            </li>
-            <li class="nav-item">
-                <a href="#">About</a>
-            </li> */}
 					<li class="nav-item">
 						<Link to="/login">Login</Link>
 					</li>

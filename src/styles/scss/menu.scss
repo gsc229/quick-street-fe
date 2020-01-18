@@ -1,55 +1,71 @@
+@import './mixins.scss';
 .menu-container {
-  font-family: Raleway;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 170.5%;
-  /* identical to box height, or 41px */
-  display: flex;
-  align-items: center;
-  color: #fef2e4;
-  background-color: #00b2ed;
+	@include phone {
+		font-size: 1rem;
+		color: #fef2e4;
+	}
+	@include lg {
+		font-family: Raleway;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 24px;
+		display: flex;
+		align-items: center;
+		color: #fef2e4;
+	}
 }
 .landing-menu {
-  background-color: white;
-  flex: 1;
+	background-color: white;
+	flex: 1;
 }
-nav {
-  width: 100%;
-  padding-left: 50px;
-  padding-right: 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: Raleway;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 170.5%;
-  /* identical to box height, or 41px */
-  color: #fef2e4;
+.nav {
+	@include phone {
+		padding: 20px;
+		font-size: 1rem;
+		text-align: center;
+	}
+	@include lg {
+		width: 100%;
+		padding-left: 50px;
+		padding-right: 30px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-family: Raleway;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 24px;
+		line-height: 170.5%;
+		/* identical to box height, or 41px */
+		color: #fef2e4;
+	}
 }
 
 .logo {
-  display: inline-block;
+	display: inline-block;
 }
 
 .nav-links {
-  list-style: none;
-  display: flex;
+	@include phone {
+		display: none;
+	}
+	@include lg {
+		list-style: none;
+		display: flex;
+	}
 }
 
 .nav-item a {
-  display: inline-block;
-  padding: 10px 15px;
-  text-decoration: none;
-  color: white;
+	display: inline-block;
+	padding: 10px 15px;
+	text-decoration: none;
+	color: white;
 }
 
 .nav-item:hover {
-  background-color: white;
+	background-color: white;
 }
 
 .nav-item:hover a {
-  color: #00b2ed;
+	color: #00b2ed;
 }

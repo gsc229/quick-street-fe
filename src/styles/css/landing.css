@@ -36,9 +36,13 @@ a {
 
 @media (min-width: 300px) {
   .heroContainer {
-    min-height: 200px;
+    height: 500px;
     background-image: none;
     background-color: #00b2ed;
+    background-image: url("../../assets/images/landing/images/hero-banner320.png");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    padding-bottom: 30px;
   }
 }
 
@@ -75,9 +79,8 @@ a {
 
 @media (min-width: 300px) {
   .landingInfo {
-    width: 100vw;
-    font-size: 1rem;
-    padding: 10px;
+    font-size: 1.2rem;
+    padding: 20px;
     margin: 0px;
     color: #fff;
   }

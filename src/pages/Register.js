@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {CustomerConfirmation, VendorConfirmation, VendorDetails, UserDetails } from '../components/index'
+import {CustomerConfirmation, VendorConfirmation, VendorDetails, RegisterDetails } from '../components/index';
 const Register = props => {
   // console.log('Register.js props: ', props);
 
@@ -53,7 +53,7 @@ const Register = props => {
   const userDetails = () => {
     if (userInfo.step === 1) {
       return (
-        <UserDetails
+        <RegisterDetails
           values={userInfo}
           handleChange={handleChange}
           nextStep={nextStep}

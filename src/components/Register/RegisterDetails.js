@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import registration from '../../../styles/scss/registration.module.scss';
+import registration from '../../styles/scss/registration.module.scss';
 
-const UserDetails = (props) => {
+const RegisterDetails = (props) => {
 	const { values, nextStep, handleChange, setUserInfo } = props;
 
 	const proceed = (event) => {
@@ -114,4 +114,4 @@ const UserDetails = (props) => {
 	);
 };
 
-export default UserDetails;
+export default RegisterDetails;

@@ -1,10 +1,7 @@
 // ** Browse lists of vendors page ** //
 import React, { useState } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
-import { Map } from '../components/index';
-import VendorsNearby from '../components/Browse/BrowsePage/VendorsNearby';
-import { Menu } from '../components/index';
-import Footer from '../components/shared/Footer';
+import { Map, Search } from '../components/index';
 
 const Browse = (props) => {
 	const [ zipcode, setZipcode ] = useState('');
@@ -38,9 +35,6 @@ const Browse = (props) => {
 
 	return (
 		<div className="browse_container">
-			<div className="menu-container">
-				<Menu />
-			</div>
 			<div className="search_wrapper">
 				{zipcode === '' && <p className="zipcode_title">Enter a location to start browsing</p>}
 				{zipcode !== '' && <p className="zipcode_title">Your results for</p>}
@@ -55,7 +49,7 @@ const Browse = (props) => {
 				</form>
 
 				<Map zipcode={zipcode} vendors={vendors} height={300} width={1280} radius={8046} />
-				<VendorsNearby
+				<Search
 					zipcode={zipcode}
 					vendors={vendors}
 					history={props.history}
@@ -63,7 +57,6 @@ const Browse = (props) => {
 					match={props.match}
 				/>
 			</div>
-			<Footer />
 		</div>
 	);
 };

@@ -1,7 +1,7 @@
 //Browse Vendor Search Page
-import search from '../components/Browse/BrowsePage/Search';
+import search from './Browse/BrowsePage/Search';
 
-//Vendor browse page components
+//Vendor browse components
 import viewaboutvendor from './Browse/VendorPage/components/ViewAboutVendor';
 import viewvendorposts from './Browse/VendorPage/components/ViewVendorPosts';
 import viewvendorproduct from './Browse/VendorPage/components/ViewVendorProduct';
@@ -12,57 +12,83 @@ import carouselbrowse from '../components/Landing/CarouselBrowse';
 import carouseltop from '../components/Landing/CarouselTop';
 import menu from '../components/Landing/Menu';
 
-// Profile page bulletin components
+// Profile  bulletin components
 import addpostform from '../components/Profile/Bulletin/AddPostForm';
 import bulletin from '../components/Profile/Bulletin/Bulletin';
 import vendorpost from '../components/Profile/Bulletin/VendorPost';
 import vendorpostlist from '../components/Profile/Bulletin/VendorPostList';
 
-// Profile page product components
+// Profile  product components
 import addproductform from '../components/Profile/Product/AddProductForm';
 import product from '../components/Profile/Product/Product';
 import vendorproducts from '../components/Profile/Product/VendorProducts';
 
-//Profile page About vendor components
+//Profile  About vendor components
 import about from '../components/Profile/Profile/About';
 import aboutform from '../components/Profile/Profile/AboutForm';
 import banneruploader from '../components/Profile/Profile/BannerUploader';
 
-//Components directory
+// Register customer components
+import customerconfirmation from '../components/Register/Customer/CustomerConfirmation';
 
-import customerconfirmation from '../components/Register/Customer/Confirmation';
+// Register components
+import registerdetails from '../components/Register/RegisterDetails';
 
-import map from '../components/shared/Map';
-import userdetails from '../components/Register/Vendor/UserDetails';
+// Register vendor components
 import vendorconfirmation from '../components/Register/Vendor/VendorConfirmation';
 import vendordetails from '../components/Register/Vendor/VendorDetails';
 
-//Landing page Components exports
+// Shared components
+import footer from '../components/shared/Footer';
+import map from '../components/shared/Map';
+import navbar from '../components/shared/NavBar';
+
+// mobile components
+import carouseltopmobile from '../components/Landing/CarouselTopMobile';
+
+//Landing Components exports
 export const CarouselBrowse = carouselbrowse;
 export const CarouselTop = carouseltop;
 export const Menu = menu;
 
-// Browse page exports
+// mobile components
+export const CarouselTopMobile = carouseltopmobile;
+// Browse exports
 export const Search = search;
 
-//Vendor page exports
+//Vendor exports
 export const ViewAboutVendor = viewaboutvendor;
 export const ViewVendorPosts = viewvendorposts;
 export const ViewVendorProduct = viewvendorproduct;
 export const ViewVendorProducts = viewvendorproducts;
 
-//Profile page bulletin components
+//Profile bulletin components
 export const AddPostForm = addpostform;
 export const Bulletin = bulletin;
 export const VendorPost = vendorpost;
 export const VendorPostList = vendorpostlist;
 
-// Profile page product exports
+// Profile product exports
 export const AddProductForm = addproductform;
 export const Product = product;
 export const VendorProducts = vendorproducts;
 
-//Profile page About vendor exports
+//Profile About vendor exports
 export const About = about;
 export const AboutForm = aboutform;
 export const BannerUploader = banneruploader;
+
+// Register customer components exports
+export const CustomerConfirmation = customerconfirmation;
+
+// Register components
+export const RegisterDetails = registerdetails;
+
+// Register vendor components
+export const VendorConfirmation = vendorconfirmation;
+export const VendorDetails = vendordetails;
+
+// Shared components
+export const Footer = footer;
+export const Map = map;
+export const NavBar = navbar;

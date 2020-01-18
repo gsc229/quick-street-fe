@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AboutVendor, VendorProducts, AddProductForm, Bulletin } from '../components/index';
+import { About, VendorProducts, AddProductForm, Bulletin, BannerUploader, NavBar } from '../components/index';
 import { Placeholder } from '../assets/images/index';
 //Styles
 import profile from '../styles/css/vendor_profile.module.css';
@@ -8,11 +8,8 @@ import banner from '../styles/css/vendor_banner.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSave, faPen } from '@fortawesome/free-solid-svg-icons';
 
-import Footer from '../components/shared/Footer';
-import BannerUploader from '../components/Profile/VendorProfile/BannerUploader';
 import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
 import axiosWithAuth from '../utils/axiosWithAuth';
-import NavBar from '../components/shared/NavBar';
 
 const Profile = (props) => {
 	const [ modal, setModal ] = useState(false);
@@ -207,7 +204,7 @@ const Profile = (props) => {
 				</div>
 			</div>
 
-			<VendorAbout
+			<About
 				vendorInfo={vendorInfo}
 				info={info}
 				setInfo={setInfo}
@@ -218,7 +215,7 @@ const Profile = (props) => {
 			/>
 
 			<VendorProducts productIds={productIds} products={products} addProduct={addProduct} />
-			<VendorAddProductForm
+			<AddProductForm
 				productIds={productIds}
 				modal={modal}
 				products={products}

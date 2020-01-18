@@ -5,10 +5,9 @@ import '../styles/scss/landing.scss';
 
 // Images
 import Image from '../assets/images/Image';
-import Footer from '../components/shared/Footer';
 
 // Components
-import { Menu, CarouselBrowse, CarouselTop } from '../components/index';
+import { Menu, CarouselBrowse, CarouselTop, CarouselTopMobile } from '../components/index';
 
 const Landing = () => {
 	return (
@@ -37,6 +36,9 @@ const Landing = () => {
 				</div>
 				<div className="marketing-box-bottom-row">
 					<CarouselTop />
+				</div>
+				<div className="marketing-box-mobile">
+					<CarouselTopMobile />
 				</div>
 			</div>
 			<div className="marketing-Header"> How it Works</div>
@@ -112,7 +114,6 @@ const Landing = () => {
 					</div>
 				</div>
 			</div>
-			<Footer />
 		</div>
 	);
 };

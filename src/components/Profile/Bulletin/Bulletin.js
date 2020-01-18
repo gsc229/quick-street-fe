@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import VendorAddPostForm from './VendorAddPostForm';
-import VendorPostList from './VendorPostList';
+import { AddPostForm, VendorPostList } from '../../index';
 import axios from 'axios';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 
@@ -59,7 +58,7 @@ const Bulletin = (props) => {
 				</div>
 			</div>
 
-			<VendorAddPostForm
+			<AddPostForm
 				show={showAddPostForm}
 				cancelAddPost={cancelAddPost}
 				post={post}

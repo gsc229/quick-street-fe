@@ -10,10 +10,8 @@ import {
 	Landing, // ** Home Page
 	Profile //** Vendors Editing Page */
 } from './pages/index';
-import Footer from './components/shared/Footer';
-import Menu from './components/shared/Menu';
-import NavBar from './components/shared/NavBar';
 
+import { Footer } from './components/index';
 const App = () => {
 	// console.log(window.cloudinary);
 	return (
@@ -25,8 +23,8 @@ const App = () => {
 				<Route path="/profile/:id" component={Profile} />
 				<Route path="/browse/:id" component={Vendor} />
 				<Route path="/browse" component={Browse} />
+				<Footer />
 			</Switch>
-			<Footer />
 		</div>
 	);
 };

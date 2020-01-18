@@ -18,6 +18,12 @@ a {
   margin: auto;
 }
 
+@media (min-width: 300px) {
+  .landingContainer {
+    padding: 0px;
+  }
+}
+
 .landingInfo {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -28,13 +34,23 @@ a {
           flex-direction: column;
 }
 
-.heroContainer {
-  width: 100%;
-  min-height: 980px;
-  background-image: url("../../assets/landing/images/hero-banner.png");
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  background-position: center top;
+@media (min-width: 300px) {
+  .heroContainer {
+    min-height: 200px;
+    background-image: none;
+    background-color: #00b2ed;
+  }
+}
+
+@media (min-width: 992px) {
+  .heroContainer {
+    width: 100%;
+    min-height: 980px;
+    background-image: url("../../assets/images/landing/images/hero-banner.png");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center top;
+  }
 }
 
 .hero-banner {
@@ -44,6 +60,12 @@ a {
   width: 1238px;
 }
 
+@media (min-width: 300px) {
+  .hero-banner {
+    width: 100vw;
+  }
+}
+
 .hero-banner img {
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -51,59 +73,88 @@ a {
   width: 100%;
 }
 
-.landingInfo {
-  width: 483px;
-  height: 369px;
-  /* or 62px */
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-left: 70px;
-  margin-top: 140px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  color: #fef2e4;
-  font-family: Rubik;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 2rem;
-  line-height: 155%;
+@media (min-width: 300px) {
+  .landingInfo {
+    width: 100vw;
+    font-size: 1rem;
+    padding: 10px;
+    margin: 0px;
+    color: #fff;
+  }
 }
 
-.button-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+@media (min-width: 992px) {
+  .landingInfo {
+    width: 483px;
+    height: 369px;
+    /* or 62px */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-left: 70px;
+    margin-top: 140px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    color: #fef2e4;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2rem;
+    line-height: 155%;
+  }
 }
 
-.vendorButton {
-  width: 302px;
-  height: 57px;
-  font-family: Raleway;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 1rem;
-  line-height: 193.5%;
-  color: #fef2e4;
-  background-color: #e92324;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  text-align: center;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  cursor: pointer;
+@media (min-width: 300px) {
+  .button-container {
+    display: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .button-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    display: block;
+  }
+}
+
+@media (min-width: 300px) {
+  .vendorButton {
+    width: 20%;
+  }
+}
+
+@media (min-width: 992px) {
+  .vendorButton {
+    width: 302px;
+    height: 57px;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 193.5%;
+    color: #fef2e4;
+    background-color: #e92324;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
 }
 
 .vendorButton:hover {
@@ -141,53 +192,108 @@ a {
           box-shadow: 2px 2px 15px 7px rgba(0, 0, 0, 0.25), -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
 }
 
-.marketing-Container {
-  background-color: #00b2ed;
-  margin: auto;
-  width: 98%;
-  border-radius: 10px;
+@media (min-width: 300px) {
+  .marketing-Container {
+    width: 100vw;
+    background-color: #00b2ed;
+  }
 }
 
-.marketing-box-top-row {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  padding: 20px;
+@media (min-width: 992px) {
+  .marketing-Container {
+    background-color: #00b2ed;
+    margin: auto;
+    width: 98%;
+    border-radius: 10px;
+  }
 }
 
-.marketing-box-top-row h1 {
-  color: #fff;
-  font-family: Rubik;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 30px;
-  line-height: 166.86%;
-  width: 30%;
-  float: left;
+@media (min-width: 300px) {
+  .marketing-box-top-row {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    padding: 10px;
+    color: #fff;
+  }
 }
 
-.marketing-box-top-row-btn {
-  background: #e92323;
-  border-radius: 5px;
-  text-align: center;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1;
-          flex: 1 1;
-  color: #fff;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-family: Raleway;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 0.8rem;
-  float: right;
-  padding: 15px;
-  cursor: pointer;
+@media (min-width: 992px) {
+  .marketing-box-top-row {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    padding: 20px;
+  }
+}
+
+@media (min-width: 300px) {
+  .marketing-box-top-row h1 {
+    width: 100%;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .marketing-box-top-row h1 {
+    color: #fff;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 166.86%;
+    width: 30%;
+    float: left;
+  }
+}
+
+@media (min-width: 300px) {
+  .marketing-box-mobile {
+    display: block;
+  }
+}
+
+@media (min-width: 992px) {
+  .marketing-box-mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 300px) {
+  .marketing-box-top-row-btn {
+    display: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .marketing-box-top-row-btn {
+    background: #e92323;
+    border-radius: 5px;
+    text-align: center;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1;
+            flex: 1 1;
+    color: #fff;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 0.8rem;
+    float: right;
+    padding: 15px;
+    cursor: pointer;
+    display: block;
+  }
 }
 
 .marketing-box-top-row-btn:hover {
@@ -195,14 +301,24 @@ a {
           transform: scale(0.9, 0.9);
 }
 
-.marketing-box-bottom-row {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+@media (min-width: 300px) {
+  .marketing-box-bottom-row {
+    display: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .marketing-box-bottom-row {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    display: block;
+    font-size: 1rem;
+  }
 }
 
 .marketing-box-bottom-row-card-wrapper {
@@ -232,6 +348,12 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+@media (min-width: 300px) {
+  .marketing-Header {
+    font-size: 1.5rem;
+  }
 }
 
 .works-container {

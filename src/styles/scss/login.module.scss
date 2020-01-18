@@ -2,46 +2,46 @@
 @import './mixins';
 
 .container {
-  @include display();
-  background: url('../../assets/login.png');
-  background-repeat: no-repeat;
-  background-position: right;
-  background-size: 100% auto;
-  height: 100vh;
+	@include display();
+	background: url('../../assets/images/Login/login.png');
+	background-repeat: no-repeat;
+	background-position: right;
+	background-size: 100% auto;
+	height: 100vh;
 }
 .form {
-  p {
-    padding: 10px;
-  }
-  a {
-    color: #00b2ed;
-  }
-  span {
-    font-size: 2rem;
-    margin: 10px;
-  }
-  //include our styles from mixin
-  @include display();
-  input {
-    @include form_input();
-  }
-  .login_button {
-    @include login_button();
-  }
-  color: #00b2ed;
-  font-size: 1rem;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 800;
-  margin: 50px;
-  label {
-    margin: 10px;
-    color: black;
-  }
+	p {
+		padding: 10px;
+	}
+	a {
+		color: #00b2ed;
+	}
+	span {
+		font-size: 2rem;
+		margin: 10px;
+	}
+	//include our styles from mixin
+	@include display();
+	input {
+		@include form_input();
+	}
+	.login_button {
+		@include login_button();
+	}
+	color: #00b2ed;
+	font-size: 1rem;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 800;
+	margin: 50px;
+	label {
+		margin: 10px;
+		color: black;
+	}
 }
 
 .form_input {
-  width: 456px;
-  label {
-    width: 456px;
-  }
+	width: 456px;
+	label {
+		width: 456px;
+	}
 }

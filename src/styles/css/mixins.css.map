@@ -2,7 +2,8 @@
     "version": 3,
     "mappings": "",
     "sources": [
-        "../scss/mixins.scss"
+        "../scss/mixins.scss",
+        "../scss/breakpoints.scss"
     ],
     "names": [],
     "file": "mixins.css"

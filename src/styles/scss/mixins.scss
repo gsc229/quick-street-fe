@@ -27,7 +27,7 @@
 	}
 }
 @mixin form_input {
-	width: 460px;
+	width: 410px;
 	border: 1px solid #00b2ed;
 	border-radius: 4px;
 	height: 60px;
@@ -35,8 +35,8 @@
 }
 
 @mixin next_button {
-	width: 454px;
-	height: 57px;
+	width: 410px;
+	height: 60px;
 	background-color: #21b787;
 	border-radius: 9px;
 	margin: 10px;
@@ -44,8 +44,8 @@
 }
 
 @mixin save_button {
-	width: 454px;
-	height: 57px;
+	width: 410px;
+	height: 60px;
 	background-color: #21b787;
 	border-radius: 9px;
 	margin: 10px;
@@ -53,8 +53,8 @@
 }
 
 @mixin cancel_button {
-	width: 454px;
-	height: 57px;
+	width: 410px;
+	height: 60px;
 	background-color: white;
 	border-radius: 9px;
 	border: 3px solid #21b787;
@@ -83,8 +83,8 @@
 }
 
 @mixin login_button {
-	width: 454px;
-	height: 57px;
+	width: 410px;
+	height: 60px;
 	background-color: #21b787;
 	border-radius: 9px;
 	margin: 10px;
@@ -95,3 +95,4 @@
 	display: flex;
 	flex-direction: column;
 }
+$primary-color: #00b2ed;

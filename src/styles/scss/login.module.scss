@@ -3,45 +3,80 @@
 
 .container {
 	@include display();
-	background: url('../../assets/images/Login/login.png');
-	background-repeat: no-repeat;
-	background-position: right;
-	background-size: 100% auto;
-	height: 100vh;
+	@include phone {
+		background-color: $primary-color;
+		height: 100vh;
+		width: 100vw;
+		padding-top: 20px;
+	}
+	@include lg {
+		background: url('../../assets/images/Login/login.png');
+		background-repeat: no-repeat;
+		background-position: right;
+		background-size: 100% auto;
+	}
+}
+.wrapper {
+	@include phone {
+		margin: 0 auto;
+		width: 90vw;
+	}
 }
 .form {
-	p {
-		padding: 10px;
-	}
-	a {
+	@include phone {
+		p {
+			padding: 0px;
+			color: #fff;
+			font-size: 0.6rem;
+			text-align: center;
+		}
+
+		a {
+			color: #fff;
+		}
+		h1 {
+			font-size: 1.4rem;
+			margin: 0px;
+			color: #fff;
+			text-align: center;
+		}
+		input {
+			@include form_input();
+			width: 90vw;
+			margin: 0px;
+		}
+		.login_button {
+			@include login_button(
+			);
+			width: 90vw;
+			margin: 0px;
+		}
 		color: #00b2ed;
+		font-size: 1rem;
+		font-family: 'Raleway', sans-serif;
+		font-weight: 800;
+		label {
+			margin: 10px;
+			color: black;
+		}
 	}
-	span {
-		font-size: 2rem;
-		margin: 10px;
-	}
-	//include our styles from mixin
-	@include display();
-	input {
-		@include form_input();
-	}
-	.login_button {
-		@include login_button();
-	}
-	color: #00b2ed;
-	font-size: 1rem;
-	font-family: 'Raleway', sans-serif;
-	font-weight: 800;
-	margin: 50px;
-	label {
-		margin: 10px;
-		color: black;
+	@include lg {
 	}
 }
 
 .form_input {
-	width: 456px;
-	label {
-		width: 456px;
+	@include phone {
+		width: 90vw;
+
+		label {
+			width: 90vw;
+		}
+	}
+	@include lg {
+	}
+}
+.link a {
+	@include phone {
+		margin-left: 5px;
 	}
 }

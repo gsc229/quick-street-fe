@@ -66,48 +66,50 @@ const Login = (props) => {
 
 	return (
 		<div className={login.container}>
-			<form className={login.form} onSubmit={handleSubmit}>
-				<span>Welcome Back!</span>
-				<span>Log In</span>
-				<p>
-					Don't have an account?
-					<Link className="link" to="/register">
-						Create One
-					</Link>
-				</p>
+			<div className={login.wrapper}>
+				<form className={login.form} onSubmit={handleSubmit}>
+					<h1>Welcome Back!</h1>
+					<p>Enter your username and password below.</p>
 
-				<div className={login.form_input}>
-					<label htmlFor="email">Email or Username</label>
-					<input
-						type="text"
-						name="email"
-						id="email"
-						// placeholder='Enter your email'
-						value={credentials.email}
-						onChange={handleChange}
-					/>
-					<p className="errorMessage">{credentials.emailError}</p>
-				</div>
-				<div className={login.form_input}>
-					<label htmlFor="password">Password</label>
-					<input
-						type="password"
-						name="password"
-						id="password"
-						// placeholder='Please enter a password'
-						value={credentials.password}
-						onChange={handleChange}
-					/>
-					<p className="errorMessage">{credentials.passwordError}</p>
-				</div>
-				<button className={login.login_button}>Login</button>
-				<p>
-					Not a vendor? Start browsing{' '}
-					<Link className="link" to="/browse">
-						here.
-					</Link>
-				</p>
-			</form>
+					<div className={login.form_input}>
+						<label htmlFor="email">Email or Username</label>
+						<input
+							type="text"
+							name="email"
+							id="email"
+							// placeholder='Enter your email'
+							value={credentials.email}
+							onChange={handleChange}
+						/>
+						<p className="errorMessage">{credentials.emailError}</p>
+					</div>
+					<div className={login.form_input}>
+						<label htmlFor="password">Password</label>
+						<input
+							type="password"
+							name="password"
+							id="password"
+							// placeholder='Please enter a password'
+							value={credentials.password}
+							onChange={handleChange}
+						/>
+						<p className="errorMessage">{credentials.passwordError}</p>
+					</div>
+					<p>
+						Don't have an account?
+						<Link className="link" to="/register">
+							Create One
+						</Link>
+					</p>
+					<button className={login.login_button}>Login</button>
+					<p>
+						Not a vendor? Start browsing{' '}
+						<Link className="link" to="/browse">
+							here.
+						</Link>
+					</p>
+				</form>
+			</div>
 		</div>
 	);
 };

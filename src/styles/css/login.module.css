@@ -6,68 +6,92 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background: url("../../assets/images/Login/login.png");
-  background-repeat: no-repeat;
-  background-position: right;
-  background-size: 100% auto;
-  height: 100vh;
 }
 
-.form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  color: #00b2ed;
-  font-size: 1rem;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 800;
-  margin: 50px;
+@media (min-width: 320px) {
+  .container {
+    background-color: #00b2ed;
+    height: 100vh;
+    width: 100vw;
+    padding-top: 20px;
+  }
 }
 
-.form p {
-  padding: 10px;
+@media (min-width: 992px) {
+  .container {
+    background: url("../../assets/images/Login/login.png");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 100% auto;
+  }
 }
 
-.form a {
-  color: #00b2ed;
+@media (min-width: 320px) {
+  .wrapper {
+    margin: 0 auto;
+    width: 90vw;
+  }
 }
 
-.form span {
-  font-size: 2rem;
-  margin: 10px;
+@media (min-width: 320px) {
+  .form {
+    color: #00b2ed;
+    font-size: 1rem;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+  }
+  .form p {
+    padding: 0px;
+    color: #fff;
+    font-size: 0.6rem;
+    text-align: center;
+  }
+  .form a {
+    color: #fff;
+  }
+  .form h1 {
+    font-size: 1.4rem;
+    margin: 0px;
+    color: #fff;
+    text-align: center;
+  }
+  .form input {
+    width: 410px;
+    border: 1px solid #00b2ed;
+    border-radius: 4px;
+    height: 60px;
+    margin: 10px;
+    width: 90vw;
+    margin: 0px;
+  }
+  .form .login_button {
+    width: 410px;
+    height: 60px;
+    background-color: #21b787;
+    border-radius: 9px;
+    margin: 10px;
+    font-size: 1rem;
+    width: 90vw;
+    margin: 0px;
+  }
+  .form label {
+    margin: 10px;
+    color: black;
+  }
 }
 
-.form input {
-  width: 460px;
-  border: 1px solid #00b2ed;
-  border-radius: 4px;
-  height: 60px;
-  margin: 10px;
+@media (min-width: 320px) {
+  .form_input {
+    width: 90vw;
+  }
+  .form_input label {
+    width: 90vw;
+  }
 }
 
-.form .login_button {
-  width: 454px;
-  height: 57px;
-  background-color: #21b787;
-  border-radius: 9px;
-  margin: 10px;
-  font-size: 1rem;
-}
-
-.form label {
-  margin: 10px;
-  color: black;
-}
-
-.form_input {
-  width: 456px;
-}
-
-.form_input label {
-  width: 456px;
+@media (min-width: 320px) {
+  .link a {
+    margin-left: 5px;
+  }
 }
 /*# sourceMappingURL=login.module.css.map */

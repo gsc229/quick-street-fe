@@ -25,10 +25,10 @@
 
 @media (min-width: 992px) {
   .container {
-    background: url("../../assets/images/Login/login-1280w.png");
+    background: url("../../assets/images/Login/login.png");
     background-repeat: no-repeat;
-    background-position: right;
-    background-size: auto 100vh;
+    background-position: fixed;
+    background-size: cover;
   }
 }
 
@@ -36,7 +36,8 @@
   .container {
     background: url("../../assets/images/Login/login.png");
     background-repeat: no-repeat;
-    background-position: right;
+    background-position: fixed;
+    background-size: cover;
   }
 }
 
@@ -47,16 +48,22 @@
   }
 }
 
+@media (min-width: 768px) {
+  .wrapper {
+    width: 10vw;
+  }
+}
+
 @media (min-width: 992px) {
   .wrapper {
     margin: 0;
-    width: 50vw;
+    width: 36vw;
   }
 }
 
 @media (min-width: 1440px) {
   .wrapper {
-    width: 94vw;
+    width: 33vw;
   }
 }
 
@@ -116,10 +123,19 @@
 
 @media (min-width: 992px) {
   .form {
-    padding: 40px;
-    width: 45vw;
-    margin-top: 20px;
-    margin-left: 40px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+    padding: 20px;
+    margin-left: 2vw;
+    margin-top: 10vh;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
   }
   .form h1 {
     font-size: 2rem;
@@ -128,8 +144,8 @@
   }
   .form p {
     padding: 0px;
-    color: #00b2ed;
-    font-size: 1.1rem;
+    color: black;
+    font-size: 0.8rem;
     text-align: left;
   }
   .form input {
@@ -151,20 +167,6 @@
 }
 
 @media (min-width: 1440px) {
-  .form {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    width: 34vw;
-    padding: 20px;
-    margin-top: 15vh;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
   .form h1 {
     font-size: 2rem;
     margin: 0px;
@@ -176,9 +178,6 @@
     color: black;
     font-size: 1rem;
     text-align: left;
-  }
-  .form label {
-    color: black;
   }
   .form a {
     color: #00b2ed;

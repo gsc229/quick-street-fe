@@ -13,15 +13,16 @@
 		background-color: $primary-color;
 	}
 	@include lg {
-		background: url('../../assets/images/Login/login-1280w.png');
+		background: url('../../assets/images/Login/login.png');
 		background-repeat: no-repeat;
-		background-position: right;
-		background-size: auto 100vh;
+		background-position: fixed;
+		background-size: cover;
 	}
 	@include xl {
 		background: url('../../assets/images/Login/login.png');
 		background-repeat: no-repeat;
-		background-position: right;
+		background-position: fixed;
+		background-size: cover;
 	}
 }
 .wrapper {
@@ -32,13 +33,14 @@
 	@include sm {
 	}
 	@include md {
+		width: 10vw;
 	}
 	@include lg {
 		margin: 0;
-		width: 50vw;
+		width: 36vw;
 	}
 	@include xl {
-		width: 94vw;
+		width: 33vw;
 	}
 }
 .form {
@@ -90,10 +92,14 @@
 		}
 	}
 	@include lg {
-		padding: 40px;
-		width: 45vw;
-		margin-top: 20px;
-		margin-left: 40px;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		padding: 20px;
+		margin-left: 2vw;
+		margin-top: 10vh;
+		flex-wrap: wrap;
+
 		h1 {
 			font-size: 2rem;
 			color: $primary-color;
@@ -101,8 +107,8 @@
 		}
 		p {
 			padding: 0px;
-			color: $primary-color;
-			font-size: 1.1rem;
+			color: black;
+			font-size: 0.8rem;
 			text-align: left;
 		}
 
@@ -122,12 +128,6 @@
 		}
 	}
 	@include xl {
-		display: flex;
-		flex-direction: column;
-		width: 34vw;
-		padding: 20px;
-		margin-top: 15vh;
-		flex-wrap: wrap;
 		h1 {
 			font-size: 2rem;
 			margin: 0px;
@@ -141,7 +141,6 @@
 			text-align: left;
 		}
 		label {
-			color: black;
 		}
 
 		a {

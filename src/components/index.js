@@ -42,6 +42,7 @@ import vendordetails from '../components/Register/Vendor/VendorDetails';
 import footer from '../components/shared/Footer';
 import map from '../components/shared/Map';
 import navbar from '../components/shared/NavBar';
+import custombutton from '../components/shared/CustomButton';
 
 // mobile components
 import carouseltopmobile from '../components/Landing/CarouselTopMobile';
@@ -92,3 +93,4 @@ export const VendorDetails = vendordetails;
 export const Footer = footer;
 export const Map = map;
 export const NavBar = navbar;
+export const CustomButton = custombutton;

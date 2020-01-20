@@ -1,7 +1,7 @@
 import React from 'react';
 
 import axiosWithAuth from '../../../utils/axiosWithAuth';
-
+import { CustomButton } from '../../index';
 const VendorConfirmation = (props) => {
 	console.log('VendorConfirmation props: ', props);
 	const { email, password, businessName, phoneNumber, streetAddress, city, zipcode } = props.values;
@@ -97,12 +97,12 @@ const VendorConfirmation = (props) => {
 					)}
 
 					<div className="vendor_confirmation_div">
-						<button className="cancel_button" onClick={cancel}>
+						<CustomButton styleClass="green-border" onClick={cancel}>
 							Cancel
-						</button>
-						<button className="confirm_button" onClick={handleSubmit}>
+						</CustomButton>
+						<CustomButton styleClass="green-full" onClick={handleSubmit}>
 							Save & Confirm
-						</button>
+						</CustomButton>
 					</div>
 				</div>
 			</div>

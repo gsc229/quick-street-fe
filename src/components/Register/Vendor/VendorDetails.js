@@ -1,6 +1,6 @@
 import React from 'react';
 import register_step2 from '../../../styles/scss/register_step2.module.scss';
-
+import { CustomButton } from '../../index';
 const VendorDetails = (props) => {
 	const { values, handleChange, nextStep, previousStep, setUserInfo } = props;
 
@@ -117,12 +117,12 @@ const VendorDetails = (props) => {
 						</div>
 					</div>
 
-					<button className={register_step2.cancel_button} onClick={cancel}>
+					<CustomButton styleClass="green-border" onClick={cancel}>
 						Cancel
-					</button>
-					<button className={register_step2.next_button} onClick={proceed}>
+					</CustomButton>
+					<CustomButton styleClass="green-full" onClick={proceed}>
 						Next
-					</button>
+					</CustomButton>
 				</form>
 			</div>
 		</div>

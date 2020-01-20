@@ -11,18 +11,32 @@
 @media (min-width: 320px) {
   .container {
     background-color: #00b2ed;
-    height: 100vh;
     width: 100vw;
     padding-top: 20px;
+    height: 100vh;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    background-color: #00b2ed;
   }
 }
 
 @media (min-width: 992px) {
   .container {
+    background: url("../../assets/images/Login/login-1280w.png");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: auto 100vh;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
     background: url("../../assets/images/Login/login.png");
     background-repeat: no-repeat;
     background-position: right;
-    background-size: 100% auto;
   }
 }
 
@@ -33,12 +47,25 @@
   }
 }
 
+@media (min-width: 992px) {
+  .wrapper {
+    margin: 0;
+    width: 50vw;
+  }
+}
+
+@media (min-width: 1440px) {
+  .wrapper {
+    width: 94vw;
+  }
+}
+
 @media (min-width: 320px) {
-  .form {
-    color: #00b2ed;
-    font-size: 1rem;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 800;
+  .form h1 {
+    font-size: 1.4rem;
+    margin: 0px;
+    color: #fff;
+    text-align: center;
   }
   .form p {
     padding: 0px;
@@ -46,52 +73,126 @@
     font-size: 0.6rem;
     text-align: center;
   }
+  .form label {
+    color: white;
+  }
   .form a {
     color: #fff;
-  }
-  .form h1 {
-    font-size: 1.4rem;
-    margin: 0px;
-    color: #fff;
-    text-align: center;
+    margin-left: 5px;
   }
   .form input {
-    width: 410px;
     border: 1px solid #00b2ed;
     border-radius: 4px;
-    height: 60px;
-    margin: 10px;
-    width: 90vw;
+    padding: 10px;
+    width: 100%;
     margin: 0px;
   }
-  .form .login_button {
-    width: 410px;
-    height: 60px;
-    background-color: #21b787;
-    border-radius: 9px;
-    margin: 10px;
-    font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+  .form {
+    padding: 10px;
     width: 90vw;
-    margin: 0px;
+  }
+  .form h1 {
+    font-size: 3rem;
+  }
+  .form p {
+    padding: 0px;
+    color: #fff;
+    font-size: 1.5rem;
+  }
+  .form input {
+    border: 1px solid #00b2ed;
+    border-radius: 4px;
+    padding: 10px;
+    width: 100%;
+  }
+  .form .errorMessage {
+    font-size: 0.8rem;
+    color: red;
+  }
+}
+
+@media (min-width: 992px) {
+  .form {
+    padding: 40px;
+    width: 45vw;
+    margin-top: 20px;
+    margin-left: 40px;
+  }
+  .form h1 {
+    font-size: 2rem;
+    color: #00b2ed;
+    text-align: left;
+  }
+  .form p {
+    padding: 0px;
+    color: #00b2ed;
+    font-size: 1.1rem;
+    text-align: left;
+  }
+  .form input {
+    border: 1px solid #00b2ed;
+    border-radius: 4px;
+    padding: 10px;
+    width: 100%;
   }
   .form label {
-    margin: 10px;
     color: black;
   }
-}
-
-@media (min-width: 320px) {
-  .form_input {
-    width: 90vw;
+  .form .errorMessage {
+    font-size: 0.8rem;
+    color: red;
   }
-  .form_input label {
-    width: 90vw;
+  .form a {
+    color: #00b2ed;
   }
 }
 
-@media (min-width: 320px) {
-  .link a {
-    margin-left: 5px;
+@media (min-width: 1440px) {
+  .form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 34vw;
+    padding: 20px;
+    margin-top: 15vh;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .form h1 {
+    font-size: 2rem;
+    margin: 0px;
+    color: #00b2ed;
+    text-align: left;
+  }
+  .form p {
+    padding: 0px;
+    color: black;
+    font-size: 1rem;
+    text-align: left;
+  }
+  .form label {
+    color: black;
+  }
+  .form a {
+    color: #00b2ed;
+  }
+  .form input {
+    border: 1px solid #00b2ed;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 0px;
+    width: 31vw;
+  }
+  .form .errorMessage {
+    font-size: 0.8rem;
+    color: red;
   }
 }
 /*# sourceMappingURL=login.module.css.map */

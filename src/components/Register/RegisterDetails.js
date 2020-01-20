@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import registration from '../../styles/scss/registration.module.scss';
-
+import { CustomButton } from '../index';
 const RegisterDetails = (props) => {
 	const { values, nextStep, handleChange, setUserInfo } = props;
 
@@ -103,12 +103,12 @@ const RegisterDetails = (props) => {
 					</div>
 				</div>
 				<p>{values.roleError}</p>
-				<button className={registration.cancel_button} onClick={proceed}>
+				<CustomButton styleClass="green-border" onClick={proceed}>
 					Cancel
-				</button>
-				<button className={registration.next_button} onClick={proceed}>
+				</CustomButton>
+				<CustomButton styleClass="green-full" onClick={proceed}>
 					Next
-				</button>
+				</CustomButton>
 			</form>
 		</div>
 	);

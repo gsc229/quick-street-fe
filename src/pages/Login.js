@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
+// styles
 import login from '../styles/scss/login.module.scss';
 import axiosWithAuth from '../utils/axiosWithAuth';
+
+// components
+import { CustomButton } from '../components/index';
 
 const Login = (props) => {
 	const [ credentials, setCredentials ] = useState({
@@ -69,10 +74,9 @@ const Login = (props) => {
 			<div className={login.wrapper}>
 				<form className={login.form} onSubmit={handleSubmit}>
 					<h1>Welcome Back!</h1>
-					<p>Enter your username and password below.</p>
-
-					<div className={login.form_input}>
-						<label htmlFor="email">Email or Username</label>
+					<p>Enter your email address and password below.</p>
+					<div className={login.input}>
+						<label htmlFor="email">Email Address</label>
 						<input
 							type="text"
 							name="email"
@@ -81,9 +85,9 @@ const Login = (props) => {
 							value={credentials.email}
 							onChange={handleChange}
 						/>
-						<p className="errorMessage">{credentials.emailError}</p>
+						<p className={login.errorMessage}>{credentials.emailError}</p>
 					</div>
-					<div className={login.form_input}>
+					<div className={login.input}>
 						<label htmlFor="password">Password</label>
 						<input
 							type="password"
@@ -93,18 +97,20 @@ const Login = (props) => {
 							value={credentials.password}
 							onChange={handleChange}
 						/>
-						<p className="errorMessage">{credentials.passwordError}</p>
+						<p className={login.errorMessage}>{credentials.passwordError}</p>
 					</div>
 					<p>
 						Don't have an account?
-						<Link className="link" to="/register">
+						<Link className={login.link} to="/register">
 							Create One
 						</Link>
 					</p>
-					<button className={login.login_button}>Login</button>
+					<CustomButton type="submit" styleClass="green-full">
+						Login
+					</CustomButton>
 					<p>
-						Not a vendor? Start browsing{' '}
-						<Link className="link" to="/browse">
+						Not a vendor? Start browsing
+						<Link className={login.link} to="/browse">
 							here.
 						</Link>
 					</p>

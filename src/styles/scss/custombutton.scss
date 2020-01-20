@@ -1,0 +1,51 @@
+@import './mixins.scss';
+
+.green-full {
+	cursor: pointer;
+	@include button-bg($green);
+	margin-bottom: 20px;
+	@include phone {
+		width: 90vw;
+		color: white;
+		border-radius: 9px;
+	}
+	@include sm {
+	}
+	@include md {
+		width: 87vw;
+		height: 60px;
+		font-size: 1.4rem;
+	}
+	@include lg {
+		width: 100%;
+	}
+	@include xl {
+		width: 100%;
+		height: 60px;
+		font-size: 1rem;
+	}
+}
+
+.green-border {
+	cursor: pointer;
+	margin-bottom: 20px;
+	@include button-bg(#fff);
+	@include phone {
+		width: 90vw;
+		color: black;
+		border: 3px solid $green;
+		border-radius: 9px;
+	}
+	@include sm {
+	}
+	@include md {
+	}
+	@include lg {
+		width: 410px;
+		height: 60px;
+		margin: 10px;
+		font-size: 1rem;
+	}
+	@include xl {
+	}
+}

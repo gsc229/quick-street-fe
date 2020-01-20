@@ -20,7 +20,7 @@ function CarouselBrowse() {
 	];
 
 	return (
-		<div style={{ background: 'white', width: '100vw', height: '100vh' }}>
+		<div style={{ background: 'white', width: '100%', height: '100%' }}>
 			<Gallery
 				index={index}
 				onRequestChange={(i) => {

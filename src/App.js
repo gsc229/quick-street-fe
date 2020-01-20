@@ -23,7 +23,6 @@ const App = () => {
 				<Route path="/profile/:id" component={Profile} />
 				<Route path="/browse/:id" component={Vendor} />
 				<Route path="/browse" component={Browse} />
-				<Footer />
 			</Switch>
 		</div>
 	);

@@ -10,9 +10,6 @@
 	height: 100vh;
 }
 .form {
-	button:hover {
-		border: 2px solid black;
-	}
 	p {
 		padding: 10px;
 	}
@@ -28,18 +25,7 @@
 	input {
 		@include form_input();
 	}
-	.next_button {
-		@include next_button();
-	}
-	.cancel_button {
-		@include cancel_button();
-	}
-	color: #00b2ed;
-	font-size: 1rem;
-	font-family: 'Raleway', sans-serif;
-	font-weight: 800;
-	width: 500px;
-	margin: 50px;
+
 	label {
 		margin: 10px;
 		color: black;

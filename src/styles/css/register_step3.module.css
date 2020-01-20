@@ -1,127 +1,122 @@
 .container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 178, 237, 0)), to(#00b2ed));
-  background: linear-gradient(180deg, rgba(0, 178, 237, 0) 0%, #00b2ed 100%);
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 178, 237, 0)), to(#00b2ed));
+	background: linear-gradient(180deg, rgba(0, 178, 237, 0) 0%, #00b2ed 100%);
 }
 
 .form {
-  font-size: 1rem;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 800;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  background-color: white;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-radius: 10px;
-  height: 1480px;
-  width: 846px;
-  color: black;
-  font-family: 'Raleway', sans-serif;
+	font-size: 1rem;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 800;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	background-color: white;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	border-radius: 10px;
+	height: 1480px;
+	width: 846px;
+	color: black;
+	font-family: 'Raleway', sans-serif;
 }
-
-.form button:hover {
-  border: 2px solid black;
-}
-
 .form h5 {
-  margin: 20px;
+	margin: 20px;
 }
 
 .form .top_section input {
-  border: 1px solid black;
-  height: 60px;
-  width: 410px;
-  border-radius: 7px;
-  margin: 20px;
+	border: 1px solid black;
+	height: 60px;
+	width: 410px;
+	border-radius: 7px;
+	margin: 20px;
 }
 
 .form .top_section div {
-  border: 1px solid black;
-  height: 60px;
-  width: 410px;
-  border-radius: 7px;
-  margin: 20px;
+	border: 1px solid black;
+	height: 60px;
+	width: 410px;
+	border-radius: 7px;
+	margin: 20px;
 }
 
 .form .middle_section {
-  margin-top: 75px;
+	margin-top: 75px;
 }
 
 .form .middle_section div {
-  border: 1px solid black;
-  height: 60px;
-  width: 410px;
-  border-radius: 7px;
-  margin: 20px;
+	border: 1px solid black;
+	height: 60px;
+	width: 410px;
+	border-radius: 7px;
+	margin: 20px;
 }
 
 .form .streetAddress {
-  margin: 50px;
+	margin: 50px;
 }
 
 .form .streetAddress div {
-  border: 1px solid black;
-  height: 120px;
-  width: 410px;
-  border-radius: 7px;
-  margin: 20px;
+	border: 1px solid black;
+	height: 120px;
+	width: 410px;
+	border-radius: 7px;
+	margin: 20px;
 }
 
 .form .city_zip_container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 50px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	margin-bottom: 50px;
 }
 
 .form .city_zip_container .city div {
-  border: 1px solid black;
-  height: 60px;
-  width: 193px;
-  border-radius: 7px;
-  margin: 20px;
+	border: 1px solid black;
+	height: 60px;
+	width: 193px;
+	border-radius: 7px;
+	margin: 20px;
 }
 
 .form .city_zip_container .zip div {
-  border: 1px solid black;
-  height: 60px;
-  width: 193px;
-  border-radius: 7px;
-  margin: 20px;
+	border: 1px solid black;
+	height: 60px;
+	width: 193px;
+	border-radius: 7px;
+	margin: 20px;
 }
 
 .form .save_confirm_button {
-  width: 410px;
-  height: 60px;
-  background-color: #21b787;
-  border-radius: 9px;
-  font-size: 1rem;
-  margin: 10px;
-  color: white;
+	width: 410px;
+	height: 60px;
+	background-color: #21b787;
+	border-radius: 9px;
+	font-size: 1rem;
+	margin: 10px;
+	color: white;
 }
 
 .form .cancel_button2 {
-  width: 410px;
-  height: 60px;
-  background-color: white;
-  border-radius: 9px;
-  border: 3px solid #21b787;
-  font-size: 1rem;
-  margin: 10px;
+	width: 410px;
+	height: 60px;
+	background-color: white;
+	border-radius: 9px;
+	border: 3px solid #21b787;
+	font-size: 1rem;
+	margin: 10px;
 }
 /*# sourceMappingURL=register_step3.module.css.map */

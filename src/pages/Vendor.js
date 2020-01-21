@@ -20,6 +20,7 @@ const Vendor = props => {
       <ViewAboutVendor vendorId={vendorId} />
       <ViewVendorProducts vendorId={vendorId} />
       <ViewVendorPosts vendorId={vendorId} />
+      {/* <button onClick={() => props.history.goBack()}>Back</button> */}
       <Footer />
     </>
   );

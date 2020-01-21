@@ -1,5 +1,6 @@
 // ** Browse lists of vendors page ** //
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
 import axiosWithAuth from '../utils/axiosWithAuth';
 import { Map, Search } from '../components/index';
 
@@ -17,8 +18,16 @@ const Browse = (props) => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
+		const query = new URLSearchParams(props.location.search);
+		// console.log('query', query);
+		query.set('zip', customerZip)
+		props.history.replace(`${props.location.pathname}?${query.toString()}`);
+		getSearchResults(customerZip);
+	};
+
+	const getSearchResults = (zip) => {
 		axiosWithAuth()
-			.get(`/vendors/radius/${customerZip}/5`)
+			.get(`/vendors/radius/${zip}/5`)
 			.then((response) => {
 				// console.log(response);
 				setVendors({
@@ -26,13 +35,22 @@ const Browse = (props) => {
 					count: response.data.count,
 					vendorDetails: response.data.data
 				});
-				setZipcode(customerZip);
+				setZipcode(zip);
 			})
 			.catch((error) => {
 				console.log(error);
 			});
-	};
+	}
 
+	useEffect(() => {
+		const query = new URLSearchParams(props.location.search);
+		const zip = query.get('zip');
+		if (zip) {
+			setCustomerZip(zip);
+			getSearchResults(zip);
+		}
+	}, [])
+	
 	return (
 		<div className="browse_container">
 			<div className="search_wrapper">

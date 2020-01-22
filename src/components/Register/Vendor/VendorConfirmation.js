@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 import { CustomButton } from '../../index';
 const VendorConfirmation = (props) => {
+	const [ duplicateEmail, setDuplicateEmail ] = useState('');
 	// console.log('VendorConfirmation props: ', props);
 	const { email, password, businessName, phoneNumber, streetAddress, city, zipcode } = props.values;
 
@@ -41,7 +42,9 @@ const VendorConfirmation = (props) => {
 				props.history.push(`/profile/${response.data.id}`);
 			})
 			.catch((error) => {
-				console.log(error.response);
+				// console.log(error.response);
+				// console.log(error.response.data.error);
+				setDuplicateEmail(`${error.response.data.error} Please go back and change it to register`);
 			});
 	};
 
@@ -97,9 +100,13 @@ const VendorConfirmation = (props) => {
 						</div>
 					)}
 
+					{duplicateEmail && (
+						<p>{duplicateEmail}</p>
+					)}
+
 					<div className="vendor_confirmation_div">
 						<CustomButton styleClass="green-border" onClick={cancel}>
-							Cancel
+							Back
 						</CustomButton>
 						<CustomButton styleClass="green-full" onClick={handleSubmit}>
 							Save & Confirm

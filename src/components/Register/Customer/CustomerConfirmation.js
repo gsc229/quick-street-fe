@@ -21,9 +21,9 @@ const CustomerConfirmation = (props) => {
 		axiosWithAuth()
 			.post('/auth/register', registerObject)
 			.then((response) => {
-				console.log('POST CustomerConfirm res: ', response);
+				// console.log('POST CustomerConfirm res: ', response);
 				localStorage.setItem('token', response.data.token);
-				// props.history.push(`/profile/${response.data.id}`);
+				props.history.push(`/customerprofile/${response.data.id}`);
 			})
 			.catch((error) => {
 				console.log(error.response);

@@ -6,7 +6,7 @@
 	@include phone {
 		background-color: $primary-color;
 		width: 100vw;
-		padding-top: 20px;
+		padding-top: 2rem;
 		height: 100vh;
 	}
 	@include md {
@@ -50,14 +50,14 @@
 	@include phone {
 		h1 {
 			font-size: 1.4rem;
-			margin: 0px;
+			margin: 0ren;
 			color: #fff;
 			text-align: center;
 		}
 		p {
 			padding: 0px;
 			color: #fff;
-			font-size: 0.6rem;
+			font-size: 1.6rem;
 			text-align: center;
 		}
 		label {
@@ -65,16 +65,17 @@
 		}
 		a {
 			color: #fff;
-			margin-left: 5px;
+			margin-left: .5rem;
 		}
 		input {
 			@include form_input();
 			width: 100%;
 			margin: 0px;
+			font-size: 1.6rem;
 		}
 	}
 	@include md {
-		padding: 10px;
+		padding: 1rem;
 		width: 90vw;
 		h1 {
 			font-size: 3rem;
@@ -98,20 +99,20 @@
 		display: flex;
 		flex-direction: column;
 		width: 100%;
-		padding: 20px;
+		padding: 2rem;
 		margin-left: 2vw;
-		margin-top: 10vh;
+		margin-top: 21vh;
 		flex-wrap: wrap;
 
 		h1 {
-			font-size: 2rem;
+			font-size: 3rem;
 			color: $primary-color;
 			text-align: left;
 		}
 		p {
 			padding: 0px;
 			color: black;
-			font-size: 0.8rem;
+			font-size: 1.6rem;
 			text-align: left;
 		}
 
@@ -121,9 +122,10 @@
 		}
 		label {
 			color: black;
+			font-size: 1.6rem;
 		}
 		.errorMessage {
-			font-size: 0.8rem;
+			font-size: 1.2rem;
 			color: red;
 		}
 		a {
@@ -132,18 +134,19 @@
 	}
 	@include xl {
 		h1 {
-			font-size: 2rem;
-			margin: 0px;
+			font-size: 4rem;
+			margin: 0ren;
 			color: $primary-color;
 			text-align: left;
 		}
 		p {
-			padding: 0px;
+			padding: 0rem;
 			color: black;
-			font-size: 1rem;
+			font-size: 2rem;
 			text-align: left;
 		}
 		label {
+			font-size: 1.8rem;
 		}
 
 		a {
@@ -155,8 +158,6 @@
 			width: 31vw;
 		}
 		.errorMessage {
-			font-size: 0.8rem;
-			color: red;
 		}
 	}
 }

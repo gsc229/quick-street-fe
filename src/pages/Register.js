@@ -58,6 +58,7 @@ const Register = props => {
           handleChange={handleChange}
           nextStep={nextStep}
           setUserInfo={setUserInfo}
+          history={props.history}
         />
       );
     }

@@ -56,14 +56,14 @@ const RegisterDetails = (props) => {
 		//bringing in our module
 		<div className={registration.container}>
 			<div className={registration.wrapper}>
+				<h1>Create An Account With Quick Street</h1>
+				<p>
+					Already have an account?{' '}
+					<Link className="link" to="/login">
+						Log In
+					</Link>
+				</p>
 				<form className={registration.form}>
-					<h1>Create An Account With Quick Street</h1>
-					<p>
-						Already have an account?{' '}
-						<Link className="link" to="/login">
-							Log In
-						</Link>
-					</p>
 					<label htmlFor="email">Email</label>
 					<input
 						type="text"
@@ -106,15 +106,16 @@ const RegisterDetails = (props) => {
 							<label htmlFor="customer">No</label>
 						</div>
 					</div>
-				</div>
-				<p>{values.roleError}</p>
-				<CustomButton styleClass="green-border" onClick={cancel}>
-					Cancel
-				</CustomButton>
-				<CustomButton styleClass="green-full" onClick={proceed}>
-					Next
-				</CustomButton>
-			</form>
+
+					<p>{values.roleError}</p>
+					<CustomButton styleClass="green-border" onClick={cancel}>
+						Cancel
+					</CustomButton>
+					<CustomButton styleClass="green-full" onClick={proceed}>
+						Next
+					</CustomButton>
+				</form>
+			</div>
 		</div>
 	);
 };

@@ -8,7 +8,8 @@ import {
 	Vendor, // ** Browsing Vendor Page
 	Browse, // ** Browsing page (Map, Search)
 	Landing, // ** Home Page
-	Profile //** Vendors Editing Page */
+	Profile, //** Vendors Editing Page */
+	Styling // ** Styling Template */
 } from './pages/index';
 
 import { Footer } from './components/index';
@@ -16,6 +17,7 @@ const App = () => {
 	// console.log(window.cloudinary);
 	return (
 		<div>
+			<Route path="/styling" component={Styling} />
 			<Route exact path="/" component={Landing} />
 			<Route path="/register" component={Register} />
 			<Route path="/login" component={Login} />

@@ -1,0 +1,55 @@
+.container{
+  background-color: lightblue;
+  width: 50%;
+  height: fit-content;
+  left: 25%;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+}
+
+.inner_container{
+  width: 45%;
+  background-color: pink;
+  padding: 10px;
+}
+
+
+
+.edit_product_left{
+  .image_wrapper{
+    position: relative;
+    background-color: green;
+    width: fit-content;
+    i{
+    color: red;
+    font-size: 2rem;
+    position: absolute;
+    left: 90%;
+    cursor: pointer;
+    }    
+  }
+
+  .add_image_btn{
+    margin-top: 2rem;
+  }
+  
+}
+
+.edit_product_right{
+  i{
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  .btn_container{
+    background-color: blue;
+    display: flex;
+    justify-content: space-between;
+    i{
+      font-size: 1rem;
+    }
+  }
+
+}
+

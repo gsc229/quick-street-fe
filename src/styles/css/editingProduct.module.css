@@ -1,0 +1,61 @@
+.container {
+  background-color: lightblue;
+  width: 50%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  left: 25%;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.inner_container {
+  width: 45%;
+  background-color: pink;
+  padding: 10px;
+}
+
+.edit_product_left .image_wrapper {
+  position: relative;
+  background-color: green;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.edit_product_left .image_wrapper i {
+  color: red;
+  font-size: 2rem;
+  position: absolute;
+  left: 90%;
+  cursor: pointer;
+}
+
+.edit_product_left .add_image_btn {
+  margin-top: 2rem;
+}
+
+.edit_product_right i {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.edit_product_right .btn_container {
+  background-color: blue;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.edit_product_right .btn_container i {
+  font-size: 1rem;
+}
+/*# sourceMappingURL=editingProduct.module.css.map */

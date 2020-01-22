@@ -3,7 +3,8 @@ import {
   VendorAbout,
   VendorProducts,
   VendorAddProductForm,
-  VendorBulletin
+  VendorBulletin,
+  ViewVendorProduct
 } from '../index';
 import Footer from '../LandingPage/Footer';
 import picture from '../../assets/placeholder.png';

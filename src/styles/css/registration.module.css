@@ -137,7 +137,7 @@
   .form input {
     border: 0.2rem solid #00b2ed;
     border-radius: 1rem;
-    padding: 2rem;
+    padding: 1rem;
     width: 100%;
     margin: 0px;
     font-size: 1.6rem;
@@ -148,7 +148,7 @@
   .form input {
     border: 0.2rem solid #00b2ed;
     border-radius: 1rem;
-    padding: 2rem;
+    padding: 1rem;
     width: 100%;
   }
   .form .errorMessage {
@@ -177,7 +177,7 @@
   .form input {
     border: 0.2rem solid #00b2ed;
     border-radius: 1rem;
-    padding: 2rem;
+    padding: 1rem;
     width: 100%;
   }
   .form label {
@@ -212,8 +212,9 @@
   .form input {
     border: 0.2rem solid #00b2ed;
     border-radius: 1rem;
-    padding: 2rem;
+    padding: 1rem;
     margin: 0px;
+    height: 6rem;
   }
   .form .errorMessage {
     margin-top: 1rem;
@@ -225,26 +226,6 @@
     margin-top: 0rem;
     margin-bottom: 0rem;
   }
-}
-
-.streetAddress {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  border: 1px solid #00b2ed;
-  border-radius: 7px;
-  width: 462px;
-  margin: 10px;
-}
-
-.streetAddress input {
-  border: 0.2rem solid #00b2ed;
-  border-radius: 1rem;
-  padding: 2rem;
 }
 
 .city_zip_container {
@@ -286,5 +267,136 @@
   height: 2.4rem;
   -moz-appearance: checkbox;
   -webkit-appearance: checkbox;
+}
+
+@media (min-width: 320px) {
+  .form_step2 label {
+    color: white;
+  }
+  .form_step2 a {
+    color: #fff;
+    margin-left: .5rem;
+  }
+  .form_step2 input {
+    border: 0.2rem solid #00b2ed;
+    border-radius: 1rem;
+    padding: 1rem;
+    width: 100%;
+    margin: 0px;
+    font-size: 1.6rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .form_step2 input {
+    border: 0.2rem solid #00b2ed;
+    border-radius: 1rem;
+    padding: 1rem;
+    width: 100%;
+  }
+  .form_step2 .errorMessage {
+    font-size: 0.8rem;
+    color: red;
+  }
+}
+
+@media (min-width: 1024px) {
+  .form_step2 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .form_step2 .form_wrapper {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+  .form_step2 input {
+    border: 0.2rem solid #00b2ed;
+    border-radius: 1rem;
+    padding: 1rem;
+    width: 100%;
+  }
+  .form_step2 label {
+    color: black;
+    font-size: 1.6rem;
+  }
+  .form_step2 .errorMessage {
+    font-size: 1.2rem;
+    color: red;
+  }
+  .form_step2 a {
+    color: #00b2ed;
+  }
+}
+
+@media (min-width: 1440px) {
+  .form_step2 {
+    padding: 0rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+  }
+  .form_step2 .form_wrapper {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+  .form_step2 label {
+    font-size: 1.8rem;
+  }
+  .form_step2 a {
+    color: #00b2ed;
+  }
+  .form_step2 input {
+    border: 0.2rem solid #00b2ed;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 0px;
+    height: 6rem;
+  }
+  .form_step2 .errorMessage {
+    margin-top: 1rem;
+  }
+  .form_step2 .address {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    border: 1px solid #00b2ed;
+    border-radius: 7px;
+    width: 462px;
+    margin: 10px;
+  }
+  .form_step2 .address input {
+    border: 0.2rem solid #00b2ed;
+    border-radius: 1rem;
+    padding: 1rem;
+  }
+  .form_step2 .city_zip_container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .form_step2 .city_zip_container .city {
+    -webkit-box-flex: 2;
+        -ms-flex: 2;
+            flex: 2;
+    margin-right: 3rem;
+  }
+  .form_step2 .city_zip_container .city_zip {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
 }
 /*# sourceMappingURL=registration.module.css.map */

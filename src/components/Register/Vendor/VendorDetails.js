@@ -118,7 +118,7 @@ const VendorDetails = (props) => {
 					</div>
 
 					<CustomButton styleClass="green-border" onClick={cancel}>
-						Cancel
+						Back
 					</CustomButton>
 					<CustomButton styleClass="green-full" onClick={proceed}>
 						Next

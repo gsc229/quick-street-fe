@@ -110,7 +110,9 @@ const RegisterDetails = (props) => {
 							</label>
 						</div>
 					</div>
+
 					<p>{values.roleError}</p>
+
 					<div className={registration.button_wrapper}>
 						<CustomButton styleClass="green-border" onClick={cancel}>
 							Cancel
@@ -121,6 +123,7 @@ const RegisterDetails = (props) => {
 							Next
 						</CustomButton>
 					</div>
+
 				</form>
 			</div>
 		</div>

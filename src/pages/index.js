@@ -5,6 +5,7 @@ import vendor from '../pages/Vendor';
 import browse from '../pages/Browse';
 import profile from '../pages/Profile';
 import login from '../pages/Login';
+import styling from '../pages/Styling';
 
 // exports big to small
 export const Landing = landing;
@@ -13,3 +14,4 @@ export const Vendor = vendor;
 export const Browse = browse;
 export const Profile = profile;
 export const Login = login;
+export const Styling = styling;

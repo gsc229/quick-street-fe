@@ -67,6 +67,10 @@
   }
 }
 
+.form h1 {
+  font-size: 4rem;
+}
+
 @media (min-width: 320px) {
   .form h1 {
     font-size: 1.4rem;

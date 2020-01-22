@@ -44,6 +44,9 @@
 	}
 }
 .form {
+	h1 {
+		font-size: 4rem;
+	}
 	@include phone {
 		h1 {
 			font-size: 1.4rem;

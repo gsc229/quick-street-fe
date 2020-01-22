@@ -9,7 +9,7 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 import { CustomButton } from '../components/index';
 
 const Login = (props) => {
-	const [ credentials, setCredentials ] = useState({
+	const [credentials, setCredentials] = useState({
 		email: '',
 		emailError: '',
 		password: '',
@@ -56,7 +56,8 @@ const Login = (props) => {
 			axiosWithAuth()
 				.post('/auth/login', {
 					email: credentials.email,
-					password: credentials.password
+					password: credentials.password,
+					vendor: true
 				})
 				.then((response) => {
 					// console.log(response.data.id);

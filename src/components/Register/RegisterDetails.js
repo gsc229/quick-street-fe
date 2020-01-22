@@ -13,6 +13,11 @@ const RegisterDetails = (props) => {
 		}
 	};
 
+	const cancel = (event) => {
+		event.preventDefault();
+		props.history.push('/');
+	};
+
 	const validate = () => {
 		let emailError = '';
 		let passwordError = '';
@@ -101,15 +106,15 @@ const RegisterDetails = (props) => {
 							<label htmlFor="customer">No</label>
 						</div>
 					</div>
-					<p>{values.roleError}</p>
-					<CustomButton styleClass="green-border" onClick={proceed}>
-						Cancel
-					</CustomButton>
-					<CustomButton styleClass="green-full" onClick={proceed}>
-						Next
-					</CustomButton>
-				</form>
-			</div>
+				</div>
+				<p>{values.roleError}</p>
+				<CustomButton styleClass="green-border" onClick={cancel}>
+					Cancel
+				</CustomButton>
+				<CustomButton styleClass="green-full" onClick={proceed}>
+					Next
+				</CustomButton>
+			</form>
 		</div>
 	);
 };

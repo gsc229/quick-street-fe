@@ -3,7 +3,7 @@ import React from 'react';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 import { CustomButton } from '../../index';
 const VendorConfirmation = (props) => {
-	console.log('VendorConfirmation props: ', props);
+	// console.log('VendorConfirmation props: ', props);
 	const { email, password, businessName, phoneNumber, streetAddress, city, zipcode } = props.values;
 
 	const cancel = (event) => {
@@ -29,13 +29,14 @@ const VendorConfirmation = (props) => {
 			password,
 			business_name: businessName,
 			phone: phoneNumber,
-			address: convertAddress()
+			address: convertAddress(),
+			vendor: true
 		};
 
 		axiosWithAuth()
 			.post('/auth/register', registerObject)
 			.then((response) => {
-				console.log('POST VendorConfirm res: ', response);
+				// console.log('POST VendorConfirm res: ', response);
 				localStorage.setItem('token', response.data.token);
 				props.history.push(`/profile/${response.data.id}`);
 			})

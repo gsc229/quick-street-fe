@@ -218,6 +218,8 @@
   }
   .form .errorMessage {
     margin-top: 1rem;
+    font-size: 0.8rem;
+    color: red;
   }
 }
 
@@ -360,6 +362,8 @@
     height: 6rem;
   }
   .form_step2 .errorMessage {
+    font-size: 0.8rem;
+    color: red;
     margin-top: 1rem;
   }
   .form_step2 .address {

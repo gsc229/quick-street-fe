@@ -72,10 +72,15 @@ const Login = (props) => {
 	return (
 		<div className={login.container}>
 			<div className={login.wrapper}>
+				<h1>Welcome Back!</h1>
+				<p>
+					Don't have an account?
+					<Link className={login.link} to="/register">
+						Create One
+					</Link>
+				</p>
 				<form className={login.form} onSubmit={handleSubmit}>
-					<h1>Welcome Back!</h1>
-					<p>Enter your email address and password below.</p>
-					<div className={login.input}>
+					<div className={login.form_wrapper}>
 						<label htmlFor="email">Email Address</label>
 						<input
 							type="text"
@@ -87,7 +92,7 @@ const Login = (props) => {
 						/>
 						<p className={login.errorMessage}>{credentials.emailError}</p>
 					</div>
-					<div className={login.input}>
+					<div className={login.form_wrapper}>
 						<label htmlFor="password">Password</label>
 						<input
 							type="password"
@@ -99,15 +104,11 @@ const Login = (props) => {
 						/>
 						<p className={login.errorMessage}>{credentials.passwordError}</p>
 					</div>
-					<p>
-						Don't have an account?
-						<Link className={login.link} to="/register">
-							Create One
-						</Link>
-					</p>
-					<CustomButton type="submit" styleClass="green-full">
-						Login
-					</CustomButton>
+					<div className={login.button_wrapper}>
+						<CustomButton type="submit" styleClass="green-full">
+							Login
+						</CustomButton>
+					</div>
 					<p>
 						Not a vendor? Start browsing
 						<Link className={login.link} to="/browse">

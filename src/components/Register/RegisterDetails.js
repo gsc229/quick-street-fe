@@ -13,6 +13,11 @@ const RegisterDetails = (props) => {
 		}
 	};
 
+	const cancel = (event) => {
+		event.preventDefault();
+		props.history.push('/');
+	};
+
 	const validate = () => {
 		let emailError = '';
 		let passwordError = '';
@@ -51,14 +56,14 @@ const RegisterDetails = (props) => {
 		//bringing in our module
 		<div className={registration.container}>
 			<div className={registration.wrapper}>
+				<h1>Create An Account With Quick Street</h1>
+				<p>
+					Already have an account?{' '}
+					<Link className="link" to="/login">
+						Log In
+					</Link>
+				</p>
 				<form className={registration.form}>
-					<h1>Create An Account With Quick Street</h1>
-					<p>
-						Already have an account?{' '}
-						<Link className="link" to="/login">
-							Log In
-						</Link>
-					</p>
 					<label htmlFor="email">Email</label>
 					<input
 						type="text"
@@ -79,35 +84,43 @@ const RegisterDetails = (props) => {
 						onChange={handleChange}
 					/>
 					<p className="errorMessage">{values.passwordError}</p>
-					<div className={registration.radio_buttons}>
-						<label>Are you a vendor?</label>
-						<div className={registration.radio_buttons}>
-							<input
-								type="radio"
-								name="role"
-								value="vendor"
-								checked={values.role === 'vendor'}
-								onChange={handleChange}
-							/>
-							<label htmlFor="vendor">Yes</label>
 
-							<input
-								type="radio"
-								name="role"
-								value="customer"
-								checked={values.role === 'customer'}
-								onChange={handleChange}
-							/>
-							<label htmlFor="customer">No</label>
+					<div className={registration.vendorq_wrapper}>
+						<p>Are you a vendor?</p>
+						<div className={registration.radio_buttons_wrapper}>
+							<label for="vendor">
+								<input
+									type="radio"
+									name="role"
+									value="vendor"
+									checked={values.role === 'vendor'}
+									onChange={handleChange}
+								/>
+								Yes
+							</label>
+							<label htmlFor="customer">
+								<input
+									type="radio"
+									name="role"
+									value="customer"
+									checked={values.role === 'customer'}
+									onChange={handleChange}
+								/>
+								No
+							</label>
 						</div>
 					</div>
 					<p>{values.roleError}</p>
-					<CustomButton styleClass="green-border" onClick={proceed}>
-						Cancel
-					</CustomButton>
-					<CustomButton styleClass="green-full" onClick={proceed}>
-						Next
-					</CustomButton>
+					<div className={registration.button_wrapper}>
+						<CustomButton styleClass="green-border" onClick={cancel}>
+							Cancel
+						</CustomButton>
+					</div>
+					<div className={registration.button_wrapper}>
+						<CustomButton styleClass="green-full" onClick={proceed}>
+							Next
+						</CustomButton>
+					</div>
 				</form>
 			</div>
 		</div>

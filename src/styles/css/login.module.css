@@ -6,68 +6,197 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background: url("../../assets/login.png");
-  background-repeat: no-repeat;
-  background-position: right;
-  background-size: 100% auto;
-  height: 100vh;
 }
 
-.form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  color: #00b2ed;
-  font-size: 1rem;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 800;
-  margin: 50px;
+@media (min-width: 320px) {
+  .container {
+    background-color: #00b2ed;
+    width: 100vw;
+    padding-top: 2rem;
+    height: 100vh;
+  }
 }
 
-.form p {
-  padding: 10px;
+@media (min-width: 768px) {
+  .container {
+    background-color: #00b2ed;
+  }
 }
 
-.form a {
-  color: #00b2ed;
+@media (min-width: 992px) {
+  .container {
+    background: url("../../assets/images/Login/login.png");
+    background-repeat: no-repeat;
+    background-position: fixed;
+    background-size: cover;
+  }
 }
 
-.form span {
-  font-size: 2rem;
-  margin: 10px;
+@media (min-width: 1440px) {
+  .container {
+    background: url("../../assets/images/Login/login.png");
+    background-repeat: no-repeat;
+    background-position: fixed;
+    background-size: cover;
+  }
 }
 
-.form input {
-  width: 460px;
-  border: 1px solid #00b2ed;
-  border-radius: 4px;
-  height: 60px;
-  margin: 10px;
+@media (min-width: 320px) {
+  .wrapper {
+    margin: 0 auto;
+    width: 90vw;
+  }
 }
 
-.form .login_button {
-  width: 454px;
-  height: 57px;
-  background-color: #21b787;
-  border-radius: 9px;
-  margin: 10px;
-  font-size: 1rem;
+@media (min-width: 768px) {
+  .wrapper {
+    width: 10vw;
+  }
 }
 
-.form label {
-  margin: 10px;
-  color: black;
+@media (min-width: 992px) {
+  .wrapper {
+    margin: 0;
+    width: 36vw;
+  }
 }
 
-.form_input {
-  width: 456px;
+@media (min-width: 1440px) {
+  .wrapper {
+    width: 33vw;
+  }
 }
 
-.form_input label {
-  width: 456px;
+.form h1 {
+  font-size: 4rem;
+}
+
+@media (min-width: 320px) {
+  .form h1 {
+    font-size: 1.4rem;
+    margin: 0ren;
+    color: #fff;
+    text-align: center;
+  }
+  .form p {
+    padding: 0px;
+    color: #fff;
+    font-size: 1.6rem;
+    text-align: center;
+  }
+  .form label {
+    color: white;
+  }
+  .form a {
+    color: #fff;
+    margin-left: .5rem;
+  }
+  .form input {
+    border: 0.1rem solid #00b2ed;
+    border-radius: 0.4rem;
+    padding: 2rem;
+    width: 100%;
+    margin: 0px;
+    font-size: 1.6rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .form {
+    padding: 1rem;
+    width: 90vw;
+  }
+  .form h1 {
+    font-size: 3rem;
+  }
+  .form p {
+    padding: 0px;
+    color: #fff;
+    font-size: 1.5rem;
+  }
+  .form input {
+    border: 0.1rem solid #00b2ed;
+    border-radius: 0.4rem;
+    padding: 2rem;
+    width: 100%;
+  }
+  .form .errorMessage {
+    font-size: 0.8rem;
+    color: red;
+  }
+}
+
+@media (min-width: 992px) {
+  .form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+    padding: 2rem;
+    margin-left: 2vw;
+    margin-top: 21vh;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .form h1 {
+    font-size: 3rem;
+    color: #00b2ed;
+    text-align: left;
+  }
+  .form p {
+    padding: 0px;
+    color: black;
+    font-size: 1.6rem;
+    text-align: left;
+  }
+  .form input {
+    border: 0.1rem solid #00b2ed;
+    border-radius: 0.4rem;
+    padding: 2rem;
+    width: 100%;
+  }
+  .form label {
+    color: black;
+    font-size: 1.6rem;
+  }
+  .form .errorMessage {
+    font-size: 1.2rem;
+    color: red;
+  }
+  .form a {
+    color: #00b2ed;
+  }
+}
+
+@media (min-width: 1440px) {
+  .form h1 {
+    font-size: 4rem;
+    margin: 0ren;
+    color: #00b2ed;
+    text-align: left;
+  }
+  .form p {
+    padding: 0rem;
+    color: black;
+    font-size: 2rem;
+    text-align: left;
+  }
+  .form label {
+    font-size: 1.8rem;
+  }
+  .form a {
+    color: #00b2ed;
+  }
+  .form input {
+    border: 0.1rem solid #00b2ed;
+    border-radius: 0.4rem;
+    padding: 2rem;
+    margin: 0px;
+    width: 31vw;
+  }
 }
 /*# sourceMappingURL=login.module.css.map */

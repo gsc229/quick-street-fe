@@ -1,69 +1,59 @@
+@import "./breakpoints.scss";
+
+@mixin phone {
+	@media (min-width: #{$screen-phone-min}) {
+		@content;
+	}
+}
+// Small devices
+@mixin sm {
+	@media (min-width: #{$screen-sm-min}) {
+		@content;
+	}
+}
+// Medium devices
+@mixin md {
+	@media (min-width: #{$screen-md-min}) {
+		@content;
+	}
+}
+
+// Large devices
+@mixin lg {
+	@media (min-width: #{$screen-lg-min}) {
+		@content;
+	}
+}
+
+// Extra large devices
+@mixin xl {
+	@media (min-width: #{$screen-xl-min}) {
+		@content;
+	}
+}
 @mixin form_input {
-  width: 460px;
-  border: 1px solid #00b2ed;
-  border-radius: 4px;
-  height: 60px;
-  margin: 10px;
-}
-
-@mixin next_button {
-  width: 454px;
-  height: 57px;
-  background-color: #21b787;
-  border-radius: 9px;
-  margin: 10px;
-  font-size: 1rem;
-}
-
-@mixin save_button {
-  width: 454px;
-  height: 57px;
-  background-color: #21b787;
-  border-radius: 9px;
-  margin: 10px;
-  font-size: 1rem;
-}
-
-@mixin cancel_button {
-  width: 454px;
-  height: 57px;
-  background-color: white;
-  border-radius: 9px;
-  border: 3px solid #21b787;
-  margin: 10px;
-  font-size: 1rem;
-}
-
-@mixin cancel_button2 {
-  width: 410px;
-  height: 60px;
-  background-color: white;
-  border-radius: 9px;
-  border: 3px solid #21b787;
-  font-size: 1rem;
-  margin: 10px;
-}
-
-@mixin save_confirm_button {
-  width: 410px;
-  height: 60px;
-  background-color: #21b787;
-  border-radius: 9px;
-  font-size: 1rem;
-  margin: 10px;
-  color: white;
-}
-
-@mixin login_button {
-  width: 454px;
-  height: 57px;
-  background-color: #21b787;
-  border-radius: 9px;
-  margin: 10px;
-  font-size: 1rem;
+	border: 0.1rem solid #00b2ed;
+	border-radius: 0.4rem;
+	padding: 2rem;
 }
 
 @mixin display {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
+}
+$primary-color: #00b2ed;
+$green: #21b787;
+
+@mixin button-bg($bg) {
+	background: $bg;
+
+	&:hover {
+		// apply when hover
+		background: darken($bg, 8%);
+		transition: all 0.3s ease;
+	}
+	&:focus {
+		//removes outline when clicked (focused) on
+		outline: none;
+	}
 }

@@ -2,46 +2,162 @@
 @import './mixins';
 
 .container {
-  @include display();
-  background: url('../../assets/login.png');
-  background-repeat: no-repeat;
-  background-position: right;
-  background-size: 100% auto;
-  height: 100vh;
+	@include display();
+	@include phone {
+		background-color: $primary-color;
+		width: 100vw;
+		padding-top: 2rem;
+		height: 100vh;
+	}
+	@include md {
+		background-color: $primary-color;
+	}
+	@include lg {
+		background: url('../../assets/images/Login/login.png');
+		background-repeat: no-repeat;
+		background-position: fixed;
+		background-size: cover;
+	}
+	@include xl {
+		background: url('../../assets/images/Login/login.png');
+		background-repeat: no-repeat;
+		background-position: fixed;
+		background-size: cover;
+	}
+}
+.wrapper {
+	@include phone {
+		margin: 0 auto;
+		width: 90vw;
+	}
+	@include sm {
+	}
+	@include md {
+		width: 10vw;
+	}
+	@include lg {
+		margin: 0;
+		width: 36vw;
+	}
+	@include xl {
+		width: 33vw;
+	}
 }
 .form {
-  p {
-    padding: 10px;
-  }
-  a {
-    color: #00b2ed;
-  }
-  span {
-    font-size: 2rem;
-    margin: 10px;
-  }
-  //include our styles from mixin
-  @include display();
-  input {
-    @include form_input();
-  }
-  .login_button {
-    @include login_button();
-  }
-  color: #00b2ed;
-  font-size: 1rem;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 800;
-  margin: 50px;
-  label {
-    margin: 10px;
-    color: black;
-  }
-}
+	h1 {
+		font-size: 4rem;
+	}
+	@include phone {
+		h1 {
+			font-size: 1.4rem;
+			margin: 0ren;
+			color: #fff;
+			text-align: center;
+		}
+		p {
+			padding: 0px;
+			color: #fff;
+			font-size: 1.6rem;
+			text-align: center;
+		}
+		label {
+			color: white;
+		}
+		a {
+			color: #fff;
+			margin-left: .5rem;
+		}
+		input {
+			@include form_input();
+			width: 100%;
+			margin: 0px;
+			font-size: 1.6rem;
+		}
+	}
+	@include md {
+		padding: 1rem;
+		width: 90vw;
+		h1 {
+			font-size: 3rem;
+		}
+		p {
+			padding: 0px;
+			color: #fff;
+			font-size: 1.5rem;
+		}
 
-.form_input {
-  width: 456px;
-  label {
-    width: 456px;
-  }
+		input {
+			@include form_input();
+			width: 100%;
+		}
+		.errorMessage {
+			font-size: 0.8rem;
+			color: red;
+		}
+	}
+	@include lg {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		padding: 2rem;
+		margin-left: 2vw;
+		margin-top: 21vh;
+		flex-wrap: wrap;
+
+		h1 {
+			font-size: 3rem;
+			color: $primary-color;
+			text-align: left;
+		}
+		p {
+			padding: 0px;
+			color: black;
+			font-size: 1.6rem;
+			text-align: left;
+		}
+
+		input {
+			@include form_input();
+			width: 100%;
+		}
+		label {
+			color: black;
+			font-size: 1.6rem;
+		}
+		.errorMessage {
+			font-size: 1.2rem;
+			color: red;
+		}
+		a {
+			color: $primary-color;
+		}
+	}
+	@include xl {
+		h1 {
+			font-size: 4rem;
+			margin: 0ren;
+			color: $primary-color;
+			text-align: left;
+		}
+		p {
+			padding: 0rem;
+			color: black;
+			font-size: 2rem;
+			text-align: left;
+		}
+		label {
+			font-size: 1.8rem;
+		}
+
+		a {
+			color: $primary-color;
+		}
+		input {
+			@include form_input();
+			margin: 0px;
+			width: 31vw;
+		}
+		.errorMessage {
+		}
+	}
 }

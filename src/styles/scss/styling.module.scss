@@ -1,0 +1,58 @@
+// import mixins.css
+@import './mixins.scss';
+
+.container {
+	@include phone {
+		width: 90vw;
+		margin: 0 auto;
+	}
+	@include sm {
+	}
+	@include md {
+	}
+	@include lg {
+	}
+	@include xl {
+	}
+}
+
+.wrapper {
+	@include phone {
+		padding: 40px;
+		width: 90vw;
+		margin: 0 auto;
+		text-align: center;
+		h1 {
+			font-size: 2rem;
+			color: $green;
+			margin-bottom: 40px;
+		}
+		.image {
+			width: 100%;
+
+			img {
+				width: 100%;
+			}
+		}
+		p {
+			margin-top: 40px;
+			font-size: 1rem;
+		}
+	}
+	@include sm {
+	}
+	@include md {
+	}
+	@include lg {
+		.image {
+			width: 80%;
+			margin: 0 auto;
+
+			img {
+				width: 100%;
+			}
+		}
+	}
+	@include xl {
+	}
+}

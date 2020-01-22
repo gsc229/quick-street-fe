@@ -1,0 +1,11 @@
+{
+    "version": 3,
+    "mappings": "ACGC,MAAM,EAAE,SAAS,EAAE,KAAK;EDAzB,AAAA,UAAU,CAAC;IAET,KAAK,EAAE,IAAI;IACX,MAAM,EAAE,MAAM;GAUf",
+    "sources": [
+        "../scss/styling.scss",
+        "../scss/mixins.scss",
+        "../scss/breakpoints.scss"
+    ],
+    "names": [],
+    "file": "styling.css"
+}

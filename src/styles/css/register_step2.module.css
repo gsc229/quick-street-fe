@@ -6,7 +6,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background: url("../../assets/meditate_girl.png");
+  background: url("../../assets/images/Register/meditate_girl.png");
   background-repeat: no-repeat;
   background-position: right;
   background-size: 100% auto;
@@ -21,16 +21,6 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  color: #00b2ed;
-  font-size: 1rem;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 800;
-  width: 500px;
-  margin: 50px;
-}
-
-.form button:hover {
-  border: 2px solid black;
 }
 
 .form p {
@@ -47,30 +37,9 @@
 }
 
 .form input {
-  width: 460px;
   border: 1px solid #00b2ed;
   border-radius: 4px;
-  height: 60px;
-  margin: 10px;
-}
-
-.form .next_button {
-  width: 454px;
-  height: 57px;
-  background-color: #21b787;
-  border-radius: 9px;
-  margin: 10px;
-  font-size: 1rem;
-}
-
-.form .cancel_button {
-  width: 454px;
-  height: 57px;
-  background-color: white;
-  border-radius: 9px;
-  border: 3px solid #21b787;
-  margin: 10px;
-  font-size: 1rem;
+  padding: 10px;
 }
 
 .form label {
@@ -93,11 +62,9 @@
 }
 
 .streetAddress input {
-  width: 460px;
   border: 1px solid #00b2ed;
   border-radius: 4px;
-  height: 60px;
-  margin: 10px;
+  padding: 10px;
 }
 
 .city_zip_container {

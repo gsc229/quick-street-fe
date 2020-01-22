@@ -55,56 +55,56 @@ const RegisterDetails = (props) => {
 	return (
 		//bringing in our module
 		<div className={registration.container}>
-			<form className={registration.form}>
-				<span>Create An </span>
-				<span>Account With</span>
-				<span>Quick Street</span>
-				<p>
-					Already have an account?{' '}
-					<Link className="link" to="/login">
-						Log In
-					</Link>
-				</p>
-				<label htmlFor="email">Email</label>
-				<input
-					type="text"
-					name="email"
-					id="email"
-					// placeholder='Enter your email'
-					value={values.email}
-					onChange={handleChange}
-				/>
-				<p className="errorMessage">{values.emailError}</p>
-				<label htmlFor="password">Password</label>
-				<input
-					type="password"
-					name="password"
-					id="password"
-					// placeholder='Please enter a password'
-					value={values.password}
-					onChange={handleChange}
-				/>
-				<p className="errorMessage">{values.passwordError}</p>
-				<div className={registration.radio_buttons}>
-					<label>Are you a vendor?</label>
+			<div className={registration.wrapper}>
+				<form className={registration.form}>
+					<h1>Create An Account With Quick Street</h1>
+					<p>
+						Already have an account?{' '}
+						<Link className="link" to="/login">
+							Log In
+						</Link>
+					</p>
+					<label htmlFor="email">Email</label>
+					<input
+						type="text"
+						name="email"
+						id="email"
+						// placeholder='Enter your email'
+						value={values.email}
+						onChange={handleChange}
+					/>
+					<p className="errorMessage">{values.emailError}</p>
+					<label htmlFor="password">Password</label>
+					<input
+						type="password"
+						name="password"
+						id="password"
+						// placeholder='Please enter a password'
+						value={values.password}
+						onChange={handleChange}
+					/>
+					<p className="errorMessage">{values.passwordError}</p>
 					<div className={registration.radio_buttons}>
-						<input
-							type="radio"
-							name="role"
-							value="vendor"
-							checked={values.role === 'vendor'}
-							onChange={handleChange}
-						/>
-						<label htmlFor="vendor">Yes</label>
+						<label>Are you a vendor?</label>
+						<div className={registration.radio_buttons}>
+							<input
+								type="radio"
+								name="role"
+								value="vendor"
+								checked={values.role === 'vendor'}
+								onChange={handleChange}
+							/>
+							<label htmlFor="vendor">Yes</label>
 
-						<input
-							type="radio"
-							name="role"
-							value="customer"
-							checked={values.role === 'customer'}
-							onChange={handleChange}
-						/>
-						<label htmlFor="customer">No</label>
+							<input
+								type="radio"
+								name="role"
+								value="customer"
+								checked={values.role === 'customer'}
+								onChange={handleChange}
+							/>
+							<label htmlFor="customer">No</label>
+						</div>
 					</div>
 				</div>
 				<p>{values.roleError}</p>

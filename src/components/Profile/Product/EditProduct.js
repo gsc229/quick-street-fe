@@ -13,7 +13,8 @@ const EditProduct = (props) => {
   const [product, setProduct] = useState({});
   const [reloadingImages, setReloadingImages] = useState(false);
   const [editingDetails, setEditingDetails] = useState(false);
-  const [detailsSave, setDetailsSaved] = useState(false);
+  const [detailsSaved, setDetailsSaved] = useState(false);
+  const [allChangesSaved, setAllChangesSaved] = useState(false);
 
   console.log('EditProduct product ', product);
   console.log('EditingProduct images: ', images)
@@ -47,10 +48,21 @@ const EditProduct = (props) => {
 
 
   const finishedEditing = () => {
-    props.setEditingProd(false);
+    setAllChangesSaved(true);
+    setTimeout(function () {
+
+      setAllChangesSaved(false);
+      props.setEditingProd(false);
+
+    }, 2000)
+
   }
 
   const submitProductDetails = () => {
+    setDetailsSaved(true);
+    setTimeout(function () { setDetailsSaved(false) }, 1500)
+
+
 
     axiosWithAuth()
       .put(`/products/${product._id}`, product)
@@ -82,6 +94,14 @@ const EditProduct = (props) => {
 
   return (
     <div className={editingProduct.container}>
+
+      {/* all saved MODAL */}
+      {allChangesSaved &&
+        <div className={editingProduct.all_saved_modal}>
+          <h3> <i className="fa fa-check"></i>All your changes to "<span>{product.name}</span>" have been saved! </h3>
+        </div>
+      }
+
       {/* ============= LEFT ============================ */}
       <div className={`${editingProduct.edit_product_left} ${editingProduct.inner_container}`}>
 
@@ -132,10 +152,10 @@ const EditProduct = (props) => {
           {editingDetails ? <h4 onClick={submitProductDetails} > <i className="fa fa-check-circle"></i> Commit Changes</h4> : <h4><i className="fa fa-edit"></i>Edit Details</h4>}
 
         </div>
-
-        <div className={editingProduct.details_saved_modal}>
-          <h3>Product Details Saved!</h3>
-        </div>
+        {/* details saved MODAL */}
+        {detailsSaved && <div className={editingProduct.details_saved_modal}>
+          <h3><i className="fa fa-check"></i> Product Details Saved!</h3>
+        </div>}
 
         {editingDetails ? <EditProductForm product={product} setProduct={setProduct} /> :
           <div className={editingProduct.details_container} >
@@ -146,7 +166,7 @@ const EditProduct = (props) => {
 
               <div className={editingProduct.input_wrapper}>
                 <label htmlFor="">Product Name: </label>
-                <p>{product.name}</p>
+                <h1>{product.name}</h1>
               </div>
 
               <div className={editingProduct.input_wrapper}>

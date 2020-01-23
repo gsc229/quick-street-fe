@@ -1,0 +1,28 @@
+// styling imports
+@import './mixins';
+
+.container {
+	@include phone {
+	}
+	@include sm {
+	}
+	@include md {
+	}
+	@include lg {
+	}
+	@include xl {
+	}
+}
+
+.wrapper {
+	@include phone {
+	}
+	@include sm {
+	}
+	@include md {
+	}
+	@include lg {
+	}
+	@include xl {
+	}
+}

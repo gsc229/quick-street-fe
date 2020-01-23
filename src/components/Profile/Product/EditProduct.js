@@ -22,7 +22,7 @@ const EditProduct = (props) => {
     // get product details
     axiosWithAuth()
       /* ${props.product_id} */
-      .get(`/products/5e1c9cedcb86ae00173f8aee`)
+      .get(`/products/${props.product_id}`)
       .then((response) => {
         // console.log(response);
         setProduct(response.data.data);
@@ -36,7 +36,7 @@ const EditProduct = (props) => {
     // get all images of same product in previous request.
     axiosWithAuth()
       /* ${props.product_id} */
-      .get(`/products/5e1c9cedcb86ae00173f8aee/product-images`)
+      .get(`/products/${props.product_id}/product-images`)
       .then((response) => {
         // console.log(response);
         setImages(response.data.data);

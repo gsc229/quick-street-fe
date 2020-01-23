@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 const VendorProducts = ({ products, addProduct }) => {
-	const [editingProd, setEditingProd] = useState(true);
+	const [editingProd, setEditingProd] = useState(false);
 	const [editingProdId, setEditingProdId] = useState("");
 
 	console.log(editingProd)

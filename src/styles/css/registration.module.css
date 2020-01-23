@@ -43,6 +43,12 @@
   }
 }
 
+<<<<<<< HEAD
+.form input {
+  border: 0.1rem solid #00b2ed;
+  border-radius: 0.4rem;
+  padding: 2rem;
+=======
 @media (min-width: 320px) {
   .wrapper {
     margin: 0 auto;
@@ -60,6 +66,7 @@
     font-size: 1.6rem;
     text-align: center;
   }
+>>>>>>> 115b02d86ab40313c3438d36a38332fcec7d1f6b
 }
 
 @media (min-width: 768px) {
@@ -144,6 +151,12 @@
   }
 }
 
+<<<<<<< HEAD
+.streetAddress input {
+  border: 0.1rem solid #00b2ed;
+  border-radius: 0.4rem;
+  padding: 2rem;
+=======
 @media (min-width: 768px) {
   .form input {
     border: 0.2rem solid #00b2ed;
@@ -228,6 +241,7 @@
     margin-top: 0rem;
     margin-bottom: 0rem;
   }
+>>>>>>> 115b02d86ab40313c3438d36a38332fcec7d1f6b
 }
 
 .city_zip_container {

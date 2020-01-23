@@ -4,7 +4,7 @@ const Register = props => {
   // console.log('Register.js props: ', props);
 
   const [userInfo, setUserInfo] = useState({
-    step: 1,
+    step: 2,
     email: '',
     emailError: '',
     password: '',
@@ -65,7 +65,8 @@ const Register = props => {
   };
 
   const vendorDetails = () => {
-    if (userInfo.step === 2 && userInfo.role === 'vendor') {
+    //&& userInfo.role === 'vendor' add after ==2
+    if (userInfo.step === 2 ) {
       return (
         <VendorDetails
           values={userInfo}
@@ -91,15 +92,15 @@ const Register = props => {
   };
 
   const customerConfirmation = () => {
-    if (userInfo.step === 2 && userInfo.role === 'customer') {
-      return (
-        <CustomerConfirmation
-          values={userInfo}
-          previousStep={previousStep}
-          history={props.history}
-        />
-      );
-    }
+    // if (userInfo.step === 2 && userInfo.role === 'customer') {
+    //   return (
+    //     <CustomerConfirmation
+    //       values={userInfo}
+    //       previousStep={previousStep}
+    //       history={props.history}
+    //     />
+    //   );
+    // }
   };
 
   return (

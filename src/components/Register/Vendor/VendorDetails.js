@@ -62,7 +62,7 @@ const VendorDetails = (props) => {
 						value={values.businessName}
 						onChange={handleChange}
 					/>
-					<p className="errorMessage">{values.businessNameError}</p>
+					<div className={registration.errorMessage}>{values.businessNameError}</div>
 
 					<label htmlFor="phoneNumber">Phone Number</label>
 					<input
@@ -73,7 +73,7 @@ const VendorDetails = (props) => {
 						value={values.phoneNumber}
 						onChange={handleChange}
 					/>
-					<p className="errorMessage">{values.phoneNumberError}</p>
+					<div className={registration.errorMessage}>{values.phoneNumberError}</div>
 
 					<label htmlFor="streetAddress">Street Address</label>
 					<input
@@ -107,7 +107,7 @@ const VendorDetails = (props) => {
 								value={values.zipcode}
 								onChange={handleChange}
 							/>
-							<p className="errorMessage">{values.zipcodeError}</p>
+							<div className={registration.errorMessage}>{values.zipcodeError}</div>
 						</div>
 					</div>
 

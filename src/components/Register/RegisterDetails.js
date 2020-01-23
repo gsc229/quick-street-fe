@@ -73,7 +73,7 @@ const RegisterDetails = (props) => {
 						value={values.email}
 						onChange={handleChange}
 					/>
-					<p className="errorMessage">{values.emailError}</p>
+					<div className={registration.errorMessage}>{values.emailError}</div>
 					<label htmlFor="password">Password</label>
 					<input
 						type="password"
@@ -83,7 +83,7 @@ const RegisterDetails = (props) => {
 						value={values.password}
 						onChange={handleChange}
 					/>
-					<p className="errorMessage">{values.passwordError}</p>
+					<div className={registration.errorMessage}>{values.passwordError}</div>
 
 					<div className={registration.vendorq_wrapper}>
 						<p>Are you a vendor?</p>
@@ -111,7 +111,7 @@ const RegisterDetails = (props) => {
 						</div>
 					</div>
 
-					<p>{values.roleError}</p>
+					<div className={registration.errorMessage}>{values.roleError}</div>
 
 					<div className={registration.button_wrapper}>
 						<CustomButton styleClass="green-border" onClick={cancel}>
@@ -123,7 +123,6 @@ const RegisterDetails = (props) => {
 							Next
 						</CustomButton>
 					</div>
-
 				</form>
 			</div>
 		</div>

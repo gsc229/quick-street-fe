@@ -6,7 +6,7 @@ import productImg from '../../../assets/images/Profile/rectangle75.png';
 import VendorDetails from '../../Register/Vendor/VendorDetails';
 const ProductImageUploader = (props) => {
 
-  const { productId, setReloadingImages } = props;
+  const { productId, setReloadingImages, reloadingImages } = props;
   const vendorId = localStorage.getItem('vendor_id');
   console.log('ProductImageUploader.js productId ', productId);
   console.log('ProductImageUploader.js vendorId ', vendorId);
@@ -78,7 +78,7 @@ const ProductImageUploader = (props) => {
           .post(`/products/${productId}/product-images`, correct_fields)
           .then(res => {
             console.log('POST ProductImagesUploader res: ', res);
-            setReloadingImages(res.data.data)
+            setReloadingImages(!reloadingImages)
           })
           .catch((err) => {
             console.log('PUT VendorProfile.js Upload widget err', err);

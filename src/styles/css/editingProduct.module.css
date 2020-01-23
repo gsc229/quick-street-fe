@@ -1,13 +1,13 @@
 .container {
-  background-color: lightblue;
+  background-color: white;
   border: 1px solid #888;
   border-radius: 10px;
+  padding: 3% 10% 5%;
   width: 70%;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   left: 15%;
-  padding: 2rem;
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -22,7 +22,6 @@
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  background-color: pink;
   padding: 10px;
 }
 
@@ -50,7 +49,6 @@
 }
 
 .edit_product_left .left_upper_container .add_image_btns {
-  background-color: red;
   cursor: pointer;
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -77,11 +75,12 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .edit_product_left .left_upper_container .images_container .image_wrapper {
   position: relative;
-  background-color: green;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -89,6 +88,7 @@
   height: -moz-fit-content;
   height: fit-content;
   margin-right: 10px;
+  margin-top: 10px;
 }
 
 .edit_product_left .left_upper_container .images_container .image_wrapper i {
@@ -100,14 +100,13 @@
 }
 
 .edit_product_left .btn_container {
-  background-color: blue;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-top: 40vh;
+  margin-top: 5vh;
 }
 
 @media (min-width: 320px) {

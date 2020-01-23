@@ -1,10 +1,11 @@
 .container {
+  border: 1px solid #888;
+  border-radius: 10px;
   background-color: lightblue;
-  width: 50%;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  left: 25%;
+  width: 70%;
+  height: 50%;
+  left: 15%;
+  padding: 2rem;
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -20,15 +21,56 @@
   padding: 10px;
 }
 
-.edit_product_left .image_wrapper {
+.edit_product_left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.edit_product_left .add_image_btns {
+  background-color: red;
+  cursor: pointer;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  position: relative;
+}
+
+.edit_product_left .add_image_btns .product_image_placeholder {
+  width: 150px;
+  height: 150px;
+}
+
+.edit_product_left .add_image_btns .image_upload_icon {
+  position: absolute;
+  bottom: 0;
+  right: 3px;
+}
+
+.edit_product_left .images_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.edit_product_left .images_container .image_wrapper {
   position: relative;
   background-color: green;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-left: 10px;
 }
 
-.edit_product_left .image_wrapper i {
+.edit_product_left .images_container .image_wrapper i {
   color: red;
   font-size: 2rem;
   position: absolute;
@@ -36,8 +78,8 @@
   cursor: pointer;
 }
 
-.edit_product_left .add_image_btn {
-  margin-top: 2rem;
+.edit_product_right h4 {
+  cursor: pointer;
 }
 
 .edit_product_right i {
@@ -55,7 +97,71 @@
           justify-content: space-between;
 }
 
-.edit_product_right .btn_container i {
-  font-size: 1rem;
+.edit_product_right .btn_container button {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-top: 20px;
+  border-radius: 10px;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 5px;
+}
+
+.edit_product_right .btn_container .finished_editing_btn {
+  border: 3px solid #21b7b7;
+  background-color: #21b7b7;
+  color: #fef2e4;
+  cursor: pointer;
+}
+
+.edit_product_right .btn_container .finished_editing_btn:hover {
+  background-color: whitesmoke;
+  color: #21b7b7;
+}
+
+.edit_product_right .btn_container .delete_product_btn {
+  border: 3px solid #e92323;
+  color: #e92323;
+  cursor: pointer;
+}
+
+.edit_product_right .btn_container .delete_product_btn:hover {
+  background-color: #e92323;
+  color: white;
+}
+
+.vendor_product_btn_group button {
+  width: 30%;
+  height: 10%;
+  margin-top: 20px;
+  border-radius: 10px;
+  font-size: 24px;
+  font-weight: 600;
+  padding: 1% 0;
+}
+
+.vendor_product_btn_group .cancel {
+  border: 3px solid #e92323;
+  color: #e92323;
+  cursor: pointer;
+}
+
+.vendor_product_btn_group .cancel:hover {
+  /* border: 3px solid white; */
+  background-color: #e92323;
+  color: white;
+}
+
+.vendor_product_btn_group .save {
+  border: 3px solid #21b7b7;
+  background-color: #21b7b7;
+  color: #fef2e4;
+  cursor: pointer;
+}
+
+.vendor_product_btn_group .save:hover {
+  background-color: whitesmoke;
+  color: #21b7b7;
 }
 /*# sourceMappingURL=editingProduct.module.css.map */

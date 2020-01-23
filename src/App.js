@@ -9,7 +9,8 @@ import {
 	Browse, // ** Browsing page (Map, Search)
 	Landing, // ** Home Page
 	Profile, //** Vendors Editing Page */
-	Styling // ** Styling Template */
+	Styling, // ** Styling Template */
+	Dashboard // ** Dashboard Page **/
 } from './pages/index';
 
 import { Footer } from './components/index';
@@ -25,6 +26,7 @@ const App = () => {
 				<Route path="/profile/:id" component={Profile} />
 				<Route path="/browse/:id" component={Vendor} />
 				<Route path="/browse" component={Browse} />
+				<Route path="/dashboard" component={Dashboard} />
 			</Switch>
 		</div>
 	);

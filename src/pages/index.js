@@ -7,6 +7,7 @@ import profile from '../pages/Profile';
 import login from '../pages/Login';
 import styling from '../pages/Styling';
 
+import dashboard from '../pages/Dashboard';
 // exports big to small
 export const Landing = landing;
 export const Register = register;
@@ -15,3 +16,4 @@ export const Browse = browse;
 export const Profile = profile;
 export const Login = login;
 export const Styling = styling;
+export const Dashboard = dashboard;

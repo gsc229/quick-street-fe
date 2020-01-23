@@ -1,0 +1,11 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../scss/dashboard.module.scss",
+        "../scss/mixins.scss",
+        "../scss/breakpoints.scss"
+    ],
+    "names": [],
+    "file": "dashboard.module.css"
+}

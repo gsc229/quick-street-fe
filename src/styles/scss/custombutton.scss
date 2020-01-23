@@ -41,11 +41,11 @@
 	@include md {
 	}
 	@include lg {
-		width: 41rem;
-		height: 6rem;
-		margin: 1rem;
-		font-size: 2rem;
+		width: 100%;
 	}
 	@include xl {
+		width: 100%;
+		height: 6rem;
+		font-size: 2rem;
 	}
 }

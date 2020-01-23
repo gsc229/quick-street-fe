@@ -3,43 +3,190 @@
 
 .container {
 	@include display();
-	background: url('../../assets/images/Register/meditate_girl.png');
-	background-repeat: no-repeat;
-	background-position: right;
-	background-size: 100% auto;
-	height: 100vh;
+	font-family: Rubik;
+	@include phone {
+		background-color: $primary-color;
+		width: 100vw;
+		padding-top: 2rem;
+		height: 100vh;
+	}
+	@include md {
+		background-color: $primary-color;
+		padding-top: 0rem;
+	}
+	@include lg {
+		background: url('../../assets/images/Register/meditate_girl.png');
+		background-repeat: no-repeat;
+		background-position: right;
+		background-size: contain;
+	}
+	@include xl {
+		background: url('../../assets/images/Register/meditate_girl.png');
+		background-repeat: no-repeat;
+		background-position: right;
+		background-size: contain;
+	}
+}
+.wrapper {
+	@include phone {
+		margin: 0 auto;
+		width: 90vw;
+		h1 {
+			font-size: 1.4rem;
+			margin: 0rem;
+			color: #fff;
+			text-align: center;
+		}
+		p {
+			padding: 0px;
+			color: #fff;
+			font-size: 1.6rem;
+			text-align: center;
+		}
+	}
+	@include sm {
+	}
+	@include md {
+		width: 10vw;
+		h1 {
+			font-size: 3rem;
+		}
+		p {
+			padding: 0px;
+			color: #fff;
+			font-size: 1.5rem;
+		}
+	}
+	@include lg {
+		width: 35vw;
+
+		margin-top: 4rem;
+		margin-left: 1rem;
+		h1 {
+			font-size: 4rem;
+			margin: 0rem;
+			color: $primary-color;
+			text-align: left;
+			font-weight: 500;
+		}
+		p {
+			padding: 0rem;
+			color: $primary-color;
+			font-size: 1.6rem;
+			text-align: left;
+			margin-top: 1.2rem;
+		}
+	}
+	@include xl {
+		width: 40vw;
+		padding: 4.4rem 4.4rem 0rem 4.4rem;
+		margin-top: 1rem;
+
+		h1 {
+			font-size: 4rem;
+			margin: 0rem;
+			color: $primary-color;
+			text-align: left;
+			font-weight: 500;
+			width: 20vw;
+		}
+		p {
+			padding: 0rem;
+			color: $primary-color;
+			font-size: 2rem;
+			text-align: left;
+			margin-top: 1.2rem;
+		}
+		a {
+			color: $primary-color;
+			text-decoration: underline;
+			margin-left: 0.4rem;
+		}
+	}
 }
 .form {
-	p {
-		padding: 10px;
+	@include phone {
+		label {
+			color: white;
+		}
+		a {
+			color: #fff;
+			margin-left: .5rem;
+		}
+		input {
+			@include form_input();
+			width: 100%;
+			margin: 0px;
+			font-size: 1.6rem;
+		}
 	}
-	a {
-		color: #00b2ed;
+	@include md {
+		input {
+			@include form_input();
+			width: 100%;
+		}
+		.errorMessage {
+			font-size: 0.8rem;
+			color: red;
+		}
 	}
-	span {
-		font-size: 2rem;
-		margin: 7px;
+	@include lg {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		flex-wrap: wrap;
+		.form_wrapper {
+			margin-top: 3rem;
+			margin-bottom: 3rem;
+		}
+		input {
+			@include form_input();
+			width: 100%;
+		}
+		label {
+			color: black;
+			font-size: 1.6rem;
+		}
+		.errorMessage {
+			font-size: 1.2rem;
+			color: red;
+		}
+		a {
+			color: $primary-color;
+		}
 	}
-	//include our styles from mixin
-	@include display();
-	input {
-		@include form_input();
-	}
+	@include xl {
+		padding: 0rem;
+		margin-top: 3rem;
+		margin-bottom: 3rem;
+		.form_wrapper {
+			margin-top: 3rem;
+			margin-bottom: 3rem;
+		}
+		label {
+			font-size: 1.8rem;
+		}
 
-	label {
-		margin: 10px;
-		color: black;
+		a {
+			color: $primary-color;
+		}
+		input {
+			@include form_input();
+			margin: 0px;
+			height: 6rem;
+		}
+		.errorMessage {
+			margin-top: 1rem;
+			font-size: 0.8rem;
+			color: red;
+		}
 	}
 }
-.streetAddress {
-	display: flex;
-	flex-direction: column;
-	border: 1px solid #00b2ed;
-	border-radius: 7px;
-	width: 462px;
-	margin: 10px;
-	input {
-		@include form_input();
+
+.button_wrapper {
+	@include xl {
+		margin-top: 0rem;
+		margin-bottom: 0rem;
 	}
 }
 
@@ -53,12 +200,123 @@
 	}
 }
 
-.radio_buttons {
-	display: flex;
-	align-items: center;
+.vendorq_wrapper {
+	p {
+		color: black;
+		font-size: 2rem;
+	}
+	.radio_buttons_wrapper {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+		input {
+			flex: 1;
+			width: 2.4rem;
+			height: 2.4rem;
+			-moz-appearance: checkbox;
+			-webkit-appearance: checkbox;
+		}
+	}
+}
 
-	input[type='radio'] {
-		appearance: checkbox;
-		width: 24px;
+// ***** STEP 2 STYLING **** //
+.form_step2 {
+	@include phone {
+		label {
+			color: white;
+		}
+		a {
+			color: #fff;
+			margin-left: .5rem;
+		}
+		input {
+			@include form_input();
+			width: 100%;
+			margin: 0px;
+			font-size: 1.6rem;
+		}
+	}
+	@include md {
+		input {
+			@include form_input();
+			width: 100%;
+		}
+		.errorMessage {
+			font-size: 0.8rem;
+			color: red;
+		}
+	}
+	@include lg {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		flex-wrap: wrap;
+		.form_wrapper {
+			margin-top: 3rem;
+			margin-bottom: 3rem;
+		}
+		input {
+			@include form_input();
+			width: 100%;
+		}
+		label {
+			color: black;
+			font-size: 1.6rem;
+		}
+		.errorMessage {
+			font-size: 1.2rem;
+			color: red;
+		}
+		a {
+			color: $primary-color;
+		}
+	}
+	@include xl {
+		padding: 0rem;
+		margin-top: 2rem;
+		margin-bottom: 3rem;
+		.form_wrapper {
+			margin-top: 3rem;
+			margin-bottom: 3rem;
+		}
+		label {
+			font-size: 1.8rem;
+		}
+
+		a {
+			color: $primary-color;
+		}
+		input {
+			@include form_input();
+			margin: 0px;
+			height: 6rem;
+		}
+		.errorMessage {
+			font-size: 0.8rem;
+			color: red;
+			margin-top: 1rem;
+		}
+		.address {
+			display: flex;
+			flex-direction: column;
+			border: 1px solid #00b2ed;
+			border-radius: 7px;
+			width: 462px;
+			margin: 10px;
+			input {
+				@include form_input();
+			}
+		}
+		.city_zip_container {
+			display: flex;
+			justify-content: space-around;
+			.city {
+				flex: 2;
+				margin-right: 3rem;
+			}
+			.city_zip {
+				flex: 1;
+			}
+		}
 	}
 }

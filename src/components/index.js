@@ -22,6 +22,9 @@ import vendorpostlist from '../components/Profile/Bulletin/VendorPostList';
 import addproductform from '../components/Profile/Product/AddProductForm';
 import product from '../components/Profile/Product/Product';
 import vendorproducts from '../components/Profile/Product/VendorProducts';
+import editproduct from '../components/Profile/Product/EditProduct';
+import editproductform from '../components/Profile/Product/EditProductForm';
+import productimagesuploader from '../components/Profile/Product/ProductImageUploader';
 
 //Profile  About vendor components
 import about from '../components/Profile/Profile/About';
@@ -76,6 +79,9 @@ export const VendorPostList = vendorpostlist;
 export const AddProductForm = addproductform;
 export const Product = product;
 export const VendorProducts = vendorproducts;
+export const EditProduct = editproduct;
+export const EditProductForm = editproductform;
+export const ProductImageUploader = productimagesuploader;
 
 //Profile About vendor exports
 export const About = about;

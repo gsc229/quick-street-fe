@@ -6,14 +6,18 @@ import upload from '../../../assets/images/Profile/upload.png';
 import productImg from '../../../assets/images/Profile/rectangle75.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { EditProductForm, ProductImageUploader } from '../../index';
 
 const EditProduct = (props) => {
   const [images, setImages] = useState([]);
   const [product, setProduct] = useState({});
+  const [reloadingImages, setReloadingImages] = useState(false);
   const [editingDetails, setEditingDetails] = useState(false);
+
   console.log('EditProduct product ', product);
   console.log('EditingProduct images: ', images)
   useEffect(() => {
+    // get product details
     axiosWithAuth()
       /* ${props.product_id} */
       .get(`/products/5e1c9cedcb86ae00173f8aee`)
@@ -27,6 +31,7 @@ const EditProduct = (props) => {
   }, []);
 
   useEffect(() => {
+    // get all images of same product in previous request.
     axiosWithAuth()
       /* ${props.product_id} */
       .get(`/products/5e1c9cedcb86ae00173f8aee/product-images`)
@@ -37,7 +42,7 @@ const EditProduct = (props) => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [reloadingImages]);
 
   const handleChanges = (e) => {
     setProduct({
@@ -53,69 +58,86 @@ const EditProduct = (props) => {
   return (
     <div className={editingProduct.container}>
 
-
       <div className={`${editingProduct.edit_product_left} ${editingProduct.inner_container}`}>
 
-        <div className={editingProduct.add_image_btns}>
-          {/* <button className="add_product_btn">
-            <FontAwesomeIcon icon={faPlus} />
-            Add product <br />
-          </button> */}
-          <img
-            className={editingProduct.product_image_placeholder}
-            src={productImg}
-            alt="product"
-          />
-          <img
-            className={editingProduct.image_upload_icon}
-            src={upload}
-            alt="upload icon"
-          /* onClick={uploadProductPicture} */
-          />
+        <div className={editingProduct.left_upper_container}>
+          <div className={editingProduct.add_image_btns}>
+            <ProductImageUploader productId={product._id} setReloadingImages={setReloadingImages} />
+          </div>
+
+          <div className={editingProduct.images_container}>
+            {images.map(image =>
+              <div key={image._id} className={editingProduct.image_wrapper}>
+                <i className="fa fa-minus-circle"></i>
+                <CloudinaryContext cloudName="quickstlabs">
+                  <Image publicId={image.public_id}>
+                    <Transformation width="150" height="150" crop="fill" />
+                  </Image>
+                </CloudinaryContext>
+              </div>
+            )}
+
+          </div>
         </div>
 
-        <div className={editingProduct.images_container}>
-          {images.map(image =>
-            <div key={image._id} className={editingProduct.image_wrapper}>
-              <i className="fa fa-minus-circle"></i>
-              <CloudinaryContext cloudName="quickstlabs">
-                <Image publicId={image.public_id}>
-                  <Transformation width="150" height="150" crop="fill" />
-                </Image>
-              </CloudinaryContext>
-            </div>
-          )}
 
+        <div className={editingProduct.btn_container}>
+          <button
+            onClick={finishedEditing}
+            className={editingProduct.finished_editing_btn}>
+            <i className="fa fa-check"></i> Finished Editing
+                </button>
+          <button className={editingProduct.delete_product_btn}>
+            <i className="fa fa-exclamation-triangle"></i>   Delete Product
+                </button>
         </div>
 
 
 
 
       </div>{/* LEFT */}
-
+      {/* RIGHT */}
 
       <div className={`${editingProduct.edit_product_right} ${editingProduct.inner_container}`}>
-        <h4 onClick={() => setEditingDetails(!editingDetails)} ><i className="fa fa-edit"></i>Edit Details</h4>
-        {editingDetails ? <h1>You'll be eiding</h1> :
-          <div>
-            <h1>{product.name}</h1>
-            <p>{product.description}</p>
-            <p>${product.price}</p>
-            <div className={editingProduct.btn_container}>
-              <button
-                onClick={finishedEditing}
-                className={editingProduct.finished_editing_btn}>
-                <i className="fa fa-check"></i> Finished Editing
-           </button>
-              <button className={editingProduct.delete_product_btn}>
-                <i className="fa fa-exclamation-triangle"></i>   Delete Product
-          </button>
+        <div onClick={() => setEditingDetails(!editingDetails)}>
+          {editingDetails ? <h4> <i className="fa fa-check-circle"></i> Commit Changes</h4> : <h4><i className="fa fa-edit"></i>Edit Details</h4>}
+
+        </div>
+
+
+        {editingDetails ? <EditProductForm product={product} /> :
+          <div className={editingProduct.details_container} >
+
+
+            <div className={editingProduct.details_wrapper}>
+
+
+              <div className={editingProduct.input_wrapper}>
+                <label htmlFor="">Product Name: </label>
+                <p>{product.name}</p>
+              </div>
+
+              <div className={editingProduct.input_wrapper}>
+                <label htmlFor="">Product Description: </label>
+                <p>{product.description}</p>
+              </div>
+
+              <div className={editingProduct.input_wrapper}>
+                <label htmlFor="diet">Dietary Category: </label>
+                <p>{product.diet}</p>
+              </div>
+              <div className={editingProduct.input_wrapper}>
+                <label htmlFor="category">Food Category: </label>
+                <p>{product.category}</p>
+              </div>
+
+              <div className={editingProduct.input_wrapper}>
+                <label htmlFor="">Price: </label>
+                <p>${product.price}</p>
+              </div>
+
             </div>
           </div>
-
-
-
-
         }
 
       </div>

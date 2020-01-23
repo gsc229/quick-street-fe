@@ -62,6 +62,7 @@ const Login = (props) => {
 				.then((response) => {
 					// console.log(response.data.id);
 					localStorage.setItem('token', response.data.token);
+					localStorage.setItem('vendor_id', response.data.id);
 					props.history.push(`profile/${response.data.id}`);
 				})
 				.catch((error) => {

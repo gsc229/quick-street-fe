@@ -1,9 +1,11 @@
+@import './mixins.scss';
+
 .container{
-  border: 1px solid #888;
-  border-radius: 10px;
   background-color: lightblue;
+  border: 1px solid #888;
+  border-radius: 10px;  
   width: 70%;
-  height: 50%;
+  height: fit-content;
   left: 15%;
   padding: 2rem;
   position: absolute;
@@ -13,34 +15,41 @@
 
 .inner_container{
   width: 45%;
+  height: fit-content;
   background-color: pink;
-  padding: 10px;
+  padding: 10px;  
 }
 
+
+/* ======= .edit_product_left =========== */
 .edit_product_left{
   display: flex;
-  flex-wrap: wrap;
-  .add_image_btns{
-    background-color: red;
-    cursor: pointer;
-    width: fit-content;
-    height: fit-content;
-    position: relative;
-    
-    .product_image_placeholder{
-      width: 150px;
-      height: 150px;
+  flex-direction: column;
+  /* ==== .left_uppper_container */
+  .left_upper_container{
+    display: flex;
+    flex-wrap: wrap;
+      // add_image_btns in ProductImageUploader.js
+      .add_image_btns{
+      background-color: red;
+      cursor: pointer;
+      width: fit-content;
+      height: fit-content;
+      position: relative;
+      margin: 0 10px 10px 0;
+      .product_image_placeholder{
+        width: 150px;
+        height: 150px;
+        
+      }
+      .image_upload_icon{
+        position: absolute;
+        bottom: 0;
+        right: 3px;
+      }  
       
-    }
-    .image_upload_icon{
-      position: absolute;
-      bottom: 0;
-      right: 3px;
-    }  
-  }
-
-
-   .images_container{
+      }
+      .images_container{
      display: flex;
      
     .image_wrapper{
@@ -48,7 +57,7 @@
       background-color: green;
       width: fit-content;
       height: fit-content;
-      margin-left: 10px;
+      margin-right: 10px;
       i{
       color: red;
       font-size: 2rem;
@@ -57,29 +66,29 @@
       cursor: pointer;
       }    
     }
-   }  
-}
-
-.edit_product_right{
-  h4{
-    cursor: pointer;
-  }
-  i{
-    font-size: 2rem;
-    cursor: pointer;
-  }
-
-  .btn_container{
+   } 
+  
+  } /* end .left_upper_container */
+  /* ===== .btn_container ===== */
+   .btn_container{
     background-color: blue;
     display: flex;
     justify-content: space-between;
+    margin-top: 40vh;
+    @include phone{
+      flex-direction: column;
+    }
+    @include lg{
+      flex-direction: row;
+    }
     button{
       width: fit-content;     
       margin-top: 20px;
       border-radius: 10px;
-      font-size: 2rem;
+      font-size: 1.6rem;
       font-weight: 600;
       padding: 5px;
+     
     }
     .finished_editing_btn{
       border: 3px solid #21b7b7;
@@ -91,7 +100,6 @@
         color: #21b7b7;
       }
     }
-
     .delete_product_btn{
       border: 3px solid #e92323;
       color: #e92323;
@@ -100,12 +108,69 @@
         background-color: #e92323;
         color: white;
       }
+    }    
+    } /* end .btn_container */    
+} /* end .edit_product_left */
+/* ===== edit_product_right ============== */
+.edit_product_right{
+  height: fit-content;
+  h4{
+    cursor: pointer;
+    color: rgb(253,126,20);
+    font-weight: bolder;
+    border: 1px solid grey;
+    width: fit-content;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  i{
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  .details_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: fit-content;
+    //input wrapper details container EditProduct.js
+    .input_wrapper{
+    display: flex;
+    flex-direction: column;
+    margin:  2rem 0;
+      label{
+      font-size: 1.4rem;
+      color: #2b3335; 
+      }
+      p{
+      font-size: 1.8rem;
     }
-
+      
+  }
     
   }
+  
+  // input wrapper EditProductFrom.js
+  .input_wrapper{
+    display: flex;
+    flex-direction: column;
+    margin:  2rem 0;
+      label{
+      font-size: 1.4rem;
+      color: #2b3335; 
+      }
+      input {
+      border-radius: 10px;
+      border: 1px solid rgba(43, 51, 53, 0.5);
+      height: 32px;
+      width: 214px;      
+      font-size: 1.8rem;
+      padding: 1% 0 1% 3%;
+      }
+  }
 
-}
+  
+
+} /* end edit_product_right */
 
 
 .vendor_product_btn_group button {

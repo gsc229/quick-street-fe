@@ -45,7 +45,7 @@ a {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .heroContainer {
     width: 100%;
     min-height: 980px;
@@ -85,7 +85,7 @@ a {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .landingInfo {
     width: 483px;
     height: 369px;
@@ -113,7 +113,7 @@ a {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .button-container {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -135,7 +135,7 @@ a {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .vendorButton {
     width: 302px;
     height: 57px;
@@ -201,7 +201,7 @@ a {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .marketing-Container {
     background-color: #00b2ed;
     margin: auto;
@@ -224,7 +224,7 @@ a {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .marketing-box-top-row {
     -webkit-box-flex: 1;
         -ms-flex: 1;
@@ -244,7 +244,7 @@ a {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .marketing-box-top-row h1 {
     color: #fff;
     font-family: Rubik;
@@ -263,7 +263,7 @@ a {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .marketing-box-mobile {
     display: none;
   }
@@ -275,7 +275,7 @@ a {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .marketing-box-top-row-btn {
     background: #e92323;
     border-radius: 5px;
@@ -309,7 +309,7 @@ a {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .marketing-box-bottom-row {
     -webkit-box-flex: 1;
         -ms-flex: 1;
@@ -343,7 +343,7 @@ a {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .marketing-Header {
     font-size: 2rem;
     margin-top: 40px;
@@ -378,7 +378,7 @@ a {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .works-card-wrapper {
     -webkit-box-flex: 1;
         -ms-flex: 1;
@@ -417,7 +417,7 @@ a {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .works-content {
     -webkit-box-flex: 1;
         -ms-flex: 1;
@@ -440,7 +440,7 @@ a {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .carousel-container {
     height: calc(100% * 4.5);
   }

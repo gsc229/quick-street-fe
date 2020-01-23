@@ -5,7 +5,7 @@
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .menu-container {
     font-family: Raleway;
     font-style: normal;
@@ -36,7 +36,7 @@
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .nav {
     width: 100%;
     padding-left: 50px;
@@ -70,7 +70,7 @@
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .nav-links {
     list-style: none;
     display: -webkit-box;

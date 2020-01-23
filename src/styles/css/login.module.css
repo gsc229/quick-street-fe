@@ -222,7 +222,7 @@
   .form input {
     border: 0.2rem solid #00b2ed;
     border-radius: 1rem;
-    padding: 2rem;
+    padding: 1rem;
     width: 100%;
     margin: 0px;
     font-size: 1.6rem;
@@ -233,7 +233,7 @@
   .form input {
     border: 0.2rem solid #00b2ed;
     border-radius: 1rem;
-    padding: 2rem;
+    padding: 1rem;
     width: 100%;
   }
   .form .errorMessage {
@@ -262,7 +262,7 @@
   .form input {
     border: 0.2rem solid #00b2ed;
     border-radius: 1rem;
-    padding: 2rem;
+    padding: 1rem;
     width: 100%;
   }
   .form label {
@@ -297,7 +297,7 @@
   .form input {
     border: 0.2rem solid #00b2ed;
     border-radius: 1rem;
-    padding: 2rem;
+    padding: 1rem;
     margin: 0px;
   }
   .form .errorMessage {

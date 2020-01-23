@@ -176,7 +176,7 @@
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .edit_product_left .btn_container {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;

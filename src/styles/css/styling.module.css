@@ -29,7 +29,7 @@
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .wrapper .image {
     width: 80%;
     margin: 0 auto;

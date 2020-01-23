@@ -37,9 +37,9 @@
 }
 
 .form input {
-  border: 1px solid #00b2ed;
-  border-radius: 4px;
-  padding: 10px;
+  border: 0.1rem solid #00b2ed;
+  border-radius: 0.4rem;
+  padding: 2rem;
 }
 
 .form label {
@@ -62,9 +62,9 @@
 }
 
 .streetAddress input {
-  border: 1px solid #00b2ed;
-  border-radius: 4px;
-  padding: 10px;
+  border: 0.1rem solid #00b2ed;
+  border-radius: 0.4rem;
+  padding: 2rem;
 }
 
 .city_zip_container {

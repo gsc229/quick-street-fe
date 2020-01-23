@@ -15,6 +15,7 @@ const EditProduct = (props) => {
   const [editingDetails, setEditingDetails] = useState(false);
   const [detailsSaved, setDetailsSaved] = useState(false);
   const [allChangesSaved, setAllChangesSaved] = useState(false);
+  const [confirmClose, setConfirmClose] = useState(false);
 
   console.log('EditProduct product ', product);
   console.log('EditingProduct images: ', images)
@@ -94,11 +95,21 @@ const EditProduct = (props) => {
 
   return (
     <div className={editingProduct.container}>
-
+      <i onClick={() => props.setEditingProd(false)} className={`fa fa-times ${editingProduct.close_x}`} ></i>
       {/* all saved MODAL */}
-      {allChangesSaved &&
+      {
+        allChangesSaved &&
         <div className={editingProduct.all_saved_modal}>
           <h3> <i className="fa fa-check"></i>All your changes to "<span>{product.name}</span>" have been saved! </h3>
+        </div>
+      }
+
+      {/* confirm MODAL */}
+      {
+        confirmClose &&
+        <div className={editingProduct.confirm_close_modal}>
+          <h3> <i className="fa fa-exclamation"></i>Are you sure you want to close? Make sure your changes to "<span>{product.name}</span>" have been saved! </h3>
+          <button className="btn btn-danger">Close</button>
         </div>
       }
 
@@ -116,7 +127,7 @@ const EditProduct = (props) => {
           <div className={editingProduct.images_container}>
             {images.map(image =>
               <div key={image._id} className={editingProduct.image_wrapper}>
-                <p>{image._id}</p>
+                {/* <p>{image._id}</p> */}
                 <i onClick={() => deleteImage(image._id)} className="fa fa-minus-circle"></i>
                 <CloudinaryContext cloudName="quickstlabs">
                   <Image publicId={image.public_id}>
@@ -194,7 +205,7 @@ const EditProduct = (props) => {
 
       </div>
 
-    </div>
+    </div >
   )
 }
 

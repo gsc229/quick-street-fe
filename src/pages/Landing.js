@@ -7,7 +7,7 @@ import landing from '../styles/scss/landing.module.scss';
 import Image from '../assets/images/Image';
 
 // Components
-import { Menu, CarouselBrowse, CarouselTop, CarouselTopMobile, CustomButton } from '../components/index';
+import { Menu, LandingGallery, CarouselTop, CarouselTopMobile, CustomButton } from '../components/index';
 
 const Landing = () => {
 	return (
@@ -72,46 +72,43 @@ const Landing = () => {
 					</div>
 				</div>
 			</div>
-			<div className="marketing-Header"> Our Spotlight Vendors For This Month</div>
-			<div className="carousel-container">
-				<CarouselBrowse />
+			<div className={landing.title_header}> Our Spotlight Vendors For This Month</div>
+			<div className={landing.gallery_container}>
+				<LandingGallery />
 			</div>
-			<div className="marketing-Header">Testimonials</div>
-			<div className="works-container">
-				<div className="works-card-wrapper">
-					<div className="works-image">
+			<div className={landing.title_header}>Testimonials</div>
+			<div className={landing.works_container}>
+				<div className={landing.card_wrapper}>
+					<div className={landing.works_image}>
 						<Image name="Testimonial1" />
 					</div>
-					<div className="works-content">
+					<div className={landing.works_content}>
 						<p>
 							“I just moved to Austin and wanted to support local from the start. This made it so easy!” -
 							Alandra S.
 						</p>
-						{/* <div className="testimonial-button">Start Now!</div> */}
 					</div>
 				</div>
-				<div className="works-card-wrapper">
-					<div className="works-image">
+				<div className={landing.card_wrapper}>
+					<div className={landing.works_image}>
 						<Image name="Testimonial2" />
 					</div>
-					<div className="works-content">
+					<div className={landing.works_content}>
 						<p>
 							“Market Avenue helped me find new found favorite vendors. Its like a whole new city to me!”
 							- Sam B.
 						</p>
-						{/* <div className="testimonial-button">Start Now!</div> */}
 					</div>
 				</div>
-				<div className="works-card-wrapper">
-					<div className="works-image">
+				<div className={landing.card_wrapper}>
+					<div className={landing.works_image}>
 						<Image name="Testimonial3" />
 					</div>
-					<div className="works-content">
+					<div className={landing.works_content}>
 						<p>
 							“As a vendor this helped so many stressors I used to have throughout my week; now I can
 							focus more time on my craft. It’s great!” - Tracee W.
 						</p>
-						{/* <div className="testimonial-button">Start Now!</div> */}
 					</div>
 				</div>
 			</div>

@@ -4,7 +4,7 @@ const Slide1 = require('../../assets/images/landing/images/carousel/CarlasHipste
 const Slide2 = require('../../assets/images/landing/images/carousel/MyukosDelivery.png');
 const Slide3 = require('../../assets/images/landing/images/carousel/KenChiBanner.png');
 
-function CarouselBrowse() {
+function LandingGallery() {
 	const [ index, setIndex ] = React.useState(0);
 
 	const images = [
@@ -33,4 +33,4 @@ function CarouselBrowse() {
 	);
 }
 
-export default CarouselBrowse;
+export default LandingGallery;

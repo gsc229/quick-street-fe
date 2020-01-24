@@ -42,32 +42,32 @@ const Landing = () => {
 					</div>
 				</div>
 			</div>
-			<div className="marketing-Header"> How it Works</div>
-			<div className="works-container">
-				<div className="works-card-wrapper">
-					<div className="works-image">
+			<div className={landing.title_header}> How it Works</div>
+			<div className={landing.works_container}>
+				<div className={landing.card_wrapper}>
+					<div className={landing.works_image}>
 						<Image name="Works1" />
 					</div>
-					<div className="works-content">
+					<div className={landing.works_content}>
 						<p>We help vendors gain visibility more consistently to their customer base.</p>
 					</div>
 				</div>
-				<div className="works-card-wrapper">
-					<div className="works-image">
+				<div className={landing.card_wrapper}>
+					<div className={landing.works_image}>
 						<Image name="Works2" />
 					</div>
-					<div className="works-content">
+					<div className={landing.works_content}>
 						<p>
 							As the customer, we can seamlessly support your local food vendor through a one stop shop
 							search platform.
 						</p>
 					</div>
 				</div>
-				<div className="works-card-wrapper">
-					<div className="works-image">
+				<div className={landing.card_wrapper}>
+					<div className={landing.works_image}>
 						<Image name="Works3" />
 					</div>
-					<div className="works-content">
+					<div className={landing.works_content}>
 						<p>See what you like? We have a seamless order request process for both sides. Win-win</p>
 					</div>
 				</div>

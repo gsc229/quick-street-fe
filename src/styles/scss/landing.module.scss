@@ -1,36 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
 @import './mixins.scss';
-a {
-	color: white;
-}
-.vendorButton a:hover {
-	text-decoration: none;
-	color: white;
-}
-.customerButton a:hover {
-	text-decoration: none;
-	color: white;
-}
-.landingContainer {
-	width: 100%;
-	margin: auto;
+
+.container {
 	@include phone {
 		padding: 0px;
 	}
+	@include xl {
+		width: 100vw;
+	}
 }
-
-.landingInfo {
-	display: flex;
-	flex-direction: column;
-}
-.heroContainer {
+.hero_container {
 	@include phone {
-		background-image: none;
-		background-color: #00b2ed;
-		background-image: url('../../assets/images/landing/images/hero-banner320.png');
-		background-repeat: no-repeat;
-		background-position: center;
-		height: 500px;
 	}
 	@include lg {
 		width: 100%;
@@ -41,6 +21,34 @@ a {
 		background-position: center top;
 	}
 }
+.info {
+	@include phone {
+	}
+	@include xl {
+		margin-top: 32.1rem;
+		margin-left: 7.9rem;
+		width: 43.7rem;
+		h1 {
+			font-family: Rubik;
+			font-size: 4rem;
+			color: #fef2e4;
+		}
+	}
+}
+.button_container {
+	@include phone {
+		display: none;
+	}
+	@include xl {
+		margin-top: 6.4rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		display: block;
+		width: 30.2rem;
+	}
+}
+
 .hero-banner {
 	flex: 1;
 	width: 1238px;
@@ -52,86 +60,24 @@ a {
 	flex: 1;
 	width: 100%;
 }
-.landingInfo {
+// **** MARKETING CONTAINER **** //
+
+.title_header {
 	@include phone {
-		font-size: 1.2rem;
-		padding: 20px;
-		margin: 0px;
-		color: #fff;
-	}
-	@include lg {
-		width: 483px;
-		height: 369px;
-		/* or 62px */
-		display: flex;
-		margin-left: 70px;
-		margin-top: 140px;
-		align-items: center;
-		color: #fef2e4;
-		font-family: Rubik;
-		font-style: normal;
-		font-weight: 500;
-		font-size: 2rem;
-		line-height: 155%;
-	}
-}
-.button-container {
-	@include phone {
-		display: none;
-	}
-	@include lg {
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-start;
-		display: block;
-	}
-}
-.vendorButton {
-	@include phone {
-		width: 20%;
-	}
-	@include lg {
-		width: 302px;
-		height: 57px;
-		font-family: Raleway;
-		font-style: normal;
-		font-weight: 600;
 		font-size: 1rem;
-		line-height: 193.5%;
-		color: #fef2e4;
-		background-color: #e92324;
-		flex: 1;
-		align-self: center;
-		text-align: center;
-		border-radius: 8px;
+		margin-top: 20px;
 		margin-bottom: 20px;
-		cursor: pointer;
+		text-align: center;
+		color: #00b2ed;
+	}
+	@include lg {
+		font-size: 2rem;
+		margin-top: 40px;
+		margin-bottom: 40px;
+		flex: 1;
 	}
 }
-.vendorButton:hover {
-	transform: scale(0.9, 0.9);
-	box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25), -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
-}
-.customerButton {
-	width: 302px;
-	height: 57px;
-	font-family: Raleway;
-	font-style: normal;
-	font-weight: 600;
-	font-size: 1rem;
-	line-height: 193.5%;
-	color: #e92324;
-	border: 1px solid red;
-	flex: 1;
-	align-self: center;
-	text-align: center;
-	border-radius: 8px;
-	cursor: pointer;
-}
-.customerButton:hover {
-	transform: scale(0.9, 0.9);
-	box-shadow: 2px 2px 15px 7px rgba(0, 0, 0, 0.25), -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
-}
+
 .marketing-Container {
 	@include phone {
 		width: 100vw;
@@ -222,21 +168,6 @@ a {
 .marketing-box-bottom-row-card-wrapper img {
 	max-width: 100%;
 }
-.marketing-Header {
-	@include phone {
-		font-size: 1rem;
-		margin-top: 20px;
-		margin-bottom: 20px;
-		text-align: center;
-		color: #00b2ed;
-	}
-	@include lg {
-		font-size: 2rem;
-		margin-top: 40px;
-		margin-bottom: 40px;
-		flex: 1;
-	}
-}
 
 .works-container {
 	display: flex;
@@ -318,4 +249,15 @@ a {
 	color: #fff;
 	font-size: 14px;
 	text-align: center;
+}
+a {
+	color: white;
+}
+.vendorButton a:hover {
+	text-decoration: none;
+	color: white;
+}
+.customerButton a:hover {
+	text-decoration: none;
+	color: white;
 }

@@ -320,3 +320,124 @@
 		}
 	}
 }
+// ***** STEP 3 STYLING **** //
+.form_step3 {
+	@include phone {
+		label {
+			color: white;
+		}
+		a {
+			color: #fff;
+			margin-left: .5rem;
+		}
+		input {
+			@include form_input();
+			width: 100%;
+			margin: 0px;
+			font-size: 1.6rem;
+		}
+	}
+	@include md {
+		input {
+			@include form_input();
+			width: 100%;
+		}
+		.errorMessage {
+			font-size: 0.8rem;
+			color: red;
+		}
+	}
+	@include lg {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		flex-wrap: wrap;
+		.form_wrapper {
+			margin-top: 3rem;
+			margin-bottom: 3rem;
+		}
+		input {
+			@include form_input();
+			width: 100%;
+		}
+		label {
+			color: black;
+			font-size: 1.6rem;
+		}
+		.errorMessage {
+			font-size: 1.2rem;
+			color: red;
+		}
+		a {
+			color: $primary-color;
+		}
+	}
+	@include xl {
+		padding: 0rem;
+		margin-top: 2rem;
+		margin-bottom: 3rem;
+		.form_wrapper {
+			margin-top: 3rem;
+			margin-bottom: 3rem;
+		}
+		label {
+			font-size: 1.8rem;
+		}
+
+		a {
+			color: $primary-color;
+		}
+		input {
+			@include form_input();
+			margin: 0px;
+			height: 6rem;
+		}
+		.errorMessage {
+			font-size: 1.6rem;
+			color: red;
+			margin-top: 1rem;
+		}
+		.address {
+			display: flex;
+			flex-direction: column;
+			border: 1px solid #00b2ed;
+			border-radius: 7px;
+			width: 462px;
+			margin: 10px;
+			input {
+				@include form_input();
+			}
+		}
+	}
+	.city_zip_container {
+		width: 100%;
+		h1 {
+			font-size: 1.8rem;
+			color: black;
+		}
+		p {
+			@include form_input();
+			color: black;
+			background-color: #e8f0fe;
+			font-size: 1.8rem;
+		}
+		.city {
+			width: 55%;
+		}
+		.city_zip {
+			width: 40%;
+		}
+	}
+	.confirm_form {
+		width: 100%;
+		h1 {
+			font-size: 1.8rem;
+			color: black;
+		}
+		p {
+			@include form_input();
+			color: black;
+			background-color: #e8f0fe;
+		}
+	}
+}

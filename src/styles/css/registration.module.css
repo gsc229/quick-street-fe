@@ -403,4 +403,162 @@
             flex: 1;
   }
 }
+
+@media (min-width: 320px) {
+  .form_step3 label {
+    color: white;
+  }
+  .form_step3 a {
+    color: #fff;
+    margin-left: .5rem;
+  }
+  .form_step3 input {
+    border: 0.2rem solid #00b2ed;
+    border-radius: 1rem;
+    padding: 1rem;
+    width: 100%;
+    margin: 0px;
+    font-size: 1.6rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .form_step3 input {
+    border: 0.2rem solid #00b2ed;
+    border-radius: 1rem;
+    padding: 1rem;
+    width: 100%;
+  }
+  .form_step3 .errorMessage {
+    font-size: 0.8rem;
+    color: red;
+  }
+}
+
+@media (min-width: 1024px) {
+  .form_step3 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .form_step3 .form_wrapper {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+  .form_step3 input {
+    border: 0.2rem solid #00b2ed;
+    border-radius: 1rem;
+    padding: 1rem;
+    width: 100%;
+  }
+  .form_step3 label {
+    color: black;
+    font-size: 1.6rem;
+  }
+  .form_step3 .errorMessage {
+    font-size: 1.2rem;
+    color: red;
+  }
+  .form_step3 a {
+    color: #00b2ed;
+  }
+}
+
+@media (min-width: 1440px) {
+  .form_step3 {
+    padding: 0rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+  }
+  .form_step3 .form_wrapper {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+  .form_step3 label {
+    font-size: 1.8rem;
+  }
+  .form_step3 a {
+    color: #00b2ed;
+  }
+  .form_step3 input {
+    border: 0.2rem solid #00b2ed;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 0px;
+    height: 6rem;
+  }
+  .form_step3 .errorMessage {
+    font-size: 1.6rem;
+    color: red;
+    margin-top: 1rem;
+  }
+  .form_step3 .address {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    border: 1px solid #00b2ed;
+    border-radius: 7px;
+    width: 462px;
+    margin: 10px;
+  }
+  .form_step3 .address input {
+    border: 0.2rem solid #00b2ed;
+    border-radius: 1rem;
+    padding: 1rem;
+  }
+}
+
+.form_step3 .city_zip_container {
+  width: 100%;
+}
+
+.form_step3 .city_zip_container h1 {
+  font-size: 1.8rem;
+  color: black;
+}
+
+.form_step3 .city_zip_container p {
+  border: 0.2rem solid #00b2ed;
+  border-radius: 1rem;
+  padding: 1rem;
+  color: black;
+  background-color: #e8f0fe;
+  font-size: 1.8rem;
+}
+
+.form_step3 .city_zip_container .city {
+  width: 55%;
+}
+
+.form_step3 .city_zip_container .city_zip {
+  width: 40%;
+}
+
+.form_step3 .confirm_form {
+  width: 100%;
+}
+
+.form_step3 .confirm_form h1 {
+  font-size: 1.8rem;
+  color: black;
+}
+
+.form_step3 .confirm_form p {
+  border: 0.2rem solid #00b2ed;
+  border-radius: 1rem;
+  padding: 1rem;
+  color: black;
+  background-color: #e8f0fe;
+}
 /*# sourceMappingURL=registration.module.css.map */

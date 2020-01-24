@@ -10,7 +10,6 @@ const ViewAboutVendor = (props) => {
 	});
 
 	const getVendor = (id) => {
-		console.log('getvendor');
 		axiosWithAuth()
 			.get(`/vendors/${id}`)
 			.then((response) => {

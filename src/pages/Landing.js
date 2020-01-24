@@ -1,32 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 // styling
-import '../styles/scss/landing.scss';
+import landing from '../styles/scss/landing.module.scss';
 
 // Images
 import Image from '../assets/images/Image';
 
 // Components
-import { Menu, CarouselBrowse, CarouselTop, CarouselTopMobile } from '../components/index';
+import { Menu, CarouselBrowse, CarouselTop, CarouselTopMobile, CustomButton } from '../components/index';
 
 const Landing = () => {
 	return (
-		<div className="landingContainer">
-			<div className="heroContainer">
+		<div className={landing.container}>
+			<div className={landing.hero_container}>
 				<Menu />
-				<div className="landingInfo">
-					<p>Finally , A Way For Vendors and Lovers of Food to Come Together in Harmony </p>
-					<div className="button-container">
-						<div className="vendorButton">
+				<div className={landing.info}>
+					<h1>Finally , A Way For Vendors and Lovers of Food to Come Together in Harmony </h1>
+					<div className={landing.button_container}>
+						<CustomButton styleClass="red-full">
 							<Link to="/register">I'm a Vendor!</Link>
-						</div>
-						<div className="customerButton">
+						</CustomButton>
+						<CustomButton styleClass="red-border">
 							<Link to="/browse">I'm a Customer!</Link>
-						</div>
+						</CustomButton>
 					</div>
 				</div>
 			</div>
-			<div className="marketing-Header"> See What We Offer!</div>
+			<div className={landing.title_header}> See What We Offer!</div>
 			<div className="marketing-Container">
 				<div className="marketing-box-top-row">
 					<h1>Browse, buy, share your finds on local food vendors.</h1>

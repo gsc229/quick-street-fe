@@ -49,3 +49,60 @@
 		font-size: 2rem;
 	}
 }
+.red-full {
+	cursor: pointer;
+	@include button-bg($red);
+	margin-bottom: 2rem;
+	@include phone {
+		width: 90vw;
+		color: white;
+		border-radius: 0.9rem;
+	}
+	@include sm {
+	}
+	@include md {
+		width: 87vw;
+		height: 6rem;
+		font-size: 1.8rem;
+	}
+	@include lg {
+		width: 100%;
+	}
+	@include xl {
+		width: 100%;
+		height: 6rem;
+		font-size: 2rem;
+		a {
+			color: #fff;
+			text-decoration: none;
+		}
+	}
+}
+.red-border {
+	cursor: pointer;
+	margin-bottom: 2rem;
+	@include button-bg($primary-color);
+	@include phone {
+		width: 90vw;
+		color: $red;
+		border: 0.3rem solid $red;
+		border-radius: 0.9rem;
+	}
+	@include sm {
+	}
+	@include md {
+	}
+	@include lg {
+		width: 100%;
+	}
+	@include xl {
+		width: 100%;
+		height: 6rem;
+		font-size: 2rem;
+		color: $red;
+		a {
+			color: $red;
+			text-decoration: none;
+		}
+	}
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
-import '../../../styles/scss/vendorsNearby.scss';
+import browse from '../../../styles/scss/browse.module.scss';
 import rectangle from '../../../assets/images/Profile/rectangle.png';
 import placeholder from '../../../assets/images/Profile/placeholder.png';
 
@@ -10,7 +10,8 @@ const Browse = props => {
   const noZipcodeArray = [1, 2, 3, 4, 5, 6];
 
   return (
-    <div className='browse_wrapper'>
+   
+      <div className={browse.browse_wrapper}>
       {props.zipcode === '' ? (
         <>
           <p className='result_para'>
@@ -38,8 +39,8 @@ const Browse = props => {
               </Image>
             </CloudinaryContext>
             {/* <img className='vendor_banner_image' src={vendor.vendor_banner} alt='Banner Image'></img> */}
-            <p className='vendor_name'>{vendor.business_name}</p>
-            <p className='vendor_category'>{vendor.vendor_category}</p>
+            <p className='vendor_name'>{browse.business_name}</p>
+            <p className='vendor_category'>{browse.vendor_category}</p>
             <Link className='view_vendor' to={{ pathname: `/browse/${vendor._id}`, customer_id: props.location.customer_id}}>
               View
             </Link>
@@ -47,6 +48,7 @@ const Browse = props => {
         ))}
       </div>
     </div>
+
   );
 };
 

@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 import { CustomButton } from '../../index';
+
+// styles
+import registration from '../../../styles/scss/registration.module.scss';
 const VendorConfirmation = (props) => {
 	const [ duplicateEmail, setDuplicateEmail ] = useState('');
 	// console.log('VendorConfirmation props: ', props);
@@ -44,65 +47,63 @@ const VendorConfirmation = (props) => {
 			.catch((error) => {
 				// console.log(error.response);
 				// console.log(error.response.data.error);
-				setDuplicateEmail(`${error.response.data.error} Please go back and change it to register`);
+				setDuplicateEmail(`${error.response.data.error} Please hit back and change it to register`);
 			});
 	};
 
 	return (
-		<div className="main_container">
-			<div className="form_container">
-				<div className="vendor_confrim_wapper">
+		
+			<div className={registration.wrapper}>
+				<div className={registration.form_step3}>
 					<h1>Please confirm your information</h1>
-					<div className="vendor_confirmation_div">
-						<p className="vendor_confirmation_title">Email</p>
-						<p className="vendor_confirmation_value">{email}</p>
+
+					<div className={registration.confirm_form}>
+						<h1>Email</h1>
+						<p>{email}</p>
 					</div>
 
-					<div className="vendor_confirmation_div">
-						<p className="vendor_confirmation_title">Password</p>
-						<p className="vendor_confirmation_value">{password}</p>
+					<div className={registration.confirm_form}>
+						<h1>Password</h1>
+						<p>{password}</p>
 					</div>
-
-					<div className="vendor_confirmation_div">
-						<p className="vendor_confirmation_title">Business Name</p>
-						<p className="vendor_confirmation_value">{businessName}</p>
+					<div className={registration.confirm_form}>
+						<h1>Business Name</h1>
+						<p>{businessName}</p>
 					</div>
-
-					<div className="vendor_confirmation_div">
-						<p className="vendor_confirmation_title">Phone Number</p>
-						<p className="vendor_confirmation_value">{phoneNumber}</p>
+					<div className={registration.confirm_form}>
+						<h1>Phone Number</h1>
+						<p>{phoneNumber}</p>
 					</div>
 
 					{streetAddress.length > 0 && (
-						<div className="vendor_confirmation_div">
-							<p className="vendor_confirmation_title">Street Address</p>
-							<p className="vendor_confirmation_value">{streetAddress}</p>
+						<div className={registration.confirm_form}>
+							<h1>Street Address</h1>
+							<p>{streetAddress}</p>
 						</div>
 					)}
 
 					{city.length > 0 && (
-						<div className="vendor_confirmation_div address_confirmation">
-							<div className="vendor_city_confirmation">
-								<p className="vendor_confirmation_title">City</p>
-								<p className="vendor_confirmation_value">{city}</p>
+						<div className={registration.city_zip_container}>
+							<div className={registration.city}>
+								<h1>City</h1>
+								<p>{city}</p>
 							</div>
-							<div className="vendor_city_confirmation">
-								<p className="vendor_confirmation_title">Zipcode</p>
-								<p className="vendor_confirmation_value">{zipcode}</p>
+							<div className={registration.city_zip}>
+								<h1>Zipcode</h1>
+								<p>{zipcode}</p>
 							</div>
 						</div>
 					)}
 
 					{city.length === 0 && (
-						<div className="vendor_confirmation_div">
-							<p className="vendor_confirmation_title">Zipcode</p>
-							<p className="vendor_confirmation_value">{zipcode}</p>
+						<div className={registration.city_zip_container}>
+							<div className={registration.city_zip}>
+								<p>{zipcode}</p>
+							</div>
 						</div>
 					)}
 
-					{duplicateEmail && (
-						<p>{duplicateEmail}</p>
-					)}
+					{duplicateEmail && <div class={registration.errorMessage}>{duplicateEmail}</div>}
 
 					<div className="vendor_confirmation_div">
 						<CustomButton styleClass="green-border" onClick={cancel}>
@@ -114,7 +115,7 @@ const VendorConfirmation = (props) => {
 					</div>
 				</div>
 			</div>
-		</div>
+		
 	);
 };
 

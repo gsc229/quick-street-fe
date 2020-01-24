@@ -46,6 +46,7 @@ import footer from '../components/shared/Footer';
 import map from '../components/shared/Map';
 import navbar from '../components/shared/NavBar';
 import custombutton from '../components/shared/CustomButton';
+import modal from '../components/shared/Modal';
 
 // Dashboard components
 import herobanner from '../components/Dashboard/HeroBanner';
@@ -103,6 +104,7 @@ export const Footer = footer;
 export const Map = map;
 export const NavBar = navbar;
 export const CustomButton = custombutton;
+export const Modal = modal;
 
 // Dashboard exports
 export const HeroBanner = herobanner;

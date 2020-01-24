@@ -5,6 +5,8 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 import { Map, Search } from '../components/index';
 
 const Browse = (props) => {
+	// console.log('The browse props are', props);
+
 	const [ zipcode, setZipcode ] = useState('');
 	const [ vendors, setVendors ] = useState({
 		count: '',

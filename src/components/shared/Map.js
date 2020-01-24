@@ -4,6 +4,7 @@ import axios from 'axios';
 import '../../styles/scss/vendorsNearby.scss';
 
 const Map = (props) => {
+	// console.log('props in map.js', props);
 	const [mapDetails, setMapDetails] = useState({
 		lng: -78.435315,
 		lat: 28.644141,

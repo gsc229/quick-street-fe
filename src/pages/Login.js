@@ -56,14 +56,18 @@ const Login = (props) => {
 			axiosWithAuth()
 				.post('/auth/login', {
 					email: credentials.email,
-					password: credentials.password,
-					vendor: true
+					password: credentials.password
 				})
 				.then((response) => {
-					// console.log(response.data.id);
+					// console.log(response);
 					localStorage.setItem('token', response.data.token);
-					localStorage.setItem('vendor_id', response.data.id);
-					props.history.push(`profile/${response.data.id}`);
+					localStorage.setItem('user_id', response.data.id);
+					if (response.data.isVendor) {
+						props.history.push(`profile/${response.data.id}`);
+					} else {
+						props.history.push({pathname: '/browse', customer_id: response.data.id});
+					}
+					
 				})
 				.catch((error) => {
 					console.log(error.response);

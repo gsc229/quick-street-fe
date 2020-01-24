@@ -13,6 +13,7 @@ import '../styles/scss/customerFacingVendorProfile.scss';
 
 const Vendor = props => {
   const vendorId = props.match.params.id;
+  console.log('props in vendor view page', props);
 
   return (
     <>

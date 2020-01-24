@@ -6,7 +6,7 @@ import rectangle from '../../../assets/images/Profile/rectangle.png';
 import placeholder from '../../../assets/images/Profile/placeholder.png';
 
 const Browse = props => {
-  // console.log(props);
+  // console.log('props from the search page is', props);
   const noZipcodeArray = [1, 2, 3, 4, 5, 6];
 
   return (
@@ -40,7 +40,7 @@ const Browse = props => {
             {/* <img className='vendor_banner_image' src={vendor.vendor_banner} alt='Banner Image'></img> */}
             <p className='vendor_name'>{vendor.business_name}</p>
             <p className='vendor_category'>{vendor.vendor_category}</p>
-            <Link className='view_vendor' to={`/browse/${vendor._id}`}>
+            <Link className='view_vendor' to={{ pathname: `/browse/${vendor._id}`, customer_id: props.location.customer_id}}>
               View
             </Link>
           </div>

@@ -27,18 +27,19 @@ const Landing = () => {
 				</div>
 			</div>
 			<div className={landing.title_header}> See What We Offer!</div>
-			<div className="marketing-Container">
-				<div className="marketing-box-top-row">
-					<h1>Browse, buy, share your finds on local food vendors.</h1>
-					<div className="marketing-box-top-row-btn ">
-						<Link to="/browse">Start Browsing</Link>
+			<div className={landing.marketing_container}>
+				<div className={landing.marketing_wrapper}>
+					<div className={landing.top_row}>
+						<h1>Browse, buy, share your finds on local food vendors.</h1>
+						<div className={landing.top__button}>
+							<CustomButton styleClass="red-full">
+								<Link to="/browse">Start Browsing</Link>
+							</CustomButton>
+						</div>
 					</div>
-				</div>
-				<div className="marketing-box-bottom-row">
-					<CarouselTop />
-				</div>
-				<div className="marketing-box-mobile">
-					<CarouselTopMobile />
+					<div className={landing.carousel_wrapper}>
+						<CarouselTop />
+					</div>
 				</div>
 			</div>
 			<div className="marketing-Header"> How it Works</div>

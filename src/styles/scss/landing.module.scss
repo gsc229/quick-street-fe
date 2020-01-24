@@ -12,9 +12,8 @@
 .hero_container {
 	@include phone {
 	}
-	@include lg {
+	@include xl {
 		width: 100%;
-		min-height: 980px;
 		background-image: url('../../assets/images/landing/images/hero-banner.png');
 		background-repeat: no-repeat;
 		background-size: 100% auto;
@@ -49,125 +48,58 @@
 	}
 }
 
-.hero-banner {
-	flex: 1;
-	width: 1238px;
+// ** HEADER ** //
+.title_header {
 	@include phone {
-		width: 100vw;
 	}
-}
-.hero-banner img {
-	flex: 1;
-	width: 100%;
+	@include lg {
+	}
+	@include xl {
+		color: $primary-color;
+		font-size: 4.8rem;
+		font-family: Rubik;
+		text-align: center;
+		margin-top: 10.4rem;
+		margin-bottom: 8.2rem;
+	}
 }
 // **** MARKETING CONTAINER **** //
 
-.title_header {
+.marketing_container {
 	@include phone {
-		font-size: 1rem;
-		margin-top: 20px;
-		margin-bottom: 20px;
-		text-align: center;
-		color: #00b2ed;
 	}
-	@include lg {
-		font-size: 2rem;
-		margin-top: 40px;
-		margin-bottom: 40px;
-		flex: 1;
+	@include xl {
+		background-color: $primary-color;
+		margin: auto;
+		width: 128rem;
+		border-radius: 0.5rem;
+	}
+}
+.marketing_wrapper {
+	@include xl {
+		padding: 2rem;
 	}
 }
 
-.marketing-Container {
+.top_row {
 	@include phone {
-		width: 100vw;
-		background-color: #00b2ed;
 	}
-	@include lg {
-		background-color: #00b2ed;
-		margin: auto;
-		width: 98%;
-		border-radius: 10px;
-	}
-}
-.marketing-box-top-row {
-	@include phone {
-		flex: 1;
-		flex-direction: row;
-		padding: 10px;
-		color: #fff;
-	}
-	@include lg {
-		flex: 1;
-		flex-direction: row;
-		padding: 20px;
+	@include xl {
+		padding: 1rem;
+		h1 {
+			font-size: 4rem;
+			width: 51rem;
+			color: white;
+			font-family: Rubik;
+			float: left;
+		}
 	}
 }
-.marketing-box-top-row h1 {
-	@include phone {
-		width: 100%;
-		font-size: 1rem;
-	}
-	@include lg {
-		color: #fff;
-		font-family: Rubik;
-		font-style: normal;
-		font-weight: 500;
-		font-size: 30px;
-		line-height: 166.86%;
-		width: 30%;
-		float: left;
-	}
+.top__button {
+	float: right;
 }
-.marketing-box-mobile {
-	@include phone {
-		display: block;
-	}
-	@include lg {
-		display: none;
-	}
-}
-.marketing-box-top-row-btn {
-	@include phone {
-		display: none;
-	}
-	@include lg {
-		background: #e92323;
-		border-radius: 5px;
-		text-align: center;
-		flex: 1 1;
-		color: #fff;
-		align-items: center;
-		font-family: Raleway;
-		font-style: normal;
-		font-weight: bold;
-		font-size: 0.8rem;
-		float: right;
-		padding: 15px;
-		cursor: pointer;
-		display: block;
-	}
-}
-.marketing-box-top-row-btn:hover {
-	transform: scale(0.9, 0.9);
-}
-.marketing-box-bottom-row {
-	@include phone {
-		display: none;
-	}
-	@include lg {
-		flex: 1;
-		flex-direction: row;
-		display: block;
-		font-size: 1rem;
-	}
-}
-.marketing-box-bottom-row-card-wrapper {
-	flex: 1;
-}
-.marketing-box-bottom-row-card-wrapper img {
-	max-width: 100%;
-}
+
+// ***** WORKS STYLING ** //
 
 .works-container {
 	display: flex;
@@ -229,35 +161,17 @@
 		height: calc(100% * 4.5); // will take height from phone and multiple x 4.5
 	}
 }
-.carousel-container img {
-	max-width: 100%;
-}
-.carousel .slide {
-	min-width: 100%;
-	margin: 0;
-	position: relative;
-	text-align: center;
-	background: transparent !important;
-}
 
-.carousel .slide .content {
-	position: absolute;
-	bottom: 45px;
-	left: 50%;
-	margin-left: -45%;
-	width: 90%;
-	color: #fff;
-	font-size: 14px;
-	text-align: center;
-}
-a {
-	color: white;
-}
-.vendorButton a:hover {
-	text-decoration: none;
-	color: white;
-}
-.customerButton a:hover {
-	text-decoration: none;
-	color: white;
+// **** CAROUSEL TOP *** //
+.carousel_wrapper {
+	@include xl {
+		background-color: $primary-color;
+		.slide {
+			min-width: 100%;
+			margin: 0;
+			position: relative;
+			text-align: center;
+			background: transparent !important;
+		}
+	}
 }

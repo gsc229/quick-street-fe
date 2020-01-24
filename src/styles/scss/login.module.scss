@@ -5,20 +5,6 @@
 	@include display();
 	font-family: Rubik;
 	@include phone {
-		background-color: $primary-color;
-		width: 100vw;
-		padding-top: 2rem;
-		height: 100vh;
-	}
-	@include md {
-		background-color: $primary-color;
-		padding-top: 0rem;
-	}
-	@include lg {
-		background: url('../../assets/images/Login/login.png');
-		background-repeat: no-repeat;
-		background-size: contain;
-		background-position: right;
 	}
 	@include xl {
 		background: url('../../assets/images/Login/login.png');

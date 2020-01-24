@@ -18,10 +18,7 @@ const Landing = () => {
 					<h1>Finally , A Way For Vendors and Lovers of Food to Come Together in Harmony </h1>
 					<div className={landing.button_container}>
 						<CustomButton styleClass="red-full">
-							<Link to="/register">I'm a Vendor!</Link>
-						</CustomButton>
-						<CustomButton styleClass="red-border">
-							<Link to="/browse">I'm a Customer!</Link>
+							<Link to="/register">Get Started</Link>
 						</CustomButton>
 					</div>
 				</div>

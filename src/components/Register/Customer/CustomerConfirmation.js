@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 import { CustomButton } from '../../index';
 
+// stlyes
+import registration from '../../../styles/scss/registration.module.scss';
+
 const CustomerConfirmation = (props) => {
 	const { email, password } = props.values;
 	const [ duplicateEmail, setDuplicateEmail ] = useState('');
@@ -34,29 +37,26 @@ const CustomerConfirmation = (props) => {
 	};
 
 	return (
-		<div className="main_container">
-			<div className="form_container">
-				<div className="customer_confrim_wapper">
-					<h1>Please confirm your information</h1>
-					<div className="vendor_confirmation_div">
-						<p className="vendor_confirmation_title">Email</p>
-						<p className="vendor_confirmation_value">{email}</p>
-					</div>
-					<div className="vendor_confirmation_div">
-						<p className="vendor_confirmation_title">Password</p>
-						<p className="vendor_confirmation_value">{password}</p>
-					</div>
-					{duplicateEmail && (
-						<p>{duplicateEmail}</p>
-					)}
-					<div className="vendor_confirmation_div">
-						<CustomButton styleClass="green-border" onClick={cancel}>
-							Back
-						</CustomButton>
-						<CustomButton styleClass="green-full" onClick={handleSubmit}>
-							Save & Confirm
-						</CustomButton>
-					</div>
+		<div className={registration.wrapper}>
+			<div className={registration.form_step3}>
+				<h1>Please confirm your information</h1>
+				<div className={registration.confirm_form}>
+					<h1>Email</h1>
+					<p>{email}</p>
+				</div>
+				<div className={registration.confirm_form}>
+					<h1>Password</h1>
+					<p>{password}</p>
+				</div>
+				{duplicateEmail && <div class={registration.errorMessage}>{duplicateEmail}</div>}
+
+				<div className="vendor_confirmation_div">
+					<CustomButton styleClass="green-border" onClick={cancel}>
+						Back
+					</CustomButton>
+					<CustomButton styleClass="green-full" onClick={handleSubmit}>
+						Save & Confirm
+					</CustomButton>
 				</div>
 			</div>
 		</div>

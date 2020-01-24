@@ -8,7 +8,7 @@ import viewvendorproduct from './Browse/VendorPage/components/ViewVendorProduct'
 import viewvendorproducts from './Browse/VendorPage/components/ViewVendorProducts';
 
 //Landing page Components
-import carouselbrowse from '../components/Landing/CarouselBrowse';
+import landinggallery from './Landing/LandingGallery';
 import carouseltop from '../components/Landing/CarouselTop';
 import menu from '../components/Landing/Menu';
 
@@ -55,7 +55,7 @@ import herobanner from '../components/Dashboard/HeroBanner';
 import carouseltopmobile from '../components/Landing/CarouselTopMobile';
 
 //Landing Components exports
-export const CarouselBrowse = carouselbrowse;
+export const LandingGallery = landinggallery;
 export const CarouselTop = carouseltop;
 export const Menu = menu;
 

@@ -1,19 +1,18 @@
 // ** Browse lists of vendors page ** //
 import React, { useState, useEffect } from 'react';
-
 import axiosWithAuth from '../utils/axiosWithAuth';
 import { Map, Search } from '../components/index';
 
 const Browse = (props) => {
 	// console.log('The browse props are', props);
-
-	const [ zipcode, setZipcode ] = useState('');
-	const [ vendors, setVendors ] = useState({
+	const [cart, setCart] = useState([{ item: {} }]);
+	const [zipcode, setZipcode] = useState('');
+	const [vendors, setVendors] = useState({
 		count: '',
 		vendorDetails: []
 	});
-	const [ customerZip, setCustomerZip ] = useState('');
-
+	const [customerZip, setCustomerZip] = useState('');
+	const customerId = localStorage.getItem('user_id');
 	const handleChange = (event) => {
 		setCustomerZip(event.target.value);
 	};
@@ -51,10 +50,39 @@ const Browse = (props) => {
 			setCustomerZip(zip);
 			getSearchResults(zip);
 		}
+
+
+		// Get the cart items on page load for navbar
+		const getCartItems = () => {
+			axiosWithAuth()
+				.get(`customers/${customerId}/cart`)
+				.then(response => {
+					console.log("GET ViewV.Prod response: ", response)
+					setCart(response.data.data.items);
+				})
+				.catch(err => console.log(err.response))
+		}
+
+		getCartItems()
+
 	}, [])
-	
+
 	return (
 		<div className="browse_container">
+
+			<nav className="temporary_nav" style={{ color: 'red', textAlign: 'center' }} >
+				<h1>Replace Me With Luis's Nav</h1>
+				<h4>Mapping over shopping cart items</h4>
+				{cart.map(item => (
+					<>
+						{console.log(item['item']['name'])}
+						<h1>{item.item.name}</h1>
+						<p>{item.price}</p>
+						<p>{item.quantity}</p>
+					</>
+				))}
+
+			</nav>
 			<div className="search_wrapper">
 				{zipcode === '' && <p className="zipcode_title">Enter a location to start browsing</p>}
 				{zipcode !== '' && <p className="zipcode_title">Your results for</p>}

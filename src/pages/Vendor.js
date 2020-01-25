@@ -1,7 +1,7 @@
 // ** Vendor customer facing page ** //
 
-import React from 'react';
-import {ViewAboutVendor, ViewVendorProducts, ViewVendorPosts, Menu, Footer } from '../components/index';
+import React, { useState } from 'react';
+import { ViewAboutVendor, ViewVendorProducts, ViewVendorPosts, Menu, Footer } from '../components/index';
 
 // import About from '../components/Browse/VendorPage/components/About';
 // import Products from '../components/Browse/VendorPage/components/Products';
@@ -12,14 +12,29 @@ import '../styles/scss/customerFacingVendorProfile.scss';
 
 
 const Vendor = props => {
+  const [cart, setCart] = useState([{ item: {} }]);
   const vendorId = props.match.params.id;
   console.log('props in vendor view page', props);
 
   return (
     <>
+      {/* NAVBAR WILL NEED CART STATE */}
+      <nav className="temporary_nav" style={{ color: 'red', textAlign: 'center' }} >
+        <h1>Replace Me With Luis's Nav</h1>
+        <h4>Mapping over shopping cart items</h4>
+        {cart.map(item => (
+          <>
+            {console.log(item['item']['name'])}
+            <h1>{item.item.name}</h1>
+            <p>{item.price}</p>
+            <p>{item.quantity}</p>
+          </>
+        ))}
+
+      </nav>
       <Menu />
       <ViewAboutVendor vendorId={vendorId} />
-      <ViewVendorProducts vendorId={vendorId} />
+      <ViewVendorProducts setCart={setCart} vendorId={vendorId} />
       <ViewVendorPosts vendorId={vendorId} />
       {/* <button onClick={() => props.history.goBack()}>Back</button> */}
       <Footer />

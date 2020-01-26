@@ -27,9 +27,10 @@ const Browse = props => {
           </div>
         </>
       ) : (
-        <p className='vendor_count'>Showing all ({props.vendors.count})</p>
-      )}
+          <p className='vendor_count'>Showing all ({props.vendors.count})</p>
+        )}
       <div className='vendors_div'>
+
         {props.vendors.vendorDetails.map(vendor => (
           <div className='vendor_details_div' key={vendor._id}>
             <CloudinaryContext cloudName='quickstlabs'>
@@ -40,11 +41,12 @@ const Browse = props => {
             {/* <img className='vendor_banner_image' src={vendor.vendor_banner} alt='Banner Image'></img> */}
             <p className='vendor_name'>{vendor.business_name}</p>
             <p className='vendor_category'>{vendor.vendor_category}</p>
-            <Link className='view_vendor' to={{ pathname: `/browse/${vendor._id}`, customer_id: props.location.customer_id}}>
+            <Link className='view_vendor' to={{ pathname: `/browse/${vendor._id}`, customer_id: props.location.customer_id }}>
               View
             </Link>
           </div>
         ))}
+
       </div>
     </div>
   );

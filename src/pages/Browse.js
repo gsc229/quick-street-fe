@@ -42,7 +42,9 @@ const Browse = (props) => {
 				console.log(error);
 			});
 	}
-
+	if (customerZip.length >= 5) {
+		getSearchResults(customerZip);
+	}
 	useEffect(() => {
 		const query = new URLSearchParams(props.location.search);
 		const zip = query.get('zip');

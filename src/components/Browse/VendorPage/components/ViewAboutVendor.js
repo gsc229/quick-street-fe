@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Map from '../../../shared/Map';
 import axiosWithAuth from '../../../../utils/axiosWithAuth';
-import '../../../../styles/scss/customerFacingVendorProfile.scss';
+import '../../../../styles/scss/OldcustomerFacingVendorProfile.scss';
 // import { image } from '../../assets/rectangle.png';
 import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
 const ViewAboutVendor = (props) => {

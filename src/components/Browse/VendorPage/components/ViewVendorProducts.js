@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import axiosWithAuth from '../../../../utils/axiosWithAuth';
 import Product from './ViewVendorProduct';
-import '../../../../styles/scss/customerFacingVendorProfile.scss';
+import '../../../../styles/scss/OldcustomerFacingVendorProfile.scss';
 
 const ViewVendorProducts = (props) => {
 	const [vendorProducts, setVendorProducts] = useState({

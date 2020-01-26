@@ -8,7 +8,7 @@ import { ViewAboutVendor, ViewVendorProducts, ViewVendorPosts, Menu, Footer } fr
 // import Posts from '../components/Browse/VendorPage/components/Posts';
 // import Menu from '../components/shared/Menu';
 // import Footer from '../components/shared/Footer';
-import '../styles/scss/customerFacingVendorProfile.scss';
+import '../styles/scss/OldcustomerFacingVendorProfile.scss';
 
 
 const Vendor = props => {

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axiosWithAuth from '../../../../utils/axiosWithAuth';
-import '../../../../styles/scss/customerFacingVendorProfile.scss';
+import '../../../../styles/scss/OldcustomerFacingVendorProfile.scss';
 import { Modal } from '../../../index';
 import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
-
+import ModalCarousel from './ModalCarousel';
 
 const ViewVendorProduct = (props) => {
 	const [images, setImages] = useState([{}]);
@@ -71,7 +71,9 @@ const ViewVendorProduct = (props) => {
 			});
 	}, []);
 
-
+	const modalLeftStyle = {
+		width: "50%"
+	};
 
 	return (
 		<>
@@ -81,17 +83,22 @@ const ViewVendorProduct = (props) => {
 				<p className="product_price">${props.product.price}</p>
 			</div>
 			<Modal showModal={showModal}>
+				{/* MODAL close x */}
 				<i
 					onClick={() => showHideModal(false)}
 					className="fa fa-times close_x"></i>
+
+
 				<div className='modal_wrapper' >
-					<div className="modal_left">
+					<div className="modal_left" style={modalLeftStyle} >
 
 
-						<img src={images[0] ? images[0].secure_url : ""} alt="" />
+						{/* <img src={images[0] ? images[0].secure_url : ""} alt="img" /> */}
+						<ModalCarousel images={images} />
 
 
 					</div>
+					{/* LEFT/RIGHT DIVIDE */}
 					<div className="modal_right">
 						<p>Name: </p>
 						<p className="modal_product_name">

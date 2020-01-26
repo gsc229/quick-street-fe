@@ -30,7 +30,6 @@
 .zipcode_input {
 	@include xl {
 		@include form_input();
-
 		width: 27.3rem;
 		height: 3.6rem;
 		background-image: url('../../assets/svgs/search_icon.svg');
@@ -49,73 +48,21 @@
 // *** ITEMS RELATED TO SEARCH.JS
 
 .result_para {
-	margin-top: 5%;
-	margin-bottom: 5%;
+	margin-top: 5.5rem;
+	margin-bottom: 3.2rem;
 	font-size: 24px;
 	color: #2b3335;
 	text-align: center;
 }
-
-.vendor_count {
-	font-size: 24px;
-	color: #2b3335;
-	margin-top: 15px;
-	margin-bottom: 15px;
-}
-
-.vendors_div {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: left;
-	margin-bottom: 40px;
-}
-/* .vendors_div p {
-    margin-bottom: 0px;
-  } */
-
-.vendor_details_div {
-	/* flex: 1 ;
-      flex-direction: column;
-      margin-left: 5px;
-      margin-bottom: 20px; */
-	width: 150px;
-	margin: 0 8px 25px 8px;
-}
-
-.vendor_banner_image {
-	width: 100%;
-	height: 70%;
-	object-fit: cover;
-}
-
-.vendor_name {
-	font-size: 16px;
-	color: #2b3335;
-	margin: 8px 0 0px 0;
-}
-
-.vendor_category {
-	font-size: 14px;
-	color: #2b3335;
-}
-
-.view_vendor {
-	font-size: 14px;
-	color: #00769d;
-	text-decoration: none;
-}
-
 .vendor_div_empty {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 }
-
-.vendor_details_div_empty {
-	width: 15%;
-	border: 2px #e5e5e5 solid;
+.vendor_details_empty {
+	width: 19.2rem;
+	border: 0.2rem #e5e5e5 solid;
 }
-
 .placeholder_image {
 	width: 100%;
 }
@@ -128,4 +75,48 @@
 	margin-left: auto;
 	margin-right: auto;
 	width: 80%;
+}
+
+.vendor_count {
+	font-size: 2.4rem;
+	color: #2b3335;
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+}
+
+.vendors_div {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-bottom: 4rem;
+}
+
+.vendor_details_div {
+	width: 15rem;
+	margin: 0 0.8rem 2.4rem 0.8rem;
+}
+
+.vendor_banner_image {
+	width: 100%;
+	object-fit: cover;
+	background-color: red;
+}
+
+.vendor_name {
+	font-size: 1.6rem;
+	color: #2b3335;
+	margin: 8px 0 0px 0;
+}
+
+.category {
+	p {
+		font-size: 1.4rem;
+		color: #2b3335;
+	}
+}
+
+.view_vendor {
+	font-size: 1.4rem;
+	color: #00769d;
+	text-decoration: none;
 }

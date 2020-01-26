@@ -1,53 +1,38 @@
 @import './mixins.scss';
-.menu-container {
+.container {
 	@include phone {
-		font-size: 1rem;
-		color: #fef2e4;
 	}
-	@include lg {
+	@include xl {
 		font-family: Raleway;
 		font-style: normal;
 		font-weight: bold;
-		font-size: 24px;
+		font-size: 2.4rem;
 		display: flex;
 		align-items: center;
 		color: #fef2e4;
+		padding-top: 2rem;
+		padding-left: 8rem;
+		padding-right: 8rem;
+		padding-bottom: 2rem;
 	}
 }
-.landing-menu {
-	background-color: white;
-	flex: 1;
-}
+
 .nav {
 	@include phone {
-		padding: 20px;
-		font-size: 1rem;
-		text-align: center;
 	}
-	@include lg {
+	@include xl {
 		width: 100%;
-		padding-left: 50px;
-		padding-right: 30px;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		font-family: Raleway;
 		font-style: normal;
 		font-weight: bold;
-		font-size: 24px;
-		line-height: 170.5%;
-		/* identical to box height, or 41px */
-		color: #fef2e4;
 	}
 }
 
-.logo {
-	display: inline-block;
-}
-
-.nav-links {
+.links {
 	@include phone {
-		display: none;
 	}
 	@include lg {
 		list-style: none;
@@ -55,17 +40,17 @@
 	}
 }
 
-.nav-item a {
+.item a {
 	display: inline-block;
 	padding: 10px 15px;
 	text-decoration: none;
 	color: white;
 }
 
-.nav-item:hover {
+.item:hover {
 	background-color: white;
 }
 
-.nav-item:hover a {
+.item:hover a {
 	color: #00b2ed;
 }

@@ -7,24 +7,25 @@
 
 @media (min-width: 1440px) {
   .container {
-    width: 100vw;
+    width: 144rem;
+    margin: 0 auto;
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1440px) {
   .hero_container {
     width: 100%;
-    min-height: 980px;
     background-image: url("../../assets/images/landing/images/hero-banner.png");
     background-repeat: no-repeat;
     background-size: 100% auto;
     background-position: center top;
+    min-height: 81rem;
   }
 }
 
 @media (min-width: 1440px) {
   .info {
-    margin-top: 32.1rem;
+    margin-top: 20rem;
     margin-left: 7.9rem;
     width: 43.7rem;
   }
@@ -59,312 +60,132 @@
   }
 }
 
-.hero-banner {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  width: 1238px;
-}
-
-@media (min-width: 320px) {
-  .hero-banner {
-    width: 100vw;
-  }
-}
-
-.hero-banner img {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  width: 100%;
-}
-
-@media (min-width: 320px) {
+@media (min-width: 1440px) {
   .title_header {
-    font-size: 1rem;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    text-align: center;
     color: #00b2ed;
+    font-size: 4.8rem;
+    font-family: Rubik;
+    text-align: center;
+    margin-top: 10.4rem;
+    margin-bottom: 8.2rem;
   }
 }
 
-@media (min-width: 1024px) {
-  .title_header {
-    font-size: 2rem;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-  }
-}
-
-@media (min-width: 320px) {
-  .marketing-Container {
-    width: 100vw;
-    background-color: #00b2ed;
-  }
-}
-
-@media (min-width: 1024px) {
-  .marketing-Container {
+@media (min-width: 1440px) {
+  .marketing_container {
     background-color: #00b2ed;
     margin: auto;
-    width: 98%;
-    border-radius: 10px;
+    width: 128rem;
+    border-radius: 0.5rem;
   }
 }
 
-@media (min-width: 320px) {
-  .marketing-box-top-row {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    padding: 10px;
-    color: #fff;
+@media (min-width: 1440px) {
+  .marketing_wrapper {
+    padding: 2rem;
   }
 }
 
-@media (min-width: 1024px) {
-  .marketing-box-top-row {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    padding: 20px;
+@media (min-width: 1440px) {
+  .top_row {
+    padding: 1rem;
   }
-}
-
-@media (min-width: 320px) {
-  .marketing-box-top-row h1 {
-    width: 100%;
-    font-size: 1rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .marketing-box-top-row h1 {
-    color: #fff;
+  .top_row h1 {
+    font-size: 4rem;
+    width: 51rem;
+    color: white;
     font-family: Rubik;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 30px;
-    line-height: 166.86%;
-    width: 30%;
     float: left;
   }
 }
 
-@media (min-width: 320px) {
-  .marketing-box-mobile {
-    display: block;
-  }
+.top__button {
+  float: right;
 }
 
-@media (min-width: 1024px) {
-  .marketing-box-mobile {
-    display: none;
-  }
-}
-
-@media (min-width: 320px) {
-  .marketing-box-top-row-btn {
-    display: none;
-  }
-}
-
-@media (min-width: 1024px) {
-  .marketing-box-top-row-btn {
-    background: #e92323;
-    border-radius: 5px;
-    text-align: center;
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1;
-            flex: 1 1;
-    color: #fff;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    font-family: Raleway;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 0.8rem;
-    float: right;
-    padding: 15px;
-    cursor: pointer;
-    display: block;
-  }
-}
-
-.marketing-box-top-row-btn:hover {
-  -webkit-transform: scale(0.9, 0.9);
-          transform: scale(0.9, 0.9);
-}
-
-@media (min-width: 320px) {
-  .marketing-box-bottom-row {
-    display: none;
-  }
-}
-
-@media (min-width: 1024px) {
-  .marketing-box-bottom-row {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
+@media (min-width: 1440px) {
+  .works_container {
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    display: block;
-    font-size: 1rem;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin-bottom: 4rem;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 128rem;
   }
 }
 
-.marketing-box-bottom-row-card-wrapper {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-
-.marketing-box-bottom-row-card-wrapper img {
-  max-width: 100%;
-}
-
-.works-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin-bottom: 40px;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-@media (min-width: 320px) {
-  .works-card-wrapper {
-    margin-bottom: 5px;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .works-card-wrapper {
+@media (min-width: 1440px) {
+  .card_wrapper {
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-right: 2.4rem;
     margin-bottom: 0px;
+    width: 40.9rem;
   }
 }
 
-.works-image {
-  max-width: 100%;
+@media (min-width: 1440px) {
+  .works_image {
+    max-width: 100%;
+  }
 }
 
-.works-image img {
-  width: 100%;
+@media (min-width: 1440px) {
+  .works_image img {
+    width: 100%;
+  }
 }
 
-@media (min-width: 320px) {
-  .works-content {
+@media (min-width: 1440px) {
+  .works_content {
     background: #ffffff;
-    -webkit-box-shadow: 0px 4px 4px rgba(0, 118, 157, 0.1);
-            box-shadow: 0px 4px 4px rgba(0, 118, 157, 0.1);
-    font-size: 0.8rem;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
     text-align: center;
     color: #000000;
-    padding-right: 10px;
-    padding-left: 10px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-  }
-}
-
-@media (min-width: 1024px) {
-  .works-content {
+    -webkit-box-shadow: 0px 4px 4px rgba(0, 118, 157, 0.1);
+            box-shadow: 0px 4px 4px rgba(0, 118, 157, 0.1);
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
-    font-size: 1rem;
     height: 258px;
   }
-}
-
-.works-content p {
-  padding: 20px;
-}
-
-@media (min-width: 320px) {
-  .carousel-container {
-    width: 100%;
-    height: 170px;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+  .works_content p {
+    padding: 4rem;
+    font-size: 2.4rem;
   }
 }
 
-@media (min-width: 1024px) {
-  .carousel-container {
-    height: calc(100% * 4.5);
+.gallery_container {
+  width: 128rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 1440px) {
+  .carousel_wrapper {
+    background-color: #00b2ed;
   }
-}
-
-.carousel-container img {
-  max-width: 100%;
-}
-
-.carousel .slide {
-  min-width: 100%;
-  margin: 0;
-  position: relative;
-  text-align: center;
-  background: transparent !important;
-}
-
-.carousel .slide .content {
-  position: absolute;
-  bottom: 45px;
-  left: 50%;
-  margin-left: -45%;
-  width: 90%;
-  color: #fff;
-  font-size: 14px;
-  text-align: center;
-}
-
-a {
-  color: white;
-}
-
-.vendorButton a:hover {
-  text-decoration: none;
-  color: white;
-}
-
-.customerButton a:hover {
-  text-decoration: none;
-  color: white;
+  .carousel_wrapper .slide {
+    min-width: 100%;
+    margin: 0;
+    position: relative;
+    text-align: center;
+    background: transparent !important;
+  }
 }
 /*# sourceMappingURL=landing.module.css.map */

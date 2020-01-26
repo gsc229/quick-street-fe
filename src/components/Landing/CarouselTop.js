@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 
+//styles
+import './carousel.css';
 //images
 const cookies = require('../../assets/images/landing/images/carousel/cookies.png');
 const sammich = require('../../assets/images/landing/images/carousel/sammiches.png');

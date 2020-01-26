@@ -1,7 +1,12 @@
 // ** Browse lists of vendors page ** //
 import React, { useState, useEffect } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
-import { Map, Search } from '../components/index';
+
+// components
+import { Map, Search, Menu } from '../components/index';
+
+// styles
+import browse from '../styles/scss/browse.module.scss';
 
 const Browse = (props) => {
 	// console.log('The browse props are', props);
@@ -21,7 +26,7 @@ const Browse = (props) => {
 		event.preventDefault();
 		const query = new URLSearchParams(props.location.search);
 		// console.log('query', query);
-		query.set('zip', customerZip)
+		query.set('zip', customerZip);
 		props.history.replace(`${props.location.pathname}?${query.toString()}`);
 		getSearchResults(customerZip);
 	};
@@ -41,10 +46,8 @@ const Browse = (props) => {
 			.catch((error) => {
 				console.log(error);
 			});
-	}
-	if (customerZip.length >= 5) {
-		getSearchResults(customerZip);
-	}
+	};
+
 	useEffect(() => {
 		const query = new URLSearchParams(props.location.search);
 		const zip = query.get('zip');
@@ -52,49 +55,23 @@ const Browse = (props) => {
 			setCustomerZip(zip);
 			getSearchResults(zip);
 		}
-
-
-		// Get the cart items on page load for navbar
-		const getCartItems = () => {
-			axiosWithAuth()
-				.get(`customers/${customerId}/cart`)
-				.then(response => {
-					console.log("GET ViewV.Prod response: ", response)
-					setCart(response.data.data.items);
-				})
-				.catch(err => console.log(err.response))
-		}
-
-		getCartItems()
-
-	}, [])
+	}, []);
 
 	return (
-		<div className="browse_container">
-
-			<nav className="temporary_nav" style={{ color: 'red', textAlign: 'center' }} >
-				<h1>Replace Me With Luis's Nav</h1>
-				<h4>Mapping over shopping cart items</h4>
-				{cart.map(item => (
-					<>
-						{console.log(item['item']['name'])}
-						<h1>{item.item.name}</h1>
-						<p>{item.price}</p>
-						<p>{item.quantity}</p>
-					</>
-				))}
-
-			</nav>
-			<div className="search_wrapper">
-				{zipcode === '' && <p className="zipcode_title">Enter a location to start browsing</p>}
-				{zipcode !== '' && <p className="zipcode_title">Your results for</p>}
+		<div className={browse.container}>
+			<div className={browse.temp_menu}>
+				<Menu />
+			</div>
+			<div className={browse.wrapper}>
+				{zipcode === '' && <p>Enter a location to start browsing</p>}
+				{zipcode !== '' && <p>Your results for</p>}
 				<form onSubmit={handleSubmit}>
 					<input
 						name="zipcode"
 						placeholder="zip code"
 						onChange={handleChange}
 						value={customerZip}
-						className="zipcode_input"
+						className={browse.zipcode_input}
 					/>
 				</form>
 

@@ -187,7 +187,7 @@ const Profile = (props) => {
 					{bannerInfo !== `no-photo.jpg` ? (
 						<CloudinaryContext cloudName="quickstlabs">
 							<Image className={banner.vendor_banner_image} publicId={bannerInfo}>
-								<Transformation gravity="center" height="318" width="1062" crop="fill" />
+								<Transformation gravity="center" height="355" width="1062" crop="fill" />
 							</Image>
 						</CloudinaryContext>
 					) : (

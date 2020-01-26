@@ -1,0 +1,15 @@
+.carousel .slide {
+	background-color: #00b2ed;
+}
+.carousel .slide .content {
+	position: absolute;
+	bottom: 4.5rem;
+	left: 50%;
+	margin-left: -45%;
+	width: 90%;
+	color: #fff;
+	font-size: 1.6rem;
+	text-align: center;
+	background-color: rgb(0, 0, 0, 0.5);
+	padding: 1rem;
+}

@@ -35,6 +35,8 @@ const Browse = (props) => {
 		getSearchResults(customerZip);
 	};
 
+
+
 	const getSearchResults = (zip) => {
 		axiosWithAuth()
 			.get(`/vendors/radius/${zip}/5`)
@@ -51,6 +53,8 @@ const Browse = (props) => {
 				console.log(error);
 			});
 	};
+
+
 
 	useEffect(() => {
 		const query = new URLSearchParams(props.location.search);

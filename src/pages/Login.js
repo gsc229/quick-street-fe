@@ -69,7 +69,7 @@ const Login = (props) => {
 			.get(`/customers/${customerId}/cart`)
 			.then(response => {
 				localStorage.setItem('cart_id', response.data.data._id)
-				console.log("GET Login.js response: ", response)
+				//console.log("GET Login.js response: ", response)
 			})
 			.catch(err => {
 				if (err.response.status === 404) {

@@ -60,13 +60,14 @@ const EditProduct = (props) => {
   }
 
   const submitProductDetails = () => {
+    const vendorId = localStorage.getItem('user_id');
     setDetailsSaved(true);
     setTimeout(function () { setDetailsSaved(false) }, 1500)
 
 
 
     axiosWithAuth()
-      .put(`/products/${product._id}`, product)
+      .put(`/products/${product._id}`, { ...product, vendorId })
       .then(res => {
         console.log('PUT EditProduct.js submitProd.Details: res ', res)
       })

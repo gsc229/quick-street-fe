@@ -8,8 +8,8 @@ const ProductImageUploader = (props) => {
 
   const { productId, setReloadingImages, reloadingImages } = props;
   const vendorId = localStorage.getItem('vendor_id');
-  console.log('ProductImageUploader.js productId ', productId);
-  console.log('ProductImageUploader.js vendorId ', vendorId);
+  //console.log('ProductImageUploader.js productId ', productId);
+  //console.log('ProductImageUploader.js vendorId ', vendorId);
 
 
   const myWidget = window.cloudinary.createUploadWidget(
@@ -72,7 +72,7 @@ const ProductImageUploader = (props) => {
           path: image_info.path,
           thumbnail_url: image_info.thumbnail_url
         }
-        console.log('ProductImageUploader.js resut.info: ', image_info);
+        //console.log('ProductImageUploader.js resut.info: ', image_info);
 
         axiosWithAuth()
           .post(`/products/${productId}/product-images`, correct_fields)

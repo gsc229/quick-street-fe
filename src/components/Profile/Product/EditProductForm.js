@@ -21,19 +21,19 @@ const EditProductForm = (props) => {
         </div>
         <div className={editingProduct.input_wrapper}>
           <label htmlFor="description">Product Description: </label>
-          <input onChange={handleChanges} type="text" name="descriptoin" value={product.description} />
+          <input onChange={handleChanges} type="text" name="description" value={product.description} />
         </div>
         <div className={editingProduct.input_wrapper}>
           <label htmlFor="diet">Dietary Category: </label>
-          <input onChange={handleChanges} type="text" diet="diet" value={product.diet} />
+          <input onChange={handleChanges} type="text" name="diet" value={product.diet} />
         </div>
         <div className={editingProduct.input_wrapper}>
           <label htmlFor="category">Food Category: </label>
-          <input onChange={handleChanges} type="text" category="category" value={product.category} />
+          <input onChange={handleChanges} type="text" name="category" value={product.category} />
         </div>
         <div className={editingProduct.input_wrapper}>
           <label htmlFor="price">Price: </label>
-          <input onChange={handleChanges} type="text" price="price" value={product.price} />
+          <input onChange={handleChanges} type="text" name="price" value={product.price} />
         </div>
       </form>
     </div>

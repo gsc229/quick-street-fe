@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "",
-    "sources": [
-        "../../../styles/scss/vendor_add_product_form.module.scss"
-    ],
-    "names": [],
-    "file": "vendor_add_product_form.module.css"
-}

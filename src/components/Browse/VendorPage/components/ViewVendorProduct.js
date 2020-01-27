@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axiosWithAuth from '../../../../utils/axiosWithAuth';
-import '../../../../styles/scss/OldcustomerFacingVendorProfile.scss';
+//stlying 
+
+import profile from '../../../../styles/scss/profile.module.scss';
+
 import { Modal } from '../../../index';
 import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
 import ModalCarousel from './ModalCarousel';

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import profile from '../../styles/scss/vendor_profile.module.scss';
+import profile from '../../styles/scss/profile.module.scss';
 const NavBar = ({ business_name }) => {
 	const [ show, setShow ] = useState(false);
 

@@ -3,7 +3,7 @@ import { AddPostForm, VendorPostList } from '../../index';
 import axios from 'axios';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 
-import bulletin from '../../../styles/scss/vendor_bulletin.module.scss';
+import profile from '../../../styles/scss/profile.module.scss';
 
 const Bulletin = (props) => {
 	const [ showAddPostForm, setShowAddPostForm ] = useState(false);
@@ -44,15 +44,15 @@ const Bulletin = (props) => {
 	}, []);
 
 	return (
-		<div className={bulletin.vendor_bulletin_container}>
-			<div className={bulletin.vendor_bulletin_header}>
-				<div className={bulletin.vendor_bulletin_title}>
+		<div className={profile.vendor_bulletin_container}>
+			<div className={profile.vendor_bulletin_header}>
+				<div className={profile.vendor_bulletin_title}>
 					<p>Bulletin Board</p>
 					{/* <hr /> */}
 				</div>
 
-				<div className={bulletin.vendor_add_post_btn_wrapper}>
-					<button className={bulletin.vendor_bulletin_button} onClick={addPost}>
+				<div className={profile.vendor_add_post_btn_wrapper}>
+					<button className={profile.vendor_bulletin_button} onClick={addPost}>
 						Add Post
 					</button>
 				</div>

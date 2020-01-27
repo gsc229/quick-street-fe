@@ -1,0 +1,59 @@
+@media (min-width: 1440px) {
+  .container {
+    width: 144rem;
+    background-color: red;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1440px) {
+  .banner_container {
+    padding: 18.9rem;
+    background-color: #e1f6fa;
+  }
+}
+
+@media (min-width: 1440px) {
+  .banner_wrapper {
+    width: 144rem;
+    margin: 0 auto;
+  }
+}
+
+.about_container {
+  background-color: #e5e5e5;
+}
+
+@media (min-width: 1440px) {
+  .about_wrapper {
+    width: 144rem;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1440px) {
+  .products_container {
+    background-color: #e9bbfa;
+  }
+}
+
+@media (min-width: 1440px) {
+  .products_wrapper {
+    margin: 0 auto;
+    width: 144rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .bulletin_container {
+    background-color: #e5e5e5;
+  }
+}
+
+@media (min-width: 1440px) {
+  .bulletin_wrapper {
+    margin: 0 auto;
+    width: 144rem;
+  }
+}
+/*# sourceMappingURL=profile.module.css.map */

@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { About, VendorProducts, AddProductForm, Bulletin, BannerUploader, NavBar } from '../components/index';
 import { Placeholder } from '../assets/images/index';
 //Styles
-import profile from '../styles/css/vendor_profile.module.css';
-import banner from '../styles/css/vendor_banner.module.css';
+import profile from '../styles/scss/profile.module.scss';
+
 //Font awesom
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSave, faPen } from '@fortawesome/free-solid-svg-icons';
@@ -138,12 +138,10 @@ const Profile = (props) => {
 	};
 
 	return (
-		<div className={profile.vendor_profile_container}>
-			<NavBar {...vendorInfo} />
-
-			<div className={banner.vendor_banner_container}>
-				<div className={banner.banner_text_btns}>
-					<div className={banner.vendor_header_name}>
+		<div className={profile.container}>
+			<div className={profile.vendor_banner_container}>
+				<div className={profile.banner_text_btns}>
+					<div className={profile.vendor_header_name}>
 						<input
 							onChange={(e) => {
 								if (editBusinessName) {
@@ -154,14 +152,14 @@ const Profile = (props) => {
 								}
 							}}
 							value={vendorInfo.business_name}
-							className={editingName ? banner.glowing_border : 'none'}
+							className={editingName ? profile.glowing_border : 'none'}
 						/>
 					</div>
 
-					<div className={banner.vendor_profile_btn_group}>
+					<div className={profile.vendor_profile_btn_group}>
 						<FontAwesomeIcon
-							id={banner.pen}
-							className={`${banner.icon} " " ${editingName ? banner.red_edit : banner.normal_pen}`}
+							id={profile.pen}
+							className={`${profile.icon} " " ${editingName ? profile.red_edit : profile.normal_pen}`}
 							icon={faPen}
 							onClick={() => {
 								editName();
@@ -169,8 +167,8 @@ const Profile = (props) => {
 							}}
 						/>
 						<FontAwesomeIcon
-							id={banner.save}
-							className={banner.icon}
+							id={profile.save}
+							className={profile.icon}
 							icon={faSave}
 							onClick={(e) => {
 								saveName(e);
@@ -183,17 +181,17 @@ const Profile = (props) => {
 					</div>
 				</div>
 
-				<div className={banner.vendor_banner_image_container}>
+				<div className={profile.vendor_banner_image_container}>
 					{bannerInfo !== `no-photo.jpg` ? (
 						<CloudinaryContext cloudName="quickstlabs">
-							<Image className={banner.vendor_banner_image} publicId={bannerInfo}>
+							<Image className={profile.vendor_banner_image} publicId={bannerInfo}>
 								<Transformation gravity="center" height="355" width="1062" crop="fill" />
 							</Image>
 						</CloudinaryContext>
 					) : (
 						<img className="vendor_banner_image" src={Placeholder} alt="vendor header" />
 					)}
-					<div className={banner.vendor_banner_upload}>
+					<div className={profile.vendor_banner_upload}>
 						<BannerUploader
 							vendorId={vendorId}
 							vendorInfo={vendorInfo}
@@ -203,7 +201,6 @@ const Profile = (props) => {
 					</div>
 				</div>
 			</div>
-
 			<About
 				vendorInfo={vendorInfo}
 				info={info}
@@ -213,7 +210,6 @@ const Profile = (props) => {
 				saveProfile={saveProfile}
 				setVendorInfo={setVendorInfo}
 			/>
-
 			<VendorProducts productIds={productIds} products={products} addProduct={addProduct} />
 			<AddProductForm
 				productIds={productIds}

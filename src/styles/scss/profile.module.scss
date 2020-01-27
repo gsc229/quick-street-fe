@@ -1,0 +1,60 @@
+@import './mixins.scss';
+
+.container {
+	@include xl {
+		width: 144rem;
+		background-color: red;
+		margin: 0 auto;
+	}
+}
+
+// ***** BANNER STYLING ******
+.banner_container {
+	@include xl {
+		padding: 18.9rem;
+		background-color: $dry-ice;
+	}
+}
+
+.banner_wrapper {
+	@include xl {
+		width: 144rem;
+		margin: 0 auto;
+	}
+}
+// ***** ABOUT STYLING **** //
+.about_container {
+	background-color: $grey;
+}
+
+.about_wrapper {
+	@include xl {
+		width: 144rem;
+		margin: 0 auto;
+	}
+}
+
+// ***** PRODUCTS STYLING **** //
+.products_container {
+	@include xl {
+		background-color: $cotton-candy;
+	}
+}
+.products_wrapper {
+	@include xl {
+		margin: 0 auto;
+		width: 144rem;
+	}
+}
+// ***** BULLETIN CONTAINER ***** //
+.bulletin_container {
+	@include xl {
+		background-color: $grey;
+	}
+}
+.bulletin_wrapper {
+	@include xl {
+		margin: 0 auto;
+		width: 144rem;
+	}
+}

@@ -35,7 +35,6 @@ const EditProductForm = (props) => {
           <label htmlFor="price">Price: </label>
           <input onChange={handleChanges} type="text" price="price" value={product.price} />
         </div>
-
       </form>
     </div>
   )

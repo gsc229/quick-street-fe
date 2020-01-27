@@ -4,7 +4,7 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 
 // components
 import { Map, Search, Menu } from '../components/index';
-import {UserContext} from '../contexts/UserContext';
+import { UserContext } from '../contexts/UserContext';
 
 // styles
 import browse from '../styles/scss/browse.module.scss';
@@ -15,13 +15,13 @@ const Browse = (props) => {
 	const user = useContext(UserContext);
 	console.log('user in browse', user);
 
-	const [ zipcode, setZipcode ] = useState('');
-	const [ vendors, setVendors ] = useState({
+	const [zipcode, setZipcode] = useState('');
+	const [vendors, setVendors] = useState({
 		count: '',
 		vendorDetails: []
 	});
-	const [ customerZip, setCustomerZip ] = useState('');
-
+	const [customerZip, setCustomerZip] = useState('');
+	const customerId = localStorage.getItem('user_id');
 	const handleChange = (event) => {
 		setCustomerZip(event.target.value);
 	};
@@ -34,6 +34,8 @@ const Browse = (props) => {
 		props.history.replace(`${props.location.pathname}?${query.toString()}`);
 		getSearchResults(customerZip);
 	};
+
+
 
 	const getSearchResults = (zip) => {
 		axiosWithAuth()
@@ -51,6 +53,8 @@ const Browse = (props) => {
 				console.log(error);
 			});
 	};
+
+
 
 	useEffect(() => {
 		const query = new URLSearchParams(props.location.search);

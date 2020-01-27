@@ -7,7 +7,7 @@ import placeholder from '../../../assets/images/Profile/placeholder.png';
 
 const Browse = (props) => {
 	// console.log('props from the search page is', props);
-	const noZipcodeArray = [ 1, 2, 3, 4, 5, 6 ];
+	const noZipcodeArray = [1, 2, 3, 4, 5, 6];
 
 	return (
 		<div className={browse.browse_wrapper}>
@@ -25,8 +25,8 @@ const Browse = (props) => {
 					</div>
 				</div>
 			) : (
-				<p className={browse.vendor_count}>Showing all ({props.vendors.count})</p>
-			)}
+					<p className={browse.vendor_count}>Showing all ({props.vendors.count})</p>
+				)}
 			<div className={browse.vendors_div}>
 				{props.vendors.vendorDetails.map((vendor) => (
 					<div className={browse.vendor_details_div} key={vendor._id}>

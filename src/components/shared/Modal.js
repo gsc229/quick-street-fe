@@ -1,11 +1,12 @@
 import React from 'react';
-import '../../styles/scss/modal.scss';
+import modal from '../../styles/scss/modal.module.scss';
 
-const Modal = ({ showModal, children  }) => {
+
+const Modal = ({ showModal, children }) => {
   return (
-    <div className={showModal ? 'modal display-block' : 'modal display-none'}>
-      <section className='modal-main'>
-        {children}        
+    <div className={showModal ? `${modal.modal} ${modal.display_block}` : `${modal.modal} ${modal.display_none}`}>
+      <section className={`${modal.modal_main}`}>
+        {children}
       </section>
     </div>
   );

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Map from '../../../shared/Map';
 import axiosWithAuth from '../../../../utils/axiosWithAuth';
-import '../../../../styles/scss/customerFacingVendorProfile.scss';
+import '../../../../styles/scss/OldcustomerFacingVendorProfile.scss';
 // import { image } from '../../assets/rectangle.png';
 import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
 const ViewAboutVendor = (props) => {
-	const [ vendor, setVendor ] = useState({
+	const [vendor, setVendor] = useState({
 		location: {}
 	});
 
@@ -47,8 +47,8 @@ const ViewAboutVendor = (props) => {
 				</div>
 				<div className="location_section">
 					<p className="title">Location</p>
-					<p className="title_content">The vendor can be found at {vendor.location.zipcode} area</p>
-					<Map zipcode={vendor.location.zipcode} width={403} height={280} radius={3000} />
+					<p className="title_content">The vendor can be found at {"18641"} area</p>
+					<Map zipcode={"18641"} width={403} height={280} radius={3000} />
 				</div>
 			</div>
 		</div>

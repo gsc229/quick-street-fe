@@ -8,7 +8,7 @@ const Contexts = ({children}) => {
   return (
     <>
       <UserProvider>
-        <CartProvider value={{ cart, addToCart, removeFromCart }}>
+        <CartProvider>
           {children}
         </CartProvider>
       </UserProvider>

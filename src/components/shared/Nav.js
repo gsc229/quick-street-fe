@@ -6,25 +6,35 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import navBar from '../../styles/scss/navBar.module.scss';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1
   },
+  tabs: {
+    display: 'flex',
+    flexGrow: 1,
+    justifyContent: 'space-evenly',
+    fontSize: '2rem'
+  },
+  login: {
+    flexGrow: 0.1,
+    display: 'flex',
+    fontSize: '2rem',
+    justifyContent: 'space-evenly'
+  },
   menuButton: {
     marginRight: theme.spacing(2)
   },
-  title: {
-    flexGrow: 1
-  }
+  title: {}
 }));
 
 const Nav = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <AppBar className={navBar.style} position='static'>
+      <AppBar position='static'>
         <Toolbar>
           <IconButton
             edge='start'
@@ -35,10 +45,41 @@ const Nav = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant='h6' className={classes.title}>
-            <h2>Marketavenue</h2>
+            <Link to='/' style={{ color: 'white', textDecoration: 'none' }}>
+              <h1>Marketavenue</h1>
+            </Link>
           </Typography>
-          <Button color='inherit'>Log In</Button>
-          <Button color='inherit'>Join Us</Button>
+
+          <div className={classes.tabs}>
+            <Link style={{ color: 'white', textDecoration: 'none' }}>Food</Link>
+            <Link style={{ color: 'white', textDecoration: 'none' }}>
+              Services
+            </Link>
+            <Link
+              style={{
+                color: 'white',
+                textDecoration: 'none',
+                textDecoration: 'none'
+              }}
+            >
+              About
+            </Link>
+          </div>
+
+          <div className={classes.login}>
+            <Link
+              to='/login'
+              style={{ color: 'white', textDecoration: 'none' }}
+            >
+              Log In
+            </Link>
+            <Link
+              to='/register'
+              style={{ color: 'white', textDecoration: 'none' }}
+            >
+              Join Us
+            </Link>
+          </div>
         </Toolbar>
       </AppBar>
     </div>

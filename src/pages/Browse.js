@@ -1,6 +1,5 @@
 // ** Browse lists of vendors page ** //
 import React, { useState, useEffect } from 'react';
-
 import axiosWithAuth from '../utils/axiosWithAuth';
 
 // components
@@ -11,14 +10,14 @@ import browse from '../styles/scss/browse.module.scss';
 
 const Browse = (props) => {
 	// console.log('The browse props are', props);
-
-	const [ zipcode, setZipcode ] = useState('');
-	const [ vendors, setVendors ] = useState({
+	const [cart, setCart] = useState([{ item: {} }]);
+	const [zipcode, setZipcode] = useState('');
+	const [vendors, setVendors] = useState({
 		count: '',
 		vendorDetails: []
 	});
-	const [ customerZip, setCustomerZip ] = useState('');
-
+	const [customerZip, setCustomerZip] = useState('');
+	const customerId = localStorage.getItem('user_id');
 	const handleChange = (event) => {
 		setCustomerZip(event.target.value);
 	};

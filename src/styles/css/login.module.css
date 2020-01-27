@@ -97,6 +97,7 @@
 
 .red-full:focus {
   outline: none;
+<<<<<<< HEAD
 }
 
 @media (min-width: 320px) {
@@ -186,31 +187,97 @@
       -ms-flex-direction: column;
           flex-direction: column;
   font-family: Rubik;
+=======
+>>>>>>> 2a0162061bce907dff1d1bf6d78ce76604d7aa9e
 }
 
 @media (min-width: 320px) {
-  .container {
-    background-color: #00b2ed;
-    width: 100vw;
-    padding-top: 2rem;
-    height: 100vh;
+  .red-full {
+    width: 90vw;
+    color: white;
+    border-radius: 0.9rem;
   }
 }
 
 @media (min-width: 768px) {
-  .container {
-    background-color: #00b2ed;
-    padding-top: 0rem;
+  .red-full {
+    width: 87vw;
+    height: 6rem;
+    font-size: 1.8rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .container {
-    background: url("../../assets/images/Login/login.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: right;
+  .red-full {
+    width: 100%;
   }
+}
+
+@media (min-width: 1440px) {
+  .red-full {
+    width: 100%;
+    height: 6rem;
+    font-size: 2rem;
+  }
+  .red-full a {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.red-border {
+  cursor: pointer;
+  margin-bottom: 2rem;
+  background: #00b2ed;
+}
+
+.red-border:hover {
+  background: #0093c4;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.red-border:focus {
+  outline: none;
+}
+
+@media (min-width: 320px) {
+  .red-border {
+    width: 90vw;
+    color: #e92323;
+    border: 0.3rem solid #e92323;
+    border-radius: 0.9rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .red-border {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .red-border {
+    width: 100%;
+    height: 6rem;
+    font-size: 2rem;
+    color: #e92323;
+  }
+  .red-border a {
+    color: #e92323;
+    text-decoration: none;
+  }
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-family: Rubik;
 }
 
 @media (min-width: 1440px) {

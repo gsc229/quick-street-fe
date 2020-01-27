@@ -1,16 +1,20 @@
 // ** Browse lists of vendors page ** //
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
 // components
 import { Map, Search, Menu } from '../components/index';
+import { UserContext } from '../contexts/UserContext';
 
 // styles
 import browse from '../styles/scss/browse.module.scss';
 
+
 const Browse = (props) => {
 	// console.log('The browse props are', props);
-	const [cart, setCart] = useState([{ item: {} }]);
+	const user = useContext(UserContext);
+	console.log('user in browse', user);
+
 	const [zipcode, setZipcode] = useState('');
 	const [vendors, setVendors] = useState({
 		count: '',

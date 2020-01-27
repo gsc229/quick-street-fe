@@ -13,8 +13,8 @@ const ViewAboutVendor = (props) => {
 		axiosWithAuth()
 			.get(`/vendors/${id}`)
 			.then((response) => {
-				// console.log(response);
-				setVendor(response.data.data);
+				console.log(response);
+				setVendor({...vendor, vendor: response.data.data});
 			})
 			.catch((error) => {
 				console.log(error);

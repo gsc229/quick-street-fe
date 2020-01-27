@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from 'react';
 
 import axiosWithAuth from '../utils/axiosWithAuth';
 import { Map, Search } from '../components/index';
-import UserContext from '../contexts/UserContext';
+import {UserContext} from '../contexts/UserContext';
 
 const Browse = (props) => {
 	// console.log('The browse props are', props);

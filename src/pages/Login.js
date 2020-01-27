@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import UserContext from '../contexts/UserContext';
+import { UserContext } from '../contexts/UserContext';
 
 // styles
 import login from '../styles/scss/login.module.scss';
@@ -10,7 +10,7 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 import { CustomButton } from '../components/index';
 
 const Login = (props) => {
-	const user = useContext(UserContext);
+	const userContext = useContext(UserContext);
 
 	const [credentials, setCredentials] = useState({
 		email: '',
@@ -65,7 +65,7 @@ const Login = (props) => {
 					// console.log(response);
 					localStorage.setItem('token', response.data.token);
 					localStorage.setItem('user_id', response.data.id);
-					user.addUser(response.data);
+					userContext.addUser(response.data);
 					if (response.data.isVendor) {
 						props.history.push(`profile/${response.data.id}`);
 					} else {

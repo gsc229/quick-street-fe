@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './styles/scss/index.scss';
 import UserContext from './contexts/UserContext';
+import Contexts from './contexts/Contexts';
 
 import {
 	Register, // ** Register
@@ -15,28 +16,11 @@ import {
 } from './pages/index';
 
 import { Footer } from './components/index';
+
 const App = () => {
-	// console.log(window.cloudinary);
-	const [ user, setUser ] = useState({
-		userId: '',
-		isVendor: '',
-		token: ''
-
-	});
-	
-	const addUser = (newUser) => {
-		console.log('new user ', newUser);
-		setUser({
-			...user, 
-			userId: newUser.id, 
-			token: newUser.token, 
-			isVendor: newUser.isVendor
-		});
-	}
-
 	return (
 		<div>
-			<UserContext.Provider value={{user, addUser}}>
+			<Contexts>
 				<Route path="/styling" component={Styling} />
 				<Route exact path="/" component={Landing} />
 				<Route path="/register" component={Register} />
@@ -47,7 +31,7 @@ const App = () => {
 					<Route path="/browse" component={Browse} />
 					<Route path="/dashboard" component={Dashboard} />
 				</Switch>
-			</UserContext.Provider>
+			</Contexts>
 		</div>
 	);
 };

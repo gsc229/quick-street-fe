@@ -188,31 +188,6 @@
   font-family: Rubik;
 }
 
-@media (min-width: 320px) {
-  .container {
-    background-color: #00b2ed;
-    width: 100vw;
-    padding-top: 2rem;
-    height: 100vh;
-  }
-}
-
-@media (min-width: 768px) {
-  .container {
-    background-color: #00b2ed;
-    padding-top: 0rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .container {
-    background: url("../../assets/images/Login/login.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: right;
-  }
-}
-
 @media (min-width: 1440px) {
   .container {
     background: url("../../assets/images/Login/login.png");

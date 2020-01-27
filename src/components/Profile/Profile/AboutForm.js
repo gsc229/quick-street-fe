@@ -129,10 +129,10 @@ const AboutForm = ({ editAbout, vendorInfo, info, setVendorInfo }) => {
         <div className={about.vendor_info_right}>
           <div className={(about.vendor_info_location, about.input_container)}>
             <label>Zipcode: </label>
-            {/* REPLACE 18641 w/ vedndorInfo.location.zipcode */}
-            <input type="text" name="zipcode" value={"18641"} onChange={changeZip} />
+            {/* REPLACE 18641 w/ vendorInfo.location.zipcode */}
+            <input type="text" name="zipcode" value={vendorInfo.location.zipcode} onChange={changeZip} />
             <div className={about.map_container}>
-              <Map zipcode={"18641"} width={403} height={280} radius={3000} />
+              <Map zipcode={vendorInfo.location.zipcode} width={403} height={280} radius={3000} />
             </div>
           </div>
         </div>{' '}

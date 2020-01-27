@@ -64,12 +64,12 @@ const EditProduct = (props) => {
     setDetailsSaved(true);
     setTimeout(function () { setDetailsSaved(false) }, 1500)
 
-
+    console.log("PUT subitProd.Details payload: ", { ...product })
 
     axiosWithAuth()
       .put(`/products/${product._id}`, { ...product, vendorId })
       .then(res => {
-        console.log('PUT EditProduct.js submitProd.Details: res ', res)
+        console.log('PUT res EditProduct.js submitProd.Details: res ', res)
       })
       .catch(err => {
         console.log('PUT error & product_id & token:::', err,
@@ -90,8 +90,17 @@ const EditProduct = (props) => {
       .catch(err => {
         console.log(err);
       })
+  }
 
-
+  const deleteProduct = () => {
+    axiosWithAuth()
+      .delete(`/products/${props.product_id}`)
+      .then(response => {
+        console.log('DELETE EditProduct.js deleteProduct :', response);
+      })
+      .catch(err => {
+        console.log('Error DELETE EditProduct.js deleteProduct', err);
+      })
   }
 
   return (
@@ -105,7 +114,7 @@ const EditProduct = (props) => {
         </div>
       }
 
-      {/* confirm MODAL */}
+      {/* details saved MODAL */}
       {
         confirmClose &&
         <div className={editingProduct.confirm_close_modal}>
@@ -148,7 +157,7 @@ const EditProduct = (props) => {
             className={editingProduct.finished_editing_btn}>
             <i className="fa fa-check"></i> Finished Editing
                 </button>
-          <button className={editingProduct.delete_product_btn}>
+          <button onClick={deleteProduct} className={editingProduct.delete_product_btn}>
             <i className="fa fa-exclamation-triangle"></i>   Delete Product
           </button>
         </div>

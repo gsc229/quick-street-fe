@@ -1,25 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axiosWithAuth from '../../../../utils/axiosWithAuth';
 import '../../../../styles/scss/OldcustomerFacingVendorProfile.scss';
 import { Modal } from '../../../index';
 import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
 import ModalCarousel from './ModalCarousel';
 import ModalCarousel2 from './ModalCarousel2';
+import { UserContext } from '../../../../contexts/UserContext';
+import { CartContext } from '../../../../contexts/CartContext';
 
 const ViewVendorProduct = (props) => {
+	const userContext = useContext(UserContext); 
+	const cartContext = useContext(CartContext);
+
 	const [images, setImages] = useState([{}]);
 	const [quantity, setQuantity] = useState('1');
 	const [showModal, setShowModal] = useState(false);
 	const { setCart } = props;
-	const customerId = localStorage.getItem('user_id');
+	const customerId = userContext.user.userId;
+	console.log(customerId);
 	const handleChange = (event) => {
 		setQuantity(event.target.value);
 	}
 
 	const showHideModal = (bool) => {
-		if (props.loggedIn) {
-			setShowModal(bool);
-		}
+		setShowModal(bool);
 	}
 
 
@@ -27,7 +31,7 @@ const ViewVendorProduct = (props) => {
 		axiosWithAuth()
 			.get(`customers/${customerId}/cart`)
 			.then(response => {
-				console.log("GET ViewV.Prod response: ", response)
+				// console.log("GET ViewV.Prod response: ", response)
 				setCart(response.data.data.items);
 			})
 			.catch(err => console.log(err.response))
@@ -47,17 +51,19 @@ const ViewVendorProduct = (props) => {
 		console.log(postObject);
 		showHideModal(false);
 		/* *** this function will need setCart ***** */
-
-		axiosWithAuth()
+		if (!customerId) {
+			cartContext.addToCart(postObject);
+			console.log(cartContext.products);
+		} else {
+			// POST request to add item to cart
+			axiosWithAuth()
 			.post(`customers/${customerId}/cart/addtocart`, postObject)
 			.then(response => {
 				console.log("POST ViewV.Prod response: ", response)
 				getCartItems();
 			})
 			.catch(err => console.log(err.response))
-
-
-		// POST request to add item to cart
+		}
 	}
 
 	useEffect(() => {

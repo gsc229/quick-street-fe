@@ -14,7 +14,7 @@ import '../styles/scss/OldcustomerFacingVendorProfile.scss';
 const Vendor = props => {
   const [cart, setCart] = useState([{ item: {} }]);
   const vendorId = props.match.params.id;
-  console.log('props in vendor view page', props);
+  // console.log('props in vendor view page', props);
 
   return (
     <>
@@ -24,7 +24,7 @@ const Vendor = props => {
         <h4>Mapping over shopping cart items</h4>
         {cart.map(item => (
           <>
-            {console.log(item['item']['name'])}
+            {/* {console.log(item['item']['name'])} */}
             <h1>{item.item.name}</h1>
             <p>{item.price}</p>
             <p>{item.quantity}</p>

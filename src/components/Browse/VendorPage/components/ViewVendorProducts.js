@@ -34,7 +34,7 @@ const ViewVendorProducts = (props) => {
 		<div className="product_section">
 			<header className="product_section_title">Products</header>
 			<div className="products_div">
-				{vendorProducts.products.map((product) => <Product setCart={setCart} product={product} key={product._id} loggedIn={true} />)}
+				{vendorProducts.products.map((product) => <Product setCart={setCart} product={product} key={product._id} />)}
 				{vendorProducts.count === 0 && (
 					<p className="no_products_content">There are no products to show right now.</p>
 				)}

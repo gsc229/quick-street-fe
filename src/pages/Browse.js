@@ -1,9 +1,14 @@
 // ** Browse lists of vendors page ** //
 import React, { useState, useEffect, useContext } from 'react';
-
 import axiosWithAuth from '../utils/axiosWithAuth';
-import { Map, Search } from '../components/index';
+
+// components
+import { Map, Search, Menu } from '../components/index';
 import {UserContext} from '../contexts/UserContext';
+
+// styles
+import browse from '../styles/scss/browse.module.scss';
+
 
 const Browse = (props) => {
 	// console.log('The browse props are', props);
@@ -25,7 +30,7 @@ const Browse = (props) => {
 		event.preventDefault();
 		const query = new URLSearchParams(props.location.search);
 		// console.log('query', query);
-		query.set('zip', customerZip)
+		query.set('zip', customerZip);
 		props.history.replace(`${props.location.pathname}?${query.toString()}`);
 		getSearchResults(customerZip);
 	};
@@ -45,7 +50,7 @@ const Browse = (props) => {
 			.catch((error) => {
 				console.log(error);
 			});
-	}
+	};
 
 	useEffect(() => {
 		const query = new URLSearchParams(props.location.search);
@@ -54,20 +59,23 @@ const Browse = (props) => {
 			setCustomerZip(zip);
 			getSearchResults(zip);
 		}
-	}, [])
-	
+	}, []);
+
 	return (
-		<div className="browse_container">
-			<div className="search_wrapper">
-				{zipcode === '' && <p className="zipcode_title">Enter a location to start browsing</p>}
-				{zipcode !== '' && <p className="zipcode_title">Your results for</p>}
+		<div className={browse.container}>
+			<div className={browse.temp_menu}>
+				<Menu />
+			</div>
+			<div className={browse.wrapper}>
+				{zipcode === '' && <p>Enter a location to start browsing</p>}
+				{zipcode !== '' && <p>Your results for</p>}
 				<form onSubmit={handleSubmit}>
 					<input
 						name="zipcode"
 						placeholder="zip code"
 						onChange={handleChange}
 						value={customerZip}
-						className="zipcode_input"
+						className={browse.zipcode_input}
 					/>
 				</form>
 

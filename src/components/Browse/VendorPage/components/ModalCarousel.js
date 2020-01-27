@@ -3,15 +3,19 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import '../../../Landing/carousel.css';
 const ModalCarousel = ({ images }) => {
+  const imageContainerStyle = {
+
+  }
   return (
     <div>
       <Carousel
-      /* centerMode
-      centerSlidePercentage={25}
-      emulateTouch
-      showThumbs={false}
-      showIndicators={false}
-      showStatus={false} */
+        /* centerMode
+        centerSlidePercentage={25}
+        emulateTouch
+        showThumbs={false}
+        showIndicators={false}
+        showStatus={false} */
+        emulateTouch
       >
 
         {images ?

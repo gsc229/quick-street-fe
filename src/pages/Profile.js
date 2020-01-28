@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { About, VendorProducts, AddProductForm, Bulletin, BannerUploader, NavBar } from '../components/index';
+import {
+  About,
+  VendorProducts,
+  AddProductForm,
+  Bulletin,
+  BannerUploader,
+  Nav
+} from '../components/index';
 import { Placeholder } from '../assets/images/index';
 //Styles
 import profile from '../styles/scss/profile.module.scss';
@@ -138,8 +145,8 @@ const Profile = (props) => {
 	};
 
 	return (
-		<>
 		<div className={profile.banner_container}>
+    <Nav {...vendorInfo} />
 			<div className={profile.banner_wrapper}>
 				<div className={profile.banner_text_btns}>
 					<div className={profile.vendor_header_name}>
@@ -224,7 +231,7 @@ const Profile = (props) => {
 				vendorId={vendorId}
 			/>
 			<Bulletin vendorId={vendorId} />
-	</>
+            </>
 	);
 };
 

@@ -3,25 +3,24 @@ import React, { useState, useEffect, useContext } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
 // components
-import { Map, Search, Menu } from '../components/index';
+import { Map, Search, Nav } from '../components/index';
 import { UserContext } from '../contexts/UserContext';
 
 // styles
 import browse from '../styles/scss/browse.module.scss';
-
 
 const Browse = (props) => {
 	// console.log('The browse props are', props);
 	const user = useContext(UserContext);
 	console.log('user in browse', user);
 
-	const [zipcode, setZipcode] = useState('');
-	const [vendors, setVendors] = useState({
+	const [ zipcode, setZipcode ] = useState('');
+	const [ vendors, setVendors ] = useState({
 		count: '',
 		vendorDetails: []
 	});
-	const [customerZip, setCustomerZip] = useState('');
-	const customerId = localStorage.getItem('user_id');
+	const [ customerZip, setCustomerZip ] = useState('');
+
 	const handleChange = (event) => {
 		setCustomerZip(event.target.value);
 	};
@@ -34,8 +33,6 @@ const Browse = (props) => {
 		props.history.replace(`${props.location.pathname}?${query.toString()}`);
 		getSearchResults(customerZip);
 	};
-
-
 
 	const getSearchResults = (zip) => {
 		axiosWithAuth()
@@ -54,8 +51,6 @@ const Browse = (props) => {
 			});
 	};
 
-
-
 	useEffect(() => {
 		const query = new URLSearchParams(props.location.search);
 		const zip = query.get('zip');
@@ -67,9 +62,8 @@ const Browse = (props) => {
 
 	return (
 		<div className={browse.container}>
-			<div className={browse.temp_menu}>
-				<Menu />
-			</div>
+			<Nav />
+
 			<div className={browse.wrapper}>
 				{zipcode === '' && <p>Enter a location to start browsing</p>}
 				{zipcode !== '' && <p>Your results for</p>}

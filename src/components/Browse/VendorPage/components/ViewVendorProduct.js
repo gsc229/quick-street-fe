@@ -17,7 +17,7 @@ const ViewVendorProduct = (props) => {
 	const [showModal, setShowModal] = useState(false);
 	const { setCart } = props;
 	const customerId = userContext.user.userId;
-	console.log(customerId);
+	// console.log(customerId);
 	const handleChange = (event) => {
 		setQuantity(event.target.value);
 	}
@@ -50,7 +50,6 @@ const ViewVendorProduct = (props) => {
 		}
 		console.log(postObject);
 		showHideModal(false);
-		/* *** this function will need setCart ***** */
 		if (!customerId) {
 			cartContext.addToCart({...postObject, image: images[0].secure_url});
 			console.log(cartContext.products);

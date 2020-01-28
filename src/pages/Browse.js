@@ -13,7 +13,7 @@ import browse from '../styles/scss/browse.module.scss';
 const Browse = (props) => {
 	// console.log('The browse props are', props);
 	const user = useContext(UserContext);
-	console.log('user in browse', user);
+	// console.log('user in browse', user);
 
 	const [zipcode, setZipcode] = useState('');
 	const [vendors, setVendors] = useState({

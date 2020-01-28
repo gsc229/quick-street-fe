@@ -13,8 +13,8 @@ const ViewAboutVendor = (props) => {
 		axiosWithAuth()
 			.get(`/vendors/${id}`)
 			.then((response) => {
-				console.log(response);
-				setVendor({...vendor, vendor: response.data.data});
+				// console.log(response);
+				setVendor({...vendor, vendor: response.data.data, location: response.data.data.location});
 			})
 			.catch((error) => {
 				console.log(error);
@@ -47,8 +47,8 @@ const ViewAboutVendor = (props) => {
 				</div>
 				<div className="location_section">
 					<p className="title">Location</p>
-					<p className="title_content">The vendor can be found at {"18641"} area</p>
-					<Map zipcode={"18641"} width={403} height={280} radius={3000} />
+					<p className="title_content">The vendor can be found at {vendor.location.zipcode} area</p>
+					<Map zipcode={vendor.location.zipcode} width={403} height={280} radius={3000} />
 				</div>
 			</div>
 		</div>

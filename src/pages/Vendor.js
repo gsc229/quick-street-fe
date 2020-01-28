@@ -21,7 +21,7 @@ const Vendor = props => {
       {/* NAVBAR WILL NEED CART STATE */}
       <nav className="temporary_nav" style={{ color: 'red', textAlign: 'center' }} >
         <h1>Replace Me With Luis's Nav</h1>
-        <ShoppingCartItems />
+        <ShoppingCartItems cart={cart} />
         {/* <h4>Mapping over shopping cart items</h4> */}
         {/* {cart.map(item => (
           <>

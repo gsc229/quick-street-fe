@@ -12,29 +12,22 @@ import '../styles/scss/OldcustomerFacingVendorProfile.scss';
 
 
 const Vendor = props => {
-  const [cart, setCart] = useState([{ item: {} }]);
+  
   const vendorId = props.match.params.id;
+
   // console.log('props in vendor view page', props);
+  // console.log(props.location.cart);
+  // console.log(props.location.setCart);
 
   return (
     <>
-      {/* NAVBAR WILL NEED CART STATE */}
       <nav className="temporary_nav" style={{ color: 'red', textAlign: 'center' }} >
         <h1>Replace Me With Luis's Nav</h1>
-        <ShoppingCartItems cart={cart} />
-        {/* <h4>Mapping over shopping cart items</h4> */}
-        {/* {cart.map(item => (
-          <>
-            <h1>{item.item.name}</h1>
-            <p>{item.price}</p>
-            <p>{item.quantity}</p>
-          </>
-        ))} */}
-
+        <ShoppingCartItems cart={props.location.cart} />
       </nav>
       <Menu />
       <ViewAboutVendor vendorId={vendorId} />
-      <ViewVendorProducts setCart={setCart} vendorId={vendorId} />
+      <ViewVendorProducts setCart={props.location.setCart} vendorId={vendorId} />
       <ViewVendorPosts vendorId={vendorId} />
       {/* <button onClick={() => props.history.goBack()}>Back</button> */}
       <Footer />

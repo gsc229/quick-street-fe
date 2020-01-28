@@ -67,7 +67,7 @@ const ShoppingCartItems = ({cart}) => {
 
   return (
     <>
-      <h1>Shopping Cart Items</h1>
+      {/* <h1>Shopping Cart Items</h1> */}
       { cartItems.error && (<p>cartItems.error</p>) }
       {cartItems && cartItems.map(cartItem => (
         <ShoppingCartItem 

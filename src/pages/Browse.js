@@ -3,18 +3,18 @@ import React, { useState, useEffect, useContext } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
 // components
-import { Map, Search, Menu } from '../components/index';
+import { Map, Search, Menu, ShoppingCartItems } from '../components/index';
 import { UserContext } from '../contexts/UserContext';
 
 // styles
 import browse from '../styles/scss/browse.module.scss';
-
 
 const Browse = (props) => {
 	// console.log('The browse props are', props);
 	const user = useContext(UserContext);
 	// console.log('user in browse', user);
 
+	const [cart, setCart] = useState([{ item: {} }]);
 	const [zipcode, setZipcode] = useState('');
 	const [vendors, setVendors] = useState({
 		count: '',
@@ -67,6 +67,7 @@ const Browse = (props) => {
 
 	return (
 		<div className={browse.container}>
+			<ShoppingCartItems cart={cart}/>
 			<div className={browse.temp_menu}>
 				<Menu />
 			</div>
@@ -90,6 +91,8 @@ const Browse = (props) => {
 					history={props.history}
 					location={props.location}
 					match={props.match}
+					cart={cart}
+					setCart={setCart} 
 				/>
 			</div>
 		</div>

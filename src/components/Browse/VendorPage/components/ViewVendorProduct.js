@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axiosWithAuth from '../../../../utils/axiosWithAuth';
-import '../../../../styles/scss/OldcustomerFacingVendorProfile.scss';
+//stlying 
+
+import profile from '../../../../styles/scss/profile.module.scss';
+
 import { Modal } from '../../../index';
 import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
 import ModalCarousel from './ModalCarousel';
@@ -78,10 +81,10 @@ const ViewVendorProduct = (props) => {
 
 	return (
 		<>
-			<div onClick={() => showHideModal(true)} className="product" key={props.product._id}>
-				<img className="product_image" src={images[0] ? images[0].secure_url : ""} alt="img" />
-				<p className="product_name">{props.product.name}</p>
-				<p className="product_price">${props.product.price}</p>
+			<div onClick={() => showHideModal(true)} className={profile.products_card} key={props.product._id}>
+				<img className={profile.image} src={images[0] ? images[0].secure_url : ""} alt="img" />
+				<p className={profile.name}>{props.product.name}</p>
+				<p className={profile.price}>${props.product.price}</p>
 			</div>
 			<Modal showModal={showModal}>
 				{/* MODAL close x */}

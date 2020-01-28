@@ -105,6 +105,7 @@
 	width: 146px;
 	height: 173px;
 	margin: 0 35px 40px 0;
+	cursor: pointer;
 }
 
 .product_image {
@@ -189,3 +190,30 @@ hr {
 	color: rgba(43, 51, 53, 0.6);
 	text-align: center;
 }
+
+
+/* ***** MODAL ********** */
+
+.close_x{
+	font-size: 3rem;
+	color: red;
+	position: absolute;
+	right: 5px;
+	cursor: pointer;
+	
+}
+
+.modal_wrapper{
+	display: flex;
+}
+
+.modal_product_image{
+
+}
+
+.modal_product_name{
+
+}
+
+.modal_product_price{}
+

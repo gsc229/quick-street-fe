@@ -1,33 +1,28 @@
 // ** Vendor customer facing page ** //
 
-import React from 'react';
-import {
-  ViewAboutVendor,
-  ViewVendorProducts,
-  ViewVendorPosts,
-  Nav,
-  Footer
-} from '../components/index';
+import React, { useState } from 'react';
+import { ViewAboutVendor, ViewVendorProducts, ViewVendorPosts, Menu, Footer, Nav } from '../components/index';
 
-// import About from '../components/Browse/VendorPage/components/About';
-// import Products from '../components/Browse/VendorPage/components/Products';
-// import Posts from '../components/Browse/VendorPage/components/Posts';
-// import Footer from '../components/shared/Footer';
-import '../styles/scss/customerFacingVendorProfile.scss';
+
+// stlyes
+import profile from '../styles/scss/profile.module.scss';
 
 const Vendor = props => {
+  const [cart, setCart] = useState([{ item: {} }]);
   const vendorId = props.match.params.id;
   console.log('props in vendor view page', props);
 
   return (
     <>
       <Nav />
+      <div className={profile.container}>
       <ViewAboutVendor vendorId={vendorId} />
-      <ViewVendorProducts vendorId={vendorId} />
+      <ViewVendorProducts setCart={setCart} vendorId={vendorId} />
       <ViewVendorPosts vendorId={vendorId} />
       {/* <button onClick={() => props.history.goBack()}>Back</button> */}
+      </div>
       <Footer />
-    </>
+      </>
   );
 };
 

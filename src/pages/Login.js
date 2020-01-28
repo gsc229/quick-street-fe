@@ -52,6 +52,33 @@ const Login = (props) => {
 		return true;
 	};
 
+	const createCart = (customerId) => {
+		axiosWithAuth()
+			.post(`/customers/${customerId}/cart`)
+			.then(response => {
+				localStorage.setItem('cart_id', response.data.data._id)
+				console.log('POST Login.js response: ', response);
+			})
+			.catch(err => {
+				console.log(err.response);
+			})
+	}
+
+	const checkIfCart = (customerId) => {
+		axiosWithAuth()
+			.get(`/customers/${customerId}/cart`)
+			.then(response => {
+				localStorage.setItem('cart_id', response.data.data._id)
+				//console.log("GET Login.js response: ", response)
+			})
+			.catch(err => {
+				if (err.response.status === 404) {
+					createCart(customerId);
+				}
+				console.log(err.response);
+			})
+	}
+
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		if (validate()) {
@@ -69,9 +96,10 @@ const Login = (props) => {
 					if (response.data.isVendor) {
 						props.history.push(`profile/${response.data.id}`);
 					} else {
-						props.history.push({pathname: '/browse', customer_id: response.data.id});
+						checkIfCart(response.data.id)
+						props.history.push({ pathname: '/browse', customer_id: response.data.id });
 					}
-					
+
 				})
 				.catch((error) => {
 					console.log(error.response);

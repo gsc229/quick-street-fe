@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
-import about from '../../../styles/css/vendor_about.module.css';
 import { AboutForm } from '../../index';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSave, faPen } from '@fortawesome/free-solid-svg-icons';
+
+// styling
+import profile from '../../../styles/scss/profile.module.scss';
 
 const About = ({ editAbout, vendorInfo, info, setInfo, editProfile, saveProfile, setVendorInfo }) => {
 	const [ editingDetails, setEditingDetails ] = useState(false);
 	// console.log(info);
 	return (
-		<div className={about.vendor_about_container}>
-			<div className={about.inner_container}>
-				<div className={about.about_top}>
+		<div className={profile.about_container}>
+			<div className={profile.about_wrapper}>
+				<div className={profile.about_top}>
 					<h3>About Us</h3>
-					<div className={about.vendor_about_btn_group}>
+					<div className={profile.vendor_about_btn_group}>
 						<FontAwesomeIcon
-							id={about.pen}
-							className={`${about.icon} " " ${editingDetails ? about.red_edit : about.normal_pen}`}
+							id={profile.pen}
+							className={`${profile.icon} " " ${editingDetails ? profile.red_edit : profile.normal_pen}`}
 							icon={faPen}
 							onClick={() => {
 								editProfile();
@@ -23,8 +25,8 @@ const About = ({ editAbout, vendorInfo, info, setInfo, editProfile, saveProfile,
 							}}
 						/>
 						<FontAwesomeIcon
-							id={about.save}
-							className={about.icon}
+							id={profile.save}
+							className={profile.icon}
 							icon={faSave}
 							onClick={(e) => {
 								saveProfile(e);
@@ -37,7 +39,7 @@ const About = ({ editAbout, vendorInfo, info, setInfo, editProfile, saveProfile,
 					</div>
 				</div>
 
-				<div className={about.about_bottom}>
+				<div className={profile.about_bottom}>
 					<AboutForm
 						editAbout={editAbout}
 						vendorInfo={vendorInfo}

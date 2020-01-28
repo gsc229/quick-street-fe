@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 
 import axiosWithAuth from '../../../../utils/axiosWithAuth';
 
+// styling
+import profile from '../../../../styles/scss/profile.module.scss';
+
 const ViewVendorPosts = (props) => {
 	const [ vendorPost, setVendorPost ] = useState({
 		posts: [],
@@ -40,18 +43,22 @@ const ViewVendorPosts = (props) => {
 	}, []);
 
 	return (
-		<div className="bulletin_board_section">
-			<header className="bulletin_section_title">Bulletin Board</header>
-			{vendorPost.posts.map((post) => (
-				<div className="posts_div" key={post._id}>
-					<div className="post_date_line">
-						<p className="post_date">Date {changeDateFormat(post.createdAt)}</p>
-						<hr />
+		<div className={profile.bulletin_container}>
+			<div className={profile.bulletin_header}>
+				<h1>Bulletin Board</h1>
+			</div>
+			<div className={profile.bulletin_wrapper}>
+				{vendorPost.posts.map((post) => (
+					<div className={profile.bulletin_posts} key={post._id}>
+						<div className={profile.line}>
+							<p>Date {changeDateFormat(post.createdAt)}</p>
+							<hr />
+						</div>
+						<p>{post.description}</p>
 					</div>
-					<p className="post_content">{post.description}</p>
-				</div>
-			))}
-			{vendorPost.count === 0 && <p className="no_post_content">There are no posts to show right now.</p>}
+				))}
+				{vendorPost.count === 0 && <p className="no_post_content">There are no posts to show right now.</p>}
+			</div>
 		</div>
 	);
 };

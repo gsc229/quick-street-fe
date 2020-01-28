@@ -44,13 +44,9 @@ const Bulletin = (props) => {
 	}, []);
 
 	return (
-		<div className={profile.vendor_bulletin_container}>
-			<div className={profile.vendor_bulletin_header}>
-				<div className={profile.vendor_bulletin_title}>
-					<p>Bulletin Board</p>
-					{/* <hr /> */}
-				</div>
-
+		<div className={profile.bulletin_container}>
+			<div className={profile.bulletin_wrapper}>
+				<h1>Bulletin Board</h1>
 				<div className={profile.vendor_add_post_btn_wrapper}>
 					<button className={profile.vendor_bulletin_button} onClick={addPost}>
 						Add Post

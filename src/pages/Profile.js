@@ -138,8 +138,9 @@ const Profile = (props) => {
 	};
 
 	return (
-		<div className={profile.container}>
-			<div className={profile.vendor_banner_container}>
+		<>
+		<div className={profile.banner_container}>
+			<div className={profile.banner_wrapper}>
 				<div className={profile.banner_text_btns}>
 					<div className={profile.vendor_header_name}>
 						<input
@@ -201,6 +202,7 @@ const Profile = (props) => {
 					</div>
 				</div>
 			</div>
+			</div>
 			<About
 				vendorInfo={vendorInfo}
 				info={info}
@@ -222,7 +224,7 @@ const Profile = (props) => {
 				vendorId={vendorId}
 			/>
 			<Bulletin vendorId={vendorId} />
-		</div>
+	</>
 	);
 };
 

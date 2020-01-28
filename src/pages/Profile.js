@@ -145,93 +145,95 @@ const Profile = (props) => {
 	};
 
 	return (
-		<div className={profile.banner_container}>
-    <Nav {...vendorInfo} />
-			<div className={profile.banner_wrapper}>
-				<div className={profile.banner_text_btns}>
-					<div className={profile.vendor_header_name}>
-						<input
-							onChange={(e) => {
-								if (editBusinessName) {
-									setVendorInfo({
-										...vendorInfo,
-										business_name: e.target.value
-									});
-								}
-							}}
-							value={vendorInfo.business_name}
-							className={editingName ? profile.glowing_border : 'none'}
-						/>
+		<div>
+			<div className={profile.banner_container}>
+	    <Nav {...vendorInfo} />
+				<div className={profile.banner_wrapper}>
+					<div className={profile.banner_text_btns}>
+						<div className={profile.vendor_header_name}>
+							<input
+								onChange={(e) => {
+									if (editBusinessName) {
+										setVendorInfo({
+											...vendorInfo,
+											business_name: e.target.value
+										});
+									}
+								}}
+								value={vendorInfo.business_name}
+								className={editingName ? profile.glowing_border : 'none'}
+							/>
+						</div>
+	
+						<div className={profile.vendor_profile_btn_group}>
+							<FontAwesomeIcon
+								id={profile.pen}
+								className={`${profile.icon} " " ${editingName ? profile.red_edit : profile.normal_pen}`}
+								icon={faPen}
+								onClick={() => {
+									editName();
+									setEditingName(!editingName);
+								}}
+							/>
+							<FontAwesomeIcon
+								id={profile.save}
+								className={profile.icon}
+								icon={faSave}
+								onClick={(e) => {
+									saveName(e);
+									setEditingName(false);
+								}}
+							/>
+	
+							{/* <img src={create} alt='create' onClick={editProfile} />
+	            <img src={save} alt='save' onClick={saveProfile} /> */}
+						</div>
 					</div>
-
-					<div className={profile.vendor_profile_btn_group}>
-						<FontAwesomeIcon
-							id={profile.pen}
-							className={`${profile.icon} " " ${editingName ? profile.red_edit : profile.normal_pen}`}
-							icon={faPen}
-							onClick={() => {
-								editName();
-								setEditingName(!editingName);
-							}}
-						/>
-						<FontAwesomeIcon
-							id={profile.save}
-							className={profile.icon}
-							icon={faSave}
-							onClick={(e) => {
-								saveName(e);
-								setEditingName(false);
-							}}
-						/>
-
-						{/* <img src={create} alt='create' onClick={editProfile} />
-            <img src={save} alt='save' onClick={saveProfile} /> */}
+	
+					<div className={profile.vendor_banner_image_container}>
+						{bannerInfo !== `no-photo.jpg` ? (
+							<CloudinaryContext cloudName="quickstlabs">
+								<Image className={profile.vendor_banner_image} publicId={bannerInfo}>
+									<Transformation gravity="center" height="355" width="1062" crop="fill" />
+								</Image>
+							</CloudinaryContext>
+						) : (
+							<img className="vendor_banner_image" src={Placeholder} alt="vendor header" />
+						)}
+						<div className={profile.vendor_banner_upload}>
+							<BannerUploader
+								vendorId={vendorId}
+								vendorInfo={vendorInfo}
+								setBannerInfo={setBannerInfo}
+								bannerInfo={bannerInfo}
+							/>
+						</div>
 					</div>
 				</div>
-
-				<div className={profile.vendor_banner_image_container}>
-					{bannerInfo !== `no-photo.jpg` ? (
-						<CloudinaryContext cloudName="quickstlabs">
-							<Image className={profile.vendor_banner_image} publicId={bannerInfo}>
-								<Transformation gravity="center" height="355" width="1062" crop="fill" />
-							</Image>
-						</CloudinaryContext>
-					) : (
-						<img className="vendor_banner_image" src={Placeholder} alt="vendor header" />
-					)}
-					<div className={profile.vendor_banner_upload}>
-						<BannerUploader
-							vendorId={vendorId}
-							vendorInfo={vendorInfo}
-							setBannerInfo={setBannerInfo}
-							bannerInfo={bannerInfo}
-						/>
-					</div>
 				</div>
-			</div>
-			</div>
-			<About
-				vendorInfo={vendorInfo}
-				info={info}
-				setInfo={setInfo}
-				editAbout={editAbout}
-				editProfile={editProfile}
-				saveProfile={saveProfile}
-				setVendorInfo={setVendorInfo}
-			/>
-			<VendorProducts productIds={productIds} products={products} addProduct={addProduct} />
-			<AddProductForm
-				productIds={productIds}
-				modal={modal}
-				products={products}
-				addProduct={addProduct}
-				setProducts={setProducts}
-				setModal={setModal}
-				addProductformCancelHandler={addProductformCancelHandler}
-				vendorId={vendorId}
-			/>
-			<Bulletin vendorId={vendorId} />
-            </>
+				<About
+					vendorInfo={vendorInfo}
+					info={info}
+					setInfo={setInfo}
+					editAbout={editAbout}
+					editProfile={editProfile}
+					saveProfile={saveProfile}
+					setVendorInfo={setVendorInfo}
+				/>
+				<VendorProducts productIds={productIds} products={products} addProduct={addProduct} />
+				<AddProductForm
+					productIds={productIds}
+					modal={modal}
+					products={products}
+					addProduct={addProduct}
+					setProducts={setProducts}
+					setModal={setModal}
+					addProductformCancelHandler={addProductformCancelHandler}
+					vendorId={vendorId}
+				/>
+				<Bulletin vendorId={vendorId} />
+		</div>
+           
 	);
 };
 

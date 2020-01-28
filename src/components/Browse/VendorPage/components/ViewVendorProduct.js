@@ -99,13 +99,19 @@ const ViewVendorProduct = (props) => {
 						<h1>{props.product.name}</h1>
 						</div>
 						<div className={modal.row}>
-						<h2>{props.product.description}</h2>
+							<div className={modal.tags}><ul>{props.product.diet.map(diet => (
+								<li>{diet}</li>
+							))}</ul></div>
 						</div>
 						<div className={modal.row}>
+						<h2>{props.product.description}</h2>
+						</div>
+					
+						<div className={modal.row_price}>
 						<h1>${props.product.price}</h1>
 						</div>
 						
-						<div className={modal.row}>
+						<div className={modal.row_quantity}>
 						<h3>Quantity: </h3>
 						<input
 							name='quantity'
@@ -116,8 +122,12 @@ const ViewVendorProduct = (props) => {
 						</div>
 						{console.log("Products", props)}
 						<div className={modal.button_wrapper}>
+							<div className={modal.button_left}>
 						<CustomButton styleClass='red-full' onClick={() => showHideModal(false)}>Close</CustomButton>
+						</div>
+						<div className={modal.button_right}>	
 						<CustomButton styleClass='green-full' onClick={handleAddToCart}>Add To Cart</CustomButton>
+</div>
 						</div>
 					</div>
 				</div>

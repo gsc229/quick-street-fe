@@ -52,7 +52,7 @@ const ViewVendorProduct = (props) => {
 		showHideModal(false);
 		/* *** this function will need setCart ***** */
 		if (!customerId) {
-			cartContext.addToCart(postObject);
+			cartContext.addToCart({...postObject, image: images[0].secure_url});
 			console.log(cartContext.products);
 		} else {
 			// POST request to add item to cart

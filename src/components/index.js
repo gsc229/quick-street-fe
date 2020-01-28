@@ -48,6 +48,10 @@ import navbar from '../components/shared/NavBar';
 import custombutton from '../components/shared/CustomButton';
 import modal from '../components/shared/Modal';
 
+// Shared components/ShoppingCart
+import shoppingcartitems from '../components/shared/ShoppingCart/ShoppingCartItems';
+import shoppingcartitem from '../components/shared/ShoppingCart/ShoppingCartItem';
+
 // Dashboard components
 import herobanner from '../components/Dashboard/HeroBanner';
 
@@ -105,6 +109,10 @@ export const Map = map;
 export const NavBar = navbar;
 export const CustomButton = custombutton;
 export const Modal = modal;
+
+// Shared components/ShoppingCart
+export const ShoppingCartItems = shoppingcartitems;
+export const ShoppingCartItem = shoppingcartitem;
 
 // Dashboard exports
 export const HeroBanner = herobanner;

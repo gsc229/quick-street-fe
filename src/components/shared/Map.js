@@ -5,7 +5,7 @@ import '../../styles/css/map.css';
 
 const Map = (props) => {
 	// console.log('props in map.js', props);
-	const [ mapDetails, setMapDetails ] = useState({
+	const [mapDetails, setMapDetails] = useState({
 		lng: -78.435315,
 		lat: 28.644141,
 		isDefault: false
@@ -37,7 +37,7 @@ const Map = (props) => {
 				getGeocode();
 			}
 		},
-		[ props.zipcode ]
+		[props.zipcode]
 	);
 
 	useEffect(
@@ -63,7 +63,7 @@ const Map = (props) => {
 				});
 			}
 		},
-		[ mapDetails ]
+		[mapDetails]
 	);
 	return <div id="map" />;
 };

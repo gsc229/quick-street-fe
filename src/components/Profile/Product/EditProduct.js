@@ -11,20 +11,29 @@ import { EditProductForm, ProductImageUploader } from '../../index';
 const EditProduct = (props) => {
   const [images, setImages] = useState([]);
   const [product, setProduct] = useState({});
-  const [reloadingImages, setReloadingImages] = useState(false);
-  const [editingDetails, setEditingDetails] = useState(false);
+
+  // POPUP Bools                                
+  const [editingDetails, setEditingDetails] = useState(true);// change back to false
   const [detailsSaved, setDetailsSaved] = useState(false);
   const [allChangesSaved, setAllChangesSaved] = useState(false);
   const [confirmClose, setConfirmClose] = useState(false);
+  const [loadingImages, setLoadingImages] = useState(false);
+  const [imageDeleted, setImageDeleted] = useState(false);
+  // Bool to reload images after POST or DELETE request
+  const [reloadingImages, setReloadingImages] = useState(false);
 
   console.log('EditProduct product ', product);
   console.log('EditingProduct images: ', images)
   useEffect(() => {
-    // get product details
+    console.log('USEEFFECT EditProducts.js GET /products/:prodcutId')
+    // loading popup on
+    setLoadingImages(true);
+    // get product (details)
     axiosWithAuth()
       /* ${props.product_id} */
       .get(`/products/${props.product_id}`)
       .then((response) => {
+        console.log("RESPONSE");
         // console.log(response);
         setProduct(response.data.data);
       })
@@ -35,12 +44,16 @@ const EditProduct = (props) => {
 
   useEffect(() => {
     // get all images of same product in previous request.
+    console.log('USEEFFECT EditProducts.js GET /products/:prodcutId/product-images')
     axiosWithAuth()
       /* ${props.product_id} */
       .get(`/products/${props.product_id}/product-images`)
       .then((response) => {
+        console.log("RESPONSE");
         // console.log(response);
         setImages(response.data.data);
+        // loading popup off
+        setLoadingImages(false);
       })
       .catch((error) => {
         console.log(error);
@@ -80,15 +93,25 @@ const EditProduct = (props) => {
   }
 
   const deleteImage = (image_id) => {
+    console.log('EditProduct.js delteImage image_id', image_id)
 
+    const vendorId = { vendorId: product.vendor._id }
+    console.log('EditProduct.js delteImage vendorId = ', vendorId)
+    console.log('EditProduct.js delteImage  product.vendor._id: ', product.vendor._id)
     axiosWithAuth()
-      .delete(`/product-images/${image_id}`)
+      .delete(`/product-images/${image_id}`, { data: vendorId })
       .then(res => {
         console.log('DELETE deleteImage EditProduct.js: ', res);
         setReloadingImages(!reloadingImages);
+        setImageDeleted(true);
+        setTimeout(function () {
+
+          setImageDeleted(false);
+
+        }, 2000)
       })
       .catch(err => {
-        console.log(err);
+        console.log('deleteImage ', err.message);
       })
   }
 
@@ -106,22 +129,23 @@ const EditProduct = (props) => {
   return (
     <div className={editingProduct.container}>
       <i onClick={() => props.setEditingProd(false)} className={`fa fa-times ${editingProduct.close_x}`} ></i>
-      {/* all saved MODAL */}
+      {/* all saved POPUP */}
       {
         allChangesSaved &&
-        <div className={editingProduct.all_saved_modal}>
+        <div className={editingProduct.all_saved_popup}>
           <h3> <i className="fa fa-check"></i>All your changes to "<span>{product.name}</span>" have been saved! </h3>
         </div>
       }
 
-      {/* details saved MODAL */}
+      {/* details saved POPUP */}
       {
         confirmClose &&
-        <div className={editingProduct.confirm_close_modal}>
+        <div className={editingProduct.confirm_close_popup}>
           <h3> <i className="fa fa-exclamation"></i>Are you sure you want to close? Make sure your changes to "<span>{product.name}</span>" have been saved! </h3>
           <button className="btn btn-danger">Close</button>
         </div>
       }
+
 
       {/* ============= LEFT ============================ */}
       <div className={`${editingProduct.edit_product_left} ${editingProduct.inner_container}`}>
@@ -133,21 +157,26 @@ const EditProduct = (props) => {
               setReloadingImages={setReloadingImages}
               reloadingImages={reloadingImages} />
           </div>
+          {/* Image deleted POPUP */}
+          {imageDeleted ? <h1><i className='fa fa-check'></i> Image Deleted!</h1> :
+            <div className={editingProduct.images_container}>
+              {loadingImages ? <h1>...Loading Images</h1> :
 
-          <div className={editingProduct.images_container}>
-            {images.map(image =>
-              <div key={image._id} className={editingProduct.image_wrapper}>
-                {/* <p>{image._id}</p> */}
-                <i onClick={() => deleteImage(image._id)} className="fa fa-minus-circle"></i>
-                <CloudinaryContext cloudName="quickstlabs">
-                  <Image publicId={image.public_id}>
-                    <Transformation width="150" height="150" crop="fill" />
-                  </Image>
-                </CloudinaryContext>
-              </div>
-            )}
+                images.map((image, index) =>
 
-          </div>
+                  <div key={image._id} className={editingProduct.image_wrapper}>
+                    {/* <p>{image._id}</p> */}
+                    <i onClick={() => deleteImage(image._id)} className="fa fa-minus-circle"></i>
+                    <CloudinaryContext cloudName="quickstlabs">
+                      <Image publicId={image.public_id}>
+                        <Transformation width="150" height="150" crop="fill" />
+                      </Image>
+                    </CloudinaryContext>
+
+                  </div>
+                )
+              }
+            </div>} {/* closing turnary bracket */}
         </div>
 
 
@@ -173,8 +202,8 @@ const EditProduct = (props) => {
           {editingDetails ? <h4 onClick={submitProductDetails} > <i className="fa fa-check-circle"></i> Commit Changes</h4> : <h4><i className="fa fa-edit"></i>Edit Details</h4>}
 
         </div>
-        {/* details saved MODAL */}
-        {detailsSaved && <div className={editingProduct.details_saved_modal}>
+        {/* details saved POPUP */}
+        {detailsSaved && <div className={editingProduct.details_saved_popup}>
           <h3><i className="fa fa-check"></i> Product Details Saved!</h3>
         </div>}
 

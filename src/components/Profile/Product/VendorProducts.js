@@ -7,8 +7,10 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import profile from '../../../styles/scss/profile.module.scss';
 
 const VendorProducts = ({ products, addProduct }) => {
-	const [ editingProd, setEditingProd ] = useState(false);
-	const [ editingProdId, setEditingProdId ] = useState('');
+	// Opens EditingProduct MODAL    // change back to false
+	const [editingProd, setEditingProd] = useState(true);
+	// Passed to EditingProdcut MODAL            // change back to ""
+	const [editingProdId, setEditingProdId] = useState("5e1c9cedcb86ae00173f8aee");
 
 	console.log(editingProd);
 	console.log('VendorProducts.js products: ', products);
@@ -16,7 +18,7 @@ const VendorProducts = ({ products, addProduct }) => {
 	const showEditProduct = (prodId) => {
 		setEditingProdId(prodId);
 		setEditingProd(!editingProd);
-		console.log(`Editing Product Id: `, prodId);
+		console.log(`VenorProducts.js showEditingProduct prodId: `, prodId);
 	};
 
 	return (
@@ -48,8 +50,8 @@ const VendorProducts = ({ products, addProduct }) => {
 							</div>
 						))
 					) : (
-						<p>you don't have any product yet</p>
-					)}
+							<p>you don't have any product yet</p>
+						)}
 				</div>
 			</div>
 		</div>

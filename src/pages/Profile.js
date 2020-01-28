@@ -145,7 +145,6 @@ const Profile = (props) => {
 	};
 
 	return (
-    <>
 		<div className={profile.banner_container}>
     <Nav {...vendorInfo} />
 			<div className={profile.banner_wrapper}>

@@ -62,9 +62,8 @@ const Browse = (props) => {
 
 	return (
 		<div className={browse.container}>
-			<div className={browse.temp_menu}>
-				<Nav />
-			</div>
+			<Nav />
+
 			<div className={browse.wrapper}>
 				{zipcode === '' && <p>Enter a location to start browsing</p>}
 				{zipcode !== '' && <p>Your results for</p>}

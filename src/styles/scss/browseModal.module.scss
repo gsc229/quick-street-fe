@@ -1,0 +1,74 @@
+@import './mixins.scss';
+
+.container {
+	@include xl {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 100rem;
+		padding: 2rem;
+		display: flex;
+		border-radius: 1rem;
+		max-width: 100%;
+		overflow: auto;
+		z-index: 1010;
+		background-color: white;
+	}
+}
+.overlay {
+	z-index: 1000;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.column_left {
+	@include xl {
+		flex: 1;
+		width: 50%;
+		padding: 2rem;
+	}
+}
+
+.column_right {
+	@include xl {
+		flex: 1;
+		width: 50%;
+		padding: 2rem;
+	}
+}
+.row {
+	@include xl {
+		display: flex;
+		flex-wrap: wrap;
+		margin-bottom: 1rem;
+		input {
+			@include form_input();
+			font-size: 1.6rem;
+		}
+		h1 {
+			font-size: 4rem;
+			margin-bottom: 0rem;
+		}
+		h2 {
+			font-size: 2rem;
+			margin-bottom: 0rem;
+		}
+		h3 {
+			font-size: 2rem;
+			align-self: center;
+			margin-right: 1rem;
+		}
+	}
+}
+.button_wrapper {
+	@include xl {
+		display: flex;
+		position: fixed;
+		bottom: 0;
+		width: 45%;
+	}
+}

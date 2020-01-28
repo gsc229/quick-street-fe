@@ -4,14 +4,16 @@ import editingProduct from '../../../styles/css/editingProduct.module.css';
 const EditProductForm = (props) => {
 
   const { product, setProduct } = props;
-  // this state is for pre selecting checkboxes.
+  // this state is for pre selecting checkboxes
   const [dietsOnFile, setDietsOnFile] = useState([]);
+  const [unitOnFile, setUnitOnFile] = useState([]);
   console.log('product.diet: ', product.diet);
   console.log('dietsOnFile', dietsOnFile);
 
   useEffect(() => {
 
     setDietsOnFile(product.diet);
+
 
   }, [product]);
 
@@ -78,18 +80,10 @@ const EditProductForm = (props) => {
           <textarea onChange={handleChanges} type="text" name="description" value={product.description} />
         </div>
         <div className={editingProduct.input_wrapper}>
-          <label htmlFor="diet">Dietary Category: </label>
-          <select name="diet" type='text' class="custom-select custom-select-lg mb-3">
-            <option selected>Choose diet category</option>
-            <option value='Gluten Free'>Gluten Free</option>
-            <option value='Vegetarian'>Vegetarian</option>
-            <option value='Vegan'>Vegan</option>
-            <option value='Keto'>Keto</option>
-            <option value='Dairy Free'>Dairy Free</option>
-          </select>
+
           <div className={`form-check ${editingProduct.checkbox_wrapper}`}>
             <div>
-              <input checked={dietsOnFile && dietsOnFile.indexOf('Gluten Free') !== -1 ? true : false} onChange={handleSelect} className={`form-check-input ${editingProduct.checkbox_input}`} name='diet' type="checkbox" value='Gluten Free' id="defaultCheck1" />
+              <input checked={dietsOnFile && dietsOnFile.indexOf('Vegetarian') !== -1 ? true : false} onChange={handleSelect} className={`form-check-input ${editingProduct.checkbox_input}`} name='diet' type="checkbox" value='Gluten Free' id="defaultCheck1" />
               <label className={`form-check-label ${editingProduct.checkbox_label}`} for="defaultCheck1">
                 Gluten Free
               </label>
@@ -125,8 +119,25 @@ const EditProductForm = (props) => {
 
         </div>
         <div className={editingProduct.input_wrapper}>
-          <label htmlFor="price">Price: </label>
+          <label htmlFor="price">$ Price: </label>
           <input onChange={handleChanges} type="text" name="price" value={product.price} />
+        </div>
+        <div className={editingProduct.input_wrapper}>
+          <label htmlFor="unit">Unit: </label>
+          <select onChange={handleChanges} name="unit" type='text' class="custom-select custom-select-lg mb-3">
+            <option selected>Choose Unit</option>
+            <option value='lb'>lb</option>
+            <option value='dozen'>dozen</option>
+            <option value='1/2 dozen'>1/2 dozen</option>
+            <option value='oz'>oz</option>
+            <option value='gram'>gram</option>
+            <option value='jar'>jar</option>
+            <option value='case'>case</option>
+            <option value='box'>box</option>
+            <option value='crate'>crate</option>
+          </select>
+          <label htmlFor="">...or write in your own unit: </label>
+          <input onChange={handleChanges} name='unit' type="text" placeholder={'Write unit'} />
         </div>
       </form>
     </div>

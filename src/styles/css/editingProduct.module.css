@@ -285,7 +285,7 @@
   height: fit-content;
 }
 
-.edit_product_right .details_container .input_wrapper {
+.edit_product_right .details_container .details_wrapper .input_wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -296,13 +296,27 @@
   margin: 2rem 0;
 }
 
-.edit_product_right .details_container .input_wrapper label {
+.edit_product_right .details_container .details_wrapper .input_wrapper label {
   font-size: 1.4rem;
   color: #2b3335;
 }
 
-.edit_product_right .details_container .input_wrapper p {
+.edit_product_right .details_container .details_wrapper .input_wrapper p {
   font-size: 1.8rem;
+}
+
+.edit_product_right .details_container .details_wrapper .diet_category_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.edit_product_right .details_container .details_wrapper .diet_category_container p {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .edit_product_right .input_wrapper {

@@ -216,7 +216,9 @@
     flex-direction: column;
     justify-content: space-between;
     height: fit-content;
-    //input wrapper details container EditProduct.js
+
+    .details_wrapper{
+      //input wrapper details container EditProduct.js
     .input_wrapper{
     display: flex;
     flex-direction: column;
@@ -226,10 +228,23 @@
       color: #2b3335; 
       }
       p{
-      font-size: 1.8rem;
-    }
+      font-size: 1.8rem;      
+      }
       
-  }
+    }
+
+    .diet_category_container{
+      display: flex;
+      flex-wrap: wrap;
+      p{
+        width: fit-content;
+        //border: 2px solid green;
+      }
+    }
+
+    }
+
+    
     
   }
   

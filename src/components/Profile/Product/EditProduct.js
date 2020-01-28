@@ -225,17 +225,16 @@ const EditProduct = (props) => {
               </div>
 
               <div className={editingProduct.input_wrapper}>
-                <label htmlFor="diet">Dietary Category: </label>
-                <p>{product.diet}</p>
-              </div>
-              <div className={editingProduct.input_wrapper}>
-                <label htmlFor="category">Food Category: </label>
-                <p>{product.category}</p>
-              </div>
+                <label htmlFor="diet">Dietary Category(ies): </label>
+                <div className={editingProduct.diet_category_container}>
+                  {product && product.diet.map(category => <p>{category} &nbsp;</p>)}
 
+                </div>
+
+              </div>
               <div className={editingProduct.input_wrapper}>
                 <label htmlFor="">Price: </label>
-                <p>${product.price}</p>
+                <p>${product.price}/{product.unit}</p>
               </div>
 
             </div>

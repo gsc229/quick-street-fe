@@ -12,7 +12,7 @@ const ModalCarousel2 = ({ images }) => {
 						setIndex(i);
 					}}
 				>
-					{images.map((img) => <GalleryImage objectFit="contain" key={img._id} src={img.secure_url} />)}
+					{images.map((img) => <GalleryImage objectFit="cover" key={img._id} src={img.secure_url} />)}
 				</Gallery>
 			</div>
 		</div>

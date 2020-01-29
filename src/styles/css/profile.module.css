@@ -108,6 +108,7 @@
     margin-right: 4rem;
   }
   .products_card_wrapper .products_card .image {
+    cursor: pointer;
     width: 100%;
     border-radius: 0.3rem;
   }

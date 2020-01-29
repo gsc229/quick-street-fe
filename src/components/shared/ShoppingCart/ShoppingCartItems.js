@@ -94,7 +94,7 @@ const ShoppingCartItems = ({ cart, setCart, cartModal, setCartModal, history }) 
       {/* <button onClick={deleteAllCartItems}>Delete All Cart Items</button> */}
       <button onClick={handleKeepShopping}>Keep Shopping</button>
       {/* <button onClick={handleCheckout}>Checkout</button> */}
-      {cart && (<Link to={{ pathname: `/checkout/${cart.cartId}`}}>Checkout</Link>)}
+      {cart && (<Link to={{ pathname: `/orderreview/${cart.cartId}`}}>Checkout</Link>)}
       
     </>
   )

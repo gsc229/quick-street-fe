@@ -58,6 +58,9 @@ import herobanner from '../components/Dashboard/HeroBanner';
 // mobile components
 import carouseltopmobile from '../components/Landing/CarouselTopMobile';
 
+// Order Review components
+import orderreviewitem from '../components/OrderReview/OrderReviewItem';
+
 //Landing Components exports
 export const LandingGallery = landinggallery;
 export const CarouselTop = carouseltop;
@@ -116,3 +119,6 @@ export const ShoppingCartItem = shoppingcartitem;
 
 // Dashboard exports
 export const HeroBanner = herobanner;
+
+// OrderReview exports
+export const OrderReviewItem = orderreviewitem;

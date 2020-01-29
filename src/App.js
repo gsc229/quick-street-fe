@@ -12,7 +12,8 @@ import {
 	Landing, // ** Home Page
 	Profile, //** Vendors Editing Page */
 	Styling, // ** Styling Template */
-	Dashboard // ** Dashboard Page **/
+	Dashboard, // ** Dashboard Page **/
+	OrderReview // ** Order Review Page **/
 } from './pages/index';
 
 import { Footer } from './components/index';
@@ -30,6 +31,7 @@ const App = () => {
 					<Route path="/browse/:id" component={Vendor} />
 					<Route path="/browse" component={Browse} />
 					<Route path="/dashboard" component={Dashboard} />
+					<Route path="/orderreview/:id" component={OrderReview} />
 				</Switch>
 			</Contexts>
 		</div>

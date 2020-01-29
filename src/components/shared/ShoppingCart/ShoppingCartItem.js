@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 import Product from '../../Profile/Product/Product';
 
 const ShoppingCartItem = ({ cart, setCart, customerId, getCartItems, product }) => {
   // console.log(cartItem);
-  console.log(cart);
+  // console.log(cart);
   // const [ editingQty, setEditingQty ] = useState(false);
   // const [ quantity, setQuantity ] = useState(cartItem.quantity);
   
@@ -56,9 +57,12 @@ const ShoppingCartItem = ({ cart, setCart, customerId, getCartItems, product }) 
     // </div>
     // <h1>Shopping Cart Item</h1>
     <>
-
+      <CloudinaryContext cloudName="quickstlabs">
+        <Image publicId={product.item.product_image.thumbnail_url}>
+          <Transformation gravity="center" height="318" width="1062" crop="fill" />
+        </Image>
+      </CloudinaryContext>
       <p>{product.quantity} {product.item.name}</p>
-      <p>Item</p>
     </>
 
   )

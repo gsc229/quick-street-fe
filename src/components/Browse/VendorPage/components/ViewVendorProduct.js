@@ -20,7 +20,7 @@ const ViewVendorProduct = (props) => {
 	const customerId = userContext.user.userId;
 	// const customerId = localStorage.getItem('user_id');
 	// console.log(customerId);
-	console.log('cart on the vendor product page', cart);
+	// console.log('cart on the vendor product page', cart);
 	const handleChange = (event) => {
 		setQuantity(event.target.value);
 	}
@@ -34,7 +34,7 @@ const ViewVendorProduct = (props) => {
 		axiosWithAuth()
 			.get(`customers/${customerId}/cart`)
 			.then(response => {
-				// console.log("GET ViewV.Prod response: ", response)
+				console.log('Response from get request after a product has been added to cart', response);
 				// setCart(response.data.data.items);
 				setCart({
 					...cart, 

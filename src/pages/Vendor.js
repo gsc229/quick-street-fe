@@ -1,7 +1,7 @@
 // ** Vendor customer facing page ** //
 
 import React, { useState } from 'react';
-import { ViewAboutVendor, ViewVendorProducts, ViewVendorPosts, Menu, Footer, ShoppingCartItems } from '../components/index';
+import { ViewAboutVendor, ViewVendorProducts, ViewVendorPosts, Menu, Footer, ShoppingCartItems, Modal } from '../components/index';
 
 // import About from '../components/Browse/VendorPage/components/About';
 // import Products from '../components/Browse/VendorPage/components/Products';
@@ -15,17 +15,24 @@ const Vendor = props => {
   
   const vendorId = props.match.params.id;
 
+  const [ cartModal, setCartModal ] = useState(false);
+
   // console.log('props in vendor view page', props);
   // console.log(props.location.cart);
   // console.log(props.location.setCart);
+  console.log(props);
   console.log(props.location.getCartItems);
 
   return (
     <>
-      <nav className="temporary_nav" style={{ color: 'red', textAlign: 'center' }} >
-        <h1>Replace Me With Luis's Nav</h1>
-        <ShoppingCartItems cart={props.location.cart} setCart={props.location.setCart} />
-      </nav>
+      <p onClick={() => setCartModal(true)}>Shopping Cart</p>
+			<Modal showModal={cartModal}>
+        <i
+          onClick={() => setCartModal(false)}
+          className="fa fa-times close_x">
+        </i>
+        <ShoppingCartItems cart={props.location.cart} setCart={props.location.setCart} cartModal={props.location.cartModal} setCartModal={props.location.setCartModal}/>
+			</Modal>
       <Menu />
       <ViewAboutVendor vendorId={vendorId} />
       <ViewVendorProducts cart={props.location.cart} setCart={props.location.setCart} getCartItems={props.location.getCartItems} vendorId={vendorId} />

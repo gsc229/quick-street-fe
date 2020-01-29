@@ -14,7 +14,7 @@ const ViewAboutVendor = (props) => {
 			.get(`/vendors/${id}`)
 			.then((response) => {
 				// console.log(response);
-				setVendor({...vendor, vendor: response.data.data, location: response.data.data.location});
+				setVendor(response.data.data);
 			})
 			.catch((error) => {
 				console.log(error);

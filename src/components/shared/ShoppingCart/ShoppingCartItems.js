@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { Redirect, Link } from 'react-router-dom';
 import { UserContext } from '../../../contexts/UserContext';
 import { CartContext } from '../../../contexts/CartContext';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 import { ShoppingCartItem } from '../../index';
 
 
-const ShoppingCartItems = ({ cart, setCart }) => {
+const ShoppingCartItems = ({ cart, setCart, cartModal, setCartModal, history }) => {
   const userContext = useContext(UserContext); 
   // const cartContext = useContext(CartContext);
 
@@ -17,7 +18,7 @@ const ShoppingCartItems = ({ cart, setCart }) => {
 
   const customerId = userContext.user.userId;
   // const customerId = localStorage.getItem('userId');
-  console.log('The cart is ', cart);
+  // console.log('The cart is ', cart);
 
   // const deleteAllCartItems = () => {
   //   axiosWithAuth()
@@ -51,6 +52,18 @@ const ShoppingCartItems = ({ cart, setCart }) => {
     })
   }
 
+  const handleKeepShopping = (event) => {
+    event.preventDefault();
+    console.log('Keep shopping clicked');
+    setCartModal(false);
+  };
+
+  const handleCheckout = (event) => {
+    event.preventDefault();
+    console.log('Checkout is clicked');
+    console.log(history);
+    return <Redirect to='/cart/${cart._id}' />
+  };
 
   // useEffect(() => {
   //   if (customerId) {
@@ -66,7 +79,7 @@ const ShoppingCartItems = ({ cart, setCart }) => {
     <>
       <p>Your Cart</p>
       {/* { cartItems.error && (<p>cartItems.error</p>) } */}
-      {cart.items && cart.items.map(product => (
+      {cart && cart.items && cart.items.map(product => (
         <ShoppingCartItem 
         product={product} 
         // setCartItems={setCartItems}
@@ -77,10 +90,12 @@ const ShoppingCartItems = ({ cart, setCart }) => {
         key={product.item._id} 
         />
       ))}
-      <p>Total: {cart.total}</p>
+      { cart && (<p>Total: {cart.total}</p>)}
       {/* <button onClick={deleteAllCartItems}>Delete All Cart Items</button> */}
-      <button>Keep Shopping</button>
-      <button>Checkout</button>
+      <button onClick={handleKeepShopping}>Keep Shopping</button>
+      {/* <button onClick={handleCheckout}>Checkout</button> */}
+      {cart && (<Link to={{ pathname: `/checkout/${cart.cartId}`}}>Checkout</Link>)}
+      
     </>
   )
 }

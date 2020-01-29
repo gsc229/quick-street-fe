@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
 // components
-import { Map, Search, Menu, ShoppingCartItems } from '../components/index';
+import { Map, Search, Menu, ShoppingCartItems, Modal } from '../components/index';
 import { UserContext } from '../contexts/UserContext';
 
 // styles
@@ -18,6 +18,9 @@ const Browse = (props) => {
 	const [cart, setCart] = useState({
 		items: []
 	});
+
+	const [ cartModal, setCartModal ] = useState(false);
+
 	const [zipcode, setZipcode] = useState('');
 	const [vendors, setVendors] = useState({
 		count: '',
@@ -37,8 +40,6 @@ const Browse = (props) => {
 		props.history.replace(`${props.location.pathname}?${query.toString()}`);
 		getSearchResults(customerZip);
 	};
-
-
 
 	const getSearchResults = (zip) => {
 		axiosWithAuth()
@@ -61,7 +62,7 @@ const Browse = (props) => {
     axiosWithAuth()
     .get(`/customers/${customerId}/cart`)
     .then(response => {
-      console.log(response);
+      // console.log(response);
       setCart({
 				...cart, 
 				items: response.data.data.items,
@@ -90,7 +91,14 @@ const Browse = (props) => {
 
 	return (
 		<div className={browse.container}>
-			<ShoppingCartItems cart={cart}/>
+			<p onClick={() => setCartModal(true)}>Shopping Cart</p>
+			<Modal showModal={cartModal}>
+			<i
+				onClick={() => setCartModal(false)}
+				className="fa fa-times close_x">
+			</i>
+			<ShoppingCartItems cart={cart} cartModal={cartModal} setCartModal={setCartModal} />
+			</Modal>
 			<div className={browse.temp_menu}>
 				<Menu />
 			</div>
@@ -117,6 +125,8 @@ const Browse = (props) => {
 					cart={cart}
 					setCart={setCart} 
 					getCartItems={getCartItems}
+					cartModal={cartModal}
+					setCartModal={setCartModal}
 				/>
 			</div>
 		</div>

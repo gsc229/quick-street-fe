@@ -27,7 +27,7 @@ const EditProduct = (props) => {
   console.log('EditProduct product ', product);
   console.log('EditingProduct images: ', images)
   useEffect(() => {
-    console.log('USEEFFECT EditProducts.js GET /products/:prodcutId')
+    console.log('USEEFFECT 4 EditProducts.js GET /products/:prodcutId')
     // loading images popup on (off in next useEffect)
     setLoadingImages(true);
     // get product (details)
@@ -46,7 +46,7 @@ const EditProduct = (props) => {
 
   useEffect(() => {
     // get all images of same product in previous request.
-    console.log('USEEFFECT EditProducts.js GET /products/:prodcutId/product-images')
+    console.log('USEEFFECT 5 EditProducts.js GET /products/:prodcutId/product-images')
     axiosWithAuth()
       /* ${props.product_id} */
       .get(`/products/${props.product_id}/product-images`)
@@ -65,6 +65,7 @@ const EditProduct = (props) => {
 
   const finishedEditing = () => {
     setAllChangesSaved(true);
+    setReloadProducts(!reloadProducts);
     setTimeout(function () {
 
       setAllChangesSaved(false);
@@ -106,6 +107,7 @@ const EditProduct = (props) => {
     const vendorId = localStorage.getItem('user_id');
     setConfirmClose(false);
     setAllChangesSaved(true);
+    setReloadProducts(!reloadProducts);
     setTimeout(function () {
 
       setAllChangesSaved(false);

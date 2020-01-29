@@ -22,8 +22,6 @@ const Profile = props => {
 	// It all starts here!...with vendorId from localStorage
 	const [vendorId, setVendorId] = useState(localStorage.getItem('user_id'))
 	const [vendorInfo, setVendorInfo] = useState({ location: '' });
-	const [modal, setModal] = useState(false);
-	const [editingName, setEditingName] = useState(false);
 	const [bannerInfo, setBannerInfo] = useState('no_banner.jpg');
 	const [products, setProducts] = useState([]);
 	const [productImagesIds, setProductImagesIds] = useState([]);
@@ -36,6 +34,9 @@ const Profile = props => {
 		hour_to: '',
 		location: ''
 	});
+	// Booleans 
+	const [modal, setModal] = useState(false);
+	const [editingName, setEditingName] = useState(false);
 	const [reloadProducts, setReloadProducts] = useState(false);
 	const [editAbout, setEditAbout] = useState(false);
 	const [editBusinessName, setEditBusinessName] = useState(false);
@@ -58,7 +59,7 @@ const Profile = props => {
 				console.log('ERROR Profile.js GET vendors/:vendorId error: ', error)
 			})
 
-	}, [vendorId, setReloadProducts]);
+	}, [vendorId]);
 
 	useEffect(() => {
 		console.log('USEEFFECT 2');
@@ -73,7 +74,7 @@ const Profile = props => {
 			})
 
 
-	}, [vendorId, reloadProducts])
+	}, [vendorId, reloadProducts, setReloadProducts])
 
 
 

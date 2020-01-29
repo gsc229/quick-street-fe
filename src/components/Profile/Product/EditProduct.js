@@ -12,7 +12,6 @@ const EditProduct = (props) => {
   const { setReloadProducts, reloadProducts } = props
   const [images, setImages] = useState([]);
   const [product, setProduct] = useState({ diet: [""] });
-
   // POPUP Bools                                
   const [editingDetails, setEditingDetails] = useState(false);// change back to false
   const [detailsSaved, setDetailsSaved] = useState(false);
@@ -24,10 +23,10 @@ const EditProduct = (props) => {
   // Bool to reload images after POST or DELETE request passed to ProductImageUploader
   const [reloadingImages, setReloadingImages] = useState(false);
 
-  console.log('EditProduct product ', product);
-  console.log('EditingProduct images: ', images)
+  //console.log('EditProduct product ', product);
+  //console.log('EditingProduct images: ', images)
   useEffect(() => {
-    console.log('USEEFFECT 4 EditProducts.js GET /products/:prodcutId')
+    //console.log('USEEFFECT 4 EditProducts.js GET /products/:prodcutId')
     // loading images popup on (off in next useEffect)
     setLoadingImages(true);
     // get product (details)
@@ -46,13 +45,12 @@ const EditProduct = (props) => {
 
   useEffect(() => {
     // get all images of same product in previous request.
-    console.log('USEEFFECT 5 EditProducts.js GET /products/:prodcutId/product-images')
+    //console.log('USEEFFECT 5 EditProducts.js GET /products/:prodcutId/product-images')
     axiosWithAuth()
       /* ${props.product_id} */
       .get(`/products/${props.product_id}/product-images`)
       .then((response) => {
-        console.log("RESPONSE");
-        // console.log(response);
+
         setImages(response.data.data);
         // loading popup off
         setLoadingImages(false);

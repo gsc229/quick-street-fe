@@ -13,7 +13,7 @@ const VendorProducts = ({ products, vendorId, reloadProducts, setReloadProducts 
 	// Passed to EditingProdcut MODAL            // change back to ""
 	const [editingProdId, setEditingProdId] = useState("");
 
-	console.log(editingProd);
+
 	//console.log('VendorProducts.js products: ', products);
 
 	const showEditProduct = (prodId) => {
@@ -29,7 +29,7 @@ const VendorProducts = ({ products, vendorId, reloadProducts, setReloadProducts 
 				price: 0
 			})
 			.then(response => {
-				console.log('NEW PRODUCT VendorProduct.js createNewProduct() res:', response)
+				console.log('POST NEW PRODUCT VendorProduct.js createNewProduct() res:', response)
 				//POST new product, then proceed directly to editing mode with the id. I this way we can reuse the EditingProductForm as is. 
 				setEditingProdId(response.data.data._id);
 				setEditingProd(true);

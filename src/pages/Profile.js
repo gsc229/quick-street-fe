@@ -40,11 +40,11 @@ const Profile = props => {
 	const [reloadProducts, setReloadProducts] = useState(false);
 	const [editAbout, setEditAbout] = useState(false);
 	const [editBusinessName, setEditBusinessName] = useState(false);
-	console.log('Profile.js vendorInfo: ', vendorInfo);
+	//console.log('Profile.js vendorInfo: ', vendorInfo);
 
 
 	useEffect(() => {
-		console.log('USEEFFECT 1');
+		//console.log('USEEFFECT 1 Profile.js');
 		axiosWithAuth()
 			.get(
 				`/vendors/${vendorId}`
@@ -52,7 +52,7 @@ const Profile = props => {
 			.then(response => {
 				setVendorInfo(response.data.data);
 				/* setBannerInfo(vendorInfo.data.data.vendor_banner); */
-				console.log('GET Profile.js useEff},[vendorId]) response', response);
+				console.log('GET Profile.js useEff},[vendorId]) setVendorInfo', response);
 
 			})
 			.catch(error => {
@@ -62,7 +62,7 @@ const Profile = props => {
 	}, [vendorId]);
 
 	useEffect(() => {
-		console.log('USEEFFECT 2');
+		//console.log('USEEFFECT 2 Profile.js');
 		axiosWithAuth()
 			.get(`/vendors/${vendorId}/products`)
 			.then(response => {

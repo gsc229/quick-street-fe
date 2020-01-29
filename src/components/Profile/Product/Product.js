@@ -7,11 +7,11 @@ const Product = ({ name, img, price, productId, setReloadProducts }) => {
 	const [productImages, setProductImages] = useState('');
 
 	useEffect(() => {
-		console.log(`USEEFFECT 3 Product.js productId: `, productId)
+		//console.log(`USEEFFECT 3 Product.js productId: `, productId)
 		axiosWithAuth()
 			.get(`/products/${productId}/product-images`)
 			.then(response => {
-				console.log(`GET /:productId/product-images Product.js `, response)
+				//console.log(`GET /:productId/product-images Product.js `, response)
 				setProductImages(response.data.data);
 			})
 			.catch(error => {

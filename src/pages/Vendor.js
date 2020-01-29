@@ -18,16 +18,17 @@ const Vendor = props => {
   // console.log('props in vendor view page', props);
   // console.log(props.location.cart);
   // console.log(props.location.setCart);
+  console.log(props.location.getCartItems);
 
   return (
     <>
       <nav className="temporary_nav" style={{ color: 'red', textAlign: 'center' }} >
         <h1>Replace Me With Luis's Nav</h1>
-        <ShoppingCartItems cart={props.location.cart} />
+        <ShoppingCartItems cart={props.location.cart} setCart={props.location.setCart} />
       </nav>
       <Menu />
       <ViewAboutVendor vendorId={vendorId} />
-      <ViewVendorProducts setCart={props.location.setCart} vendorId={vendorId} />
+      <ViewVendorProducts cart={props.location.cart} setCart={props.location.setCart} getCartItems={props.location.getCartItems} vendorId={vendorId} />
       <ViewVendorPosts vendorId={vendorId} />
       {/* <button onClick={() => props.history.goBack()}>Back</button> */}
       <Footer />

@@ -10,14 +10,17 @@ import { CartContext } from '../../../../contexts/CartContext';
 
 const ViewVendorProduct = (props) => {
 	const userContext = useContext(UserContext); 
-	const cartContext = useContext(CartContext);
+	// const cartContext = useContext(CartContext);
 
 	const [images, setImages] = useState([{}]);
 	const [quantity, setQuantity] = useState('1');
 	const [showModal, setShowModal] = useState(false);
-	const { setCart } = props;
+	const { cart, setCart } = props;
+	// console.log(getCartItems);
 	const customerId = userContext.user.userId;
+	// const customerId = localStorage.getItem('user_id');
 	// console.log(customerId);
+	console.log('cart on the vendor product page', cart);
 	const handleChange = (event) => {
 		setQuantity(event.target.value);
 	}
@@ -32,14 +35,20 @@ const ViewVendorProduct = (props) => {
 			.get(`customers/${customerId}/cart`)
 			.then(response => {
 				// console.log("GET ViewV.Prod response: ", response)
-				setCart(response.data.data.items);
+				// setCart(response.data.data.items);
+				setCart({
+					...cart, 
+					items: response.data.data.items,
+					total: response.data.data.total,
+					cartId: response.data.data._id
+				})
 			})
 			.catch(err => console.log(err.response))
 	}
 
-	useEffect(() => {
-		getCartItems()
-	}, [])
+	// useEffect(() => {
+	// 	getCartItems()
+	// }, [cart])
 
 
 	const handleAddToCart = () => {
@@ -51,8 +60,8 @@ const ViewVendorProduct = (props) => {
 		console.log(postObject);
 		showHideModal(false);
 		if (!customerId) {
-			cartContext.addToCart({...postObject, image: images[0].secure_url});
-			console.log(cartContext.products);
+			// cartContext.addToCart({...postObject, image: images[0].secure_url});
+			// console.log(cartContext.products);
 		} else {
 			// POST request to add item to cart
 			axiosWithAuth()

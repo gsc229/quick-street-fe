@@ -6,7 +6,7 @@ import rectangle from '../../../assets/images/Profile/rectangle.png';
 import placeholder from '../../../assets/images/Profile/placeholder.png';
 
 const Browse = (props) => {
-	console.log('props from the search page is', props);
+	// console.log('props from the search page is', props);
 	const noZipcodeArray = [1, 2, 3, 4, 5, 6];
 
 	return (
@@ -44,7 +44,7 @@ const Browse = (props) => {
 						</div>
 						<Link
 							className={browse.view_vendor}
-							to={{ pathname: `/browse/${vendor._id}`, setCart: props.setCart, cart: props.cart }}
+							to={{ pathname: `/browse/${vendor._id}`, setCart: props.setCart, cart: props.cart, getCartItems: props.getCartItems }}
 						>
 							View
 						</Link>

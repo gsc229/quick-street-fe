@@ -11,17 +11,20 @@ import browse from '../styles/scss/browse.module.scss';
 
 const Browse = (props) => {
 	// console.log('The browse props are', props);
-	const user = useContext(UserContext);
+	const {user} = useContext(UserContext);
+	const customerId = user.userId;
 	// console.log('user in browse', user);
 
-	const [cart, setCart] = useState([{ item: {} }]);
+	const [cart, setCart] = useState({
+		items: []
+	});
 	const [zipcode, setZipcode] = useState('');
 	const [vendors, setVendors] = useState({
 		count: '',
 		vendorDetails: []
 	});
 	const [customerZip, setCustomerZip] = useState('');
-	const customerId = localStorage.getItem('user_id');
+	// const customerId = localStorage.getItem('user_id');
 	const handleChange = (event) => {
 		setCustomerZip(event.target.value);
 	};
@@ -54,8 +57,24 @@ const Browse = (props) => {
 			});
 	};
 
-
-
+	const getCartItems = () => {
+    axiosWithAuth()
+    .get(`/customers/${customerId}/cart`)
+    .then(response => {
+      console.log(response);
+      setCart({
+				...cart, 
+				items: response.data.data.items,
+				total: response.data.data.total,
+				cartId: response.data.data._id
+			})
+    })
+    .catch(error => {
+      console.log(error.response);
+    })
+	}
+	
+	
 	useEffect(() => {
 		const query = new URLSearchParams(props.location.search);
 		const zip = query.get('zip');
@@ -63,6 +82,10 @@ const Browse = (props) => {
 			setCustomerZip(zip);
 			getSearchResults(zip);
 		}
+	}, []);
+
+	useEffect(() => {
+		getCartItems()
 	}, []);
 
 	return (
@@ -93,6 +116,7 @@ const Browse = (props) => {
 					match={props.match}
 					cart={cart}
 					setCart={setCart} 
+					getCartItems={getCartItems}
 				/>
 			</div>
 		</div>

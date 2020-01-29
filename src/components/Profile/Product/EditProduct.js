@@ -10,23 +10,23 @@ import { EditProductForm, ProductImageUploader } from '../../index';
 
 const EditProduct = (props) => {
   const [images, setImages] = useState([]);
-  const [product, setProduct] = useState({});
+  const [product, setProduct] = useState({ diet: [""] });
 
   // POPUP Bools                                
-  const [editingDetails, setEditingDetails] = useState(true);// change back to false
+  const [editingDetails, setEditingDetails] = useState(false);// change back to false
   const [detailsSaved, setDetailsSaved] = useState(false);
   const [allChangesSaved, setAllChangesSaved] = useState(false);
   const [confirmClose, setConfirmClose] = useState(false);
   const [loadingImages, setLoadingImages] = useState(false);
   const [imageDeleted, setImageDeleted] = useState(false);
-  // Bool to reload images after POST or DELETE request
+  // Bool to reload images after POST or DELETE request passed to ProductImageUploader
   const [reloadingImages, setReloadingImages] = useState(false);
 
   console.log('EditProduct product ', product);
   console.log('EditingProduct images: ', images)
   useEffect(() => {
     console.log('USEEFFECT EditProducts.js GET /products/:prodcutId')
-    // loading popup on
+    // loading images popup on (off in next useEffect)
     setLoadingImages(true);
     // get product (details)
     axiosWithAuth()
@@ -152,6 +152,7 @@ const EditProduct = (props) => {
 
         <div className={editingProduct.left_upper_container}>
           <div className={editingProduct.add_image_btns}>
+
             <ProductImageUploader
               productId={product._id}
               setReloadingImages={setReloadingImages}
@@ -212,7 +213,7 @@ const EditProduct = (props) => {
 
 
             <div className={editingProduct.details_wrapper}>
-
+              <h3>For dev: productId: {product._id}</h3>
 
               <div className={editingProduct.input_wrapper}>
                 <label htmlFor="">Product Name: </label>

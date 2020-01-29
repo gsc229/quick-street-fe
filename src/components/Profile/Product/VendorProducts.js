@@ -5,21 +5,39 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 // styling
 import profile from '../../../styles/scss/profile.module.scss';
+import axiosWithAuth from '../../../utils/axiosWithAuth';
 
-const VendorProducts = ({ products, addProduct }) => {
-	// Opens EditingProduct MODAL    // change back to false
-	const [editingProd, setEditingProd] = useState(true);
+const VendorProducts = ({ products, vendorId }) => {
+	// Opens EditingProduct MODAL    
+	const [editingProd, setEditingProd] = useState(false);// change back to false
 	// Passed to EditingProdcut MODAL            // change back to ""
-	const [editingProdId, setEditingProdId] = useState("5e1c9cedcb86ae00173f8aee");
+	const [editingProdId, setEditingProdId] = useState("");
 
 	console.log(editingProd);
-	console.log('VendorProducts.js products: ', products);
+	//console.log('VendorProducts.js products: ', products);
 
 	const showEditProduct = (prodId) => {
 		setEditingProdId(prodId);
-		setEditingProd(!editingProd);
+		setEditingProd(true);
 		console.log(`VenorProducts.js showEditingProduct prodId: `, prodId);
 	};
+
+	const createNewProduct = () => {
+		axiosWithAuth()
+			.post(`/vendors/${vendorId}/products`, {
+				name: "Give your product a name!",
+				price: 0
+			})
+			.then(response => {
+				console.log('NEW PRODUCT VendorProduct.js createNewProduct() res:', response)
+				//POST new product, then proceed directly to editing mode with the id. I this way we can reuse the EditingProductForm as is. 
+				setEditingProdId(response.data.data._id);
+				setEditingProd(true);
+			})
+			.catch(error => {
+				console.log('VendorProduct.js createNewProduct() error', error)
+			})
+	}
 
 	return (
 		<div className={profile.products_container}>
@@ -28,13 +46,14 @@ const VendorProducts = ({ products, addProduct }) => {
 				<header className={profile.vendor_product_list_title}>Products</header>
 
 				<div className={profile.vendor_product_list_wrapper}>
-					<button className="add_product_btn" onClick={addProduct}>
+					<button className="add_product_btn" onClick={createNewProduct}>
 						<FontAwesomeIcon icon={faPlus} />
 						Add product <br />
 					</button>
 					{products ? (
 						products.map((p, idx) => (
 							<div
+
 								onClick={() => {
 									showEditProduct(p._id);
 								}}

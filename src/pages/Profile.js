@@ -39,6 +39,8 @@ const Profile = props => {
 	const [editAbout, setEditAbout] = useState(false);
 	const [editBusinessName, setEditBusinessName] = useState(false);
 
+	console.log('Profile.js vendorInfo: ', vendorInfo)
+
 	useEffect(() => {
 		console.log('USEEFFECT 1 Profile.js')
 		async function fetchVendorInfo() {
@@ -242,8 +244,10 @@ const Profile = props => {
 					productIds={productIds}
 					products={products}
 					addProduct={addProduct}
+					vendorId={vendorInfo._id}
+
 				/>
-				<AddProductForm
+				{/* <AddProductForm
 					productIds={productIds}
 					modal={modal}
 					products={products}
@@ -252,7 +256,8 @@ const Profile = props => {
 					setModal={setModal}
 					addProductformCancelHandler={addProductformCancelHandler}
 					vendorId={vendorId}
-				/>
+				/> */}
+
 				<Bulletin vendorId={vendorId} />
 			</div>
 		</div>

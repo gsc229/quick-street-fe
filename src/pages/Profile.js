@@ -58,7 +58,7 @@ const Profile = props => {
 				console.log('ERROR Profile.js GET vendors/:vendorId error: ', error)
 			})
 
-	}, [vendorId, reloadProducts]);
+	}, [vendorId, setReloadProducts]);
 
 	useEffect(() => {
 		console.log('USEEFFECT 2');

@@ -22,7 +22,7 @@ const Product = ({ name, img, price, productId }) => {
 	return (
 		<div className={product.vendor_product}>
 			<CloudinaryContext cloudName="quickstlabs">
-				<Image className={product.profile_product_image} publicId={productImages && productImages[0].public_id}>
+				<Image className={product.profile_product_image} publicId={productImages[0] && productImages[0].public_id}>
 					<Transformation height="122" width="146" crop="fill" />
 				</Image>
 			</CloudinaryContext>

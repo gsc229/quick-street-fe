@@ -33,6 +33,7 @@ const VendorProducts = ({ products, vendorId, reloadProducts, setReloadProducts 
 				//POST new product, then proceed directly to editing mode with the id. I this way we can reuse the EditingProductForm as is. 
 				setEditingProdId(response.data.data._id);
 				setEditingProd(true);
+				setReloadProducts(!reloadProducts)
 			})
 			.catch(error => {
 				console.log('VendorProduct.js createNewProduct() error', error)

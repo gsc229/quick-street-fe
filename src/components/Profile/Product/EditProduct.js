@@ -174,23 +174,22 @@ const EditProduct = (props) => {
   return (
     <div className={editingProduct.container}>
       <i onClick={() => setConfirmClose(true)} className={`fa fa-times ${editingProduct.close_x}`} ></i>
-      {/* all saved POPUP */}
+      {/* ========= Whole-Modal-POPUPS =========== */}
       {
-        allChangesSaved &&
+        allChangesSaved && // big save button
         <div className={editingProduct.all_saved_popup}>
           <h3> <i className="fa fa-check"></i>All your changes to "<span>{product.name}</span>" have been saved! </h3>
         </div>
       }
 
       {
-        productDeleted &&
+        productDeleted && // confirmation product was deleted
         <div className={editingProduct.all_saved_popup}>
           <h3> <i className="fa fa-check"></i>Product "<span>{product.name}</span>" has been deleted! </h3>
         </div>
       }
-      {/* details saved POPUP */}
       {
-        confirmClose &&
+        confirmClose && // asks to close the window with close x
         <div className={editingProduct.confirm_close_popup}>
           <div className={editingProduct.confirm_close_popup_info}>
             <h3> <i className="fa fa-exclamation"></i>Are you sure you want to close? Make sure your changes to "<span>{product.name}</span>" have been saved! </h3>
@@ -258,7 +257,7 @@ const EditProduct = (props) => {
           {editingDetails ? <h4 onClick={submitProductDetails} > <i className="fa fa-check-circle"></i> Commit Changes</h4> : <h4><i className="fa fa-edit"></i>Edit Details</h4>}
 
         </div>
-        {/* details saved POPUP */}
+        {/* ==== details saved POPUP  ======*/}
         {detailsSaved && <div className={editingProduct.details_saved_popup}>
           <h3><i className="fa fa-check"></i> Product Details Saved!</h3>
         </div>}

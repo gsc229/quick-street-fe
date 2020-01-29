@@ -17,6 +17,7 @@ const EditProduct = (props) => {
   const [detailsSaved, setDetailsSaved] = useState(false);
   const [allChangesSaved, setAllChangesSaved] = useState(false);
   const [confirmClose, setConfirmClose] = useState(false);
+  const [confirmDelete, setConfirmDelete] = useState(false);
   const [loadingImages, setLoadingImages] = useState(false);
   const [imageDeleted, setImageDeleted] = useState(false);
   const [productDeleted, setProductDeleted] = useState(false);
@@ -174,25 +175,33 @@ const EditProduct = (props) => {
   return (
     <div className={editingProduct.container}>
       <i onClick={() => setConfirmClose(true)} className={`fa fa-times ${editingProduct.close_x}`} ></i>
+
       {/* ========= Whole-Modal-POPUPS =========== */}
-      {
-        allChangesSaved && // big save button
+      {allChangesSaved && // big save button
         <div className={editingProduct.all_saved_popup}>
-          <h3> <i className="fa fa-check"></i>All your changes to "<span>{product.name}</span>" have been saved! </h3>
+          <h3> <i className="fa fa-check"></i>&nbsp;All your changes to "<span>{product.name}</span>" have been saved! </h3>
+        </div>
+      }
+      {confirmDelete && // ask vendor if okay to delete -- sames styles as confirm_close_popup
+        <div className={editingProduct.confirm_close_popup}>
+          <div className={editingProduct.confirm_close_popup_info}>
+            <h3> <i className="fa fa-exclamation"></i>&nbsp;Are you sure you want to delete "<span>{product.name}</span>"?</h3>
+            <button onClick={deleteProduct} className="btn btn-danger">Delete Product</button>
+            <button onClick={() => setConfirmDelete(false)} className="btn btn-primary">Back to Editing</button>
+          </div>
         </div>
       }
 
-      {
-        productDeleted && // confirmation product was deleted
+      {productDeleted && // confirmation product was deleted
         <div className={editingProduct.all_saved_popup}>
-          <h3> <i className="fa fa-check"></i>Product "<span>{product.name}</span>" has been deleted! </h3>
+          <h3><i className="fa fa-check"></i>&nbsp;Product "<span>{product.name}</span>" has been deleted! </h3>
         </div>
       }
-      {
-        confirmClose && // asks to close the window with close x
+
+      {confirmClose && // asks to close the window with close x
         <div className={editingProduct.confirm_close_popup}>
           <div className={editingProduct.confirm_close_popup_info}>
-            <h3> <i className="fa fa-exclamation"></i>Are you sure you want to close? Make sure your changes to "<span>{product.name}</span>" have been saved! </h3>
+            <h3> <i className="fa fa-exclamation"></i>&nbsp;Are you sure you want to close? Make sure your changes to "<span>{product.name}</span>" have been saved! </h3>
             <button onClick={leaveWithoutSave} className="btn btn-danger">Discard Changes</button>
             <button onClick={() => setConfirmClose(false)} className="btn btn-warning">Continue Editing</button>
             <button onClick={saveAllAndClose} className="btn btn-success">Save and Close</button>
@@ -241,7 +250,7 @@ const EditProduct = (props) => {
             className={editingProduct.finished_editing_btn}>
             <i className="fa fa-check"></i> Finished Editing
                 </button>
-          <button onClick={deleteProduct} className={editingProduct.delete_product_btn}>
+          <button onClick={() => setConfirmDelete(true)} className={editingProduct.delete_product_btn}>
             <i className="fa fa-exclamation-triangle"></i>   Delete Product
           </button>
         </div>

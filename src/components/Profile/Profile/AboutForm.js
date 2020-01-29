@@ -5,39 +5,39 @@ import about from '../../../styles/css/vendor_about.module.css';
 import Map from '../../shared/Map';
 
 const AboutForm = ({ editAbout, vendorInfo, info, setVendorInfo }) => {
-	const changeHandler = (e) => {
-		if (editAbout) {
-			setVendorInfo({ ...vendorInfo, [e.target.name]: e.target.value });
-			// console.log('CHANGE HANDLER VendorABout');
-		}
-	};
+  const changeHandler = (e) => {
+    if (editAbout) {
+      setVendorInfo({ ...vendorInfo, [e.target.name]: e.target.value });
+      // console.log('CHANGE HANDLER VendorABout');
+    }
+  };
 
-	const changeZip = (e) => {
-		if (editAbout) {
-			setVendorInfo({
-				...vendorInfo,
-				location: { ...vendorInfo.location, zipcode: e.target.value }
-			});
-		}
-	};
+  const changeZip = (e) => {
+    if (editAbout) {
+      setVendorInfo({
+        ...vendorInfo,
+        location: { ...vendorInfo.location, zipcode: e.target.value }
+      });
+    }
+  };
 
-	// console.log('info', info);
-	// console.log(`vendor info`, vendorInfo);
-	return (
-		<div>
-			<form className={about.vendor_info_form}>
-				<div className={about.vendor_info_left}>
-					<div className={`${about.vendor_info_about} ${about.input_container}`}>
-						<label for="about">Bio</label>
-						<textarea
-							type="text"
-							name="description"
-							value={vendorInfo.description}
-							onChange={changeHandler}
-						/>
-					</div>
+  // console.log('info', info);
+  // console.log(`vendor info`, vendorInfo);
+  return (
+    <div>
+      <form className={about.vendor_info_form}>
+        <div className={about.vendor_info_left}>
+          <div className={`${about.vendor_info_about} ${about.input_container}`}>
+            <label for="about">Bio</label>
+            <textarea
+              type="text"
+              name="description"
+              value={vendorInfo.description}
+              onChange={changeHandler}
+            />
+          </div>
 
-					{/* 
+          {/* HOURS
           <div className={`${about.vendor_info_hour} ${about.input_container}`}>
             <label>Hours of Operation</label>
             <div className={about.vendor_info_hour_input_group}>
@@ -107,38 +107,39 @@ const AboutForm = ({ editAbout, vendorInfo, info, setVendorInfo }) => {
 
           </div>
  */}
-					{/* <span className={about.vendor_info_arrow}>
+          {/* <span className={about.vendor_info_arrow}>
               <img src={down} alt="arrow down" />
             </span> */}
 
-					<div className={`${about.vendor_info_phone} ${about.input_container} `}>
-						<h5>Contact</h5>
-						<label>Phone</label>
-						<div className={about.inputWithIcon}>
-							<input type="text" name="phone" value={vendorInfo.phone} onChange={changeHandler} />
-							<FontAwesomeIcon className={about.input_icon} icon={faPhone} />
-						</div>
-						<label>Email</label>
-						<div className={about.inputWithIcon}>
-							<input type="text" name="email" value={vendorInfo.email} onChange={changeHandler} />
-							<FontAwesomeIcon className={about.input_icon} icon={faPaperPlane} />
-						</div>
-					</div>
-				</div>{' '}
-				{/* --vendor_info_left */}
-				<div className={about.vendor_info_right}>
-					<div className={(about.vendor_info_location, about.input_container)}>
-						<label>Zipcode: </label>
-						<input type="text" name="zipcode" value={vendorInfo.location.zipcode} onChange={changeZip} />
-						<div className={about.map_container}>
-							<Map zipcode={vendorInfo.location.zipcode} width={403} height={280} radius={3000} />
-						</div>
-					</div>
-				</div>{' '}
-				{/* --vendor_info_right */}
-			</form>
-		</div>
-	);
+          <div className={`${about.vendor_info_phone} ${about.input_container} `}>
+            <h5>Contact</h5>
+            <label>Phone</label>
+            <div className={about.inputWithIcon}>
+              <input type="text" name="phone" value={vendorInfo.phone} onChange={changeHandler} />
+              <FontAwesomeIcon className={about.input_icon} icon={faPhone} />
+            </div>
+            <label>Email</label>
+            <div className={about.inputWithIcon}>
+              <input type="text" name="email" value={vendorInfo.email} onChange={changeHandler} />
+              <FontAwesomeIcon className={about.input_icon} icon={faPaperPlane} />
+            </div>
+          </div>
+        </div>{' '}
+        {/* --vendor_info_left */}
+        <div className={about.vendor_info_right}>
+          <div className={(about.vendor_info_location, about.input_container)}>
+            <label>Zipcode: </label>
+            {/* REPLACE 18641 w/ vendorInfo.location.zipcode */}
+            <input type="text" name="zipcode" value={vendorInfo.location.zipcode} onChange={changeZip} />
+            <div className={about.map_container}>
+              {/* <Map zipcode={vendorInfo.location.zipcode} width={403} height={280} radius={3000} /> */}
+            </div>
+          </div>
+        </div>{' '}
+        {/* --vendor_info_right */}
+      </form>
+    </div>
+  );
 };
 
 export default AboutForm;

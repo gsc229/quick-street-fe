@@ -19,12 +19,20 @@ import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
 const Profile = props => {
+<<<<<<< HEAD
 	const [modal, setModal] = useState(false);
 	const [editingName, setEditingName] = useState(false);
 	const [vendorInfo, setVendorInfo] = useState({ location: '' });
 	const [bannerInfo, setBannerInfo] = useState('no_banner.jpg');
 	const [products, setProducts] = useState([]);
 	const [productIds, setProductIds] = useState([]);
+=======
+	// It all starts here!...with vendorId from localStorage
+	const [vendorId, setVendorId] = useState(localStorage.getItem('user_id'))
+	const [vendorInfo, setVendorInfo] = useState({ location: '' });
+	const [bannerInfo, setBannerInfo] = useState('no_banner.jpg');
+	const [products, setProducts] = useState([]);
+>>>>>>> 3ddcbc3a79dacf71f6efba97957c3e8bd12ccc17
 	const [productImagesIds, setProductImagesIds] = useState([]);
 	const [info, setInfo] = useState({
 		business_name: '',
@@ -35,6 +43,7 @@ const Profile = props => {
 		hour_to: '',
 		location: ''
 	});
+<<<<<<< HEAD
 	const vendorId = props.match.params.id;
 	const [editAbout, setEditAbout] = useState(false);
 	const [editBusinessName, setEditBusinessName] = useState(false);
@@ -90,6 +99,51 @@ const Profile = props => {
 		}
 		fetchImageIds();
 	}, [productIds]);
+=======
+	// Booleans 
+	const [modal, setModal] = useState(false);
+	const [editingName, setEditingName] = useState(false);
+	const [reloadProducts, setReloadProducts] = useState(false);
+	const [editAbout, setEditAbout] = useState(false);
+	const [editBusinessName, setEditBusinessName] = useState(false);
+	//console.log('Profile.js vendorInfo: ', vendorInfo);
+
+
+	useEffect(() => {
+		//console.log('USEEFFECT 1 Profile.js');
+		axiosWithAuth()
+			.get(
+				`/vendors/${vendorId}`
+			)
+			.then(response => {
+				setVendorInfo(response.data.data);
+				/* setBannerInfo(vendorInfo.data.data.vendor_banner); */
+				console.log('GET Profile.js useEff},[vendorId]) setVendorInfo', response);
+
+			})
+			.catch(error => {
+				console.log('ERROR Profile.js GET vendors/:vendorId error: ', error)
+			})
+
+	}, [vendorId]);
+
+	useEffect(() => {
+		//console.log('USEEFFECT 2 Profile.js');
+		axiosWithAuth()
+			.get(`/vendors/${vendorId}/products`)
+			.then(response => {
+				console.log('GET Profile.js /vendors/:vendorId/products response', response);
+				setProducts(response.data.data);
+			})
+			.catch(error => {
+				console.log('ERROR Profile.js GET fetchProducts() vendors/:vendorId/products error: ', error)
+			})
+
+
+	}, [vendorId, reloadProducts, setReloadProducts])
+
+
+>>>>>>> 3ddcbc3a79dacf71f6efba97957c3e8bd12ccc17
 
 	if (products.length !== 0 && productImagesIds.length !== 0) {
 		for (let i = 0; i < products.length; i++) {
@@ -100,11 +154,14 @@ const Profile = props => {
 		setModal(true);
 	};
 
+<<<<<<< HEAD
 	const addProductformCancelHandler = e => {
 		e.preventDefault();
 		setModal(false);
 	};
 
+=======
+>>>>>>> 3ddcbc3a79dacf71f6efba97957c3e8bd12ccc17
 	const editName = () => {
 		setEditBusinessName(!editBusinessName);
 	};
@@ -195,11 +252,19 @@ const Profile = props => {
 				</div>
 
 				<div className={profile.vendor_banner_image_container}>
+<<<<<<< HEAD
 					{bannerInfo !== `no-photo.jpg` ? (
 						<CloudinaryContext cloudName='quickstlabs'>
 							<Image
 								className={profile.vendor_banner_image}
 								publicId={bannerInfo}
+=======
+					{vendorInfo.vendor_banner !== `no-photo.jpg` ? (
+						<CloudinaryContext cloudName='quickstlabs'>
+							<Image
+								className={profile.vendor_banner_image}
+								publicId={vendorInfo.vendor_banner}
+>>>>>>> 3ddcbc3a79dacf71f6efba97957c3e8bd12ccc17
 							>
 								<Transformation
 									gravity='center'
@@ -238,11 +303,22 @@ const Profile = props => {
 					setVendorInfo={setVendorInfo}
 				/>
 				<VendorProducts
+<<<<<<< HEAD
 					productIds={productIds}
 					products={products}
 					addProduct={addProduct}
 				/>
 				<AddProductForm
+=======
+					setReloadProducts={setReloadProducts}
+					reloadProducts={reloadProducts}
+					products={products}
+					addProduct={addProduct}
+					vendorId={vendorInfo._id}
+
+				/>
+				{/* <AddProductForm
+>>>>>>> 3ddcbc3a79dacf71f6efba97957c3e8bd12ccc17
 					productIds={productIds}
 					modal={modal}
 					products={products}
@@ -251,7 +327,12 @@ const Profile = props => {
 					setModal={setModal}
 					addProductformCancelHandler={addProductformCancelHandler}
 					vendorId={vendorId}
+<<<<<<< HEAD
 				/>
+=======
+				/> */}
+
+>>>>>>> 3ddcbc3a79dacf71f6efba97957c3e8bd12ccc17
 				<Bulletin vendorId={vendorId} />
 			</div>
 		</div>

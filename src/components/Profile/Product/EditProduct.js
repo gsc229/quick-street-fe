@@ -192,9 +192,13 @@ const EditProduct = (props) => {
       {
         confirmClose &&
         <div className={editingProduct.confirm_close_popup}>
-          <h3> <i className="fa fa-exclamation"></i>Are you sure you want to close? Make sure your changes to "<span>{product.name}</span>" have been saved! </h3>
-          <button onClick={leaveWithoutSave} className="btn btn-danger">Close</button>
-          <button onClick={saveAllAndClose} className="btn btn-success">Save and Close</button>
+          <div className={editingProduct.confirm_close_popup_info}>
+            <h3> <i className="fa fa-exclamation"></i>Are you sure you want to close? Make sure your changes to "<span>{product.name}</span>" have been saved! </h3>
+            <button onClick={leaveWithoutSave} className="btn btn-danger">Discard Changes</button>
+            <button onClick={() => setConfirmClose(false)} className="btn btn-warning">Continue Editing</button>
+            <button onClick={saveAllAndClose} className="btn btn-success">Save and Close</button>
+          </div>
+
         </div>
       }
 

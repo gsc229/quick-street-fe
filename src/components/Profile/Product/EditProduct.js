@@ -9,6 +9,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { EditProductForm, ProductImageUploader } from '../../index';
 
 const EditProduct = (props) => {
+  const { setReloadProducts, reloadProducts } = props
   const [images, setImages] = useState([]);
   const [product, setProduct] = useState({ diet: [""] });
 
@@ -19,6 +20,7 @@ const EditProduct = (props) => {
   const [confirmClose, setConfirmClose] = useState(false);
   const [loadingImages, setLoadingImages] = useState(false);
   const [imageDeleted, setImageDeleted] = useState(false);
+  const [productDeleted, setProductDeleted] = useState(false);
   // Bool to reload images after POST or DELETE request passed to ProductImageUploader
   const [reloadingImages, setReloadingImages] = useState(false);
 
@@ -72,12 +74,46 @@ const EditProduct = (props) => {
 
   }
 
+
+
   const submitProductDetails = () => {
     const vendorId = localStorage.getItem('user_id');
     setDetailsSaved(true);
     setTimeout(function () { setDetailsSaved(false) }, 1500)
 
     console.log("PUT subitProd.Details payload: ", { ...product })
+
+    axiosWithAuth()
+      .put(`/products/${product._id}`, { ...product, vendorId })
+      .then(res => {
+        console.log('PUT res EditProduct.js submitProd.Details: res ', res)
+      })
+      .catch(err => {
+        console.log('PUT error & product_id & token:::', err,
+          product._id,
+          localStorage.getItem('token')
+        );
+      })
+  }
+
+
+  const leaveWithoutSave = () => {
+    setConfirmClose(false);
+    props.setEditingProd(false);
+  }
+
+  const saveAllAndClose = () => {
+    const vendorId = localStorage.getItem('user_id');
+    setConfirmClose(false);
+    setAllChangesSaved(true);
+    setTimeout(function () {
+
+      setAllChangesSaved(false);
+      props.setEditingProd(false);
+
+    }, 2000)
+
+    console.log("PUT Edit.P saveAllAndClose payload: ", { ...product })
 
     axiosWithAuth()
       .put(`/products/${product._id}`, { ...product, vendorId })
@@ -116,10 +152,19 @@ const EditProduct = (props) => {
   }
 
   const deleteProduct = () => {
+    const vendorId = { vendorId: product.vendor._id }
     axiosWithAuth()
-      .delete(`/products/${props.product_id}`)
+      .delete(`/products/${props.product_id}`, { data: vendorId })
       .then(response => {
         console.log('DELETE EditProduct.js deleteProduct :', response);
+        setReloadProducts(!reloadProducts)
+        setProductDeleted(true);
+
+        setTimeout(function () {
+          setProductDeleted(false);
+          props.setEditingProd(false);
+
+        }, 2000)
       })
       .catch(err => {
         console.log('Error DELETE EditProduct.js deleteProduct', err);
@@ -128,7 +173,7 @@ const EditProduct = (props) => {
 
   return (
     <div className={editingProduct.container}>
-      <i onClick={() => props.setEditingProd(false)} className={`fa fa-times ${editingProduct.close_x}`} ></i>
+      <i onClick={() => setConfirmClose(true)} className={`fa fa-times ${editingProduct.close_x}`} ></i>
       {/* all saved POPUP */}
       {
         allChangesSaved &&
@@ -137,12 +182,19 @@ const EditProduct = (props) => {
         </div>
       }
 
+      {
+        productDeleted &&
+        <div className={editingProduct.all_saved_popup}>
+          <h3> <i className="fa fa-check"></i>Product "<span>{product.name}</span>" has been deleted! </h3>
+        </div>
+      }
       {/* details saved POPUP */}
       {
         confirmClose &&
         <div className={editingProduct.confirm_close_popup}>
           <h3> <i className="fa fa-exclamation"></i>Are you sure you want to close? Make sure your changes to "<span>{product.name}</span>" have been saved! </h3>
-          <button className="btn btn-danger">Close</button>
+          <button onClick={leaveWithoutSave} className="btn btn-danger">Close</button>
+          <button onClick={saveAllAndClose} className="btn btn-success">Save and Close</button>
         </div>
       }
 
@@ -173,7 +225,6 @@ const EditProduct = (props) => {
                         <Transformation width="150" height="150" crop="fill" />
                       </Image>
                     </CloudinaryContext>
-
                   </div>
                 )
               }
@@ -213,7 +264,7 @@ const EditProduct = (props) => {
 
 
             <div className={editingProduct.details_wrapper}>
-              <h3>For dev: productId: {product._id}</h3>
+
 
               <div className={editingProduct.input_wrapper}>
                 <label htmlFor="">Product Name: </label>
@@ -229,7 +280,6 @@ const EditProduct = (props) => {
                 <label htmlFor="diet">Dietary Category(ies): </label>
                 <div className={editingProduct.diet_category_container}>
                   {product && product.diet.map(category => <p>{category} &nbsp;</p>)}
-
                 </div>
 
               </div>

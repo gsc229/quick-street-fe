@@ -7,7 +7,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import profile from '../../../styles/scss/profile.module.scss';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 
-const VendorProducts = ({ products, vendorId }) => {
+const VendorProducts = ({ products, vendorId, reloadProducts, setReloadProducts }) => {
 	// Opens EditingProduct MODAL    
 	const [editingProd, setEditingProd] = useState(false);// change back to false
 	// Passed to EditingProdcut MODAL            // change back to ""
@@ -42,7 +42,12 @@ const VendorProducts = ({ products, vendorId }) => {
 	return (
 		<div className={profile.products_container}>
 			<div className={profile.products_wrapper}>
-				{editingProd && <EditProduct setEditingProd={setEditingProd} product_id={editingProdId} />}
+				{editingProd && <EditProduct
+					setEditingProd={setEditingProd}
+					product_id={editingProdId}
+					reloadProducts={reloadProducts}
+					setReloadProducts={setReloadProducts}
+				/>}
 				<header className={profile.vendor_product_list_title}>Products</header>
 
 				<div className={profile.vendor_product_list_wrapper}>
@@ -62,7 +67,7 @@ const VendorProducts = ({ products, vendorId }) => {
 								<Product
 									key={idx}
 									name={p.name}
-									_id={p._id}
+									productId={p._id}
 									price={p.price}
 									img={p.imageId ? p.imageId : p.image_Id}
 								/>

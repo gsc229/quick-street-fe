@@ -29,12 +29,11 @@ const ViewVendorProduct = (props) => {
 		setShowModal(bool);
 	}
 
-
 	const getCartItems = () => {
 		axiosWithAuth()
 			.get(`customers/${customerId}/cart`)
 			.then(response => {
-				console.log(response);
+				// console.log(response);
 				setCart({
 					...cart, 
 					items: response.data.data.items,
@@ -51,7 +50,7 @@ const ViewVendorProduct = (props) => {
 			price: props.product.price,
 			quantity
 		}
-		console.log(postObject);
+		// console.log(postObject);
 		showHideModal(false);
 		if (!customerId) {
 			// cartContext.addToCart({...postObject, image: images[0].secure_url});
@@ -61,7 +60,7 @@ const ViewVendorProduct = (props) => {
 			axiosWithAuth()
 			.post(`customers/${customerId}/cart/addtocart`, postObject)
 			.then(response => {
-				console.log("POST ViewV.Prod response: ", response)
+				// console.log("POST ViewV.Prod response: ", response)
 				getCartItems();
 			})
 			.catch(err => console.log(err.response))

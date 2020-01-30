@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axiosWithAuth from '../../../../utils/axiosWithAuth';
 //stlying 
 
@@ -6,41 +6,38 @@ import profile from '../../../../styles/scss/profile.module.scss';
 import modal from '../../../../styles/scss/browseModal.module.scss';
 import { CustomButton } from '../../../index';
 import { Modal } from '../../../index';
-import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
-import ModalCarousel from './ModalCarousel';
 import ModalCarousel2 from './ModalCarousel2';
 
 const ViewVendorProduct = (props) => {
+	
 	const [images, setImages] = useState([{}]);
 	const [quantity, setQuantity] = useState('1');
 	const [showModal, setShowModal] = useState(false);
-	const { setCart } = props;
+	const { cart, setCart } = props;
 	const customerId = localStorage.getItem('user_id');
+	
 	const handleChange = (event) => {
 		setQuantity(event.target.value);
 	}
 
 	const showHideModal = (bool) => {
-		if (props.loggedIn) {
-			setShowModal(bool);
-		}
+		setShowModal(bool);
 	}
-
 
 	const getCartItems = () => {
 		axiosWithAuth()
 			.get(`customers/${customerId}/cart`)
 			.then(response => {
-				console.log("GET ViewV.Prod response: ", response)
-				setCart(response.data.data.items);
+				// console.log(response);
+				setCart({
+					...cart, 
+					items: response.data.data.items,
+					total: response.data.data.total,
+					cartId: response.data.data._id
+				})
 			})
 			.catch(err => console.log(err.response))
 	}
-
-	useEffect(() => {
-		getCartItems()
-	}, [])
-
 
 	const handleAddToCart = () => {
 		const postObject = {
@@ -48,20 +45,21 @@ const ViewVendorProduct = (props) => {
 			price: props.product.price,
 			quantity
 		}
-		console.log(postObject);
+		// console.log(postObject);
 		showHideModal(false);
-		/* *** this function will need setCart ***** */
-
-		axiosWithAuth()
+		if (!customerId) {
+			// cartContext.addToCart({...postObject, image: images[0].secure_url});
+			// console.log(cartContext.products);
+		} else {
+			// POST request to add item to cart
+			axiosWithAuth()
 			.post(`customers/${customerId}/cart/addtocart`, postObject)
 			.then(response => {
-				console.log("POST ViewV.Prod response: ", response)
+				// console.log("POST ViewV.Prod response: ", response)
 				getCartItems();
 			})
 			.catch(err => console.log(err.response))
-
-
-		// POST request to add item to cart
+		}
 	}
 
 	useEffect(() => {
@@ -96,7 +94,7 @@ const ViewVendorProduct = (props) => {
 					</div>
 					<div className={modal.column_right}>
 						<div className={modal.row}>
-						<h1>{props.product.name}</h1>
+							<h1>{props.product.name}</h1>
 						</div>
 						<div className={modal.row}>
 							<div className={modal.tags}><ul>{props.product.diet.map(diet => (
@@ -104,35 +102,35 @@ const ViewVendorProduct = (props) => {
 							))}</ul></div>
 						</div>
 						<div className={modal.row}>
-						<h2>{props.product.description}</h2>
+							<h2>{props.product.description}</h2>
 						</div>
-					
+
 						<div className={modal.row_price}>
-						<h1>${props.product.price}</h1>
+							<h1>${props.product.price}</h1>
 						</div>
-						
+
 						<div className={modal.row_quantity}>
-						<h3>Quantity: </h3>
-						<input
-							name='quantity'
-							type='number'
-							value={quantity}
-							onChange={handleChange}
-						/>
+							<h3>Quantity: </h3>
+							<input
+								name='quantity'
+								type='number'
+								value={quantity}
+								onChange={handleChange}
+							/>
 						</div>
 						{console.log("Products", props)}
 						<div className={modal.button_wrapper}>
 							<div className={modal.button_left}>
-						<CustomButton styleClass='red-full' onClick={() => showHideModal(false)}>Close</CustomButton>
-						</div>
-						<div className={modal.button_right}>	
-						<CustomButton styleClass='green-full' onClick={handleAddToCart}>Add To Cart</CustomButton>
-</div>
+								<CustomButton styleClass='red-full' onClick={() => showHideModal(false)}>Close</CustomButton>
+							</div>
+							<div className={modal.button_right}>
+								<CustomButton styleClass='green-full' onClick={handleAddToCart}>Add To Cart</CustomButton>
+							</div>
 						</div>
 					</div>
 				</div>
 				<div class={modal.overlay} id={modal.overlay}>
-</div>
+				</div>
 			</Modal>
 		</>
 	);

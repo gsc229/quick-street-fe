@@ -8,6 +8,7 @@
   width: 70%;
   height: fit-content;
   left: 15%;
+  
   position: absolute;
   display: flex;
   justify-content: space-between;
@@ -20,7 +21,7 @@
     top: 5px;
     cursor: pointer;
   }
-  .all_saved_modal{
+  .all_saved_popup{
    
     background-color: rgba($color: #fffefe, $alpha: 1.0);
     position: absolute;
@@ -43,35 +44,46 @@
         color: rgb(38,160,66);
       }
   }
-  .confirm_close_modal{
-   
+  .confirm_close_popup{   
     background-color: rgba($color: #fffefe, $alpha: 1.0);
     position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
     width: 100%;
-    height: 50%;
+    height: 100%;
     z-index: 2;
     text-align: center;
-    top: 30%;
-    left: 0;
-    h3{
-     
+    
+    .confirm_close_popup_info{
+
       position: relative;
       top: 40%;
-    }
-    
-    span{
+      button{
+        margin-right: 20px;
+      }
+      h3{
+        margin-bottom: 50px;
+      }
+      span{
       font-weight: bolder;
     }
      i{
         color: rgb(220,53,69);
       }
+
+    }
+
+    
+    
+    
   }
 }
 
 .inner_container{
   width: 45%;
   height: fit-content;
-  //background-color: pink;
+
   padding: 10px;  
 }
 
@@ -85,6 +97,11 @@
     display: flex;
     flex-wrap: wrap;
       // add_image_btns in ProductImageUploader.js
+      h1{
+        i{
+          color: green;
+        }
+      }
       .add_image_btns{
       //background-color: red;
       cursor: pointer;
@@ -184,7 +201,7 @@
     font-size: 2rem;
     cursor: pointer;
   }
-  .details_saved_modal{
+  .details_saved_popup{
     background-color: rgba($color: #fffefe, $alpha: 1.0);
     display: block;
     //top: 25%;
@@ -211,7 +228,9 @@
     flex-direction: column;
     justify-content: space-between;
     height: fit-content;
-    //input wrapper details container EditProduct.js
+
+    .details_wrapper{
+      //input wrapper details container EditProduct.js
     .input_wrapper{
     display: flex;
     flex-direction: column;
@@ -221,10 +240,23 @@
       color: #2b3335; 
       }
       p{
-      font-size: 1.8rem;
-    }
+      font-size: 1.8rem;      
+      }
       
-  }
+    }
+
+    .diet_category_container{
+      display: flex;
+      flex-wrap: wrap;
+      p{
+        width: fit-content;
+        //border: 2px solid green;
+      }
+    }
+
+    }
+
+    
     
   }
   
@@ -244,6 +276,25 @@
       width: 214px;      
       font-size: 1.8rem;
       padding: 1% 0 1% 3%;
+      }
+      textarea {
+      border-radius: 10px;
+      border: 1px solid rgba(43, 51, 53, 0.5);
+      height: 100px;
+      width: 214px;      
+      font-size: 1.8rem;
+      padding: 1% 0 1% 3%;
+      }
+      select{
+        border-radius: 10px;
+      border: 1px solid rgba(43, 51, 53, 0.5);
+      height: 32px;
+      width: 214px;      
+      font-size: 1.8rem;
+      padding: 1% 0 1% 3%;
+      }
+      .checkbox_input{
+        height: 15px;
       }
   }
 

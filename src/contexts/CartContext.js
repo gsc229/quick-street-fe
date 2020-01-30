@@ -4,11 +4,18 @@ export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
 
-  const [ cart, setCart ] = useState([]);
+  const [ cart, setCart ] = useState({
+    products: []
+  });
+
+  console.log('products in cart are', cart.products);
 
   const addToCart = (item) => {
-    // console.log(item);
-    setCart(cart.push(item));
+    console.log(item);
+    localStorage.setItem('cart', JSON.stringify({ ...cart, products: [...cart.products, item]}));
+    const cartItems = localStorage.getItem('cart');
+    console.log('cart items in local storage', cartItems);
+    setCart({ ...cart, products: [...cart.products, item]});
   }
 
   const removeFromCart = (item) => {

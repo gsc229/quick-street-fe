@@ -3,13 +3,11 @@ import axiosWithAuth from '../../../utils/axiosWithAuth';
 import editingProduct from '../../../styles/css/editingProduct.module.css'
 import upload from '../../../assets/images/Profile/upload.png';
 import productImg from '../../../assets/images/Profile/rectangle75.png';
-import VendorDetails from '../../Register/Vendor/VendorDetails';
 const ProductImageUploader = (props) => {
 
   const { productId, setReloadingImages, reloadingImages } = props;
-  const vendorId = localStorage.getItem('vendor_id');
-  console.log('ProductImageUploader.js productId ', productId);
-  console.log('ProductImageUploader.js vendorId ', vendorId);
+  const vendorId = localStorage.getItem('user_id');
+
 
 
   const myWidget = window.cloudinary.createUploadWidget(
@@ -50,6 +48,7 @@ const ProductImageUploader = (props) => {
       if (!error && result && result.event === 'success') {
         const image_info = await result.info;
         const correct_fields = {
+          vendorId,
           product: productId,
           vendor: vendorId,
           public_id: image_info.public_id,
@@ -72,7 +71,9 @@ const ProductImageUploader = (props) => {
           path: image_info.path,
           thumbnail_url: image_info.thumbnail_url
         }
-        console.log('ProductImageUploader.js resut.info: ', image_info);
+        //console.log('ProductImageUploader.js resut.info: ', image_info);
+        //console.log('ProductImageUploader.js productId ', productId);
+        //console.log('ProductImageUploader.js vendorId ', vendorId);
 
         axiosWithAuth()
           .post(`/products/${productId}/product-images`, correct_fields)
@@ -94,6 +95,7 @@ const ProductImageUploader = (props) => {
 
   return (
     <div onClick={uploadImage} >
+
       <div className={editingProduct.add_image_btns}>
         <img
           className={editingProduct.product_image_placeholder}

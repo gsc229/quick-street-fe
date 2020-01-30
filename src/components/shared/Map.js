@@ -5,7 +5,7 @@ import '../../styles/css/map.css';
 
 const Map = (props) => {
 	// console.log('props in map.js', props);
-	const [ mapDetails, setMapDetails ] = useState({
+	const [mapDetails, setMapDetails] = useState({
 		lng: -78.435315,
 		lat: 28.644141,
 		isDefault: false
@@ -20,7 +20,7 @@ const Map = (props) => {
 					.REACT_APP_GOOGLE_MAPS_API_KEY}`
 			)
 			.then((response) => {
-				console.log(response);
+				// console.log(response);
 				// console.log(response.data.results[0].geometry.location);
 				setMapDetails({
 					...mapDetails,
@@ -31,24 +31,26 @@ const Map = (props) => {
 			});
 	};
 
+
 	useEffect(
 		() => {
 			if (props.zipcode !== '') {
 				getGeocode();
 			}
 		},
-		[ props.zipcode ]
+		[props.zipcode]
 	);
 
 	useEffect(
-		() => {
-			let options = {
-				center: { lat: mapDetails.lat, lng: mapDetails.lng },
-				zoom: mapDetails.isDefault ? 11 : 5,
-				zoomControl: false,
-				gestureHandling: 'none'
-			};
-			const map = new window.google.maps.Map(document.getElementById('map'), options);
+	() => {
+	let options = {
+	center: { lat: mapDetails.lat, lng: mapDetails.lng },
+	zoom: mapDetails.isDefault ? 11 : 5,
+	zoomControl: false,
+	gestureHandling: 'none'
+	};
+	const map = new window.google.maps.Map(document.getElementById('map'), options);
+
 
 			if (mapDetails.isDefault) {
 				let cityCircle = new window.google.maps.Circle({
@@ -63,9 +65,10 @@ const Map = (props) => {
 				});
 			}
 		},
-		[ mapDetails ]
+		[mapDetails]
 	);
 	return <div id="map" />;
+
 };
 
 export default Map;

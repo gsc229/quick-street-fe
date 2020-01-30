@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { About, VendorProducts, AddProductForm, Bulletin, BannerUploader, NavBar } from '../components/index';
+import {
+	About,
+	VendorProducts,
+	AddProductForm,
+	Bulletin,
+	BannerUploader,
+	Nav
+} from '../components/index';
 import { Placeholder } from '../assets/images/index';
 //Styles
-import profile from '../styles/css/vendor_profile.module.css';
-import banner from '../styles/css/vendor_banner.module.css';
+import profile from '../styles/scss/profile.module.scss';
+
 //Font awesom
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSave, faPen } from '@fortawesome/free-solid-svg-icons';
@@ -11,15 +18,14 @@ import { faSave, faPen } from '@fortawesome/free-solid-svg-icons';
 import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
-const Profile = (props) => {
-	const [ modal, setModal ] = useState(false);
-	const [ editingName, setEditingName ] = useState(false);
-	const [ vendorInfo, setVendorInfo ] = useState({ location: '' });
-	const [ bannerInfo, setBannerInfo ] = useState('no_banner.jpg');
-	const [ products, setProducts ] = useState([]);
-	const [ productIds, setProductIds ] = useState([]);
-	const [ productImagesIds, setProductImagesIds ] = useState([]);
-	const [ info, setInfo ] = useState({
+const Profile = props => {
+	// It all starts here!...with vendorId from localStorage
+	const [vendorId, setVendorId] = useState(localStorage.getItem('user_id'))
+	const [vendorInfo, setVendorInfo] = useState({ location: '' });
+	const [bannerInfo, setBannerInfo] = useState('no_banner.jpg');
+	const [products, setProducts] = useState([]);
+	const [productImagesIds, setProductImagesIds] = useState([]);
+	const [info, setInfo] = useState({
 		business_name: '',
 		days: '0',
 		phone: '',
@@ -28,64 +34,49 @@ const Profile = (props) => {
 		hour_to: '',
 		location: ''
 	});
-	const vendorId = props.match.params.id;
-	const [ editAbout, setEditAbout ] = useState(false);
-	const [ editBusinessName, setEditBusinessName ] = useState(false);
+	// Booleans 
+	const [modal, setModal] = useState(false);
+	const [editingName, setEditingName] = useState(false);
+	const [reloadProducts, setReloadProducts] = useState(false);
+	const [editAbout, setEditAbout] = useState(false);
+	const [editBusinessName, setEditBusinessName] = useState(false);
+	//console.log('Profile.js vendorInfo: ', vendorInfo);
+
 
 	useEffect(() => {
-		async function fetchVendorInfo() {
-			try {
-				const vendorInfo = await axiosWithAuth().get(
-					`https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`
-				);
-				// console.log(`vendorinfo changed`, vendorInfo);
-				setVendorInfo(vendorInfo.data.data);
-				setBannerInfo(vendorInfo.data.data.vendor_banner);
-			} catch (e) {
-				// console.log(e);
-			}
-		}
-		fetchVendorInfo();
+		//console.log('USEEFFECT 1 Profile.js');
+		axiosWithAuth()
+			.get(
+				`/vendors/${vendorId}`
+			)
+			.then(response => {
+				setVendorInfo(response.data.data);
+				/* setBannerInfo(vendorInfo.data.data.vendor_banner); */
+				console.log('GET Profile.js useEff},[vendorId]) setVendorInfo', response);
 
-		async function fetchProducts() {
-			try {
-				const products = await axiosWithAuth().get(
-					`https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}/products`
-				);
+			})
+			.catch(error => {
+				console.log('ERROR Profile.js GET vendors/:vendorId error: ', error)
+			})
 
-				setProducts(products.data.data);
-				setProductIds(products.data.data.map((p) => p._id));
-			} catch (e) {
-				// console.log(e);
-			}
-		}
-		fetchProducts();
-	}, []);
+	}, [vendorId]);
 
-	useEffect(
-		() => {
-			let temp_ids = [];
-			async function fetchImageIds() {
-				if (productIds.length !== 0) {
-					for (const ids of productIds) {
-						try {
-							const imageIds = await axiosWithAuth().get(
-								`https://quickstlabs.herokuapp.com/api/v1.0/products/${ids}/product-images`
-							);
+	useEffect(() => {
+		//console.log('USEEFFECT 2 Profile.js');
+		axiosWithAuth()
+			.get(`/vendors/${vendorId}/products`)
+			.then(response => {
+				console.log('GET Profile.js /vendors/:vendorId/products response', response);
+				setProducts(response.data.data);
+			})
+			.catch(error => {
+				console.log('ERROR Profile.js GET fetchProducts() vendors/:vendorId/products error: ', error)
+			})
 
-							temp_ids.push(imageIds.data.data[0].public_id);
-						} catch (e) {
-							// console.log(e);
-						}
-					}
-				}
 
-				setProductImagesIds(temp_ids);
-			}
-			fetchImageIds();
-		},
-		[ productIds ]
-	);
+	}, [vendorId, reloadProducts, setReloadProducts])
+
+
 
 	if (products.length !== 0 && productImagesIds.length !== 0) {
 		for (let i = 0; i < products.length; i++) {
@@ -96,24 +87,22 @@ const Profile = (props) => {
 		setModal(true);
 	};
 
-	const addProductformCancelHandler = (e) => {
-		e.preventDefault();
-		setModal(false);
-	};
-
 	const editName = () => {
 		setEditBusinessName(!editBusinessName);
 	};
 
-	const saveName = (e) => {
+	const saveName = e => {
 		e.preventDefault();
 		axiosWithAuth()
-			.put(`https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`, vendorInfo)
-			.then((res) => {
+			.put(
+				`https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`,
+				vendorInfo
+			)
+			.then(res => {
 				// console.log(`update vendor info`, res);
 				setVendorInfo(res.data.data);
 			})
-			.catch((err) => {
+			.catch(err => {
 				console.log('ERROR PUT SAVE NAME', err);
 			});
 	};
@@ -123,29 +112,31 @@ const Profile = (props) => {
 		setEditAbout(!editAbout);
 	};
 
-	const saveProfile = (e) => {
+	const saveProfile = e => {
 		e.preventDefault();
 		// console.log('PRE PUT vendorInfo', vendorInfo);
 		axiosWithAuth()
-			.put(`https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`, vendorInfo)
-			.then((res) => {
+			.put(
+				`https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`,
+				vendorInfo
+			)
+			.then(res => {
 				// console.log(`update vendor info`, res);
 				setVendorInfo(res.data.data);
 			})
-			.catch((err) => {
+			.catch(err => {
 				console.log('VendorProf. PUT error ', err);
 			});
 	};
 
 	return (
-		<div className={profile.vendor_profile_container}>
-			<NavBar {...vendorInfo} />
-
-			<div className={banner.vendor_banner_container}>
-				<div className={banner.banner_text_btns}>
-					<div className={banner.vendor_header_name}>
+		<div className={profile.banner_container}>
+			<Nav {...vendorInfo} />
+			<div className={profile.banner_wrapper}>
+				<div className={profile.banner_text_btns}>
+					<div className={profile.vendor_header_name}>
 						<input
-							onChange={(e) => {
+							onChange={e => {
 								if (editBusinessName) {
 									setVendorInfo({
 										...vendorInfo,
@@ -154,14 +145,16 @@ const Profile = (props) => {
 								}
 							}}
 							value={vendorInfo.business_name}
-							className={editingName ? banner.glowing_border : 'none'}
+							className={editingName ? profile.glowing_border : 'none'}
 						/>
 					</div>
 
-					<div className={banner.vendor_profile_btn_group}>
+					<div className={profile.vendor_profile_btn_group}>
 						<FontAwesomeIcon
-							id={banner.pen}
-							className={`${banner.icon} " " ${editingName ? banner.red_edit : banner.normal_pen}`}
+							id={profile.pen}
+							className={`${profile.icon} " " ${
+								editingName ? profile.red_edit : profile.normal_pen
+								}`}
 							icon={faPen}
 							onClick={() => {
 								editName();
@@ -169,10 +162,10 @@ const Profile = (props) => {
 							}}
 						/>
 						<FontAwesomeIcon
-							id={banner.save}
-							className={banner.icon}
+							id={profile.save}
+							className={profile.icon}
 							icon={faSave}
-							onClick={(e) => {
+							onClick={e => {
 								saveName(e);
 								setEditingName(false);
 							}}
@@ -183,17 +176,29 @@ const Profile = (props) => {
 					</div>
 				</div>
 
-				<div className={banner.vendor_banner_image_container}>
-					{bannerInfo !== `no-photo.jpg` ? (
-						<CloudinaryContext cloudName="quickstlabs">
-							<Image className={banner.vendor_banner_image} publicId={bannerInfo}>
-								<Transformation gravity="center" height="355" width="1062" crop="fill" />
+				<div className={profile.vendor_banner_image_container}>
+					{vendorInfo.vendor_banner !== `no-photo.jpg` ? (
+						<CloudinaryContext cloudName='quickstlabs'>
+							<Image
+								className={profile.vendor_banner_image}
+								publicId={vendorInfo.vendor_banner}
+							>
+								<Transformation
+									gravity='center'
+									height='355'
+									width='1062'
+									crop='fill'
+								/>
 							</Image>
 						</CloudinaryContext>
 					) : (
-						<img className="vendor_banner_image" src={Placeholder} alt="vendor header" />
-					)}
-					<div className={banner.vendor_banner_upload}>
+							<img
+								className='vendor_banner_image'
+								src={Placeholder}
+								alt='vendor header'
+							/>
+						)}
+					<div className={profile.vendor_banner_upload}>
 						<BannerUploader
 							vendorId={vendorId}
 							vendorInfo={vendorInfo}
@@ -204,28 +209,37 @@ const Profile = (props) => {
 				</div>
 			</div>
 
-			<About
-				vendorInfo={vendorInfo}
-				info={info}
-				setInfo={setInfo}
-				editAbout={editAbout}
-				editProfile={editProfile}
-				saveProfile={saveProfile}
-				setVendorInfo={setVendorInfo}
-			/>
+			<div>
+				<About
+					vendorInfo={vendorInfo}
+					info={info}
+					setInfo={setInfo}
+					editAbout={editAbout}
+					editProfile={editProfile}
+					saveProfile={saveProfile}
+					setVendorInfo={setVendorInfo}
+				/>
+				<VendorProducts
+					setReloadProducts={setReloadProducts}
+					reloadProducts={reloadProducts}
+					products={products}
+					addProduct={addProduct}
+					vendorId={vendorInfo._id}
 
-			<VendorProducts productIds={productIds} products={products} addProduct={addProduct} />
-			<AddProductForm
-				productIds={productIds}
-				modal={modal}
-				products={products}
-				addProduct={addProduct}
-				setProducts={setProducts}
-				setModal={setModal}
-				addProductformCancelHandler={addProductformCancelHandler}
-				vendorId={vendorId}
-			/>
-			<Bulletin vendorId={vendorId} />
+				/>
+				{/* <AddProductForm
+					productIds={productIds}
+					modal={modal}
+					products={products}
+					addProduct={addProduct}
+					setProducts={setProducts}
+					setModal={setModal}
+					addProductformCancelHandler={addProductformCancelHandler}
+					vendorId={vendorId}
+				/> */}
+
+				<Bulletin vendorId={vendorId} />
+			</div>
 		</div>
 	);
 };

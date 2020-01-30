@@ -16,8 +16,6 @@ import {
 	OrderReview // ** Order Review Page **/
 } from './pages/index';
 
-import { Footer } from './components/index';
-
 const App = () => {
 	return (
 		<div>
@@ -36,6 +34,7 @@ const App = () => {
 			</Contexts>
 		</div>
 	);
+
 };
 
 export default App;

@@ -16,13 +16,14 @@ const Browse = (props) => {
 	const [cart, setCart] = useState({});
 	const [ cartModal, setCartModal ] = useState(false);
 
-	const [zipcode, setZipcode] = useState('');
-	const [vendors, setVendors] = useState({
+	const [ zipcode, setZipcode ] = useState('');
+	const [ vendors, setVendors ] = useState({
 		count: '',
 		vendorDetails: []
 	});
 	const [customerZip, setCustomerZip] = useState('');
 	// const customerId = localStorage.getItem('user_id');
+
 	const handleChange = (event) => {
 		setCustomerZip(event.target.value);
 	};
@@ -53,6 +54,7 @@ const Browse = (props) => {
 			});
 	};
 
+
 	const getCartItems = () => {
     axiosWithAuth()
     .get(`/customers/${customerId}/cart`)
@@ -69,8 +71,7 @@ const Browse = (props) => {
       console.log(error.response);
     })
 	}
-	
-	
+
 	useEffect(() => {
 		const query = new URLSearchParams(props.location.search);
 		const zip = query.get('zip');
@@ -93,6 +94,7 @@ const Browse = (props) => {
 			<div className={browse.temp_menu}>
 				<Menu />
 			</div>
+
 			<div className={browse.wrapper}>
 				{zipcode === '' && <p>Enter a location to start browsing</p>}
 				{zipcode !== '' && <p>Your results for</p>}

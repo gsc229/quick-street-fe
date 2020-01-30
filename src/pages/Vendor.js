@@ -1,15 +1,20 @@
 // ** Vendor customer facing page ** //
 
+
 import React, { useState, useEffect } from 'react';
 import { ViewAboutVendor, ViewVendorProducts, ViewVendorPosts, Menu, Footer, ShoppingCartItems, Modal } from '../components/index';
 import axiosWithAuth from '../utils/axiosWithAuth';
-// import About from '../components/Browse/VendorPage/components/About';
-// import Products from '../components/Browse/VendorPage/components/Products';
-// import Posts from '../components/Browse/VendorPage/components/Posts';
-// import Menu from '../components/shared/Menu';
-// import Footer from '../components/shared/Footer';
 import '../styles/scss/OldcustomerFacingVendorProfile.scss';
 
+
+// stlyes
+import profile from '../styles/scss/profile.module.scss';
+
+
+const Vendor = (props) => {
+	const [ cart, setCart ] = useState([ { item: {} } ]);
+	const vendorId = props.match.params.id;
+	console.log('props in vendor view page', props);
 
 const Vendor = props => {
 

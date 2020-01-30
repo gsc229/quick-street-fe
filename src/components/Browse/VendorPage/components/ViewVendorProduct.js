@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axiosWithAuth from '../../../../utils/axiosWithAuth';
-import '../../../../styles/scss/OldcustomerFacingVendorProfile.scss';
+//stlying 
+
+import profile from '../../../../styles/scss/profile.module.scss';
+import modal from '../../../../styles/scss/browseModal.module.scss';
+import { CustomButton } from '../../../index';
 import { Modal } from '../../../index';
 import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
 import ModalCarousel from './ModalCarousel';
@@ -78,45 +82,57 @@ const ViewVendorProduct = (props) => {
 
 	return (
 		<>
-			<div onClick={() => showHideModal(true)} className="product" key={props.product._id}>
-				<img className="product_image" src={images[0] ? images[0].secure_url : ""} alt="img" />
-				<p className="product_name">{props.product.name}</p>
-				<p className="product_price">${props.product.price}</p>
+			<div onClick={() => showHideModal(true)} className={profile.products_card} key={props.product._id}>
+				<img className={profile.image} src={images[0] ? images[0].secure_url : ""} alt="img" />
+				<p className={profile.name}>{props.product.name}</p>
+				<p className={profile.price}>${props.product.price}</p>
 			</div>
 			<Modal showModal={showModal}>
-				{/* MODAL close x */}
-				<i
-					onClick={() => showHideModal(false)}
-					className="fa fa-times close_x"></i>
-
-
-				<div className='modal_wrapper' >
-					<div className="modal_left" style={modalLeftStyle} >
-
-
+				<div className={modal.container} >
+					<div className={modal.column_left} style={modalLeftStyle} >
 						{/* <img src={images[0] ? images[0].secure_url : ""} alt="img" /> */}
 						{/* <ModalCarousel images={images} /> */}
 						<ModalCarousel2 images={images} />
-
 					</div>
-					{/* LEFT/RIGHT DIVIDE */}
-					<div className="modal_right">
-						<p>Name: </p>
-						<p className="modal_product_name">
-							{props.product.name}</p>
-						<p>Price: </p>
-						<p className="modal_product_price">${props.product.price}</p>
-						<p>Quantity: </p>
+					<div className={modal.column_right}>
+						<div className={modal.row}>
+						<h1>{props.product.name}</h1>
+						</div>
+						<div className={modal.row}>
+							<div className={modal.tags}><ul>{props.product.diet.map(diet => (
+								<li>{diet}</li>
+							))}</ul></div>
+						</div>
+						<div className={modal.row}>
+						<h2>{props.product.description}</h2>
+						</div>
+					
+						<div className={modal.row_price}>
+						<h1>${props.product.price}</h1>
+						</div>
+						
+						<div className={modal.row_quantity}>
+						<h3>Quantity: </h3>
 						<input
 							name='quantity'
 							type='number'
 							value={quantity}
 							onChange={handleChange}
 						/>
-						<button onClick={() => showHideModal(false)}>Close</button>
-						<button onClick={handleAddToCart}>Add To Cart</button>
+						</div>
+						{console.log("Products", props)}
+						<div className={modal.button_wrapper}>
+							<div className={modal.button_left}>
+						<CustomButton styleClass='red-full' onClick={() => showHideModal(false)}>Close</CustomButton>
+						</div>
+						<div className={modal.button_right}>	
+						<CustomButton styleClass='green-full' onClick={handleAddToCart}>Add To Cart</CustomButton>
+</div>
+						</div>
 					</div>
 				</div>
+				<div class={modal.overlay} id={modal.overlay}>
+</div>
 			</Modal>
 		</>
 	);

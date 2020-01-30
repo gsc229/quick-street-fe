@@ -10,7 +10,6 @@ import viewvendorproducts from './Browse/VendorPage/components/ViewVendorProduct
 //Landing page Components
 import landinggallery from './Landing/LandingGallery';
 import carouseltop from '../components/Landing/CarouselTop';
-import menu from '../components/Landing/Menu';
 
 // Profile  bulletin components
 import addpostform from '../components/Profile/Bulletin/AddPostForm';
@@ -44,7 +43,7 @@ import vendordetails from '../components/Register/Vendor/VendorDetails';
 // Shared components
 import footer from '../components/shared/Footer';
 import map from '../components/shared/Map';
-import navbar from '../components/shared/NavBar';
+import nav from '../components/shared/Nav';
 import custombutton from '../components/shared/CustomButton';
 import modal from '../components/shared/Modal';
 
@@ -64,7 +63,6 @@ import orderreviewitem from '../components/OrderReview/OrderReviewItem';
 //Landing Components exports
 export const LandingGallery = landinggallery;
 export const CarouselTop = carouseltop;
-export const Menu = menu;
 
 // mobile components
 export const CarouselTopMobile = carouseltopmobile;
@@ -109,7 +107,7 @@ export const VendorDetails = vendordetails;
 // Shared components
 export const Footer = footer;
 export const Map = map;
-export const NavBar = navbar;
+export const Nav = nav;
 export const CustomButton = custombutton;
 export const Modal = modal;
 

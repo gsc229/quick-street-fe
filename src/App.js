@@ -22,7 +22,7 @@ import LoginContext from './pages/LoginContext';
 const App = () => {
 	return (
 		<div>
-
+			<Route path="/orderreview/:id" component={OrderReview} /> 
 			<Route path="/RegisterContext" component={RegisterContext} />
 			<Route path="/LoginContext" component={LoginContext} />
 			<Route path="/styling" component={Styling} />

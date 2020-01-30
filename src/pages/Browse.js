@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
 // components
-import { Map, Search, Menu, ShoppingCartItems, Modal } from '../components/index';
+import { Map, Search, ShoppingCartItems, Modal } from '../components/index';
 
 // styles
 import browse from '../styles/scss/browse.module.scss';
@@ -92,7 +92,7 @@ const Browse = (props) => {
 				<ShoppingCartItems cart={cart} setCartModal={setCartModal} />
 			</Modal>
 			<div className={browse.temp_menu}>
-				<Menu />
+		
 			</div>
 
 			<div className={browse.wrapper}>

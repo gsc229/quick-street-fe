@@ -9,32 +9,29 @@ import {
 import { Placeholder } from '../assets/images/index';
 //Styles
 import profile from '../styles/scss/profile.module.scss';
-
-
 //Font awesom
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSave, faPen } from '@fortawesome/free-solid-svg-icons';
-
 import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
 const Profile = props => {
 	// It all starts here!...with vendorId from localStorage
-	const [vendorId, setVendorId] = useState(localStorage.getItem('user_id'))
+	const vendorId = localStorage.getItem('user_id');
 	const [vendorInfo, setVendorInfo] = useState({
 		location: {
 			zipcode: "18641"
 		}
 	});
 	const [bannerInfo, setBannerInfo] = useState('no_banner.jpg');
-	const [products, setProducts] = useState([]);
+
 	const [productImagesIds, setProductImagesIds] = useState([]);
 
 	// Booleans 
 
 	const [editingName, setEditingName] = useState(false);
 	// bool for reloading products after product update. 
-	const [reloadProducts, setReloadProducts] = useState(false);
+
 	const [editAbout, setEditAbout] = useState(false);
 	const [editBusinessName, setEditBusinessName] = useState(false);
 	//console.log('Profile.js vendorInfo: ', vendorInfo);
@@ -58,24 +55,6 @@ const Profile = props => {
 			})
 
 	}, [vendorId]);
-
-	useEffect(() => {
-		//console.log('USEEFFECT 2 Profile.js');
-		axiosWithAuth()
-			.get(`/vendors/${vendorId}/products`)
-			.then(response => {
-				console.log('GET Profile.js /vendors/:vendorId/products response', response);
-				setProducts(response.data.data);
-			})
-			.catch(error => {
-				console.log('ERROR Profile.js GET fetchProducts() vendors/:vendorId/products error: ', error)
-			})
-
-
-	}, [vendorId, reloadProducts, setReloadProducts])
-
-
-
 
 
 	const editName = () => {
@@ -212,10 +191,7 @@ const Profile = props => {
 					setVendorInfo={setVendorInfo}
 				/>
 				<VendorProducts
-					setReloadProducts={setReloadProducts}
-					reloadProducts={reloadProducts}
-					reloadProducts={reloadProducts}
-					products={products}
+
 					vendorId={vendorInfo._id}
 				/>
 				<Bulletin vendorId={vendorId} />

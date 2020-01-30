@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Product, EditProduct } from '../../index';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
@@ -7,12 +7,30 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import profile from '../../../styles/scss/profile.module.scss';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 
-const VendorProducts = ({ products, vendorId, reloadProducts, setReloadProducts }) => {
+const VendorProducts = ({ vendorId }) => {
+	const [products, setProducts] = useState([]);
+	const [reloadProducts, setReloadProducts] = useState(false);
 	// Opens EditingProduct MODAL    
 	const [editingProd, setEditingProd] = useState(false);// change back to false
 	// Passed to EditingProdcut MODAL            // change back to ""
 	const [editingProdId, setEditingProdId] = useState("");
 
+
+	// GET Vendor's products
+	useEffect(() => {
+		//console.log('USEEFFECT 2 Profile.js');
+		axiosWithAuth()
+			.get(`/vendors/${vendorId}/products`)
+			.then(response => {
+				console.log('GET Profile.js /vendors/:vendorId/products response', response);
+				setProducts(response.data.data);
+			})
+			.catch(error => {
+				console.log('ERROR Profile.js GET fetchProducts() vendors/:vendorId/products error: ', error)
+			})
+
+
+	}, [vendorId, reloadProducts, setReloadProducts])
 
 	//console.log('VendorProducts.js products: ', products);
 

@@ -2,10 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 import editingProduct from '../../../styles/css/editingProduct.module.css'
-import upload from '../../../assets/images/Profile/upload.png';
-import productImg from '../../../assets/images/Profile/rectangle75.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { EditProductForm, ProductImageUploader } from '../../index';
 
 const EditProduct = (props) => {
@@ -65,6 +61,7 @@ const EditProduct = (props) => {
   const finishedEditing = () => {
     setAllChangesSaved(true);
     setReloadProducts(!reloadProducts);
+    submitProductDetails();
     setTimeout(function () {
 
       setAllChangesSaved(false);
@@ -107,6 +104,7 @@ const EditProduct = (props) => {
     setConfirmClose(false);
     setAllChangesSaved(true);
     setReloadProducts(!reloadProducts);
+    submitProductDetails();
     setTimeout(function () {
 
       setAllChangesSaved(false);

@@ -6,8 +6,6 @@ import profile from '../../../../styles/scss/profile.module.scss';
 import modal from '../../../../styles/scss/browseModal.module.scss';
 import { CustomButton } from '../../../index';
 import { Modal } from '../../../index';
-import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
-import ModalCarousel from './ModalCarousel';
 import ModalCarousel2 from './ModalCarousel2';
 
 const ViewVendorProduct = (props) => {
@@ -96,7 +94,7 @@ const ViewVendorProduct = (props) => {
 					</div>
 					<div className={modal.column_right}>
 						<div className={modal.row}>
-						<h1>{props.product.name}</h1>
+							<h1>{props.product.name}</h1>
 						</div>
 						<div className={modal.row}>
 							<div className={modal.tags}><ul>{props.product.diet.map(diet => (
@@ -104,35 +102,35 @@ const ViewVendorProduct = (props) => {
 							))}</ul></div>
 						</div>
 						<div className={modal.row}>
-						<h2>{props.product.description}</h2>
+							<h2>{props.product.description}</h2>
 						</div>
-					
+
 						<div className={modal.row_price}>
-						<h1>${props.product.price}</h1>
+							<h1>${props.product.price}</h1>
 						</div>
-						
+
 						<div className={modal.row_quantity}>
-						<h3>Quantity: </h3>
-						<input
-							name='quantity'
-							type='number'
-							value={quantity}
-							onChange={handleChange}
-						/>
+							<h3>Quantity: </h3>
+							<input
+								name='quantity'
+								type='number'
+								value={quantity}
+								onChange={handleChange}
+							/>
 						</div>
 						{console.log("Products", props)}
 						<div className={modal.button_wrapper}>
 							<div className={modal.button_left}>
-						<CustomButton styleClass='red-full' onClick={() => showHideModal(false)}>Close</CustomButton>
-						</div>
-						<div className={modal.button_right}>	
-						<CustomButton styleClass='green-full' onClick={handleAddToCart}>Add To Cart</CustomButton>
-</div>
+								<CustomButton styleClass='red-full' onClick={() => showHideModal(false)}>Close</CustomButton>
+							</div>
+							<div className={modal.button_right}>
+								<CustomButton styleClass='green-full' onClick={handleAddToCart}>Add To Cart</CustomButton>
+							</div>
 						</div>
 					</div>
 				</div>
 				<div class={modal.overlay} id={modal.overlay}>
-</div>
+				</div>
 			</Modal>
 		</>
 	);

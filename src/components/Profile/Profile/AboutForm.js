@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import about from '../../../styles/css/vendor_about.module.css';
-import Map from '../../shared/Map';
+
 
 const AboutForm = ({ editAbout, vendorInfo, info, setVendorInfo }) => {
   const changeHandler = (e) => {

@@ -123,6 +123,10 @@
   width: fit-content;
   min-width: 400px;
   font-size: 2rem;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 21px;
 }
 
 .info_bottom .info_content .saved_text_container .edit_icon {

@@ -3,7 +3,6 @@ import axiosWithAuth from '../../../utils/axiosWithAuth';
 import editingProduct from '../../../styles/css/editingProduct.module.css'
 import upload from '../../../assets/images/Profile/upload.png';
 import productImg from '../../../assets/images/Profile/rectangle75.png';
-import VendorDetails from '../../Register/Vendor/VendorDetails';
 const ProductImageUploader = (props) => {
 
   const { productId, setReloadingImages, reloadingImages } = props;

@@ -3,7 +3,7 @@ import axiosWithAuth from '../../../utils/axiosWithAuth'
 import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
 import product from '../../../styles/scss/vendor_products.module.scss';
 
-const Product = ({ name, img, price, productId, setReloadProducts }) => {
+const Product = ({ name, img, price, productId, setReloadProducts, reloadProducts }) => {
 	const [productImages, setProductImages] = useState('');
 
 	useEffect(() => {
@@ -17,7 +17,7 @@ const Product = ({ name, img, price, productId, setReloadProducts }) => {
 			.catch(error => {
 				console.log(`ERROR GET /:productId/product-images Product.js`, error);
 			})
-	}, [setReloadProducts]);
+	}, [setReloadProducts, reloadProducts]);
 
 	return (
 		<div className={product.vendor_product}>

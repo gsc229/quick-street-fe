@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import {
 	About,
 	VendorProducts,
-	AddProductForm,
 	Bulletin,
 	BannerUploader,
 	Nav
@@ -10,6 +9,7 @@ import {
 import { Placeholder } from '../assets/images/index';
 //Styles
 import profile from '../styles/scss/profile.module.scss';
+
 
 //Font awesom
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -21,26 +21,24 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 const Profile = props => {
 	// It all starts here!...with vendorId from localStorage
 	const [vendorId, setVendorId] = useState(localStorage.getItem('user_id'))
-	const [vendorInfo, setVendorInfo] = useState({ location: '' });
+	const [vendorInfo, setVendorInfo] = useState({
+		location: {
+			zipcode: "18641"
+		}
+	});
 	const [bannerInfo, setBannerInfo] = useState('no_banner.jpg');
 	const [products, setProducts] = useState([]);
 	const [productImagesIds, setProductImagesIds] = useState([]);
-	const [info, setInfo] = useState({
-		business_name: '',
-		days: '0',
-		phone: '',
-		about: '',
-		hour_from: '',
-		hour_to: '',
-		location: ''
-	});
+
 	// Booleans 
-	const [modal, setModal] = useState(false);
+
 	const [editingName, setEditingName] = useState(false);
+	// bool for reloading products after product update. 
 	const [reloadProducts, setReloadProducts] = useState(false);
 	const [editAbout, setEditAbout] = useState(false);
 	const [editBusinessName, setEditBusinessName] = useState(false);
 	//console.log('Profile.js vendorInfo: ', vendorInfo);
+
 
 
 	useEffect(() => {
@@ -52,7 +50,7 @@ const Profile = props => {
 			.then(response => {
 				setVendorInfo(response.data.data);
 				/* setBannerInfo(vendorInfo.data.data.vendor_banner); */
-				console.log('GET Profile.js useEff},[vendorId]) setVendorInfo', response);
+				console.log('GET useEffect Profile.js setVendorInfo(response)', response);
 
 			})
 			.catch(error => {
@@ -78,14 +76,7 @@ const Profile = props => {
 
 
 
-	if (products.length !== 0 && productImagesIds.length !== 0) {
-		for (let i = 0; i < products.length; i++) {
-			products[i].imageId = productImagesIds[i];
-		}
-	}
-	const addProduct = () => {
-		setModal(true);
-	};
+
 
 	const editName = () => {
 		setEditBusinessName(!editBusinessName);
@@ -112,16 +103,19 @@ const Profile = props => {
 		setEditAbout(!editAbout);
 	};
 
-	const saveProfile = e => {
-		e.preventDefault();
-		// console.log('PRE PUT vendorInfo', vendorInfo);
+	const saveProfile = (e) => {
+		if (e) {
+			e.preventDefault();
+		}
+
+		//console.log('SAVE PROFILE vendorInfo', vendorInfo);
 		axiosWithAuth()
 			.put(
 				`https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`,
 				vendorInfo
 			)
 			.then(res => {
-				// console.log(`update vendor info`, res);
+				console.log(`update vendor info`, res);
 				setVendorInfo(res.data.data);
 			})
 			.catch(err => {
@@ -212,8 +206,6 @@ const Profile = props => {
 			<div>
 				<About
 					vendorInfo={vendorInfo}
-					info={info}
-					setInfo={setInfo}
 					editAbout={editAbout}
 					editProfile={editProfile}
 					saveProfile={saveProfile}
@@ -222,22 +214,10 @@ const Profile = props => {
 				<VendorProducts
 					setReloadProducts={setReloadProducts}
 					reloadProducts={reloadProducts}
+					reloadProducts={reloadProducts}
 					products={products}
-					addProduct={addProduct}
 					vendorId={vendorInfo._id}
-
 				/>
-				{/* <AddProductForm
-					productIds={productIds}
-					modal={modal}
-					products={products}
-					addProduct={addProduct}
-					setProducts={setProducts}
-					setModal={setModal}
-					addProductformCancelHandler={addProductformCancelHandler}
-					vendorId={vendorId}
-				/> */}
-
 				<Bulletin vendorId={vendorId} />
 			</div>
 		</div>

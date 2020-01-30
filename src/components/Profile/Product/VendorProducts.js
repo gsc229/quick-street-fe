@@ -72,6 +72,7 @@ const VendorProducts = ({ products, vendorId, reloadProducts, setReloadProducts 
 									price={p.price}
 									img={p.imageId ? p.imageId : p.image_Id}
 									setReloadProducts={setReloadProducts}
+									reloadProducts={reloadProducts}
 								/>
 							</div>
 						))

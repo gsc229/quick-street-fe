@@ -19,20 +19,11 @@ import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
 const Profile = props => {
-<<<<<<< HEAD
-	const [modal, setModal] = useState(false);
-	const [editingName, setEditingName] = useState(false);
-	const [vendorInfo, setVendorInfo] = useState({ location: '' });
-	const [bannerInfo, setBannerInfo] = useState('no_banner.jpg');
-	const [products, setProducts] = useState([]);
-	const [productIds, setProductIds] = useState([]);
-=======
 	// It all starts here!...with vendorId from localStorage
 	const [vendorId, setVendorId] = useState(localStorage.getItem('user_id'))
 	const [vendorInfo, setVendorInfo] = useState({ location: '' });
 	const [bannerInfo, setBannerInfo] = useState('no_banner.jpg');
 	const [products, setProducts] = useState([]);
->>>>>>> 3ddcbc3a79dacf71f6efba97957c3e8bd12ccc17
 	const [productImagesIds, setProductImagesIds] = useState([]);
 	const [info, setInfo] = useState({
 		business_name: '',
@@ -43,63 +34,6 @@ const Profile = props => {
 		hour_to: '',
 		location: ''
 	});
-<<<<<<< HEAD
-	const vendorId = props.match.params.id;
-	const [editAbout, setEditAbout] = useState(false);
-	const [editBusinessName, setEditBusinessName] = useState(false);
-
-	useEffect(() => {
-		async function fetchVendorInfo() {
-			try {
-				const vendorInfo = await axiosWithAuth().get(
-					`https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`
-				);
-				// console.log(`vendorinfo changed`, vendorInfo);
-				setVendorInfo(vendorInfo.data.data);
-				setBannerInfo(vendorInfo.data.data.vendor_banner);
-			} catch (e) {
-				// console.log(e);
-			}
-		}
-		fetchVendorInfo();
-
-		async function fetchProducts() {
-			try {
-				const products = await axiosWithAuth().get(
-					`https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}/products`
-				);
-
-				setProducts(products.data.data);
-				setProductIds(products.data.data.map(p => p._id));
-			} catch (e) {
-				// console.log(e);
-			}
-		}
-		fetchProducts();
-	}, []);
-
-	useEffect(() => {
-		let temp_ids = [];
-		async function fetchImageIds() {
-			if (productIds.length !== 0) {
-				for (const ids of productIds) {
-					try {
-						const imageIds = await axiosWithAuth().get(
-							`https://quickstlabs.herokuapp.com/api/v1.0/products/${ids}/product-images`
-						);
-
-						temp_ids.push(imageIds.data.data[0].public_id);
-					} catch (e) {
-						// console.log(e);
-					}
-				}
-			}
-
-			setProductImagesIds(temp_ids);
-		}
-		fetchImageIds();
-	}, [productIds]);
-=======
 	// Booleans 
 	const [modal, setModal] = useState(false);
 	const [editingName, setEditingName] = useState(false);
@@ -109,8 +43,11 @@ const Profile = props => {
 	//console.log('Profile.js vendorInfo: ', vendorInfo);
 
 
+
+
+
 	useEffect(() => {
-		//console.log('USEEFFECT 1 Profile.js');
+		console.log('USEEFFECT 1 Profile.js');
 		axiosWithAuth()
 			.get(
 				`/vendors/${vendorId}`
@@ -128,7 +65,7 @@ const Profile = props => {
 	}, [vendorId]);
 
 	useEffect(() => {
-		//console.log('USEEFFECT 2 Profile.js');
+		console.log('USEEFFECT 2 Profile.js');
 		axiosWithAuth()
 			.get(`/vendors/${vendorId}/products`)
 			.then(response => {
@@ -143,7 +80,6 @@ const Profile = props => {
 	}, [vendorId, reloadProducts, setReloadProducts])
 
 
->>>>>>> 3ddcbc3a79dacf71f6efba97957c3e8bd12ccc17
 
 	if (products.length !== 0 && productImagesIds.length !== 0) {
 		for (let i = 0; i < products.length; i++) {
@@ -154,14 +90,6 @@ const Profile = props => {
 		setModal(true);
 	};
 
-<<<<<<< HEAD
-	const addProductformCancelHandler = e => {
-		e.preventDefault();
-		setModal(false);
-	};
-
-=======
->>>>>>> 3ddcbc3a79dacf71f6efba97957c3e8bd12ccc17
 	const editName = () => {
 		setEditBusinessName(!editBusinessName);
 	};
@@ -252,19 +180,11 @@ const Profile = props => {
 				</div>
 
 				<div className={profile.vendor_banner_image_container}>
-<<<<<<< HEAD
-					{bannerInfo !== `no-photo.jpg` ? (
-						<CloudinaryContext cloudName='quickstlabs'>
-							<Image
-								className={profile.vendor_banner_image}
-								publicId={bannerInfo}
-=======
 					{vendorInfo.vendor_banner !== `no-photo.jpg` ? (
 						<CloudinaryContext cloudName='quickstlabs'>
 							<Image
 								className={profile.vendor_banner_image}
 								publicId={vendorInfo.vendor_banner}
->>>>>>> 3ddcbc3a79dacf71f6efba97957c3e8bd12ccc17
 							>
 								<Transformation
 									gravity='center'
@@ -303,14 +223,8 @@ const Profile = props => {
 					setVendorInfo={setVendorInfo}
 				/>
 				<VendorProducts
-<<<<<<< HEAD
-					productIds={productIds}
-					products={products}
-					addProduct={addProduct}
-				/>
-				<AddProductForm
-=======
 					setReloadProducts={setReloadProducts}
+					reloadProducts={reloadProducts}
 					reloadProducts={reloadProducts}
 					products={products}
 					addProduct={addProduct}
@@ -318,7 +232,6 @@ const Profile = props => {
 
 				/>
 				{/* <AddProductForm
->>>>>>> 3ddcbc3a79dacf71f6efba97957c3e8bd12ccc17
 					productIds={productIds}
 					modal={modal}
 					products={products}
@@ -327,12 +240,8 @@ const Profile = props => {
 					setModal={setModal}
 					addProductformCancelHandler={addProductformCancelHandler}
 					vendorId={vendorId}
-<<<<<<< HEAD
-				/>
-=======
 				/> */}
 
->>>>>>> 3ddcbc3a79dacf71f6efba97957c3e8bd12ccc17
 				<Bulletin vendorId={vendorId} />
 			</div>
 		</div>

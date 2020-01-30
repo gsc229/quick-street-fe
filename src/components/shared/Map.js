@@ -20,7 +20,7 @@ const Map = (props) => {
 					.REACT_APP_GOOGLE_MAPS_API_KEY}`
 			)
 			.then((response) => {
-				console.log(response);
+				// console.log(response);
 				// console.log(response.data.results[0].geometry.location);
 				setMapDetails({
 					...mapDetails,
@@ -30,6 +30,7 @@ const Map = (props) => {
 				});
 			});
 	};
+
 
 	useEffect(
 		() => {
@@ -41,14 +42,15 @@ const Map = (props) => {
 	);
 
 	useEffect(
-		() => {
-			let options = {
-				center: { lat: mapDetails.lat, lng: mapDetails.lng },
-				zoom: mapDetails.isDefault ? 11 : 5,
-				zoomControl: false,
-				gestureHandling: 'none'
-			};
-			const map = new window.google.maps.Map(document.getElementById('map'), options);
+	() => {
+	let options = {
+	center: { lat: mapDetails.lat, lng: mapDetails.lng },
+	zoom: mapDetails.isDefault ? 11 : 5,
+	zoomControl: false,
+	gestureHandling: 'none'
+	};
+	const map = new window.google.maps.Map(document.getElementById('map'), options);
+
 
 			if (mapDetails.isDefault) {
 				let cityCircle = new window.google.maps.Circle({
@@ -66,6 +68,7 @@ const Map = (props) => {
 		[mapDetails]
 	);
 	return <div id="map" />;
+
 };
 
 export default Map;

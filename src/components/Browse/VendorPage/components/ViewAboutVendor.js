@@ -16,7 +16,7 @@ const ViewAboutVendor = (props) => {
 		axiosWithAuth()
 			.get(`/vendors/${id}`)
 			.then((response) => {
-				console.log(response);
+				// console.log(response);
 				setVendor(response.data.data);
 			})
 			.catch((error) => {
@@ -54,7 +54,7 @@ console.log("view about", vendor);
 					<div className={profile.column_right}>
 					<h1>Location</h1>
 					<p>The vendor can be found at {vendor.location.zipcode} area</p>
-					<Map zipcode={"18641"} width={403} height={280} radius={3000} />
+					<Map zipcode={vendor.location.zipcode} width={403} height={280} radius={3000} />
 					</div>
 		
 				</div>

@@ -10,7 +10,8 @@ const ViewVendorProducts = (props) => {
 		products: [],
 		count: 0
 	});
-	const { setCart } = props;
+	const { cart, setCart } = props;
+
 	const getVendorProducts = (id) => {
 		axiosWithAuth()
 			.get(`/vendors/${id}/products`)
@@ -36,9 +37,7 @@ const ViewVendorProducts = (props) => {
 			<div className={profile.products_wrapper}>
 				<h1>Products</h1>
 				<div className={profile.products_card_wrapper}>
-					{vendorProducts.products.map((product) => (
-						<Product setCart={setCart} product={product} key={product._id} loggedIn={true} />
-					))}
+{vendorProducts.products.map((product) => <Product cart={cart} setCart={setCart} product={product} key={product._id} />)}
 					{vendorProducts.count === 0 && (
 						<p className="no_products_content">There are no products to show right now.</p>
 					)}

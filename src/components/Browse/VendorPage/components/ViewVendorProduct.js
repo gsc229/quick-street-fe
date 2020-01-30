@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axiosWithAuth from '../../../../utils/axiosWithAuth';
 //stlying 
 
@@ -9,36 +9,35 @@ import { Modal } from '../../../index';
 import ModalCarousel2 from './ModalCarousel2';
 
 const ViewVendorProduct = (props) => {
+	
 	const [images, setImages] = useState([{}]);
 	const [quantity, setQuantity] = useState('1');
 	const [showModal, setShowModal] = useState(false);
-	const { setCart } = props;
+	const { cart, setCart } = props;
 	const customerId = localStorage.getItem('user_id');
+	
 	const handleChange = (event) => {
 		setQuantity(event.target.value);
 	}
 
 	const showHideModal = (bool) => {
-		if (props.loggedIn) {
-			setShowModal(bool);
-		}
+		setShowModal(bool);
 	}
-
 
 	const getCartItems = () => {
 		axiosWithAuth()
 			.get(`customers/${customerId}/cart`)
 			.then(response => {
-				console.log("GET ViewV.Prod response: ", response)
-				setCart(response.data.data.items);
+				// console.log(response);
+				setCart({
+					...cart, 
+					items: response.data.data.items,
+					total: response.data.data.total,
+					cartId: response.data.data._id
+				})
 			})
 			.catch(err => console.log(err.response))
 	}
-
-	useEffect(() => {
-		getCartItems()
-	}, [])
-
 
 	const handleAddToCart = () => {
 		const postObject = {
@@ -46,20 +45,21 @@ const ViewVendorProduct = (props) => {
 			price: props.product.price,
 			quantity
 		}
-		console.log(postObject);
+		// console.log(postObject);
 		showHideModal(false);
-		/* *** this function will need setCart ***** */
-
-		axiosWithAuth()
+		if (!customerId) {
+			// cartContext.addToCart({...postObject, image: images[0].secure_url});
+			// console.log(cartContext.products);
+		} else {
+			// POST request to add item to cart
+			axiosWithAuth()
 			.post(`customers/${customerId}/cart/addtocart`, postObject)
 			.then(response => {
-				console.log("POST ViewV.Prod response: ", response)
+				// console.log("POST ViewV.Prod response: ", response)
 				getCartItems();
 			})
 			.catch(err => console.log(err.response))
-
-
-		// POST request to add item to cart
+		}
 	}
 
 	useEffect(() => {

@@ -6,6 +6,7 @@ import browse from '../pages/Browse';
 import profile from '../pages/Profile';
 import login from '../pages/Login';
 import styling from '../pages/Styling';
+import orderreview from '../pages/OrderReview';
 
 import dashboard from '../pages/Dashboard';
 // exports big to small
@@ -17,3 +18,4 @@ export const Profile = profile;
 export const Login = login;
 export const Styling = styling;
 export const Dashboard = dashboard;
+export const OrderReview = orderreview;

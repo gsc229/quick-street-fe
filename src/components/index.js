@@ -47,11 +47,18 @@ import nav from '../components/shared/Nav';
 import custombutton from '../components/shared/CustomButton';
 import modal from '../components/shared/Modal';
 
+// Shared components/ShoppingCart
+import shoppingcartitems from '../components/shared/ShoppingCart/ShoppingCartItems';
+import shoppingcartitem from '../components/shared/ShoppingCart/ShoppingCartItem';
+
 // Dashboard components
 import herobanner from '../components/Dashboard/HeroBanner';
 
 // mobile components
 import carouseltopmobile from '../components/Landing/CarouselTopMobile';
+
+// Order Review components
+import orderreviewitem from '../components/OrderReview/OrderReviewItem';
 
 //Landing Components exports
 export const LandingGallery = landinggallery;
@@ -104,5 +111,12 @@ export const Nav = nav;
 export const CustomButton = custombutton;
 export const Modal = modal;
 
+// Shared components/ShoppingCart
+export const ShoppingCartItems = shoppingcartitems;
+export const ShoppingCartItem = shoppingcartitem;
+
 // Dashboard exports
 export const HeroBanner = herobanner;
+
+// OrderReview exports
+export const OrderReviewItem = orderreviewitem;

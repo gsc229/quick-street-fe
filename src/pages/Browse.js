@@ -4,16 +4,14 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 
 // components
 import { Map, Search, Menu, ShoppingCartItems, Modal } from '../components/index';
-import { UserContext } from '../contexts/UserContext';
 
 // styles
 import browse from '../styles/scss/browse.module.scss';
 
 const Browse = (props) => {
 	// console.log('The browse props are', props);
-	const {user} = useContext(UserContext);
-	const customerId = user.userId;
-	// console.log('user in browse', user);
+	
+	const customerId = localStorage.getItem('user_id');
 
 	const [cart, setCart] = useState({});
 	const [ cartModal, setCartModal ] = useState(false);

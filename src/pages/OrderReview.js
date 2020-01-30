@@ -6,8 +6,6 @@ import { OrderReviewItem } from '../components/index';
 const OrderReview = (props) => {
 
   const customerId = localStorage.getItem('user_id');
-  console.log(props);
-
   const [ cart, setCart ] = useState({
     items: []
   });

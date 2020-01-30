@@ -1,14 +1,10 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
-import { UserContext } from '../../../contexts/UserContext';
 import { ShoppingCartItem } from '../../index';
 
 const ShoppingCartItems = ({ cart, setCartModal }) => {
   
-  const userContext = useContext(UserContext); 
-  const customerId = userContext.user.userId;
-
   const handleKeepShopping = (event) => {
     event.preventDefault();
     // console.log('Keep shopping clicked');

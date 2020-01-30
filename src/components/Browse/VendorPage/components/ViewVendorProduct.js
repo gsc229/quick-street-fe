@@ -5,22 +5,15 @@ import { Modal } from '../../../index';
 import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
 import ModalCarousel from './ModalCarousel';
 import ModalCarousel2 from './ModalCarousel2';
-import { UserContext } from '../../../../contexts/UserContext';
-import { CartContext } from '../../../../contexts/CartContext';
 
 const ViewVendorProduct = (props) => {
-	const userContext = useContext(UserContext); 
-	// const cartContext = useContext(CartContext);
-
+	
 	const [images, setImages] = useState([{}]);
 	const [quantity, setQuantity] = useState('1');
 	const [showModal, setShowModal] = useState(false);
 	const { cart, setCart } = props;
-	// console.log(getCartItems);
-	const customerId = userContext.user.userId;
-	// const customerId = localStorage.getItem('user_id');
-	// console.log(customerId);
-	// console.log('cart on the vendor product page', cart);
+	const customerId = localStorage.getItem('user_id');
+	
 	const handleChange = (event) => {
 		setQuantity(event.target.value);
 	}

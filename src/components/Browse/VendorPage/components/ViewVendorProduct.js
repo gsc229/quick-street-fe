@@ -34,8 +34,7 @@ const ViewVendorProduct = (props) => {
 		axiosWithAuth()
 			.get(`customers/${customerId}/cart`)
 			.then(response => {
-				console.log('Response from get request after a product has been added to cart', response);
-				// setCart(response.data.data.items);
+				console.log(response);
 				setCart({
 					...cart, 
 					items: response.data.data.items,
@@ -45,11 +44,6 @@ const ViewVendorProduct = (props) => {
 			})
 			.catch(err => console.log(err.response))
 	}
-
-	// useEffect(() => {
-	// 	getCartItems()
-	// }, [cart])
-
 
 	const handleAddToCart = () => {
 		const postObject = {

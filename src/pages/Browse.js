@@ -15,10 +15,7 @@ const Browse = (props) => {
 	const customerId = user.userId;
 	// console.log('user in browse', user);
 
-	const [cart, setCart] = useState({
-		items: []
-	});
-
+	const [cart, setCart] = useState({});
 	const [ cartModal, setCartModal ] = useState(false);
 
 	const [zipcode, setZipcode] = useState('');
@@ -123,8 +120,6 @@ const Browse = (props) => {
 					location={props.location}
 					match={props.match}
 					cart={cart}
-					setCart={setCart} 
-					getCartItems={getCartItems}
 					cartModal={cartModal}
 					setCartModal={setCartModal}
 				/>

@@ -16,12 +16,7 @@ const Vendor = props => {
   const vendorId = props.match.params.id;
 
   const [ cartModal, setCartModal ] = useState(false);
-
-  // console.log('props in vendor view page', props);
-  // console.log(props.location.cart);
-  // console.log(props.location.setCart);
-  console.log(props);
-  console.log(props.location.getCartItems);
+  const [cart, setCart] = useState(props.location.cart);
 
   return (
     <>
@@ -31,11 +26,11 @@ const Vendor = props => {
           onClick={() => setCartModal(false)}
           className="fa fa-times close_x">
         </i>
-        <ShoppingCartItems cart={props.location.cart} setCart={props.location.setCart} cartModal={props.location.cartModal} setCartModal={props.location.setCartModal}/>
+        <ShoppingCartItems cart={cart} cartModal={cartModal} setCartModal={setCartModal}/>
 			</Modal>
       <Menu />
       <ViewAboutVendor vendorId={vendorId} />
-      <ViewVendorProducts cart={props.location.cart} setCart={props.location.setCart} getCartItems={props.location.getCartItems} vendorId={vendorId} />
+      <ViewVendorProducts cart={cart} setCart={setCart} vendorId={vendorId} />
       <ViewVendorPosts vendorId={vendorId} />
       {/* <button onClick={() => props.history.goBack()}>Back</button> */}
       <Footer />

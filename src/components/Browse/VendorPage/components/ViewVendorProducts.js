@@ -10,6 +10,7 @@ const ViewVendorProducts = (props) => {
 		count: 0
 	});
 	const { cart, setCart } = props;
+
 	const getVendorProducts = (id) => {
 		axiosWithAuth()
 			.get(`/vendors/${id}/products`)

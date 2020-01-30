@@ -57,11 +57,11 @@ const ShoppingCartItem = ({ cart, setCart, customerId, getCartItems, product }) 
     // </div>
     // <h1>Shopping Cart Item</h1>
     <>
-      <CloudinaryContext cloudName="quickstlabs">
+      {/* <CloudinaryContext cloudName="quickstlabs">
         <Image publicId={product.item.product_image.thumbnail_url}>
           <Transformation gravity="center" height="318" width="1062" crop="fill" />
         </Image>
-      </CloudinaryContext>
+      </CloudinaryContext> */}
       <p>{product.quantity} {product.item.name}</p>
     </>
 

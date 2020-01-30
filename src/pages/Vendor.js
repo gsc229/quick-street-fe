@@ -1,8 +1,8 @@
 // ** Vendor customer facing page ** //
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ViewAboutVendor, ViewVendorProducts, ViewVendorPosts, Menu, Footer, ShoppingCartItems, Modal } from '../components/index';
-
+import axiosWithAuth from '../utils/axiosWithAuth';
 // import About from '../components/Browse/VendorPage/components/About';
 // import Products from '../components/Browse/VendorPage/components/Products';
 // import Posts from '../components/Browse/VendorPage/components/Posts';
@@ -12,11 +12,30 @@ import '../styles/scss/OldcustomerFacingVendorProfile.scss';
 
 
 const Vendor = props => {
+
+  const customerId = localStorage.getItem('user_id');
   
   const vendorId = props.match.params.id;
 
   const [ cartModal, setCartModal ] = useState(false);
   const [cart, setCart] = useState(props.location.cart);
+
+  useEffect(() => {
+    axiosWithAuth()
+      .get(`customers/${customerId}/cart`)
+      .then(response => {
+        // console.log(response);
+        setCart({
+          ...cart, 
+          items: response.data.data.items,
+          total: response.data.data.total,
+          cartId: response.data.data._id
+        })
+      })
+      .catch(err => {
+        console.log(err.response)
+      })
+  })
 
   return (
     <>

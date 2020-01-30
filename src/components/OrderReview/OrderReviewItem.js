@@ -55,11 +55,13 @@ const OrderReviewItem = ({ product, setCart, customerId, getOrderReviewCart }) =
 
   return (
     <>
-      <CloudinaryContext cloudName="quickstlabs">
-        <Image publicId={product.item.product_image.thumbnail_url}>
-          <Transformation gravity="center" height="318" width="1062" crop="fill" />
-        </Image>
-      </CloudinaryContext>
+      {product.item.product_image && (
+        <CloudinaryContext cloudName="quickstlabs">
+          <Image publicId={product.item.product_image.thumbnail_url}>
+            <Transformation gravity="center" height="318" width="1062" crop="fill" />
+          </Image>
+        </CloudinaryContext>
+      )}
       <p>{product.item.name}</p>
       <p>{vendor}</p>
       <p>$ {product.item.price}</p>

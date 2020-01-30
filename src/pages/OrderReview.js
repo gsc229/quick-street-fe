@@ -3,9 +3,10 @@ import React, { useState, useEffect } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 import { OrderReviewItem } from '../components/index';
 
-const OrderReview = () => {
+const OrderReview = (props) => {
 
   const customerId = localStorage.getItem('user_id');
+  console.log(props);
 
   const [ cart, setCart ] = useState({
     items: []
@@ -46,7 +47,7 @@ const OrderReview = () => {
         />
       )}
       <p>Total $ {cart.total}</p>
-      <button>Cancel</button>
+      <button onClick={props.history.goBack}>Cancel</button>
       <button>Confirm</button>
     </>
   )

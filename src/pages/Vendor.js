@@ -22,10 +22,6 @@ const Vendor = props => {
     <>
       <p onClick={() => setCartModal(true)}>Shopping Cart</p>
 			<Modal showModal={cartModal}>
-        <i
-          onClick={() => setCartModal(false)}
-          className="fa fa-times close_x">
-        </i>
         <ShoppingCartItems cart={cart} setCartModal={setCartModal}/>
 			</Modal>
       <Menu />

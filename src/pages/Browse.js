@@ -90,11 +90,7 @@ const Browse = (props) => {
 		<div className={browse.container}>
 			<p onClick={() => setCartModal(true)}>Shopping Cart</p>
 			<Modal showModal={cartModal}>
-			<i
-				onClick={() => setCartModal(false)}
-				className="fa fa-times close_x">
-			</i>
-			<ShoppingCartItems cart={cart} setCartModal={setCartModal} />
+				<ShoppingCartItems cart={cart} setCartModal={setCartModal} />
 			</Modal>
 			<div className={browse.temp_menu}>
 				<Menu />

@@ -1,6 +1,6 @@
 import React from 'react';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
-import editingProduct from '../../../styles/css/editingProduct.module.css'
+import editingProduct from '../../../styles/scss/editingProduct.module.scss'
 import upload from '../../../assets/images/Profile/upload.png';
 import productImg from '../../../assets/images/Profile/rectangle75.png';
 const ProductImageUploader = (props) => {

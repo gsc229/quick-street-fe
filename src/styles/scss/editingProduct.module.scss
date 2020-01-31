@@ -1,7 +1,21 @@
 @import './mixins.scss';
 
 .container {
-	@include modal_main();
+	background-color: white;
+	border: 1px solid #888;
+	border-radius: 10px;
+	padding: 3% 10% 5%;
+	width: 70%;
+	height: -webkit-fit-content;
+	height: -moz-fit-content;
+	height: fit-content;
+	left: 15%;
+	position: absolute;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
 	justify-content: space-between;
 
 	.close_x {

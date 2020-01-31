@@ -20,6 +20,7 @@ import {
 
 import RegisterContext from './pages/RegisterContext';
 import LoginContext from './pages/LoginContext';
+import Nav from './components/shared/Nav';
 const App = () => {
 	return (
 		<div>

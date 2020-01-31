@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import editingProduct from '../../../styles/css/editingProduct.module.css';
+import editingProduct from '../../../styles/scss/editingProduct.module.scss';
 
 const EditProductForm = (props) => {
 	const { product, setProduct } = props;

@@ -1,0 +1,15 @@
+@import './mixins.scss';
+
+.navbar {
+	width: 100%;
+}
+.container {
+	@include xl {
+		width: 144rem;
+		margin: 0 auto;
+		background-color: red;
+		p {
+			font-size: 2.4rem;
+		}
+	}
+}

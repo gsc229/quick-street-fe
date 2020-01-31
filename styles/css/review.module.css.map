@@ -1,0 +1,11 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,OAAO,CAAC;EACP,KAAK,EAAE,IAAI;CACX;;ACyBA,MAAM,EAAE,SAAS,EAAE,MAAM;EDxB1B,AAAA,UAAU,CAAC;IAET,KAAK,EAAE,MAAM;IACb,MAAM,EAAE,MAAM;IACd,gBAAgB,EAAE,GAAG;GAKtB;EATD,AAKE,UALQ,CAKR,CAAC,CAAC;IACD,SAAS,EAAE,MAAM;GACjB",
+    "sources": [
+        "../../src/styles/scss/review.module.scss",
+        "../../src/styles/scss/mixins.scss",
+        "../../src/styles/scss/breakpoints.scss"
+    ],
+    "names": [],
+    "file": "review.module.css"
+}

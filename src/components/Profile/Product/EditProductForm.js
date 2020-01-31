@@ -61,11 +61,7 @@ const EditProductForm = (props) => {
     }
 
 
-    /* setProduct({
-      ...product,
-      [e.target.name]: []
 
-    }) */
   }
 
   return (
@@ -79,6 +75,7 @@ const EditProductForm = (props) => {
           <label htmlFor="description">Product Description: </label>
           <textarea onChange={handleChanges} type="text" name="description" value={product.description} />
         </div>
+        {/* CHECKBOX PROD. CATEGORY */}
         <div className={editingProduct.input_wrapper}>
 
           <div className={`form-check ${editingProduct.checkbox_wrapper}`}>
@@ -114,10 +111,10 @@ const EditProductForm = (props) => {
               </label>
             </div>
 
-          </div> {/* END Checkboxes */}
+          </div>
 
 
-        </div>
+        </div>{/* END Checkboxes */}
         <div className={editingProduct.input_wrapper}>
           <label htmlFor="price">$ Price: </label>
           <input onChange={handleChanges} type="text" name="price" value={product.price} />

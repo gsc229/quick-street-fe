@@ -1,21 +1,22 @@
 import createDataContext from './createDataContext';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
-
 const cartReducer = (state, action) => {
 	switch (action.type) {
-		case 'getCart':
+		case 'getCartItems':
 			return { ...state, cart: action.payload };
+		case 'add_error': 
+			return { ...state, errorMessage: action.payload};
 		default:
 			return state;
 	}
 };
 
-const getCart = (dispatch) => async () => {
-	try {
-    const response = await axiosWithAuth().get('/customers/5e288da830dbd60017620190/cart');
+const getCartItems = (dispatch) => async (customerId) => {
+	try {		
+    const response = await axiosWithAuth().get(`/customers/${customerId}/cart`);
     console.log(response);
-    dispatch({ type: 'getCart', payload: response.data.data });  
+    dispatch({ type: 'getCartItems', payload: response.data.data.data });  
 	} catch (error) {
 		console.log(error);
 		dispatch({
@@ -25,9 +26,69 @@ const getCart = (dispatch) => async () => {
 	}
 };
 
+const addCartItem = (dispatch) => async ({
+	productId,
+	price,
+	quantity,
+	customerId
+}) => {
+	try {
+		const response = await axiosWithAuth().post(`customers/${customerId}/cart/addtocart`, {
+			productId,
+			price,
+			quantity		
+		});
+		dispatch({ type: 'getCartItems', payload: response.data.data.cart }); 
+	} catch (error) {
+		dispatch({
+			type: 'add_error',
+			payload: 'Could not get data from backend'
+		});
+	}
+};
+
+const updateCartItem = (dispatch) => async ({
+	productId,
+	price,
+	quantity,
+	customerId
+}) => {
+	try {
+		const response = await axiosWithAuth().put(`/customers/${customerId}/cart/addtocart`, {
+			productId,
+			quantity		
+		});
+		dispatch({ type: 'getCartItems', payload: response.data.data.cart }); 
+	} catch (error) {
+		dispatch({
+			type: 'add_error',
+			payload: 'Could not get data from backend'
+		});
+	}
+};
+
+const deleteCartItem = (dispatch) => async ({
+	productId,
+	customerId
+}) => {
+	try {
+		const response = await axiosWithAuth().delete(`/customers/${customerId}/cart/deleteitem/${productId}`);
+		dispatch({ type: 'getCartItems', payload: response.data.data.data }); 
+	} catch (error) {
+		dispatch({
+			type: 'add_error',
+			payload: 'Could not get data from backend'
+		});
+	}
+};
+
+
+
+
+
 export const { Provider, Context } = createDataContext(
 	cartReducer,
-	{ getCart }, 
-	{ cart:''}
+	{ getCartItems, addCartItem, updateCartItem, deleteCartItem }, 
+	{ cart: {}, errorMessage: ''}
   
 );

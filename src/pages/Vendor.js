@@ -8,7 +8,6 @@ import profile from '../styles/scss/profile.module.scss';
 
 const Vendor = (props) => {
   const vendorId = props.match.params.id;
-	console.log('props in vendor view page', props);
   const customerId = localStorage.getItem('user_id');
   const [ cartModal, setCartModal ] = useState(false);
   const [cart, setCart] = useState(props.location.cart);

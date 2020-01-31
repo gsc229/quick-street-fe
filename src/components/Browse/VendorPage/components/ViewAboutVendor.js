@@ -6,7 +6,7 @@ import profile from '../../../../styles/scss/profile.module.scss';
 // import { image } from '../../assets/rectangle.png';
 import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
 const ViewAboutVendor = (props) => {
-	console.log("view about Props", props);
+
 	const [ vendor, setVendor ] = useState({
 		location:{},
 	
@@ -27,7 +27,7 @@ const ViewAboutVendor = (props) => {
 	useEffect(() => {
 		getVendor(props.vendorId);
 	}, []);
-console.log("view about", vendor);
+
 	return (
 		<>
 			<div className={profile.banner_container}>

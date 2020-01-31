@@ -55,7 +55,7 @@ const ViewVendorProduct = (props) => {
 			axiosWithAuth()
 			.post(`customers/${customerId}/cart/addtocart`, postObject)
 			.then(response => {
-				// console.log("POST ViewV.Prod response: ", response)
+				console.log("POST ViewV.Prod response: ", response)
 				getCartItems();
 			})
 			.catch(err => console.log(err.response))

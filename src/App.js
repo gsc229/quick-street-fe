@@ -45,7 +45,7 @@ export default () => {
 	return (
 		<AuthProvider>
 			<CartProvider>
-			<App />
+				<App />
 			</CartProvider>
 		</AuthProvider>
 	);

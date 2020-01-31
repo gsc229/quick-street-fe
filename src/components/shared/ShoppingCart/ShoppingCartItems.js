@@ -1,15 +1,22 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
+import { Context as CartContext } from '../../../contexts/TestCartContext';
 import { ShoppingCartItem } from '../../index';
 
-const ShoppingCartItems = ({ cart, setCartModal }) => {
-  
+const ShoppingCartItems = ({ setCartModal }) => {
+  const { state, getCartItems } = useContext(CartContext);
+  const cart = state.cart;
+  const customerId = localStorage.getItem('user_id');
+
   const handleKeepShopping = (event) => {
     event.preventDefault();
     // console.log('Keep shopping clicked');
     setCartModal(false);
   };
+
+  useEffect(() => {
+    getCartItems(customerId);
+  }, [])
 
   return (
     <>

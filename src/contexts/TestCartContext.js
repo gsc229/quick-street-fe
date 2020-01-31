@@ -16,7 +16,7 @@ const getCartItems = (dispatch) => async (customerId) => {
 	try {		
     const response = await axiosWithAuth().get(`/customers/${customerId}/cart`);
     console.log(response);
-    dispatch({ type: 'getCartItems', payload: response.data.data.data });  
+    dispatch({ type: 'getCartItems', payload: response.data.data });  
 	} catch (error) {
 		console.log(error);
 		dispatch({
@@ -38,7 +38,8 @@ const addCartItem = (dispatch) => async ({
 			price,
 			quantity		
 		});
-		dispatch({ type: 'getCartItems', payload: response.data.data.cart }); 
+		console.log(response);
+		dispatch({ type: 'getCartItems', payload: response.data.cart }); 
 	} catch (error) {
 		dispatch({
 			type: 'add_error',
@@ -49,7 +50,6 @@ const addCartItem = (dispatch) => async ({
 
 const updateCartItem = (dispatch) => async ({
 	productId,
-	price,
 	quantity,
 	customerId
 }) => {
@@ -58,7 +58,7 @@ const updateCartItem = (dispatch) => async ({
 			productId,
 			quantity		
 		});
-		dispatch({ type: 'getCartItems', payload: response.data.data.cart }); 
+		dispatch({ type: 'getCartItems', payload: response.data.cart }); 
 	} catch (error) {
 		dispatch({
 			type: 'add_error',
@@ -73,7 +73,7 @@ const deleteCartItem = (dispatch) => async ({
 }) => {
 	try {
 		const response = await axiosWithAuth().delete(`/customers/${customerId}/cart/deleteitem/${productId}`);
-		dispatch({ type: 'getCartItems', payload: response.data.data.data }); 
+		dispatch({ type: 'getCartItems', payload: response.data.data }); 
 	} catch (error) {
 		dispatch({
 			type: 'add_error',

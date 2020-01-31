@@ -118,7 +118,6 @@ const ViewVendorProduct = (props) => {
 								onChange={handleChange}
 							/>
 						</div>
-						{console.log("Products", props)}
 						<div className={modal.button_wrapper}>
 							<div className={modal.button_left}>
 								<CustomButton styleClass='red-full' onClick={() => showHideModal(false)}>Close</CustomButton>

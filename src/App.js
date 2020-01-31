@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './styles/scss/index.scss';
 import UserContext from './contexts/UserContext';
-import Contexts from './contexts/Contexts';
 
+// Context
+import { Provider as AuthProvider } from './contexts/AuthContext';
 import {
 	Register, // ** Register
 	Login, // ** Login
@@ -16,25 +17,32 @@ import {
 	OrderReview // ** Order Review Page **/
 } from './pages/index';
 
+import RegisterContext from './pages/RegisterContext';
+import LoginContext from './pages/LoginContext';
 const App = () => {
 	return (
 		<div>
-			<Contexts>
-				<Route path="/styling" component={Styling} />
-				<Route exact path="/" component={Landing} />
-				<Route path="/register" component={Register} />
-				<Route path="/login" component={Login} />
-				<Switch>
-					<Route path="/profile/:id" component={Profile} />
-					<Route path="/browse/:id" component={Vendor} />
-					<Route path="/browse" component={Browse} />
-					<Route path="/dashboard" component={Dashboard} />
-					<Route path="/orderreview/:id" component={OrderReview} />
-				</Switch>
-			</Contexts>
+			<Route path="/orderreview/:id" component={OrderReview} /> 
+			<Route path="/RegisterContext" component={RegisterContext} />
+			<Route path="/LoginContext" component={LoginContext} />
+			<Route path="/styling" component={Styling} />
+			<Route exact path="/" component={Landing} />
+			<Route path="/register" component={Register} />
+			<Route path="/login" component={Login} />
+			<Switch>
+				<Route path="/profile/:id" component={Profile} />
+				<Route path="/browse/:id" component={Vendor} />
+				<Route path="/browse" component={Browse} />
+				<Route path="/dashboard" component={Dashboard} />
+			</Switch>
 		</div>
 	);
-
 };
 
-export default App;
+export default () => {
+	return (
+		<AuthProvider>
+			<App />
+		</AuthProvider>
+	);
+};

@@ -10,6 +10,7 @@ import {
   ShoppingCartItems,
   Modal
 } from "../components/index";
+r
 
 // styles
 import browse from "../styles/scss/browse.module.scss";
@@ -261,6 +262,5 @@ const Browse = props => {
       </div>
     </div>
   );
-};
 
 export default Browse;

@@ -20,7 +20,6 @@ const Vendor = props => {
   const customerId = localStorage.getItem("user_id");
 
   const vendorId = props.match.params.id;
-
   const [cartModal, setCartModal] = useState(false);
   const [cart, setCart] = useState(props.location.cart);
 
@@ -40,6 +39,7 @@ const Vendor = props => {
         console.log(err.response);
       });
   });
+
 
   return (
     <>

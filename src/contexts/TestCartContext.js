@@ -1,6 +1,6 @@
 import createDataContext from './createDataContext';
 import axiosWithAuth from '../utils/axiosWithAuth';
-
+// ** //
 const cartReducer = (state, action) => {
 	switch (action.type) {
 		case 'getCartItems':

@@ -1,34 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 
 import axiosWithAuth from '../utils/axiosWithAuth';
 import { OrderReviewItem } from '../components/index';
+import { Context as CartContext } from '../contexts/TestCartContext';
 
 const OrderReview = (props) => {
 
   const customerId = localStorage.getItem('user_id');
-  const [ cart, setCart ] = useState({
-    items: []
-  });
-
-  const getOrderReviewCart = () => {
-    axiosWithAuth()
-    .get(`/customers/${customerId}/cart`)
-    .then(response => {
-      // console.log(response);
-      setCart({
-				...cart, 
-				items: response.data.data.items,
-				total: response.data.data.total,
-				cartId: response.data.data._id
-			})
-    })
-    .catch(error => {
-      console.log(error.response);
-    })
-  }
-
+  const { state, getCartItems } = useContext(CartContext);
+  const cart = state.cart;
+  
   useEffect(() => {
-    getOrderReviewCart();
+    getCartItems(customerId);
   }, [])
   
 
@@ -38,9 +21,6 @@ const OrderReview = (props) => {
       {cart && cart.items && cart.items.map(product => 
         <OrderReviewItem 
           product={product} 
-          setCart= {setCart} 
-          customerId={customerId} 
-          getOrderReviewCart={getOrderReviewCart} 
           key={product.item._id}
         />
       )}

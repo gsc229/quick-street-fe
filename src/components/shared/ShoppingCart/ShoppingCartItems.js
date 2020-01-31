@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {Context as CartContext} from '../../../contexts/TestCartContext';
-
 import {ShoppingCartItem} from '../../index';
+
 const ShoppingCartItems = ({ setCartModal }) => {
   const { state, getCartItems } = useContext(CartContext);
   console.log('state in shopping cart items', state);
@@ -13,9 +13,11 @@ const ShoppingCartItems = ({ setCartModal }) => {
     // console.log('Keep shopping clicked');
     setCartModal(false);
   };
+
   useEffect(() => {
     getCartItems(customerId);
   }, [])
+  
   return (
     <>
       <p>Your Cart</p>

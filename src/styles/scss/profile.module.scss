@@ -67,8 +67,27 @@
       flex-direction: column;
       margin: 2rem 0;
 
-      .checkbox_input {
-        height: 15px;
+      .checkbox_wrapper {
+        -webkit-box-shadow: 0px 0px 12px 4px lightblue;
+        -moz-box-shadow: 0px 0px 12px 4px lightblue;
+        box-shadow: 0px 0px 12px 4px lightblue;
+        display: flex;
+        flex-wrap: wrap;
+        width: fit-content;
+        .checkbox_inner_wrapper {
+          //border: 1px solid black;
+          display: flex;
+          padding: 10px;
+          input {
+            box-shadow: none;
+            width: 20px;
+          }
+          label {
+            font-size: 2rem;
+            width: fit-content;
+            margin-left: 5px;
+          }
+        }
       }
     }
     @include xl {

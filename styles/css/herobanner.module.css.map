@@ -1,0 +1,11 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../../src/styles/scss/herobanner.module.scss",
+        "../../src/styles/scss/mixins.scss",
+        "../../src/styles/scss/breakpoints.scss"
+    ],
+    "names": [],
+    "file": "herobanner.module.css"
+}

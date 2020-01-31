@@ -107,7 +107,7 @@ const ViewVendorProduct = (props) => {
 				<div class={modal.overlay} id={modal.overlay}>
 				</div>
 			</Modal>
-		</div>
+		</>
 	);
 };
 

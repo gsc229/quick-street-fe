@@ -39,7 +39,7 @@ const Browse = (props) => {
 		}
 	};
 
-	console.log(`query`, query);
+	// console.log(`query`, query);
 
 	const handleSubmit = (event) => {
 		event.preventDefault();

@@ -5,6 +5,7 @@ const ShoppingCartItem = ({ product }) => {
   
   return (
     <>
+      {console.log(product.item.product_image.thumbnail_url)}
       {product.item.product_image && (
         <CloudinaryContext cloudName="quickstlabs">
           <Image publicId={product.item.product_image.thumbnail_url}>

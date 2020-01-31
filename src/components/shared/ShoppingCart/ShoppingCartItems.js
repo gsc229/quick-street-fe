@@ -5,9 +5,10 @@ import {ShoppingCartItem} from '../../index';
 
 const ShoppingCartItems = ({ setCartModal }) => {
   const { state, getCartItems } = useContext(CartContext);
-  console.log('state in shopping cart items', state);
+  // console.log('state in shopping cart items', state);
   const cart = state.cart;
   const customerId = localStorage.getItem('user_id'); 
+
   const handleKeepShopping = (event) => {
     event.preventDefault();
     // console.log('Keep shopping clicked');
@@ -17,7 +18,7 @@ const ShoppingCartItems = ({ setCartModal }) => {
   useEffect(() => {
     getCartItems(customerId);
   }, [])
-  
+
   return (
     <>
       <p>Your Cart</p>
@@ -30,7 +31,7 @@ const ShoppingCartItems = ({ setCartModal }) => {
       { cart && (<p>Total: {cart.total}</p>)}
       <button onClick={handleKeepShopping}>Keep Shopping</button>
       {/* <button onClick={handleCheckout}>Checkout</button> */}
-      {cart && (<Link to={{ pathname: `/orderreview/${cart.cartId}`}}>Checkout</Link>)}
+      {cart && (<Link to={{ pathname: `/orderreview/${cart._id}`}}>Checkout</Link>)}
     </>
   )
 }

@@ -1,0 +1,91 @@
+.vendor_product_list_container {
+  padding: 5% 13% 15% 13%;
+  margin: 0;
+}
+
+.vendor_product_list_container .vendor_product_list_title {
+  padding-bottom: 2%;
+  font-size: 24px;
+  color: #2b3335;
+}
+
+.vendor_product_list_container .vendor_product_list_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+}
+
+@media only screen and (max-width: 800px) {
+  .vendor_product_list_container .vendor_product_list_wrapper {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+.vendor_product_list_container .add_product_btn {
+  background-color: rgba(43, 51, 53, 0.1);
+  width: 146px;
+  height: 122px;
+  border: 1px solid rgba(43, 51, 53, 0.5);
+  border-radius: 3px;
+  font-size: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  margin-right: 40px;
+}
+
+.vendor_product_list_container .add_product_btn:hover {
+  background-color: rgba(43, 51, 53, 0.1);
+}
+
+@media only screen and (max-width: 600px) {
+  .vendor_product_list_container .add_product_btn {
+    margin-bottom: 40px;
+  }
+}
+
+.vendor_product {
+  width: 146px;
+  height: 173px;
+  margin: 0 35px 40px 0;
+  cursor: pointer;
+}
+
+.vendor_product .profile_product_image {
+  width: 146px;
+  height: 122px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.vendor_product .vendor_product_name {
+  font-size: 14px;
+  color: #000000;
+  margin-top: 4%;
+  margin-bottom: 3%;
+}
+
+.vendor_product .vendor_product_price {
+  font-size: 14px;
+  margin-top: 0;
+  color: #000000;
+}
+/*# sourceMappingURL=vendor_products.module.css.map */

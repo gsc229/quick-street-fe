@@ -2,9 +2,12 @@ import React, { useState, useEffect, useContext } from 'react';
 import { ViewAboutVendor, ViewVendorProducts, ViewVendorPosts, Footer, ShoppingCartItems, Modal } from '../components/index';
 
 import '../styles/scss/OldcustomerFacingVendorProfile.scss';
-// stlyes
-import profile from '../styles/scss/profile.module.scss';
 
+// stlyes
+import profile from "../styles/scss/profile.module.scss";
+
+const Vendor = props => {
+  const customerId = localStorage.getItem("user_id");
 
 const Vendor = (props) => {
 
@@ -17,6 +20,7 @@ const Vendor = (props) => {
 			<Modal showModal={cartModal}>
         <ShoppingCartItems setCartModal={setCartModal}/>
 			</Modal>
+
       <ViewAboutVendor vendorId={vendorId} />
       <ViewVendorProducts vendorId={vendorId} />
       <ViewVendorPosts vendorId={vendorId} />

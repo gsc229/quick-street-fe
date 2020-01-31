@@ -5,6 +5,7 @@ import UserContext from './contexts/UserContext';
 
 // Context
 import { Provider as AuthProvider } from './contexts/AuthContext';
+import { Provider as CartProvider } from './contexts/TestCartContext';
 import {
 	Register, // ** Register
 	Login, // ** Login
@@ -22,7 +23,7 @@ import LoginContext from './pages/LoginContext';
 const App = () => {
 	return (
 		<div>
-			<Route path="/orderreview/:id" component={OrderReview} /> 
+			<Route path="/orderreview/:id" component={OrderReview} />
 			<Route path="/RegisterContext" component={RegisterContext} />
 			<Route path="/LoginContext" component={LoginContext} />
 			<Route path="/styling" component={Styling} />
@@ -42,7 +43,9 @@ const App = () => {
 export default () => {
 	return (
 		<AuthProvider>
-			<App />
+			<CartProvider>
+				<App />
+			</CartProvider>
 		</AuthProvider>
 	);
 };

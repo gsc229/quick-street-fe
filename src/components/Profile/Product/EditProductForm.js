@@ -117,7 +117,7 @@ const EditProductForm = (props) => {
         </div>{/* END Checkboxes */}
         <div className={editingProduct.input_wrapper}>
           <label htmlFor="price">$ Price: </label>
-          <input onChange={handleChanges} type="text" name="price" value={product.price} />
+          <input onChange={handleChanges} type="number" name="price" value={product.price} />
         </div>
         <div className={editingProduct.input_wrapper}>
           <label htmlFor="unit">Unit: </label>

@@ -110,7 +110,7 @@ const Browse = (props) => {
 			<div className={browse.wrapper}>
 				{zipcode === '' && <p>Enter a location to start browsing</p>}
 				{zipcode !== '' && <p>Your results for</p>}
-				<form onSubmit={handleSubmit}>
+				<form className={browse.filter_container} onSubmit={handleSubmit}>
 					<input
 						name="zipcode"
 						placeholder="zip code"
@@ -118,7 +118,7 @@ const Browse = (props) => {
 						value={customerZip}
 						className={browse.zipcode_input}
 					/>
-					<div>
+					<div className={browse.filter_wrapper}>
 						<p>Filter by vendor category</p>
 						<div>
 							<input
@@ -185,7 +185,7 @@ const Browse = (props) => {
 							<label for="defaultCheck1">Others</label>
 						</div>
 					</div>
-					<div>
+					<div className={browse.filter_wrapper}>
 						<p>Filter by Diet Category</p>
 						<div>
 							<input

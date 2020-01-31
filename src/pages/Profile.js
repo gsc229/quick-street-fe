@@ -36,8 +36,6 @@ const Profile = props => {
 	const [editBusinessName, setEditBusinessName] = useState(false);
 	//console.log('Profile.js vendorInfo: ', vendorInfo);
 
-
-
 	useEffect(() => {
 		//console.log('USEEFFECT 1 Profile.js');
 		axiosWithAuth()

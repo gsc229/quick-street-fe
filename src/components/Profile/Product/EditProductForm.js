@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import editingProduct from '../../../styles/css/editingProduct.module.css';
+import editingProduct from '../../../styles/scss/editingProduct.module.scss'
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 
 const EditProductForm = (props) => {

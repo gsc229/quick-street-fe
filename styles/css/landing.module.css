@@ -1,10 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Rubik&display=swap");
-@media (min-width: 320px) {
-  .container {
-    padding: 0px;
-  }
-}
-
 @media (min-width: 1440px) {
   .container {
     width: 144rem;
@@ -12,14 +6,30 @@
   }
 }
 
+@media (min-width: 320px) {
+  .hero_container {
+    padding: 1rem;
+    background-color: #00b2ed;
+  }
+}
+
 @media (min-width: 1440px) {
   .hero_container {
+    padding: 0rem;
     width: 100%;
     background-image: url("../../assets/images/landing/images/hero-banner.png");
     background-repeat: no-repeat;
     background-size: 100% auto;
     background-position: center top;
     min-height: 81rem;
+  }
+}
+
+@media (min-width: 320px) {
+  .info h1 {
+    font-family: Rubik;
+    font-size: 2rem;
+    color: #fef2e4;
   }
 }
 
@@ -37,8 +47,8 @@
 }
 
 @media (min-width: 320px) {
-  .button_container {
-    display: none;
+  .button_container a {
+    color: white;
   }
 }
 
@@ -60,29 +70,55 @@
   }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 320px) {
   .title_header {
     color: #00b2ed;
-    font-size: 4.8rem;
-    font-family: Rubik;
     text-align: center;
+    font-family: Rubik;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .title_header {
+    font-size: 4.8rem;
     margin-top: 10.4rem;
     margin-bottom: 8.2rem;
   }
 }
 
+@media (min-width: 320px) {
+  .marketing_container {
+    width: 100%;
+    padding: 1rem;
+    background-color: #00b2ed;
+  }
+}
+
 @media (min-width: 1440px) {
   .marketing_container {
-    background-color: #00b2ed;
     margin: auto;
     width: 128rem;
     border-radius: 0.5rem;
+    padding: 0rem;
   }
 }
 
 @media (min-width: 1440px) {
   .marketing_wrapper {
     padding: 2rem;
+  }
+}
+
+@media (min-width: 320px) {
+  .top_row {
+    color: white;
+    font-family: Rubik;
+  }
+  .top_row a {
+    color: white;
   }
 }
 
@@ -103,6 +139,13 @@
   float: right;
 }
 
+@media (min-width: 320px) {
+  .works_container {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
 @media (min-width: 1440px) {
   .works_container {
     margin: 0 auto;
@@ -120,6 +163,13 @@
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     width: 128rem;
+    padding: 0rem;
+  }
+}
+
+@media (min-width: 320px) {
+  .card_wrapper {
+    width: 100%;
   }
 }
 
@@ -134,9 +184,21 @@
   }
 }
 
+@media (min-width: 320px) {
+  .works_image {
+    width: 100%;
+  }
+}
+
 @media (min-width: 1440px) {
   .works_image {
     max-width: 100%;
+  }
+}
+
+@media (min-width: 320px) {
+  .works_image img {
+    width: 100%;
   }
 }
 
@@ -171,9 +233,21 @@
   }
 }
 
-.gallery_container {
-  width: 128rem;
-  margin: 0 auto;
+@media (min-width: 320px) {
+  .gallery_container {
+    width: 100%;
+    padding: 1rem;
+    height: 20.0rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .gallery_container {
+    width: 128rem;
+    margin: 0 auto;
+    padding: 0rem;
+    height: 100%;
+  }
 }
 
 @media (min-width: 1440px) {

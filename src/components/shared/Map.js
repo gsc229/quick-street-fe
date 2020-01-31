@@ -20,7 +20,7 @@ const Map = (props) => {
 					.REACT_APP_GOOGLE_MAPS_API_KEY}`
 			)
 			.then((response) => {
-				// console.log(response);
+				console.log(response);
 				// console.log(response.data.results[0].geometry.location);
 				setMapDetails({
 					...mapDetails,

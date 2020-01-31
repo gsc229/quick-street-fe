@@ -1,28 +1,27 @@
 // ** Vendor customer facing page ** //
 
-
-import React, { useState, useEffect } from 'react';
-import { ViewAboutVendor, ViewVendorProducts, ViewVendorPosts, Menu, Footer, ShoppingCartItems, Modal } from '../components/index';
-import axiosWithAuth from '../utils/axiosWithAuth';
-import '../styles/scss/OldcustomerFacingVendorProfile.scss';
-
+import React, { useState, useEffect } from "react";
+import {
+  ViewAboutVendor,
+  ViewVendorProducts,
+  ViewVendorPosts,
+  Menu,
+  Footer,
+  ShoppingCartItems,
+  Modal
+} from "../components/index";
+import axiosWithAuth from "../utils/axiosWithAuth";
+import "../styles/scss/OldcustomerFacingVendorProfile.scss";
 
 // stlyes
-import profile from '../styles/scss/profile.module.scss';
-
-
-const Vendor = (props) => {
-	const [ cart, setCart ] = useState([ { item: {} } ]);
-	const vendorId = props.match.params.id;
-	console.log('props in vendor view page', props);
+import profile from "../styles/scss/profile.module.scss";
 
 const Vendor = props => {
+  const customerId = localStorage.getItem("user_id");
 
-  const customerId = localStorage.getItem('user_id');
-  
   const vendorId = props.match.params.id;
 
-  const [ cartModal, setCartModal ] = useState(false);
+  const [cartModal, setCartModal] = useState(false);
   const [cart, setCart] = useState(props.location.cart);
 
   useEffect(() => {
@@ -31,24 +30,24 @@ const Vendor = props => {
       .then(response => {
         // console.log(response);
         setCart({
-          ...cart, 
+          ...cart,
           items: response.data.data.items,
           total: response.data.data.total,
           cartId: response.data.data._id
-        })
+        });
       })
       .catch(err => {
-        console.log(err.response)
-      })
-  })
+        console.log(err.response);
+      });
+  });
 
   return (
     <>
       <p onClick={() => setCartModal(true)}>Shopping Cart</p>
-			<Modal showModal={cartModal}>
-        <ShoppingCartItems cart={cart} setCartModal={setCartModal}/>
-			</Modal>
-      <Menu />
+      <Modal showModal={cartModal}>
+        <ShoppingCartItems cart={cart} setCartModal={setCartModal} />
+      </Modal>
+      {/* <Menu /> */}
       <ViewAboutVendor vendorId={vendorId} />
       <ViewVendorProducts cart={cart} setCart={setCart} vendorId={vendorId} />
       <ViewVendorPosts vendorId={vendorId} />

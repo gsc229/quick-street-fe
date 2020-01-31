@@ -39,6 +39,7 @@ const OrderReviewItem = ({ product }) => {
 
   return (
     <>
+   
       {product.item.product_image && (
         <CloudinaryContext cloudName="quickstlabs">
           <Image publicId={product.item.product_image.thumbnail_url}>
@@ -59,6 +60,7 @@ const OrderReviewItem = ({ product }) => {
         />
       </form>
       <button onClick={() => deleteCartItem({productId : product.item._id, customerId})}>Remove Item</button>
+
     </>
   )
 

@@ -1,0 +1,43 @@
+.vendor_bulletin_container {
+  font-family: 'Raleway', sans-serif;
+  background-color: rgba(233, 187, 250, 0.15);
+  padding: 3% 13% 5%;
+  margin-bottom: 10%;
+}
+
+.vendor_bulletin_container .vendor_bulletin_header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.vendor_bulletin_container .vendor_bulletin_header .vendor_bulletin_title {
+  color: #2B3335;
+  margin-bottom: 3%;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+.vendor_bulletin_container .vendor_bulletin_header .vendor_add_post_btn_wrapper button {
+  width: 300px;
+  height: 56px;
+  background-color: #00769D;
+  border-radius: 10px;
+  text-align: center;
+  color: #FEF2E4;
+  margin: 10px;
+  font-size: 24px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.vendor_bulletin_container .vendor_bulletin_header .vendor_add_post_btn_wrapper button:hover {
+  background-color: #FEF2E4;
+  color: #00769D;
+  border: 3px solid #00769D;
+}
+/*# sourceMappingURL=vendor_bulletin.module.css.map */

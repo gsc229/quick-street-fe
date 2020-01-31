@@ -28,7 +28,7 @@ const Vendor = (props) => {
       .catch(err => {
         console.log(err.response)
       })
-  })
+  }, [])
 
   return (
     <>
@@ -36,7 +36,6 @@ const Vendor = (props) => {
 			<Modal showModal={cartModal}>
         <ShoppingCartItems cart={cart} setCartModal={setCartModal}/>
 			</Modal>
-   
       <ViewAboutVendor vendorId={vendorId} />
       <ViewVendorProducts cart={cart} setCart={setCart} vendorId={vendorId} />
       <ViewVendorPosts vendorId={vendorId} />

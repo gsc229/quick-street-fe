@@ -13,8 +13,8 @@ const Browse = (props) => {
 	const customerId = localStorage.getItem('user_id');
 
 	const [ cart, setCart ] = useState({});
-	const [ cartModal, setCartModal ] = useState(false);
 
+	const [ cartModal, setCartModal ] = useState(false);
 	const [ zipcode, setZipcode ] = useState('');
 	const [ query, setQuery ] = useState([]);
 
@@ -22,8 +22,9 @@ const Browse = (props) => {
 		count: '',
 		vendorDetails: []
 	});
-	const [ customerZip, setCustomerZip ] = useState('');
-	// const customerId = localStorage.getItem('user_id');
+
+	const [customerZip, setCustomerZip] = useState('');
+	
 
 	const handleChange = (event) => {
 		setCustomerZip(event.target.value);
@@ -69,23 +70,6 @@ const Browse = (props) => {
 			});
 	};
 
-	const getCartItems = () => {
-		axiosWithAuth()
-			.get(`/customers/${customerId}/cart`)
-			.then((response) => {
-				// console.log(response);
-				setCart({
-					...cart,
-					items: response.data.data.items,
-					total: response.data.data.total,
-					cartId: response.data.data._id
-				});
-			})
-			.catch((error) => {
-				console.log(error.response);
-			});
-	};
-
 	useEffect(() => {
 		const query = new URLSearchParams(props.location.search);
 		const zip = query.get('zip');
@@ -95,15 +79,11 @@ const Browse = (props) => {
 		}
 	}, []);
 
-	useEffect(() => {
-		getCartItems();
-	}, []);
-
 	return (
 		<div className={browse.container}>
 			<p onClick={() => setCartModal(true)}>Shopping Cart</p>
 			<Modal showModal={cartModal}>
-				<ShoppingCartItems cart={cart} setCartModal={setCartModal} />
+				<ShoppingCartItems setCartModal={setCartModal} />
 			</Modal>
 			<div className={browse.temp_menu}>{/* <Menu /> */}</div>
 
@@ -243,7 +223,6 @@ const Browse = (props) => {
 					history={props.history}
 					location={props.location}
 					match={props.match}
-					cart={cart}
 				/>
 			</div>
 		</div>

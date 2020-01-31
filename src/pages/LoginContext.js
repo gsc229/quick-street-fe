@@ -1,14 +1,18 @@
 import React, { useState, useContext } from 'react';
 import { Context as AuthContext } from '../contexts/AuthContext';
+import { Context as CartContext } from '../contexts/TestCartContext';
 
 import registration from '../styles/scss/registration.module.scss';
 const LoginContext = () => {
 	const { state, signin, signout, changeMessage} = useContext(AuthContext);
+	const { getCart } = useContext(CartContext);
 	const [ email, setemail ] = useState('');
 	const [ password, setpassword ] = useState('');
 
 	return (
 		<div className={registration.wrapper}>
+			{/* {console.log(getCart().then(cart => console.log(cart)))} */}
+			<button onClick={getCart}>Get Cart</button>
 			<h1>{state.message}</h1>
 			<button onClick={() => changeMessage()}>
 				Change Message

@@ -29,5 +29,5 @@ const Vendor = (props) => {
     </>
   );
 };
-
+}
 export default Vendor;

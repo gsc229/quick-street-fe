@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import editingProduct from '../../../styles/css/editingProduct.module.css';
+import axiosWithAuth from '../../../utils/axiosWithAuth';
 
 const EditProductForm = (props) => {
 
@@ -17,7 +18,16 @@ const EditProductForm = (props) => {
 
   }, [product]);
 
-
+  const updateVendorDiets = (diets) => {
+    const vendorId = localStorage.getItem('user_id');
+    console.log('updateVendorDiets() diets', diets)
+    axiosWithAuth()
+      .put(`/vendors/${vendorId}`, { diet_categories: diets })
+      .then(results => {
+        console.log('PUT EditProd.Form updateVendorDiets()', results)
+      })
+      .catch(error => console.log(error));
+  }
 
   const handleChanges = (e) => {
     setProduct({
@@ -31,13 +41,16 @@ const EditProductForm = (props) => {
     if (e.target.checked) {
       console.log('Checked!', e.target.checked)
       if (product.diet.indexOf(e.target.value) === -1) {
+        const updatedProduct = { ...product, [e.target.name]: [...product[e.target.name], e.target.value] };
+        console.log('UPDATED DIETS', updatedProduct.diet)
         console.log('NOTHING HERE WITH VALUE: ', e.target.value);
         console.log('ADDING: ', e.target.value);
         setProduct({
           ...product,
           [e.target.name]: [...product[e.target.name], e.target.value]
-
         })
+        //update the Vendor diet_categories on backend.
+        updateVendorDiets(updatedProduct.diet)
       } else {
         console.log('ALREADY GOT THAT!');
       }
@@ -54,14 +67,13 @@ const EditProductForm = (props) => {
           ...product,
           [e.target.name]: newArray
         })
+        //update the Vendor diet_categories on backend.
+        updateVendorDiets(newArray)
 
       } else {
         console.log(`${e.target.value} NOT HERE ANYWAY!`)
       }
     }
-
-
-
   }
 
   return (
@@ -91,7 +103,6 @@ const EditProductForm = (props) => {
                 Vegetarian
               </label>
             </div>
-
             <div>
               <input checked={dietsOnFile && dietsOnFile.indexOf('Vegan') !== -1 ? true : false} onChange={handleSelect} className={`form-check-input ${editingProduct.checkbox_input}`} name='diet' type="checkbox" value='Vegan' />
               <label className={`form-check-label ${editingProduct.checkbox_label}`} for="defaultCheck1">
@@ -110,7 +121,6 @@ const EditProductForm = (props) => {
                 Dairy Free
               </label>
             </div>
-
           </div>
 
 

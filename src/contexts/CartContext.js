@@ -1,32 +1,42 @@
-import React, { createContext, useState } from 'react';
+import createDataContext from './createDataContext';
+import axiosWithAuth from '../utils/axiosWithAuth';
+import react, { useState } from 'react';
+const cartReducer = (state, action) => {
+	switch (action.type) {
+		case 'getCartItems':
+			return { ...state, state: action.payload };
+		case 'add_error':
+			return { ...state, errorMessage: action.payload };
+		default:
+			return state;
+	}
+};
 
-export const CartContext = createContext();
+// getCartItems
 
-export const CartProvider = ({ children }) => {
+const getCartItems = (dispatch) => async ({ data }) => {
+	try {
+		const customerId = localStorage.getItem('user_id');
+		console.log(customerId);
+		const response = await axiosWithAuth().get(`/customers/${customerId}/cart`);
+		console.log('Response', response.data.data);
+		dispatch({ type: 'getCartItems', payload: response.data.data });
+	} catch (error) {
+		dispatch({
+			type: 'add_error',
+			payload: 'something went wrong'
+		});
+	}
+};
 
-  const [ cart, setCart ] = useState({
-    products: []
-  });
+// Create Empty Cart For User
 
-  console.log('products in cart are', cart.products);
+// handleAddToCart
 
-  const addToCart = (item) => {
-    console.log(item);
-    localStorage.setItem('cart', JSON.stringify({ ...cart, products: [...cart.products, item]}));
-    const cartItems = localStorage.getItem('cart');
-    console.log('cart items in local storage', cartItems);
-    setCart({ ...cart, products: [...cart.products, item]});
-  }
+// deleteCartItem
 
-  const removeFromCart = (item) => {
-    // console.log(item);
-    setCart(cart.filter(cartItem => item.id !== cartItem.id));
-  }
+// editCartItemQuantity
 
-  return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
-      {children}
-    </CartContext.Provider>
-  )
+// ClearCart
 
-}
+export const { Provider, Context } = createDataContext(cartReducer, { getCartItems }, {});

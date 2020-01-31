@@ -1,18 +1,26 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Context as AuthContext } from '../contexts/AuthContext';
-
+import { Context as CartContext } from '../contexts/CartContext';
 import registration from '../styles/scss/registration.module.scss';
 const LoginContext = () => {
-	const { state, signin, signout, changeMessage} = useContext(AuthContext);
+	// const { state, signin, signout, changeMessage } = useContext(AuthContext);
+	const { state, getCartItems } = useContext(CartContext);
 	const [ email, setemail ] = useState('');
 	const [ password, setpassword ] = useState('');
+	const [ data, setData ] = useState('');
+	console.log('State', state);
+
+	useEffect(() => {
+		getCartItems({ data });
+		return () => {};
+	}, []);
 
 	return (
 		<div className={registration.wrapper}>
-			<h1>{state.message}</h1>
-			<button onClick={() => changeMessage()}>
-				Change Message
-			</button>
+			<button onClick={() => getCartItems({ foobar: '' })}>Get Cart</button>
+
+			{/* <h1>{state.message}</h1>
+			<button onClick={() => changeMessage()}>Change Message</button>
 
 			<label htmlFor="email">Email</label>
 			<input
@@ -34,7 +42,7 @@ const LoginContext = () => {
 			/>
 
 			<button onClick={() => signin({ email, password })}>Log In</button>
-			<button onClick={() => signout()}>Log Out</button>
+			<button onClick={() => signout()}>Log Out</button> */}
 		</div>
 	);
 };

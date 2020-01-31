@@ -5,7 +5,6 @@ import UserContext from './contexts/UserContext';
 
 // Context
 import { Provider as AuthProvider } from './contexts/AuthContext';
-import { Provider as CartProvider} from './contexts/TestCartContext';
 import {
 	Register, // ** Register
 	Login, // ** Login
@@ -20,7 +19,6 @@ import {
 
 import RegisterContext from './pages/RegisterContext';
 import LoginContext from './pages/LoginContext';
-
 const App = () => {
 	return (
 		<div>
@@ -44,9 +42,7 @@ const App = () => {
 export default () => {
 	return (
 		<AuthProvider>
-			<CartProvider>
-				<App />
-			</CartProvider>
+			<App />
 		</AuthProvider>
 	);
 };

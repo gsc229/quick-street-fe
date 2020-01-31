@@ -1,18 +1,44 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
-import { Context as CartContext } from '../../contexts/TestCartContext';
+
 import axiosWithAuth from '../../utils/axiosWithAuth';
 
-const OrderReviewItem = ({ product}) => {
+const OrderReviewItem = ({ product, setCart, customerId, getOrderReviewCart }) => {
 
-  const customerId = localStorage.getItem('user_id');
-  const { updateCartItem, deleteCartItem } = useContext(CartContext);
   const [ vendor, setVendor ] = useState('');
+
   const [ quantity, setQuantity ] = useState(product.quantity);
 
   const handleQuantityChange = (event) => {
     setQuantity(event.target.value);
   }
+
+  const editCartItemQuantity = (event) => {
+    event.preventDefault();
+    axiosWithAuth()
+    .put(`/customers/${customerId}/cart/addtocart`, {quantity, productId: product.item._id})
+    .then(response => {
+      console.log(response);
+      getOrderReviewCart();
+      
+    })
+    .catch(error => {
+      console.log(error);
+    })
+  };
+
+  const deleteCartItem = (productId) => {
+    axiosWithAuth()
+    .delete(`/customers/${customerId}/cart/deleteitem/${productId}`)
+    .then(response => {
+      console.log(response);
+      getOrderReviewCart();
+    })
+    .catch(error => {
+      console.log(error.response);
+    });
+
+  };
 
   useEffect(() => {
     axiosWithAuth()
@@ -24,15 +50,8 @@ const OrderReviewItem = ({ product}) => {
     .catch(error => {
       console.log(error);
     })
-  }, []);
+  }, [])
 
-  const editCartItemQuantity = () => {
-    updateCartItem({
-      productId: product.item._id,
-      quantity,
-      customerId
-    })
-  };
 
   return (
     <>
@@ -55,7 +74,7 @@ const OrderReviewItem = ({ product}) => {
           onChange={handleQuantityChange}
         />
       </form>
-      <button onClick={() => deleteCartItem({productId : product.item._id, customerId})}>Remove Item</button>
+      <button onClick={() => deleteCartItem(product.item._id)}>Remove Item</button>
     </>
   )
 

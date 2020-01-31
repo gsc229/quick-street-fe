@@ -1,7 +1,6 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { Context as CartContext } from '../../../contexts/TestCartContext';
-import { ShoppingCartItem } from '../../index';
+
 
 const ShoppingCartItems = ({ setCartModal }) => {
   const { state, getCartItems } = useContext(CartContext);
@@ -9,15 +8,14 @@ const ShoppingCartItems = ({ setCartModal }) => {
   const cart = state.cart;
   const customerId = localStorage.getItem('user_id');
 
+
+const ShoppingCartItems = ({ cart, setCartModal }) => {
+  
   const handleKeepShopping = (event) => {
     event.preventDefault();
     // console.log('Keep shopping clicked');
     setCartModal(false);
   };
-
-  useEffect(() => {
-    getCartItems(customerId);
-  }, [])
 
   return (
     <>

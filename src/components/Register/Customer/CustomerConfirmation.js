@@ -27,7 +27,7 @@ const CustomerConfirmation = (props) => {
 			.then((response) => {
 				// console.log('POST CustomerConfirm res: ', response);
 				localStorage.setItem('token', response.data.token);
-				props.history.push(`/customerprofile/${response.data.id}`);
+				props.history.push('/browse');
 			})
 			.catch((error) => {
 				// console.log(error.response);

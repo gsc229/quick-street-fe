@@ -16,7 +16,8 @@ const OrderReviewItem = ({ product }) => {
     setQuantity(event.target.value);
   }
 
-  const editCartItemQuantity = () => {
+  const editCartItemQuantity = (event) => {
+    event.preventDefault();
     updateCartItem({
       productId: product.item._id,
       quantity,
@@ -39,7 +40,6 @@ const OrderReviewItem = ({ product }) => {
 
   return (
     <>
-   
       {product.item.product_image && (
         <CloudinaryContext cloudName="quickstlabs">
           <Image publicId={product.item.product_image.thumbnail_url}>

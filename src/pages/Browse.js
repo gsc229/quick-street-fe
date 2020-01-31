@@ -39,7 +39,7 @@ const Browse = (props) => {
 		}
 	};
 
-	console.log(`query`, query);
+	// console.log(`query`, query);
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
@@ -69,23 +69,6 @@ const Browse = (props) => {
 			});
 	};
 
-	const getCartItems = () => {
-		axiosWithAuth()
-			.get(`/customers/${customerId}/cart`)
-			.then((response) => {
-				// console.log(response);
-				setCart({
-					...cart,
-					items: response.data.data.items,
-					total: response.data.data.total,
-					cartId: response.data.data._id
-				});
-			})
-			.catch((error) => {
-				console.log(error.response);
-			});
-	};
-
 	useEffect(() => {
 		const query = new URLSearchParams(props.location.search);
 		const zip = query.get('zip');
@@ -95,15 +78,11 @@ const Browse = (props) => {
 		}
 	}, []);
 
-	useEffect(() => {
-		getCartItems();
-	}, []);
-
 	return (
 		<div className={browse.container}>
 			<p onClick={() => setCartModal(true)}>Shopping Cart</p>
 			<Modal showModal={cartModal}>
-				<ShoppingCartItems cart={cart} setCartModal={setCartModal} />
+				<ShoppingCartItems setCartModal={setCartModal} />
 			</Modal>
 			<div className={browse.temp_menu}>
 				<Nav />
@@ -245,7 +224,6 @@ const Browse = (props) => {
 					history={props.history}
 					location={props.location}
 					match={props.match}
-					cart={cart}
 				/>
 			</div>
 		</div>

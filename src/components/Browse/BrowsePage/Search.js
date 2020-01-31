@@ -44,9 +44,7 @@ const Browse = (props) => {
 						</div>
 						<Link
 							className={browse.view_vendor}
-							to={{ 
-								pathname: `/browse/${vendor._id}`, 
-								cart: props.cart }}
+							to={`/browse/${vendor._id}`}
 						>
 							View
 						</Link>

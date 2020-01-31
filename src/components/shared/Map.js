@@ -13,14 +13,14 @@ const Map = (props) => {
 
 	const getGeocode = () => {
 		// console.log(props.zipcode);
-		console.log(`${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`);
+		// console.log(`${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`);
 		axios
 			.get(
 				`https://maps.googleapis.com/maps/api/geocode/json?address=${props.zipcode}&key=${process.env
 					.REACT_APP_GOOGLE_MAPS_API_KEY}`
 			)
 			.then((response) => {
-				console.log(response);
+				// console.log(response);
 				// console.log(response.data.results[0].geometry.location);
 				setMapDetails({
 					...mapDetails,

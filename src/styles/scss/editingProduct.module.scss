@@ -1,16 +1,7 @@
 @import './mixins.scss';
 
 .container {
-	background-color: red;
-	border: 1px solid #888;
-	border-radius: 10px;
-	padding: 3% 10% 5%;
-	width: 70%;
-	height: fit-content;
-	left: 15%;
-
-	position: absolute;
-	display: flex;
+	@include modal_main();
 	justify-content: space-between;
 
 	.close_x {

@@ -48,7 +48,7 @@ const OrderReviewItem = ({ product }) => {
         </CloudinaryContext>
       )}
       <p>{product.item.name}</p>
-      <p>{vendor}</p>
+      
       <p>$ {product.item.price}</p>
       <form onSubmit={editCartItemQuantity}>
         <label>Quantity</label>

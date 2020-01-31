@@ -23,6 +23,7 @@ const OrderReview = (props) => {
     
      <div className={review.container}>
       <p>Reviewing My Cart</p>
+     
       {cart && cart.items && cart.items.map(product => 
         <OrderReviewItem 
           product={product} 

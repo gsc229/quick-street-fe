@@ -250,11 +250,45 @@
   }
 }
 
+@media (min-width: 320px) {
+  .carousel_wrapper {
+    display: none;
+  }
+}
+
 @media (min-width: 1440px) {
   .carousel_wrapper {
+    display: block;
     background-color: #00b2ed;
   }
   .carousel_wrapper .slide {
+    min-width: 100%;
+    margin: 0;
+    position: relative;
+    text-align: center;
+    background: transparent !important;
+  }
+}
+
+@media (min-width: 320px) {
+  .carousel_wrapper_mobile {
+    background-color: #00b2ed;
+    display: block;
+  }
+  .carousel_wrapper_mobile .slide {
+    min-width: 100%;
+    margin: 0;
+    position: relative;
+    text-align: center;
+    background: transparent !important;
+  }
+}
+
+@media (min-width: 1440px) {
+  .carousel_wrapper_mobile {
+    display: none;
+  }
+  .carousel_wrapper_mobile .slide {
     min-width: 100%;
     margin: 0;
     position: relative;

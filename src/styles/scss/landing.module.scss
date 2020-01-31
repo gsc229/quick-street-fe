@@ -202,8 +202,35 @@
 }
 // **** CAROUSEL TOP *** //
 .carousel_wrapper {
+	@include phone {
+		display: none;
+	}
 	@include xl {
+		display: block;
 		background-color: $primary-color;
+		.slide {
+			min-width: 100%;
+			margin: 0;
+			position: relative;
+			text-align: center;
+			background: transparent !important;
+		}
+	}
+}
+.carousel_wrapper_mobile {
+	@include phone {
+		background-color: $primary-color;
+		display: block;
+		.slide {
+			min-width: 100%;
+			margin: 0;
+			position: relative;
+			text-align: center;
+			background: transparent !important;
+		}
+	}
+	@include xl {
+		display: none;
 		.slide {
 			min-width: 100%;
 			margin: 0;

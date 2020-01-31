@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 // components
-import { Map, Search, Menu, ShoppingCartItems, Modal } from '../components/index';
+import { Map, Search, Menu, ShoppingCartItems, Modal, Nav } from '../components/index';
 
 // styles
 import browse from '../styles/scss/browse.module.scss';
@@ -105,12 +105,14 @@ const Browse = (props) => {
 			<Modal showModal={cartModal}>
 				<ShoppingCartItems cart={cart} setCartModal={setCartModal} />
 			</Modal>
-			<div className={browse.temp_menu}>{/* <Menu /> */}</div>
+			<div className={browse.temp_menu}>
+				<Nav />
+			</div>
 
 			<div className={browse.wrapper}>
 				{zipcode === '' && <p>Enter a location to start browsing</p>}
 				{zipcode !== '' && <p>Your results for</p>}
-				<form onSubmit={handleSubmit}>
+				<form className={browse.filter_container} onSubmit={handleSubmit}>
 					<input
 						name="zipcode"
 						placeholder="zip code"
@@ -118,7 +120,7 @@ const Browse = (props) => {
 						value={customerZip}
 						className={browse.zipcode_input}
 					/>
-					<div>
+					<div className={browse.filter_wrapper}>
 						<p>Filter by vendor category</p>
 						<div>
 							<input
@@ -185,7 +187,7 @@ const Browse = (props) => {
 							<label for="defaultCheck1">Others</label>
 						</div>
 					</div>
-					<div>
+					<div className={browse.filter_wrapper}>
 						<p>Filter by Diet Category</p>
 						<div>
 							<input

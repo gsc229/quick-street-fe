@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
 
 import axiosWithAuth from '../../utils/axiosWithAuth';
+import { Context as CartContext } from '../../contexts/TestCartContext';
 
-const OrderReviewItem = ({ product, setCart, customerId, getOrderReviewCart }) => {
+const OrderReviewItem = ({ product }) => {
 
+  const customerId = localStorage.getItem('user_id');
+  const { updateCartItem, deleteCartItem } = useContext(CartContext);
   const [ vendor, setVendor ] = useState('');
 
   const [ quantity, setQuantity ] = useState(product.quantity);
@@ -13,33 +16,14 @@ const OrderReviewItem = ({ product, setCart, customerId, getOrderReviewCart }) =
     setQuantity(event.target.value);
   }
 
-  const editCartItemQuantity = (event) => {
-    event.preventDefault();
-    axiosWithAuth()
-    .put(`/customers/${customerId}/cart/addtocart`, {quantity, productId: product.item._id})
-    .then(response => {
-      console.log(response);
-      getOrderReviewCart();
-      
-    })
-    .catch(error => {
-      console.log(error);
+  const editCartItemQuantity = () => {
+    updateCartItem({
+      productId: product.item._id,
+      quantity,
+      customerId
     })
   };
-
-  const deleteCartItem = (productId) => {
-    axiosWithAuth()
-    .delete(`/customers/${customerId}/cart/deleteitem/${productId}`)
-    .then(response => {
-      console.log(response);
-      getOrderReviewCart();
-    })
-    .catch(error => {
-      console.log(error.response);
-    });
-
-  };
-
+  
   useEffect(() => {
     axiosWithAuth()
     .get(`/vendors/${product.item.vendor}`)
@@ -75,9 +59,8 @@ const OrderReviewItem = ({ product, setCart, customerId, getOrderReviewCart }) =
           onChange={handleQuantityChange}
         />
       </form>
-      <button onClick={() => deleteCartItem(product.item._id)}>Remove Item</button>
+      <button onClick={() => deleteCartItem({productId : product.item._id, customerId})}>Remove Item</button>
 
-  
     </>
   )
 

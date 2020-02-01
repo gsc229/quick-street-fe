@@ -235,17 +235,20 @@ const About = ({ editAbout, vendorInfo, info, setInfo, editProfile, saveProfile,
 												saveProfile();
 											}}
 										>
-											{vendorInfo.vendor_category ? vendorInfo.vendor_category.map(cat => (
-												<p>{cat}</p>
-											)) : <p>...Loading</p>}
+											{vendorInfo.vendor_category ?
+												vendorInfo.vendor_category.map(cat => (
+
+													<p>{cat}</p>
+												)) : <p>...Loading</p>}
 										</div>
+
 									</div>
 								}
 
 
 							</div>
 						</div>
-					</div>{/* END HOURS OF VENDOR CATEGORY */}
+					</div>
 				</div>
 
 				{/* ========   COLUMN LEFT/RIGHT DIVIDE ========= */}

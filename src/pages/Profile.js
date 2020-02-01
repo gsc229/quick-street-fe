@@ -9,6 +9,7 @@ import {
 import { Placeholder } from '../assets/images/index';
 //Styles
 import profile from '../styles/scss/profile.module.scss';
+
 //Font awesom
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSave, faPen } from '@fortawesome/free-solid-svg-icons';
@@ -123,19 +124,29 @@ const Profile = props => {
 			<Nav {...vendorInfo} />
 			<div className={profile.banner_wrapper}>
 				<div className={profile.banner_text_btns}>
-					<div className={profile.vendor_header_name}>
-						<input
-							onChange={e => {
-								if (editBusinessName) {
-									setVendorInfo({
-										...vendorInfo,
-										business_name: e.target.value
-									});
-								}
-							}}
-							value={vendorInfo.business_name}
-							className={editingName ? profile.glowing_border : 'none'}
-						/>
+					<div onClick={() => setEditingName(true)} className={profile.vendor_header_name}>
+						{editingName ? // <<<<<<<<<< turnary ?
+							<>
+								<input
+									onChange={e => {
+										if (editBusinessName) {
+											setVendorInfo({
+												...vendorInfo,
+												business_name: e.target.value
+											});
+										}
+									}}
+									value={vendorInfo.business_name}
+									className={editingName ? profile.glowing_border : 'none'}
+								/>
+								<div className={profile.edit_guides}>
+									{editAbout && <p><i className="fa fa-save"></i>&nbsp; click to save</p>}
+								</div>
+
+							</>
+							: //<<<<<<< TURNARY input name or p tag
+							<p>{vendorInfo.business_name}</p>}
+
 					</div>
 
 					<div className={profile.vendor_profile_btn_group}>

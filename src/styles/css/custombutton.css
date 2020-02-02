@@ -68,6 +68,8 @@
     color: black;
     border: 0.3rem solid #21b787;
     border-radius: 0.9rem;
+    height: 5rem;
+    font-size: 2rem;
   }
 }
 

@@ -56,9 +56,6 @@ const Login = (props) => {
 							Create One
 						</Link>
 					</p>
-					<div className={login.logo}>
-						<Image name="LoginLogo" />
-					</div>
 				</div>
 			</div>
 		</div>

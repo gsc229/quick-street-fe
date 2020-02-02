@@ -5,11 +5,12 @@
 	@include display();
 	font-family: Rubik;
 	@include phone {
-		background: url('../../assets/images/Login/background-mobile.png');
-		width: 100vw;
+		background: url('../../assets/images/Login/login-phone.png');
 		background-repeat: no-repeat;
-		background-size: cover;
 		background-position: center;
+		background-size: cover;
+		width: 100vw;
+		padding-top: 1rem;
 		height: 100vh;
 	}
 	@include xl {
@@ -38,19 +39,18 @@
 .wrapper {
 	@include phone {
 		margin: 0 auto;
-		margin-top: 2rem;
 		width: 90vw;
 		h1 {
-			font-size: 4rem;
+			font-size: 2rem;
 			margin: 0rem;
-			color: #fff;
+			color: $primary-color;
 			text-align: center;
 		}
 		p {
 			padding: 0px;
-			color: #fff;
-			font-size: 2rem;
-			text-align: center;
+			color: $primary-color;
+			font-size: 1.4rem;
+			text-align: right;
 		}
 	}
 	@include sm {
@@ -58,29 +58,11 @@
 	@include md {
 	}
 	@include lg {
-		width: 35vw;
-		padding: 4.4rem;
-		margin-top: 4rem;
-		margin-left: 1rem;
-		h1 {
-			font-size: 4rem;
-			margin: 0rem;
-			color: $primary-color;
-			text-align: left;
-			font-weight: 500;
-		}
-		p {
-			padding: 0rem;
-			color: $primary-color;
-			font-size: 1.6rem;
-			text-align: left;
-			margin-top: 1.2rem;
-		}
 	}
 	@include xl {
-		width: 40vw;
-		padding: 4.4rem;
-		margin-top: 4rem;
+		width: 60rem;
+		padding: 4.4rem 4.4rem 0rem 4.4rem;
+		margin: 0rem 0rem 3rem 0rem;
 
 		h1 {
 			font-size: 4rem;
@@ -106,11 +88,11 @@
 .form {
 	@include phone {
 		label {
-			color: white;
-			font-size: 2rem;
+			color: black;
+			font-size: 1.4rem;
 		}
 		a {
-			color: #fff;
+			color: $primary-color;
 			margin-left: .5rem;
 		}
 		input {

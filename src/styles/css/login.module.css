@@ -68,6 +68,8 @@
     color: black;
     border: 0.3rem solid #21b787;
     border-radius: 0.9rem;
+    height: 5rem;
+    font-size: 2rem;
   }
 }
 
@@ -103,7 +105,9 @@
 
 @media (min-width: 320px) {
   .red-full {
-    width: 90vw;
+    font-size: 1.8rem;
+    width: 40vw;
+    height: 4.4rem;
     color: white;
     border-radius: 0.9rem;
   }
@@ -192,11 +196,12 @@
 
 @media (min-width: 320px) {
   .container {
-    background: url("../../assets/images/Login/background-mobile.png");
-    width: 100vw;
+    background: url("../../assets/images/Login/login-phone.png");
     background-repeat: no-repeat;
-    background-size: cover;
     background-position: center;
+    background-size: cover;
+    width: 100vw;
+    padding-top: 1rem;
     height: 100vh;
   }
 }
@@ -232,51 +237,27 @@
 @media (min-width: 320px) {
   .wrapper {
     margin: 0 auto;
-    margin-top: 2rem;
     width: 90vw;
   }
   .wrapper h1 {
-    font-size: 4rem;
+    font-size: 2rem;
     margin: 0rem;
-    color: #fff;
+    color: #00b2ed;
     text-align: center;
   }
   .wrapper p {
     padding: 0px;
-    color: #fff;
-    font-size: 2rem;
-    text-align: center;
-  }
-}
-
-@media (min-width: 1024px) {
-  .wrapper {
-    width: 35vw;
-    padding: 4.4rem;
-    margin-top: 4rem;
-    margin-left: 1rem;
-  }
-  .wrapper h1 {
-    font-size: 4rem;
-    margin: 0rem;
     color: #00b2ed;
-    text-align: left;
-    font-weight: 500;
-  }
-  .wrapper p {
-    padding: 0rem;
-    color: #00b2ed;
-    font-size: 1.6rem;
-    text-align: left;
-    margin-top: 1.2rem;
+    font-size: 1.4rem;
+    text-align: right;
   }
 }
 
 @media (min-width: 1440px) {
   .wrapper {
-    width: 40vw;
-    padding: 4.4rem;
-    margin-top: 4rem;
+    width: 60rem;
+    padding: 4.4rem 4.4rem 0rem 4.4rem;
+    margin: 0rem 0rem 3rem 0rem;
   }
   .wrapper h1 {
     font-size: 4rem;
@@ -301,11 +282,11 @@
 
 @media (min-width: 320px) {
   .form label {
-    color: white;
-    font-size: 2rem;
+    color: black;
+    font-size: 1.4rem;
   }
   .form a {
-    color: #fff;
+    color: #00b2ed;
     margin-left: .5rem;
   }
   .form input {

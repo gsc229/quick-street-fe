@@ -8,7 +8,12 @@
 
 @media (min-width: 320px) {
   .hero_container {
-    padding: 1rem;
+    width: 100%;
+    background-image: url("../../assets/images/landing/images/hero-banner-phone.png");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center bottom;
+    height: 60rem;
     background-color: #00b2ed;
   }
 }
@@ -28,8 +33,11 @@
 @media (min-width: 320px) {
   .info h1 {
     font-family: Rubik;
-    font-size: 2rem;
+    padding: 3rem 3rem 3rem 3rem;
+    font-family: Rubik;
+    font-size: 2.5rem;
     color: #fef2e4;
+    text-align: center;
   }
 }
 
@@ -40,13 +48,19 @@
     width: 43.7rem;
   }
   .info h1 {
+    padding: 0rem;
     font-family: Rubik;
     font-size: 4rem;
     color: #fef2e4;
+    text-align: left;
   }
 }
 
 @media (min-width: 320px) {
+  .button_container {
+    width: 40%;
+    margin: 0 auto;
+  }
   .button_container a {
     color: white;
   }
@@ -54,7 +68,7 @@
 
 @media (min-width: 1440px) {
   .button_container {
-    margin-top: 6.4rem;
+    margin: 6.4rem 0rem 0rem 0rem;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -114,16 +128,13 @@
 
 @media (min-width: 320px) {
   .top_row {
-    color: white;
-    font-family: Rubik;
-  }
-  .top_row a {
-    color: white;
+    display: none;
   }
 }
 
 @media (min-width: 1440px) {
   .top_row {
+    display: block;
     padding: 1rem;
   }
   .top_row h1 {
@@ -135,8 +146,29 @@
   }
 }
 
-.top__button {
-  float: right;
+@media (min-width: 320px) {
+  .top_row_mobile {
+    text-align: center;
+    display: block;
+    color: white;
+    font-family: Rubik;
+  }
+  .top_row_mobile a {
+    color: white;
+  }
+}
+
+@media (min-width: 1440px) {
+  .top_row_mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 1440px) {
+  .top_button {
+    width: 20rem;
+    float: right;
+  }
 }
 
 @media (min-width: 320px) {
@@ -208,6 +240,32 @@
   }
 }
 
+@media (min-width: 320px) {
+  .works_content {
+    background: #ffffff;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+    color: #000000;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-shadow: 0px 4px 4px rgba(0, 118, 157, 0.1);
+            box-shadow: 0px 4px 4px rgba(0, 118, 157, 0.1);
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    margin-bottom: 1rem;
+  }
+  .works_content p {
+    text-align: center;
+    padding: 4rem;
+    font-size: 2.4rem;
+  }
+}
+
 @media (min-width: 1440px) {
   .works_content {
     background: #ffffff;
@@ -226,6 +284,7 @@
         -ms-flex: 1;
             flex: 1;
     height: 258px;
+    margin-bottom: 0rem;
   }
   .works_content p {
     padding: 4rem;

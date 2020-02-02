@@ -19,6 +19,8 @@
     width: 90vw;
     color: white;
     border-radius: 0.9rem;
+    height: 5rem;
+    font-size: 2rem;
   }
 }
 
@@ -101,7 +103,9 @@
 
 @media (min-width: 320px) {
   .red-full {
-    width: 90vw;
+    font-size: 1.8rem;
+    width: 40vw;
+    height: 4.4rem;
     color: white;
     border-radius: 0.9rem;
   }

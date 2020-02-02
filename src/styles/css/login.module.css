@@ -19,6 +19,8 @@
     width: 90vw;
     color: white;
     border-radius: 0.9rem;
+    height: 5rem;
+    font-size: 2rem;
   }
 }
 
@@ -188,22 +190,53 @@
   font-family: Rubik;
 }
 
+@media (min-width: 320px) {
+  .container {
+    background: url("../../assets/images/Login/background-mobile.png");
+    width: 100vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+  }
+}
+
 @media (min-width: 1440px) {
   .container {
+    width: 144rem;
+    margin: 0 auto;
     background: url("../../assets/images/Login/login.png");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: right;
+    height: 100vh;
+  }
+}
+
+@media (min-width: 320px) {
+  .logo {
+    padding: 0rem;
+    margin: 0rem;
+  }
+  .logo img {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .logo {
+    display: none;
   }
 }
 
 @media (min-width: 320px) {
   .wrapper {
     margin: 0 auto;
+    margin-top: 2rem;
     width: 90vw;
   }
   .wrapper h1 {
-    font-size: 1.4rem;
+    font-size: 4rem;
     margin: 0rem;
     color: #fff;
     text-align: center;
@@ -211,22 +244,8 @@
   .wrapper p {
     padding: 0px;
     color: #fff;
-    font-size: 1.6rem;
+    font-size: 2rem;
     text-align: center;
-  }
-}
-
-@media (min-width: 768px) {
-  .wrapper {
-    width: 10vw;
-  }
-  .wrapper h1 {
-    font-size: 3rem;
-  }
-  .wrapper p {
-    padding: 0px;
-    color: #fff;
-    font-size: 1.5rem;
   }
 }
 
@@ -283,6 +302,7 @@
 @media (min-width: 320px) {
   .form label {
     color: white;
+    font-size: 2rem;
   }
   .form a {
     color: #fff;
@@ -371,6 +391,13 @@
   }
   .form .errorMessage {
     margin-top: 1rem;
+  }
+}
+
+@media (min-width: 320px) {
+  .button_wrapper {
+    margin-top: 2rem;
+    height: 6rem;
   }
 }
 

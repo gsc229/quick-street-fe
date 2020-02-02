@@ -30,6 +30,28 @@
 }
 
 @media (min-width: 1440px) {
+  .filter_container {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+}
+
+@media (min-width: 1440px) {
+  .zip_wrapper {
+    background-color: blue;
+    width: 40rem;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+}
+
+@media (min-width: 1440px) {
   .zipcode_input {
     border: 0.2rem solid #00b2ed;
     border-radius: 1rem;
@@ -45,6 +67,23 @@
   }
   .zipcode_input:focus {
     outline: none;
+  }
+}
+
+@media (min-width: 1440px) {
+  .filter_wrapper {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    margin-left: 10rem;
+  }
+  .filter_wrapper label {
+    font-size: 1.2rem;
+    padding: 0.2rem;
+  }
+  .filter_wrapper p {
+    margin: 0rem;
+    padding: 0rem;
   }
 }
 

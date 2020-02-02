@@ -5,20 +5,43 @@
 	@include display();
 	font-family: Rubik;
 	@include phone {
+		background: url('../../assets/images/Login/background-mobile.png');
+		width: 100vw;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		height: 100vh;
 	}
 	@include xl {
+		width: 144rem;
+		margin: 0 auto;
 		background: url('../../assets/images/Login/login.png');
 		background-repeat: no-repeat;
 		background-size: contain;
 		background-position: right;
+		height: 100vh;
+	}
+}
+.logo {
+	@include phone {
+		padding: 0rem;
+		margin: 0rem;
+
+		img {
+			width: 100%;
+		}
+	}
+	@include xl {
+		display: none;
 	}
 }
 .wrapper {
 	@include phone {
 		margin: 0 auto;
+		margin-top: 2rem;
 		width: 90vw;
 		h1 {
-			font-size: 1.4rem;
+			font-size: 4rem;
 			margin: 0rem;
 			color: #fff;
 			text-align: center;
@@ -26,22 +49,13 @@
 		p {
 			padding: 0px;
 			color: #fff;
-			font-size: 1.6rem;
+			font-size: 2rem;
 			text-align: center;
 		}
 	}
 	@include sm {
 	}
 	@include md {
-		width: 10vw;
-		h1 {
-			font-size: 3rem;
-		}
-		p {
-			padding: 0px;
-			color: #fff;
-			font-size: 1.5rem;
-		}
 	}
 	@include lg {
 		width: 35vw;
@@ -93,6 +107,7 @@
 	@include phone {
 		label {
 			color: white;
+			font-size: 2rem;
 		}
 		a {
 			color: #fff;
@@ -165,6 +180,10 @@
 	}
 }
 .button_wrapper {
+	@include phone {
+		margin-top: 2rem;
+		height: 6rem;
+	}
 	@include xl {
 		margin-top: 4.5rem;
 		margin-bottom: 1rem;

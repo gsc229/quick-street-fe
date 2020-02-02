@@ -8,7 +8,7 @@ export const testimonial1 = require('./landing/images/testimonial-1.png');
 export const testimonial2 = require('./landing/images/testimonial-2.png');
 export const testimonial3 = require('./landing/images/testimonial-3.png');
 export const registersuccess = require('./Register/register_success.png');
-
+export const loginlogo = require('../images/Login/loginLogo-375.png');
 const Image = (props) => {
 	switch (props.name) {
 		case 'Works1':
@@ -29,6 +29,8 @@ const Image = (props) => {
 			return <img src={testimonial3} alt="img" />;
 		case 'RegisterSuccess':
 			return <img src={registersuccess} alt="img" />;
+		case 'LoginLogo':
+			return <img src={loginlogo} alt="img" />;
 		default:
 			return;
 	}

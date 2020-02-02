@@ -28,7 +28,15 @@ const Landing = () => {
 				<div className={landing.marketing_wrapper}>
 					<div className={landing.top_row}>
 						<h1>Browse, buy, share your finds on local food vendors.</h1>
-						<div className={landing.top__button}>
+						<div className={landing.top_button}>
+							<CustomButton styleClass="red-full">
+								<Link to="/browse">Start Browsing</Link>
+							</CustomButton>
+						</div>
+					</div>
+					<div className={landing.top_row_mobile}>
+						<h1>Browse, buy, share your finds on local food vendors.</h1>
+						<div className={landing.top_button}>
 							<CustomButton styleClass="red-full">
 								<Link to="/browse">Start Browsing</Link>
 							</CustomButton>

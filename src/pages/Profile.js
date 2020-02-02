@@ -124,10 +124,10 @@ const Profile = props => {
 			<Nav {...vendorInfo} />
 			<div className={profile.banner_wrapper}>
 				<div className={profile.banner_text_btns}>
-					<div onClick={() => setEditingName(true)} className={profile.vendor_header_name}>
+					<div className={profile.vendor_header_name}>
 						{editingName ? // <<<<<<<<<< turnary ?
 							<>
-								<input
+								<input className={profile.business_name_input}
 									onChange={e => {
 										if (editBusinessName) {
 											setVendorInfo({
@@ -137,42 +137,18 @@ const Profile = props => {
 										}
 									}}
 									value={vendorInfo.business_name}
-									className={editingName ? profile.glowing_border : 'none'}
-								/>
-								<div className={profile.edit_guides}>
-									{editAbout && <p><i className="fa fa-save"></i>&nbsp; click to save</p>}
-								</div>
 
+								/>
+								<div onClick={() => {
+									setEditingName(false)
+									console.log("CLICKED")
+								}} className={profile.edit_guides}>
+									{editingName &&
+										<p className={`${profile.save_changes}`} ><i className="fa fa-save"></i>&nbsp; save</p>}
+								</div>
 							</>
 							: //<<<<<<< TURNARY input name or p tag
-							<p>{vendorInfo.business_name}</p>}
-
-					</div>
-
-					<div className={profile.vendor_profile_btn_group}>
-						<FontAwesomeIcon
-							id={profile.pen}
-							className={`${profile.icon} " " ${
-								editingName ? profile.red_edit : profile.normal_pen
-								}`}
-							icon={faPen}
-							onClick={() => {
-								editName();
-								setEditingName(!editingName);
-							}}
-						/>
-						<FontAwesomeIcon
-							id={profile.save}
-							className={profile.icon}
-							icon={faSave}
-							onClick={e => {
-								saveName(e);
-								setEditingName(false);
-							}}
-						/>
-
-						{/* <img src={create} alt='create' onClick={editProfile} />
-            <img src={save} alt='save' onClick={saveProfile} /> */}
+							<h1 onClick={() => setEditingName(true)} className={profile.business_name_text}>{vendorInfo.business_name}</h1>}
 					</div>
 				</div>
 

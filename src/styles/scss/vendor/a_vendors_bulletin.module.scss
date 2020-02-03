@@ -1,0 +1,45 @@
+.vendor_bulletin_wrapper {
+  font-family: 'Raleway', sans-serif;
+  background-color: rgba(233, 187, 250, 0.15);
+  padding: 3% 13% 5%;
+  // color: #000000;
+  margin-bottom: 10%;
+}
+
+.bulletin_inner_container {
+  //border: solid 2px greenyellow;
+  .inner_bulletin_wrapper {
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    .vendor_bulletin_title {
+      color: #2b3335;
+      margin-bottom: 3%;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 28px;
+    }
+
+    .vendor_add_post_btn_wrapper {
+      button {
+        width: 100px;
+        height: 30px;
+        background-color: #00769d;
+        border-radius: 10px;
+        text-align: center;
+        color: #fef2e4;
+        margin: 10px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        cursor: pointer;
+        &:hover {
+          background-color: #fef2e4;
+          color: #00769d;
+          border: 3px solid #00769d;
+        }
+      }
+    }
+  }
+}

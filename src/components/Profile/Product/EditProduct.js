@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
-import editingProduct from '../../../styles/scss/editingProduct.module.scss';
+import editingProduct from '../../../styles/scss/vendor/editingProduct.module.scss';
 import { EditProductForm, ProductImageUploader } from '../../index';
 
 const EditProduct = (props) => {

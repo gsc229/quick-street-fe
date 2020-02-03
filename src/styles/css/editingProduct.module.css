@@ -234,6 +234,9 @@
 
 /* END .edit_product_left */
 /* ===== edit_product_right ============== */
+/* ===== edit_product_right ============== */
+/* ===== edit_product_right ============== */
+/* ===== edit_product_right ============== */
 .edit_product_right {
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -327,7 +330,7 @@
   width: fit-content;
 }
 
-.edit_product_right .input_wrapper {
+.edit_product_right .edit_product_form .input_wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -338,12 +341,12 @@
   margin: 2rem 0;
 }
 
-.edit_product_right .input_wrapper label {
+.edit_product_right .edit_product_form .input_wrapper label {
   font-size: 1.4rem;
   color: #2b3335;
 }
 
-.edit_product_right .input_wrapper input {
+.edit_product_right .edit_product_form .input_wrapper input {
   border-radius: 10px;
   border: 1px solid rgba(43, 51, 53, 0.5);
   height: 32px;
@@ -352,7 +355,7 @@
   padding: 1% 0 1% 3%;
 }
 
-.edit_product_right .input_wrapper textarea {
+.edit_product_right .edit_product_form .input_wrapper textarea {
   border-radius: 10px;
   border: 1px solid rgba(43, 51, 53, 0.5);
   height: 100px;
@@ -361,7 +364,7 @@
   padding: 1% 0 1% 3%;
 }
 
-.edit_product_right .input_wrapper select {
+.edit_product_right .edit_product_form .input_wrapper select {
   border-radius: 10px;
   border: 1px solid rgba(43, 51, 53, 0.5);
   height: 32px;
@@ -370,7 +373,7 @@
   padding: 1% 0 1% 3%;
 }
 
-.edit_product_right .input_wrapper .checkbox_input {
+.edit_product_right .edit_product_form .input_wrapper .checkbox_input {
   height: 15px;
 }
 

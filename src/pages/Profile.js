@@ -9,12 +9,9 @@ import {
 import { Placeholder } from '../assets/images/index';
 //Styles
 import profile from '../styles/scss/profile.module.scss';
-
-
 //Font awesom
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSave, faPen } from '@fortawesome/free-solid-svg-icons';
-
 import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
@@ -38,8 +35,6 @@ const Profile = props => {
 	const [editAbout, setEditAbout] = useState(false);
 	const [editBusinessName, setEditBusinessName] = useState(false);
 	//console.log('Profile.js vendorInfo: ', vendorInfo);
-
-
 
 	useEffect(() => {
 		//console.log('USEEFFECT 1 Profile.js');
@@ -115,7 +110,7 @@ const Profile = props => {
 				vendorInfo
 			)
 			.then(res => {
-				console.log(`update vendor info`, res);
+				console.log(`Profile.js saveProfile()`, res);
 				setVendorInfo(res.data.data);
 			})
 			.catch(err => {

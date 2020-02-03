@@ -1,7 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
+import Avatar from '@material-ui/core/Avatar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
@@ -17,7 +18,18 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import { Context as AuthContext } from '../../contexts/AuthContext.js';
 import { Context as CartContext } from '../../contexts/TestCartContext';
+import Modal from './Modal';
+import ShoppingCartItems from './ShoppingCart/ShoppingCartItems';
+
+import { shopping_cart_light } from '../../assets/svgs/index';
 const useStyles = makeStyles((theme) => ({
+	avatar: {
+		height: '42px',
+		width: '42px'
+	},
+	numbder: {
+		position: 'absolute'
+	},
 	grow: {
 		flexGrow: 1
 	},
@@ -85,6 +97,12 @@ const Nav = () => {
 	const [ anchorEl, setAnchorEl ] = React.useState(null);
 	const [ mobileMoreAnchorEl, setMobileMoreAnchorEl ] = React.useState(null);
 
+	const token = localStorage.getItem('token');
+
+	const [ cartModal, setCartModal ] = useState(false);
+
+	console.log('our token', { token });
+
 	const isMenuOpen = Boolean(anchorEl);
 	const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -122,7 +140,6 @@ const Nav = () => {
 					Sign Out
 				</Link>
 			</MenuItem>
-			<MenuItem onClick={handleMenuClose}>{state.cart.items && <p>{state.cart.items.length}</p>}</MenuItem>
 		</Menu>
 	);
 
@@ -179,23 +196,53 @@ const Nav = () => {
 					</Typography>
 
 					<div className={classes.grow} />
+
 					<div className={classes.sectionDesktop}>
-						<IconButton aria-label="show 17 new notifications" color="inherit">
-							<Badge badgeContent={17} color="secondary">
-								<NotificationsIcon />
-							</Badge>
-						</IconButton>
-						<IconButton
-							edge="end"
-							aria-label="account of current user"
-							aria-controls={menuId}
-							aria-haspopup="true"
-							onClick={handleProfileMenuOpen}
-							color="inherit"
-						>
-							<AccountCircle />
-						</IconButton>
+						{!token && (
+							<div className={classes.sectionDesktop}>
+								<Link to="/login">login</Link>
+								<Link to="/register">Join us</Link>
+							</div>
+						)}
 					</div>
+					<div className={classes.sectionDesktop}>
+						{/* <IconButton aria-label='show 17 new notifications' color='inherit'>
+              <Badge badgeContent={17} color='secondary'>
+                <NotificationsIcon />
+              </Badge>
+            </IconButton> */}
+						{token && (
+							<IconButton
+								edge="end"
+								aria-label="account of current user"
+								aria-controls={menuId}
+								aria-haspopup="true"
+								onClick={handleProfileMenuOpen}
+								color="inherit"
+							>
+								<AccountCircle style={{ height: '42px', width: '42px' }} />
+							</IconButton>
+						)}
+					</div>
+					<MenuItem>
+						{token && (
+							<div>
+								<p onClick={() => setCartModal(true)}>
+									<img
+										src={shopping_cart_light}
+										style={{ height: '3rem', width: '3rem' }}
+										alt="shopping cart"
+									/>
+									{state.cart.items && (
+										<span className={classes.number}> {state.cart.items.length}</span>
+									)}
+								</p>
+								<Modal showModal={cartModal}>
+									<ShoppingCartItems setCartModal={setCartModal} />
+								</Modal>
+							</div>
+						)}
+					</MenuItem>
 					<div className={classes.sectionMobile}>
 						<IconButton
 							aria-label="show more"

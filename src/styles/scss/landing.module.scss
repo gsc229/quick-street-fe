@@ -3,7 +3,6 @@
 
 .container {
 	@include phone {
-		padding: 0px;
 	}
 	@include xl {
 		width: 144rem;
@@ -12,8 +11,16 @@
 }
 .hero_container {
 	@include phone {
+		width: 100%;
+		background-image: url('../../assets/images/landing/images/hero-banner-phone.png');
+		background-repeat: no-repeat;
+		background-size: 100% auto;
+		background-position: center bottom;
+		height: 60rem;
+		background-color: $primary-color;
 	}
 	@include xl {
+		padding: 0rem;
 		width: 100%;
 		background-image: url('../../assets/images/landing/images/hero-banner.png');
 		background-repeat: no-repeat;
@@ -24,24 +31,38 @@
 }
 .info {
 	@include phone {
+		h1 {
+			font-family: Rubik;
+			padding: 3rem 3rem 3rem 3rem;
+			font-family: Rubik;
+			font-size: 2.5rem;
+			color: #fef2e4;
+			text-align: center;
+		}
 	}
 	@include xl {
 		margin-top: 20rem;
 		margin-left: 7.9rem;
 		width: 43.7rem;
 		h1 {
+			padding: 0rem;
 			font-family: Rubik;
 			font-size: 4rem;
 			color: #fef2e4;
+			text-align: left;
 		}
 	}
 }
 .button_container {
 	@include phone {
-		display: none;
+		width: 40%;
+		margin: 0 auto;
+		a {
+			color: white;
+		}
 	}
 	@include xl {
-		margin-top: 6.4rem;
+		margin: 6.4rem 0rem 0rem 0rem;
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-start;
@@ -53,14 +74,17 @@
 // ** HEADER ** //
 .title_header {
 	@include phone {
+		color: $primary-color;
+		text-align: center;
+		font-family: Rubik;
+		margin-top: 2rem;
+		margin-bottom: 2rem;
+		font-size: 3rem;
 	}
 	@include lg {
 	}
 	@include xl {
-		color: $primary-color;
 		font-size: 4.8rem;
-		font-family: Rubik;
-		text-align: center;
 		margin-top: 10.4rem;
 		margin-bottom: 8.2rem;
 	}
@@ -69,12 +93,15 @@
 
 .marketing_container {
 	@include phone {
+		width: 100%;
+		padding: 1rem;
+		background-color: $primary-color;
 	}
 	@include xl {
-		background-color: $primary-color;
 		margin: auto;
 		width: 128rem;
 		border-radius: 0.5rem;
+		padding: 0rem;
 	}
 }
 .marketing_wrapper {
@@ -85,8 +112,10 @@
 
 .top_row {
 	@include phone {
+		display: none;
 	}
 	@include xl {
+		display: block;
 		padding: 1rem;
 		h1 {
 			font-size: 4rem;
@@ -97,13 +126,36 @@
 		}
 	}
 }
-.top__button {
-	float: right;
+.top_row_mobile {
+	@include phone {
+		text-align: center;
+		display: block;
+		color: white;
+		font-family: Rubik;
+		a {
+			color: white;
+		}
+	}
+	@include xl {
+		display: none;
+	}
+}
+.top_button {
+	@include phone {
+	}
+	@include xl {
+		width: 20rem;
+		float: right;
+	}
 }
 
 // ***** WORKS STYLING ** //
 
 .works_container {
+	@include phone {
+		width: 100%;
+		padding: 1rem;
+	}
 	@include xl {
 		margin: 0 auto;
 		display: flex;
@@ -112,11 +164,13 @@
 		margin-bottom: 4rem;
 		flex-wrap: wrap;
 		width: 128rem;
+		padding: 0rem;
 	}
 }
 
 .card_wrapper {
 	@include phone {
+		width: 100%;
 	}
 	@include xl {
 		flex: 1;
@@ -126,17 +180,36 @@
 	}
 }
 .works_image {
+	@include phone {
+		width: 100%;
+	}
 	@include xl {
 		max-width: 100%;
 	}
 }
 .works_image img {
+	@include phone {
+		width: 100%;
+	}
 	@include xl {
 		width: 100%;
 	}
 }
 .works_content {
 	@include phone {
+		background: #ffffff;
+		align-items: center;
+		text-align: center;
+		color: #000000;
+		flex-direction: column;
+		box-shadow: 0px 4px 4px rgba(0, 118, 157, 0.1);
+		flex: 1;
+		margin-bottom: 1rem;
+		p {
+			text-align: center;
+			padding: 4rem;
+			font-size: 2.4rem;
+		}
 	}
 	@include xl {
 		background: #ffffff;
@@ -147,6 +220,7 @@
 		box-shadow: 0px 4px 4px rgba(0, 118, 157, 0.1);
 		flex: 1;
 		height: 258px;
+		margin-bottom: 0rem;
 		p {
 			padding: 4rem;
 			font-size: 2.4rem;
@@ -156,13 +230,49 @@
 // ** Gallery Container ** //
 
 .gallery_container {
-	width: 128rem;
-	margin: 0 auto;
+	@include phone {
+		width: 100%;
+		padding: 1rem;
+		height: 20.0rem;
+	}
+	@include xl {
+		width: 128rem;
+		margin: 0 auto;
+		padding: 0rem;
+		height: 100%;
+	}
 }
 // **** CAROUSEL TOP *** //
 .carousel_wrapper {
+	@include phone {
+		display: none;
+	}
 	@include xl {
+		display: block;
 		background-color: $primary-color;
+		.slide {
+			min-width: 100%;
+			margin: 0;
+			position: relative;
+			text-align: center;
+			background: transparent !important;
+		}
+	}
+}
+.carousel_wrapper_mobile {
+	@include phone {
+		background-color: $primary-color;
+		display: block;
+		.slide {
+			min-width: 100%;
+			margin: 0;
+			position: relative;
+			text-align: center;
+			background: transparent !important;
+		}
+	}
+	@include xl {
+		display: none;
 		.slide {
 			min-width: 100%;
 			margin: 0;

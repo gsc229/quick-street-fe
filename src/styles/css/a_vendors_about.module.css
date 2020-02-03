@@ -11,6 +11,8 @@
   display: flex;
   height: 100%;
   font-size: 1.5rem;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .about_inner_container h2 {
@@ -138,6 +140,7 @@
 
 .column_right .about_info {
   width: 60%;
+  margin: 0 auto;
 }
 
 .info_top {

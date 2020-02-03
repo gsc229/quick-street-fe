@@ -2,7 +2,14 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 // components
-import { Map, Search, Menu, ShoppingCartItems, Modal, Nav } from '../components/index';
+import {
+  Map,
+  Search,
+  Menu,
+  ShoppingCartItems,
+  Modal,
+  Nav
+} from '../components/index';
 
 // styles
 import browse from '../styles/scss/browse.module.scss';

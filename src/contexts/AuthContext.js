@@ -10,11 +10,12 @@ const authReducer = (state, action) => {
 		case 'signout':
 			return { token: null };
 		case 'change_message':
-			return {...state, message:action.payload};
+			return { ...state, message: action.payload };
 		default:
 			return state;
 	}
 };
+
 
 const checkIfCart = (customerId) => {
 	console.log('checkIfCart function is being called');
@@ -72,7 +73,6 @@ const signup = (dispatch) => async ({
 		if (response.status === 200) {
 				window.location.href=`/profile/${response.data.id}`
 		}
-    
 	} catch (error) {
 		dispatch({
 			type: 'add_error',
@@ -104,18 +104,19 @@ const signin = (dispatch) => async ({ email, password }) => {
 const signout = (dispatch) => async () => {
 	localStorage.removeItem('token');
 	localStorage.removeItem('user_id');
+	localStorage.removeItem('isVendor');
 	dispatch({ type: 'signout' });
 };
 
 const changeMessage = (dispatch) => () => {
 	dispatch({
-		type:'change_message',
+		type: 'change_message',
 		payload: 'Hello This Is Me'
-	})
-}
+	});
+};
 
 export const { Provider, Context } = createDataContext(
 	authReducer,
 	{ signin, signout, signup, changeMessage },
-	{ token: null, errorMessage: '', message: 'Hello Friend'}
+	{ token: '', errorMessage: '', message: 'Hello Friend' }
 );

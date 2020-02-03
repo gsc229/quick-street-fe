@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AboutForm } from '../../index';
+import { VendorCategories } from '../../index';
 import Map from '../../shared/Map';
 //SVG Icons
 import { pencil_light, pencil_regular, phone_alt_light, envelope_light, map_pin_place, map_marker_alt_light } from '../../../assets/svgs'
@@ -8,7 +8,8 @@ import { pencil_light, pencil_regular, phone_alt_light, envelope_light, map_pin_
 import profile from '../../../styles/scss/profile.module.scss';
 
 const About = ({ editAbout, vendorInfo, info, setInfo, editProfile, saveProfile, setVendorInfo }) => {
-	const [editingNow, setEditingNow] = useState("none");
+
+	const [editingNow, setEditingNow] = useState("none");//change back to none
 	const [hoveringClass, setHoveringClass] = useState('not_hovering');
 
 
@@ -40,7 +41,6 @@ const About = ({ editAbout, vendorInfo, info, setInfo, editProfile, saveProfile,
 					<div className={profile.about_info}>
 						<div className={profile.info_top}>
 							<h2>About Us</h2>
-
 						</div>{/* ==== TOP/BOTTOM divide ====== */}
 						<div className={profile.info_bottom}>
 							<div className={profile.info_content}>
@@ -95,9 +95,9 @@ const About = ({ editAbout, vendorInfo, info, setInfo, editProfile, saveProfile,
 										</form>
 										<p
 											className={profile.save_changes}
-											onClick={(e) => {
+											onClick={() => {
 												setEditingNow('none')
-												saveProfile(e)
+												saveProfile()
 												console.log("saveProfile() Profile.js info_content p ")
 											}}
 										><i className="fa fa-save"></i>&nbsp;save</p>
@@ -203,8 +203,51 @@ const About = ({ editAbout, vendorInfo, info, setInfo, editProfile, saveProfile,
 								{editAbout && <p><i className="fa fa-save"></i>&nbsp; click to save</p>}
 							</div>
 						</div>
-					</div>{/* END CONTACT*/}
+					</div>{/* END CONTACT */}
+					{/* VENDOR CATEGORIES  */}
+					<div className={profile.about_info}>
+						<div className={profile.info_top}>
+							<h2>Choose Your Categories</h2>
+						</div>{/* ==== TOP/BOTTOM divide ====== */}
+						<div className={profile.info_bottom}>
+							<div className={profile.info_content}>
+								{editingNow === 'categories' ? // TURNARY ? show form...
+									<div>
+										<VendorCategories vendorInfo={vendorInfo} setVendorInfo={setVendorInfo} />
+										<p
+											className={profile.save_changes}
+											onClick={(e) => {
+												setEditingNow('none')
+												saveProfile(e)
+												console.log("saveProfile() Profile.js info_content p ")
+											}}
+										><i className="fa fa-save"></i>&nbsp;save</p>
+									</div> : //<<<<<<< TURNARY : else...
+									<div className={profile.saved_text_container} >
+										{hoveringClass === 'categories_pen' && <img className={`${profile.edit_icon}`} src={pencil_light} alt="" />}
+										<div
+											className={profile.saved_text_content}
+											onMouseOver={() => setHoveringClass('categories_pen')}
+											onMouseLeave={() => setHoveringClass('not_hovering')}
+											onClick={() => {
+												setEditingNow('categories');
+												setHoveringClass('not_hovering');
+												saveProfile();
+											}}
+										>
+											{vendorInfo.vendor_category ? vendorInfo.vendor_category.map(cat => (
+												<p>{cat}</p>
+											)) : <p>...Loading</p>}
+										</div>
+									</div>
+								}
+
+
+							</div>
+						</div>
+					</div>{/* END HOURS OF VENDOR CATEGORY */}
 				</div>
+
 				{/* ========   COLUMN LEFT/RIGHT DIVIDE ========= */}
 				{/* ========   COLUMN LEFT/RIGHT DIVIDE ========= */}
 				{/* ========   COLUMN LEFT/RIGHT DIVIDE ========= */}

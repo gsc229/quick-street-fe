@@ -29,6 +29,7 @@ import productimagesuploader from '../components/Profile/Product/ProductImageUpl
 import about from '../components/Profile/Profile/About';
 import aboutform from '../components/Profile/Profile/AboutForm';
 import banneruploader from '../components/Profile/Profile/BannerUploader';
+import vendorcategories from '../components/Profile/Profile/VendorCategories';
 
 // Register customer components
 import customerconfirmation from '../components/Register/Customer/CustomerConfirmation';
@@ -92,6 +93,8 @@ export const ProductImageUploader = productimagesuploader;
 //Profile About vendor exports
 export const About = about;
 export const AboutForm = aboutform;
+export const VendorCategories = vendorcategories;
+
 export const BannerUploader = banneruploader;
 
 // Register customer components exports

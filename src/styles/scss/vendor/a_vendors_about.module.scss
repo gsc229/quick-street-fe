@@ -1,10 +1,3 @@
-@import '../mixins.scss';
-@mixin profile_padding {
-  padding-top: 6.7rem;
-  padding-left: 18.9rem;
-  padding-right: 18.9rem;
-  padding-bottom: 10.4rem;
-}
 .about_wrapper {
   height: fit-content;
   background: rgba(225, 246, 250, 0.45);
@@ -12,8 +5,9 @@
 }
 
 .about_inner_container {
-  //border: magenta 2px solid;
+  border: magenta 2px solid;
   display: flex;
+  justify-content: space-between;
   height: 100%;
   font-size: 1.5rem;
   padding-top: 50px;
@@ -22,8 +16,9 @@
     font-size: 2rem;
   }
   p {
+    border: 2px solid greenyellow;
     font-size: 1.5rem;
-    min-width: 400px;
+
     max-width: 90%;
     font-family: Raleway;
     font-style: normal;
@@ -31,6 +26,32 @@
     line-height: 21px;
     overflow-wrap: normal;
   }
+  .column_left {
+    width: 40%;
+
+    border: 2px solid purple;
+    @media only screen and (max-width: 800px) {
+      width: 100%;
+      margin: auto;
+      font-size: 2vw;
+      padding: 10px;
+    }
+  }
+  .column_right {
+    width: 40%;
+
+    border: 2px solid purple;
+    @media only screen and (max-width: 800px) {
+      width: 100%;
+      margin: auto;
+      font-size: 2vw;
+      padding: 10px;
+    }
+    .about_info {
+      margin: 0 auto;
+    }
+  }
+
   @media only screen and (max-width: 800px) {
     flex-direction: column;
     width: 100%;
@@ -74,45 +95,20 @@
       .checkbox_inner_wrapper {
         //border: 1px solid black;
         display: flex;
+        align-items: center;
         padding: 10px;
         input {
           box-shadow: none;
-          width: 20px;
+          width: 13px;
         }
         label {
-          font-size: 2rem;
+          font-size: 1.3rem;
           width: fit-content;
           margin-left: 5px;
+          vertical-align: middle;
         }
       }
     }
-  }
-}
-
-.column_left {
-  width: 50%;
-  margin: 0 auto;
-  //border: mediumblue 2px solid;
-  @media only screen and (max-width: 800px) {
-    width: 100%;
-    margin: auto;
-    font-size: 2vw;
-    padding: 10px;
-  }
-}
-.column_right {
-  width: 50%;
-  margin: 0 auto;
-  //border: 2px solid purple;
-  @media only screen and (max-width: 800px) {
-    width: 100%;
-    margin: auto;
-    font-size: 2vw;
-    padding: 10px;
-  }
-  .about_info {
-    width: 60%;
-    margin: 0 auto;
   }
 }
 
@@ -139,7 +135,7 @@
     .saved_text_container {
       position: relative;
       width: fit-content;
-      min-width: 400px;
+      min-width: 200px;
 
       .edit_icon {
         position: absolute;

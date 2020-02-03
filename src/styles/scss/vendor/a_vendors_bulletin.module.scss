@@ -1,6 +1,14 @@
-.vendor_bulletin_wrapper {
+@import '../mixins.scss';
+@mixin profile_padding {
+  padding-top: 6.7rem;
+  padding-left: 18.9rem;
+  padding-right: 18.9rem;
+  padding-bottom: 10.4rem;
+}
+
+.bulletin_wrapper {
   font-family: 'Raleway', sans-serif;
-  background-color: rgba(233, 187, 250, 0.15);
+  background: rgba(233, 187, 250, 0.15);
   padding: 3% 13% 5%;
   // color: #000000;
   margin-bottom: 10%;

@@ -1,6 +1,6 @@
-.vendor_bulletin_wrapper {
+.bulletin_wrapper {
   font-family: 'Raleway', sans-serif;
-  background-color: rgba(233, 187, 250, 0.15);
+  background: rgba(233, 187, 250, 0.15);
   padding: 3% 13% 5%;
   margin-bottom: 10%;
 }

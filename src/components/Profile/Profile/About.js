@@ -5,7 +5,7 @@ import Map from '../../shared/Map';
 import { pencil_light, pencil_regular, phone_alt_light, envelope_light, map_pin_place, map_marker_alt_light } from '../../../assets/svgs'
 
 // styling
-import profile from '../../../styles/scss/profile.module.scss';
+import profile from '../../../styles/scss/vendor/a_vendors_profile.module.scss';
 
 const About = ({ editAbout, vendorInfo, info, setInfo, editProfile, saveProfile, setVendorInfo }) => {
 

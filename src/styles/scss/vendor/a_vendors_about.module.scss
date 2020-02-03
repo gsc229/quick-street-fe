@@ -1,0 +1,227 @@
+.vendor_about_container {
+  border: white solid 3px;
+  margin-top: 100px;
+  position: relative;
+  background: rgba(225, 246, 250, 0.45);
+  height: fit-content;
+
+  input {
+    border: 1px solid rgba(43, 51, 53, 0.5);
+    box-sizing: border-box;
+    border-radius: 7px;
+    width: 120px;
+    padding: 5px;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+
+    color: #2b3335;
+  }
+
+  textarea {
+    border: 1px solid rgba(43, 51, 53, 0.5);
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 5px;
+
+    font-family: Raleway;
+
+    font-size: 18px;
+    line-height: 21px;
+
+    color: #2b3335;
+  }
+
+  select {
+    border: 1px solid rgba(43, 51, 53, 0.5);
+    box-sizing: border-box;
+    border-radius: 7px;
+    width: 118px;
+    padding: 5px;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+
+    color: #2b3335;
+  }
+
+  label {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #2b3335;
+  }
+
+  .inner_container {
+    //border: greenyellow 2px solid;
+    width: 78%;
+    margin: 100px auto;
+    margin-bottom: 0;
+    .about_top {
+      display: flex;
+      justify-content: space-between;
+
+      position: relative;
+      h3 {
+        font-family: Raleway;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 28px;
+
+        color: #2b3335;
+      }
+
+      .vendor_about_btn_group {
+        width: 85px;
+        height: fit-content;
+        position: relative;
+        align-self: flex-start;
+        left: 11.5%;
+        display: flex;
+        justify-content: space-between;
+        /* #pen{
+            color: #00B2ED;
+          } */
+
+        #save {
+          color: grey;
+        }
+
+        #pen:hover {
+          color: red;
+        }
+
+        #save:hover {
+          color: green;
+        }
+
+        .icon {
+          cursor: pointer;
+        }
+
+        .red_edit {
+          color: red;
+        }
+
+        .normal_pen {
+          color: #00b2ed;
+        }
+      }
+    }
+
+    .about_bottom {
+      width: 100%;
+      margin: 0 auto;
+      .vendor_info_form {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        .input_container {
+          margin-bottom: 50px;
+          display: flex;
+          flex-direction: column;
+          .input-group-text {
+            background-color: white;
+          }
+        }
+
+        .vendor_info_left {
+          padding: 20px;
+          .vendor_info_phone {
+            :nth-child(4) {
+              margin-top: 20px;
+            }
+            h5 {
+              color: #2b3335;
+              font-weight: bold;
+              margin-top: 10px;
+              font-size: 16px;
+            }
+            .inputWithIcon {
+              position: relative;
+              width: 400px;
+              input {
+                width: 400px;
+              }
+              .input_icon {
+                position: absolute;
+                right: 10px;
+                top: 5px;
+                font-size: 16px;
+              }
+            }
+          }
+
+          .vendor_info_hour {
+            .vendor_info_hour_input_group {
+              display: flex;
+
+              width: 100%;
+
+              p {
+                position: relative;
+                display: inline-block;
+
+                margin: 0 20px;
+                top: 10px;
+                font-family: Roboto;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 16px;
+                text-align: center;
+              }
+
+              .inputWithIcon {
+                position: relative;
+                width: 120px;
+
+                .hour_input {
+                  background: #ffffff;
+                  border: 1px solid #d2d2d2;
+                  box-sizing: border-box;
+                  border-radius: 6px;
+                  width: 130px;
+                }
+
+                .input_icon {
+                  position: absolute;
+                  right: 0px;
+                  top: 8px;
+                  font-size: 16px;
+                }
+              }
+            }
+          }
+        }
+
+        .vendor_info_right {
+          padding: 20px;
+        }
+
+        .map_container {
+          width: 400px;
+          width: 280;
+          margin-top: 15px;
+        }
+      }
+    }
+  }
+}

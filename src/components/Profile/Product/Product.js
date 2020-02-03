@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axiosWithAuth from '../../../utils/axiosWithAuth'
 import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
-import product from '../../../styles/scss/vendor_products.module.scss';
+import product from '../../../styles/scss/vendor/a_vendors_products.module.scss';
 
 const Product = ({ name, img, price, productId, setReloadProducts, reloadProducts }) => {
 	const [productImages, setProductImages] = useState('');

@@ -8,7 +8,7 @@ import {
 } from '../components/index';
 import { Placeholder } from '../assets/images/index';
 //Styles
-import profile from '../styles/scss/profile.module.scss';
+import profile from '../styles/scss/vendor/a_vendors_profile.module.scss';
 //Font awesom
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSave, faPen } from '@fortawesome/free-solid-svg-icons';

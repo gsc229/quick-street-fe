@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react';
 
 import axiosWithAuth from '../../../../utils/axiosWithAuth';
 import Product from './ViewVendorProduct';
-
 //styling
 import profile from '../../../../styles/scss/profile.module.scss';
 const ViewVendorProducts = (props) => {
-	const [ vendorProducts, setVendorProducts ] = useState({
+	const [vendorProducts, setVendorProducts] = useState({
 		products: [],
 		count: 0
 	});

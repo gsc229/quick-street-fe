@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 // styling
-import profile from '../../../styles/scss/profile.module.scss';
+import profile from '../../../styles/scss/vendor/a_vendors_profile.module.scss';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 
 const VendorProducts = ({ products, vendorId, reloadProducts, setReloadProducts }) => {

@@ -18,7 +18,7 @@ const Product = ({ name, img, price, productId, setReloadProducts, reloadProduct
 				console.log(`ERROR GET /:productId/product-images Product.js`, error);
 			})
 	}, [setReloadProducts, reloadProducts]);
-
+	console.log(productImages[0]);
 	return (
 		<div className={product.vendor_product}>
 			<CloudinaryContext cloudName="quickstlabs">
@@ -29,7 +29,7 @@ const Product = ({ name, img, price, productId, setReloadProducts, reloadProduct
 			{/* <div className="vendor_product_body"> */}
 			<p className={product.vendor_product_name}>{name}</p>
 			<p className={product.vendor_product_price}>${price}</p>
-			{/* </div> */}
+
 		</div>
 	);
 };

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 // reusing the checkbox styles from editingProducts
-import profile from '../../../styles/scss/profile.module.scss';
+import profile from '../../../styles/scss/vendor/a_vendors_profile.module.scss';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 const VendorCategories = ({ vendorInfo, setVendorInfo }) => {
 
@@ -72,7 +72,6 @@ const VendorCategories = ({ vendorInfo, setVendorInfo }) => {
     /* setProduct({
       ...product,
       [e.target.name]: []
-
     }) */
   }
 

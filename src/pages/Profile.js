@@ -9,6 +9,7 @@ import {
 import { Placeholder } from '../assets/images/index';
 //Styles
 import profile from '../styles/scss/vendor/a_vendors_profile.module.scss';
+import banner from '../styles/scss/vendor/a_vendors_banner.module.scss';
 //Font awesom
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSave, faPen } from '@fortawesome/free-solid-svg-icons';
@@ -69,10 +70,6 @@ const Profile = props => {
 
 	}, [vendorId, reloadProducts, setReloadProducts])
 
-
-
-
-
 	const editName = () => {
 		setEditBusinessName(!editBusinessName);
 	};
@@ -119,57 +116,44 @@ const Profile = props => {
 	};
 
 	return (
-		<div className={profile.banner_container}>
+		<div className={profile.profile_container}>
 			<Nav {...vendorInfo} />
-			<div className={profile.banner_wrapper}>
-				<div className={profile.banner_text_btns}>
-					<div className={profile.vendor_header_name}>
-						<input
-							onChange={e => {
-								if (editBusinessName) {
-									setVendorInfo({
-										...vendorInfo,
-										business_name: e.target.value
-									});
-								}
-							}}
-							value={vendorInfo.business_name}
-							className={editingName ? profile.glowing_border : 'none'}
-						/>
-					</div>
+			<div className={banner.banner_wrapper}>
+				<div className={banner.banner_text_btns}>
+					<div className={banner.vendor_header_name}>
+						{editingName ? // <<<<<<<<<< turnary ?
+							<>
+								<input className={banner.business_name_input}
+									onChange={e => {
+										if (editBusinessName) {
+											setVendorInfo({
+												...vendorInfo,
+												business_name: e.target.value
+											});
+										}
+									}}
+									value={vendorInfo.business_name}
 
-					<div className={profile.vendor_profile_btn_group}>
-						<FontAwesomeIcon
-							id={profile.pen}
-							className={`${profile.icon} " " ${
-								editingName ? profile.red_edit : profile.normal_pen
-								}`}
-							icon={faPen}
-							onClick={() => {
-								editName();
-								setEditingName(!editingName);
-							}}
-						/>
-						<FontAwesomeIcon
-							id={profile.save}
-							className={profile.icon}
-							icon={faSave}
-							onClick={e => {
-								saveName(e);
-								setEditingName(false);
-							}}
-						/>
-
-						{/* <img src={create} alt='create' onClick={editProfile} />
-            <img src={save} alt='save' onClick={saveProfile} /> */}
+								/>
+								<div
+									className={banner.edit_guides}
+									onClick={() => {
+										setEditingName(false)
+										console.log("CLICKED")
+									}} >
+									<p className={`${banner.save_changes}`} ><i className="fa fa-save"></i>&nbsp; save</p>
+								</div>
+							</>
+							: //<<<<<<< TURNARY input name or p tag
+							<h1 onClick={() => setEditingName(true)} className={banner.business_name_text}>{vendorInfo.business_name}</h1>}
 					</div>
 				</div>
 
-				<div className={profile.vendor_banner_image_container}>
+				<div className={banner.vendor_banner_image_container}>
 					{vendorInfo.vendor_banner !== `no-photo.jpg` ? (
 						<CloudinaryContext cloudName='quickstlabs'>
 							<Image
-								className={profile.vendor_banner_image}
+								className={banner.vendor_banner_image}
 								publicId={vendorInfo.vendor_banner}
 							>
 								<Transformation
@@ -187,14 +171,14 @@ const Profile = props => {
 								alt='vendor header'
 							/>
 						)}
-					<div className={profile.vendor_banner_upload}>
-						<BannerUploader
-							vendorId={vendorId}
-							vendorInfo={vendorInfo}
-							setBannerInfo={setBannerInfo}
-							bannerInfo={bannerInfo}
-						/>
-					</div>
+
+					<BannerUploader
+						vendorId={vendorId}
+						vendorInfo={vendorInfo}
+						setBannerInfo={setBannerInfo}
+						bannerInfo={bannerInfo}
+					/>
+
 				</div>
 			</div>
 

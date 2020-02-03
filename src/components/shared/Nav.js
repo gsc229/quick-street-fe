@@ -102,6 +102,7 @@ const Nav = () => {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
   const token = localStorage.getItem('token');
+  const isVendor = localStorage.getItem('isVendor');
 
   const [cartModal, setCartModal] = useState(false);
 
@@ -191,7 +192,12 @@ const Nav = () => {
   return (
     <div className={classes.grow}>
       <AppBar
-        style={{ background: 'transparent', boxShadow: 'none' }}
+        // style={{ background: 'transparent', boxShadow: 'none' }}
+        style={
+          token
+            ? { background: '#00B2ED' }
+            : { background: 'transparent', boxShadow: 'none' }
+        }
         position='static'
       >
         <Toolbar>
@@ -209,6 +215,7 @@ const Nav = () => {
 
           <div className={classes.grow} />
 
+          {/* not logged in */}
           <div className={classes.sectionDesktop}>
             {!token && (
               <div className={classes.sectionDesktop}>
@@ -236,29 +243,18 @@ const Nav = () => {
                 </Link>
               </div>
             )}
-          </div>
-          <div className={classes.sectionDesktop}>
-            {/* <IconButton aria-label='show 17 new notifications' color='inherit'>
-              <Badge badgeContent={17} color='secondary'>
-                <NotificationsIcon />
-              </Badge>
-            </IconButton> */}
-            {token && (
-              <IconButton
-                edge='end'
-                aria-label='account of current user'
-                aria-controls={menuId}
-                aria-haspopup='true'
-                onClick={handleProfileMenuOpen}
-                color='inherit'
-              >
-                <AccountCircle style={{ height: '42px', width: '42px' }} />
-              </IconButton>
-            )}
-          </div>
-          <MenuItem>
-            {token && (
-              <div>
+            {!isVendor && (
+              <MenuItem>
+                <IconButton
+                  edge='end'
+                  aria-label='account of current user'
+                  aria-controls={menuId}
+                  aria-haspopup='true'
+                  onClick={handleProfileMenuOpen}
+                  color='inherit'
+                >
+                  <AccountCircle style={{ height: '42px', width: '42px' }} />
+                </IconButton>
                 <p onClick={() => setCartModal(true)}>
                   <img
                     src={shopping_cart_light}
@@ -275,9 +271,23 @@ const Nav = () => {
                 <Modal showModal={cartModal}>
                   <ShoppingCartItems setCartModal={setCartModal} />
                 </Modal>
-              </div>
+              </MenuItem>
             )}
-          </MenuItem>
+          </div>
+
+          {isVendor && (
+            <IconButton
+              edge='end'
+              aria-label='account of current user'
+              aria-controls={menuId}
+              aria-haspopup='true'
+              onClick={handleProfileMenuOpen}
+              color='inherit'
+            >
+              <AccountCircle style={{ height: '42px', width: '42px' }} />
+            </IconButton>
+          )}
+
           <div className={classes.sectionMobile}>
             <IconButton
               aria-label='show more'

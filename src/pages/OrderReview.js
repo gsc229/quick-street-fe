@@ -5,6 +5,9 @@ import { OrderReviewItem } from '../components/index';
 import { Context as CartContext } from '../contexts/TestCartContext';
 import review from '../styles/scss/review.module.scss';
 import {Nav} from '../components/index';
+import StripeCheckoutButton from './StripeCheckoutButton';
+
+
 const OrderReview = (props) => {
 
   const customerId = localStorage.getItem('user_id');
@@ -31,7 +34,9 @@ const OrderReview = (props) => {
       )}
       <p>Total $ {cart.total}</p>
       <button onClick={props.history.goBack}>Cancel</button>
-      <button>Confirm</button>
+      {/* <button>Confirm</button> */}
+      {/* need to get price state */}
+      <StripeCheckoutButton  price='10' customerId={customerId} />  
       </div>
     </>
   )

@@ -1,6 +1,7 @@
 .banner_wrapper {
-  width: 75%;
+  width: 100%;
   margin: 6rem auto;
+  border: 2px solid greenyellow;
   text-align: center;
   position: relative;
   /*  @include xl {
@@ -14,21 +15,28 @@
   } */
 }
 
-.banner_wrapper .banner_text_btns {
+.inner_banner_container {
   width: 85%;
+  margin: 0 auto;
+  border: hotpink 2px solid;
+}
+
+.inner_banner_container .banner_text_btns {
+  border: blue solid 2px;
   margin: 0 auto;
   margin-bottom: 4vh;
 }
 
-.banner_wrapper .banner_text_btns .vendor_header_name {
+.inner_banner_container .banner_text_btns .vendor_header_name {
   position: relative;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  border: lightcoral 2px solid;
   text-align: left;
 }
 
-.banner_wrapper .banner_text_btns .vendor_header_name .business_name_text {
+.inner_banner_container .banner_text_btns .vendor_header_name .business_name_text {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -44,13 +52,13 @@
   color: #2b3335;
 }
 
-.banner_wrapper .banner_text_btns .vendor_header_name .business_name_text:hover {
+.inner_banner_container .banner_text_btns .vendor_header_name .business_name_text:hover {
   border-radius: 10px;
   -webkit-box-shadow: 0px 0px 12px 4px lightblue;
   box-shadow: 0px 0px 12px 4px lightblue;
 }
 
-.banner_wrapper .banner_text_btns .vendor_header_name .business_name_input {
+.inner_banner_container .banner_text_btns .vendor_header_name .business_name_input {
   border-radius: 10px;
   border: 1px solid rgba(43, 51, 53, 0.5);
   width: -webkit-fit-content;
@@ -64,7 +72,7 @@
   box-shadow: 0px 0px 12px 4px lightblue;
 }
 
-.banner_wrapper .banner_text_btns .vendor_header_name .edit_guides {
+.inner_banner_container .banner_text_btns .vendor_header_name .edit_guides {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -72,18 +80,18 @@
   cursor: pointer;
 }
 
-.banner_wrapper .banner_text_btns .vendor_header_name .edit_guides:hover {
+.inner_banner_container .banner_text_btns .vendor_header_name .edit_guides:hover {
   color: blue;
 }
 
-.banner_wrapper .vendor_banner_image_container {
+.inner_banner_container .vendor_banner_image_container {
   position: relative;
-  width: 85%;
+  border: magenta 2px solid;
   margin: 0 auto;
   margin-bottom: 50px;
 }
 
-.banner_wrapper .vendor_banner_image_container .business_name_cust {
+.inner_banner_container .vendor_banner_image_container .business_name_cust {
   width: 20vw;
   height: 5vh;
   min-width: 200px;
@@ -98,16 +106,16 @@
   color: #2b3335;
 }
 
-.banner_wrapper .vendor_banner_image_container .vendor_banner_image {
+.inner_banner_container .vendor_banner_image_container .vendor_banner_image {
   width: 100%;
 }
 
-.banner_wrapper .vendor_banner_image_container .vendor_banner_upload {
+.inner_banner_container .vendor_banner_image_container .vendor_banner_upload {
   position: absolute;
   right: 0;
 }
 
-.vendor_banner_upload {
+.inner_banner_container .vendor_banner_upload {
   display: inline-block;
   position: absolute;
   width: -webkit-fit-content;
@@ -119,7 +127,7 @@
   right: 15%;
 }
 
-.vendor_banner_upload #upload {
+.inner_banner_container .vendor_banner_upload #upload {
   color: #696e6f;
   cursor: pointer;
   font-size: 2rem;

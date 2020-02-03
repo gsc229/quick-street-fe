@@ -1,9 +1,131 @@
+@import '../mixins.scss';
+@mixin profile_padding {
+  padding-top: 6.7rem;
+  padding-left: 18.9rem;
+  padding-right: 18.9rem;
+  padding-bottom: 10.4rem;
+}
+
+// ***** PRODUCTS STYLING **** //
+.products_wrapper {
+  @include xl {
+    background-color: $cotton-candy;
+  }
+  border: purple 2px solid;
+}
+
+.products_inner_container {
+  border: 2px solid greenyellow;
+  width: 85%;
+  margin: 0 auto;
+  @include xl {
+    @include profile_padding();
+    margin: 0 auto;
+    width: 144rem;
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 3.3rem;
+    }
+  }
+}
+
+.vendor_product_list_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.products_card_wrapper {
+  @include xl {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .products_card {
+      width: 14.6rem;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+      .image {
+        cursor: pointer;
+
+        width: 14.6rem;
+        height: 12.2rem;
+        object-fit: cover;
+        border-radius: 0.3rem;
+      }
+      .name {
+        font-size: 1.4rem;
+        margin-top: 1.4rem;
+      }
+      .price {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
+
+// ***** BULLETIN CONTAINER ***** //
+.bulletin_container {
+  @include xl {
+  }
+}
+.bulletin_header {
+  @include xl {
+    margin: 0 auto;
+    width: 144rem;
+    padding-top: 9.8rem;
+    padding-left: 18.5rem;
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 4.9rem;
+    }
+  }
+}
+.bulletin_wrapper {
+  @include xl {
+    @include profile_padding();
+    padding-top: 0rem;
+    padding-left: 19.5rem;
+    margin: 0 auto;
+    width: 126rem;
+    .bulletin_posts {
+      p {
+        font-size: 1.8rem;
+        margin-left: 16rem;
+        margin-top: 7.8rem;
+        margin-bottom: 7.8rem;
+      }
+    }
+    .line {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      p {
+        font-size: 1.8rem;
+        margin-left: 0rem;
+        margin-top: 0rem;
+        margin-bottom: 0rem;
+      }
+      hr {
+        width: 86%;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        line-height: 0.1em;
+      }
+    }
+  }
+}
+
 .vendor_product_list_container {
-  //border: 5px solid orangered;
+  border: 5px solid orangered;
   // height: 745px;
   padding: 5% 13% 15% 13%;
   margin: 0;
-
+  width: 85%;
+  margin: 0 auto;
   .vendor_product_list_title {
     padding-bottom: 2%;
     font-size: 24px;
@@ -11,7 +133,7 @@
   }
 
   .vendor_product_list_wrapper {
-    //border: 5px solid orangered;
+    border: 5px solid orangered;
     display: flex;
     flex-wrap: wrap;
     justify-content: left;

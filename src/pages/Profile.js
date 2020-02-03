@@ -118,71 +118,75 @@ const Profile = props => {
 	return (
 		<div className={profile.profile_container}>
 			<Nav {...vendorInfo} />
+
 			<div className={banner.banner_wrapper}>
-				<div className={banner.banner_text_btns}>
-					<div className={banner.vendor_header_name}>
-						{editingName ? // <<<<<<<<<< turnary ?
-							<>
-								<input className={banner.business_name_input}
-									onChange={e => {
-										if (editBusinessName) {
-											setVendorInfo({
-												...vendorInfo,
-												business_name: e.target.value
-											});
-										}
-									}}
-									value={vendorInfo.business_name}
 
-								/>
-								<div
-									className={banner.edit_guides}
-									onClick={() => {
-										setEditingName(false)
-										console.log("CLICKED")
-									}} >
-									<p className={`${banner.save_changes}`} ><i className="fa fa-save"></i>&nbsp; save</p>
-								</div>
-							</>
-							: //<<<<<<< TURNARY input name or p tag
-							<h1 onClick={() => setEditingName(true)} className={banner.business_name_text}>{vendorInfo.business_name}</h1>}
+				<div className={banner.inner_banner_container} >
+					<div className={banner.banner_text_btns}>
+						<div className={banner.vendor_header_name}>
+							{editingName ? // <<<<<<<<<< turnary ?
+								<>
+									<input className={banner.business_name_input}
+										onChange={e => {
+											if (editBusinessName) {
+												setVendorInfo({
+													...vendorInfo,
+													business_name: e.target.value
+												});
+											}
+										}}
+										value={vendorInfo.business_name}
+
+									/>
+									<div
+										className={banner.edit_guides}
+										onClick={() => {
+											setEditingName(false)
+											console.log("CLICKED")
+										}} >
+										<p className={`${banner.save_changes}`} ><i className="fa fa-save"></i>&nbsp; save</p>
+									</div>
+								</>
+								: //<<<<<<< TURNARY input name or p tag
+								<h1 onClick={() => setEditingName(true)} className={banner.business_name_text}>{vendorInfo.business_name}</h1>}
+						</div>
 					</div>
-				</div>
 
-				<div className={banner.vendor_banner_image_container}>
-					{vendorInfo.vendor_banner !== `no-photo.jpg` ? (
-						<CloudinaryContext cloudName='quickstlabs'>
-							<Image
-								className={banner.vendor_banner_image}
-								publicId={vendorInfo.vendor_banner}
-							>
-								<Transformation
-									gravity='center'
-									height='355'
-									width='1062'
-									crop='fill'
+					<div className={banner.vendor_banner_image_container}>
+						{vendorInfo.vendor_banner !== `no-photo.jpg` ? (
+							<CloudinaryContext cloudName='quickstlabs'>
+								<Image
+									className={banner.vendor_banner_image}
+									publicId={vendorInfo.vendor_banner}
+								>
+									<Transformation
+										gravity='center'
+										height='355'
+										width='1062'
+										crop='fill'
+									/>
+								</Image>
+							</CloudinaryContext>
+						) : (
+								<img
+									className='vendor_banner_image'
+									src={Placeholder}
+									alt='vendor header'
 								/>
-							</Image>
-						</CloudinaryContext>
-					) : (
-							<img
-								className='vendor_banner_image'
-								src={Placeholder}
-								alt='vendor header'
-							/>
-						)}
+							)}
 
-					<BannerUploader
-						vendorId={vendorId}
-						vendorInfo={vendorInfo}
-						setBannerInfo={setBannerInfo}
-						bannerInfo={bannerInfo}
-					/>
+						<BannerUploader
+							vendorId={vendorId}
+							vendorInfo={vendorInfo}
+							setBannerInfo={setBannerInfo}
+							bannerInfo={bannerInfo}
+						/>
 
-				</div>
-			</div>
+					</div>
+				</div>{/* Inner Banner Container */}
+			</div>{/* END BANNER WRAPPER */}
 
-			<div>
+			<div className={profile.ab_vp_bul_container}>
 				<About
 					vendorInfo={vendorInfo}
 					editAbout={editAbout}
@@ -199,7 +203,9 @@ const Profile = props => {
 				/>
 				<Bulletin vendorId={vendorId} />
 			</div>
-		</div>
+
+
+		</div>//Profile Container
 	);
 };
 

@@ -7,9 +7,9 @@
 }
 
 .banner_wrapper {
-  width: 75%;
+  width: 100%;
   margin: 6rem auto;
-  //border: 2px solid greenyellow;
+  border: 2px solid greenyellow;
   text-align: center;
   position: relative;
   /*  @include xl {
@@ -21,17 +21,21 @@
       margin: 10px;
     }
   } */
+}
 
+.inner_banner_container {
+  width: 85%;
+  margin: 0 auto;
+  border: hotpink 2px solid;
   // .banner_text_btns -> .vendor_header_name -> (business_name_input & business_name_text)
   .banner_text_btns {
-    width: 85%;
-    //border: blue solid 2px;
+    border: blue solid 2px;
     margin: 0 auto;
     margin-bottom: 4vh;
     .vendor_header_name {
       position: relative;
       width: fit-content;
-      //border: lightcoral 2px solid;
+      border: lightcoral 2px solid;
       text-align: left;
       .business_name_text {
         width: fit-content;
@@ -82,8 +86,7 @@
   // .vendor_banner_image_container -> .vendor_banner_upload
   .vendor_banner_image_container {
     position: relative;
-    //border: magenta 2px solid;
-    width: 85%;
+    border: magenta 2px solid;
     margin: 0 auto;
     margin-bottom: 50px;
     //customer className
@@ -105,27 +108,26 @@
     .vendor_banner_image {
       width: 100%;
     }
-
     .vendor_banner_upload {
       //border: lightseagreen 2px solid;
       position: absolute;
       right: 0;
     }
   }
-}
 
-.vendor_banner_upload {
-  //background-color: white;
-  display: inline-block;
-  position: absolute;
-  width: fit-content;
-  cursor: pointer;
-  align-self: flex-end;
-  right: 15%;
-  //bottom: 0;
-  #upload {
-    color: #696e6f;
+  .vendor_banner_upload {
+    //background-color: white;
+    display: inline-block;
+    position: absolute;
+    width: fit-content;
     cursor: pointer;
-    font-size: 2rem;
+    align-self: flex-end;
+    right: 15%;
+    //bottom: 0;
+    #upload {
+      color: #696e6f;
+      cursor: pointer;
+      font-size: 2rem;
+    }
   }
 }

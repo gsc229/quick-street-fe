@@ -52,11 +52,11 @@ const Browse = (props) => {
 
 	const getSearchResults = (zip) => {
 		const queryString = query.join('&');
-		console.log(queryString);
+		// console.log(queryString);
 		axiosWithAuth()
 			.get(`/vendors/radius/${zip}/5/?${queryString}`)
 			.then((response) => {
-				console.log(response);
+				// console.log(response);
 				setVendors({
 					...vendors,
 					count: response.data.count,

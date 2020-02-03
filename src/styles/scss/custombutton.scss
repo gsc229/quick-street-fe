@@ -87,7 +87,7 @@
 .red-border {
 	cursor: pointer;
 	margin-bottom: 2rem;
-	@include button-bg($primary-color);
+	@include button-bg(#fff);
 	@include phone {
 		width: 90vw;
 		color: $red;

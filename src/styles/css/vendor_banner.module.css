@@ -83,6 +83,21 @@
   margin-bottom: 50px;
 }
 
+.banner_wrapper .vendor_banner_image_container .business_name_cust {
+  width: 20vw;
+  height: 5vh;
+  min-width: 200px;
+  padding: 10px;
+  vertical-align: middle;
+  text-align: left;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2.2vw;
+  line-height: 28px;
+  color: #2b3335;
+}
+
 .banner_wrapper .vendor_banner_image_container .vendor_banner_image {
   width: 100%;
 }

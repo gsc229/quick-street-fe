@@ -29,7 +29,9 @@
 .about_container {
   background-color: white;
   height: fit-content;
+  border: green 2px solid;
   .about_wrapper {
+    border: magenta 2px solid;
     //background-color: rgba($color: #80ff80, $alpha: 0.5);
     height: 100%;
     label {

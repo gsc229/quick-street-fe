@@ -34,9 +34,9 @@ const ViewAboutVendor = (props) => {
 			<div className={profile.banner_container}>
 				<div className={banner.banner_wrapper}>
 					<div className={banner.vendor_banner_image_container}>
-						<h1>{vendor.business_name}</h1>
+						<h1 className={banner.business_name_cust} >{vendor.business_name}</h1>
 						<CloudinaryContext cloudName="quickstlabs">
-							<Image j
+							<Image
 								className={banner.vendor_banner_image}
 								publicId={vendor.vendor_banner}>
 								<Transformation gravity="center" height="318" width="1062" crop="fill" />

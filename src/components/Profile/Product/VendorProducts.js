@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 // styling
+import profile from '../../../styles/scss/vendor/a_vendors_profile.module.scss';
 import v_products from '../../../styles/scss/vendor/a_vendors_products.module.scss';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 
@@ -41,15 +42,17 @@ const VendorProducts = ({ products, vendorId, reloadProducts, setReloadProducts 
 	}
 
 	return (
-		<div className={v_products.products_wrapper}>
-			<div className={v_products.products_inner_container}>
+		<div className={`${profile.wrapper} ${v_products.products_wrapper}`}>
+			<div className={`${profile.inner_container} ${v_products.products_inner_container}`}>
 				{editingProd && <EditProduct
 					setEditingProd={setEditingProd}
 					product_id={editingProdId}
 					reloadProducts={reloadProducts}
 					setReloadProducts={setReloadProducts}
 				/>}
-				<header className={v_products.vendor_product_list_title}>Products</header>
+				<header className={v_products.vendor_product_list_title}>
+					<h2>Products</h2>
+				</header>
 
 				<div className={v_products.vendor_product_list_wrapper}>
 					<button className="add_product_btn" onClick={createNewProduct}>

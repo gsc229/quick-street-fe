@@ -1,20 +1,10 @@
-@import '../mixins.scss';
-@mixin profile_padding {
-  padding-top: 6.7rem;
-  padding-left: 18.9rem;
-  padding-right: 18.9rem;
-  padding-bottom: 10.4rem;
-}
-.container {
-  @include xl {
-    margin: 0 auto;
-  }
-}
-
 .profile_container {
-  margin: 0 auto;
-  .profile_inner_container {
+  .wrapper {
+    width: 100%;
+    margin: 100px auto;
+  }
+  .inner_container {
     width: 65%;
-    margin: 0 auto;
+    margin: auto;
   }
 }

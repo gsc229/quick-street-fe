@@ -11,14 +11,13 @@
   @include xl {
     background-color: $cotton-candy;
   }
-  border: purple 2px solid;
+  //border: purple 2px solid;
 }
 
 .products_inner_container {
-  border: 2px solid greenyellow;
-  width: 85%;
-  margin: 0 auto;
-  @include xl {
+  //border: 2px solid greenyellow;
+
+  /*  @include xl {
     @include profile_padding();
     margin: 0 auto;
     width: 144rem;
@@ -26,6 +25,12 @@
       font-size: 2.4rem;
       margin-bottom: 3.3rem;
     }
+  } */
+  h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    //border: 2px solid blue;
+    margin-bottom: 20px;
   }
 }
 

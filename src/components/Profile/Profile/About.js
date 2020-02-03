@@ -5,6 +5,7 @@ import Map from '../../shared/Map';
 import { pencil_light, pencil_regular, phone_alt_light, envelope_light, map_pin_place, map_marker_alt_light } from '../../../assets/svgs'
 
 // styling
+import profile from '../../../styles/scss/vendor/a_vendors_profile.module.scss';
 import about from '../../../styles/scss/vendor/a_vendors_about.module.scss';
 
 const About = ({ editAbout, vendorInfo, info, setInfo, editProfile, saveProfile, setVendorInfo }) => {
@@ -33,8 +34,8 @@ const About = ({ editAbout, vendorInfo, info, setInfo, editProfile, saveProfile,
 
 	// console.log(info);
 	return (
-		<div className={about.about_wrapper}>
-			<div className={about.about_inner_container}>
+		<div className={`${profile.wrapper} ${about.about_wrapper}`}>
+			<div className={`${profile.inner_container} ${about.about_inner_container}`}>
 				<div className={about.column_left}>
 
 					{/* ABOUT US  */}

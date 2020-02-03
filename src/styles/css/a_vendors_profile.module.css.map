@@ -1,10 +1,8 @@
 {
     "version": 3,
-    "mappings": "AC6BC,MAAM,EAAE,SAAS,EAAE,MAAM;EDtB1B,AAAA,UAAU,CAAC;IAEP,MAAM,EAAE,MAAM;GAEjB;;;AAGD,AAAA,kBAAkB,CAAC;EACjB,MAAM,EAAE,MAAM;CAKf;;AAND,AAEE,kBAFgB,CAEhB,wBAAwB,CAAC;EACvB,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,MAAM;CACf",
+    "mappings": "AAAA,AACE,kBADgB,CAChB,QAAQ,CAAC;EACP,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,UAAU;CACnB;;AAJH,AAKE,kBALgB,CAKhB,gBAAgB,CAAC;EACf,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,IAAI;CACb",
     "sources": [
-        "../scss/vendor/a_vendors_profile.module.scss",
-        "../scss/mixins.scss",
-        "../scss/breakpoints.scss"
+        "../scss/vendor/a_vendors_profile.module.scss"
     ],
     "names": [],
     "file": "a_vendors_profile.module.css"

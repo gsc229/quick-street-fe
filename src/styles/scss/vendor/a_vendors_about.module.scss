@@ -8,15 +8,12 @@
 .about_wrapper {
   height: fit-content;
   background: rgba(225, 246, 250, 0.45);
-  border: green 2px solid;
-  width: 100%;
+  //border: green 2px solid;
 }
 
 .about_inner_container {
-  border: magenta 2px solid;
+  //border: magenta 2px solid;
   display: flex;
-  width: 85%;
-  margin: 0 auto;
   height: 100%;
   font-size: 1.5rem;
   h2 {
@@ -93,7 +90,7 @@
 .column_left {
   width: 50%;
   margin: 0 auto;
-  border: mediumblue 2px solid;
+  //border: mediumblue 2px solid;
   @media only screen and (max-width: 800px) {
     width: 100%;
     margin: auto;
@@ -104,14 +101,13 @@
 .column_right {
   width: 50%;
   margin: 0 auto;
-  border: 2px solid purple;
+  //border: 2px solid purple;
   @media only screen and (max-width: 800px) {
     width: 100%;
     margin: auto;
     font-size: 2vw;
     padding: 10px;
   }
-
   .about_info {
     width: 60%;
   }

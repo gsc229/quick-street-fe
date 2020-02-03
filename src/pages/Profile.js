@@ -118,10 +118,9 @@ const Profile = props => {
 	return (
 		<div className={profile.profile_container}>
 			<Nav {...vendorInfo} />
+			<div className={`${profile.wrapper} ${banner.banner_wrapper}`}>
 
-			<div className={banner.banner_wrapper}>
-
-				<div className={banner.inner_banner_container} >
+				<div className={`${profile.inner_container} ${banner.inner_banner_container}`} >
 					<div className={banner.banner_text_btns}>
 						<div className={banner.vendor_header_name}>
 							{editingName ? // <<<<<<<<<< turnary ?
@@ -161,8 +160,8 @@ const Profile = props => {
 								>
 									<Transformation
 										gravity='center'
-										height='355'
-										width='1062'
+										height='500'
+										width='1800'
 										crop='fill'
 									/>
 								</Image>
@@ -186,23 +185,23 @@ const Profile = props => {
 				</div>{/* Inner Banner Container */}
 			</div>{/* END BANNER WRAPPER */}
 
-			<div className={profile.ab_vp_bul_container}>
-				<About
-					vendorInfo={vendorInfo}
-					editAbout={editAbout}
-					editProfile={editProfile}
-					saveProfile={saveProfile}
-					setVendorInfo={setVendorInfo}
-				/>
-				<VendorProducts
-					setReloadProducts={setReloadProducts}
-					reloadProducts={reloadProducts}
-					reloadProducts={reloadProducts}
-					products={products}
-					vendorId={vendorInfo._id}
-				/>
-				<Bulletin vendorId={vendorId} />
-			</div>
+
+			<About
+				vendorInfo={vendorInfo}
+				editAbout={editAbout}
+				editProfile={editProfile}
+				saveProfile={saveProfile}
+				setVendorInfo={setVendorInfo}
+			/>
+			<VendorProducts
+				setReloadProducts={setReloadProducts}
+				reloadProducts={reloadProducts}
+				reloadProducts={reloadProducts}
+				products={products}
+				vendorId={vendorInfo._id}
+			/>
+			<Bulletin vendorId={vendorId} />
+
 
 
 		</div>//Profile Container

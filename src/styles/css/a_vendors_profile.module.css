@@ -1,15 +1,10 @@
-@media (min-width: 1440px) {
-  .container {
-    margin: 0 auto;
-  }
+.profile_container .wrapper {
+  width: 100%;
+  margin: 100px auto;
 }
 
-.profile_container {
-  margin: 0 auto;
-}
-
-.profile_container .profile_inner_container {
+.profile_container .inner_container {
   width: 65%;
-  margin: 0 auto;
+  margin: auto;
 }
 /*# sourceMappingURL=a_vendors_profile.module.css.map */

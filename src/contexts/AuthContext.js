@@ -16,6 +16,36 @@ const authReducer = (state, action) => {
 	}
 };
 
+
+const checkIfCart = (customerId) => {
+	console.log('checkIfCart function is being called');
+	axiosWithAuth()
+		.get(`/customers/${customerId}/cart`)
+		.then((response) => {
+			// console.log('Response when checking if a cart exists', response);
+			window.location.href='browse';
+		})
+		.catch((err) => {
+			if (err.response.status === 404) {
+				createCart(customerId);
+			}
+			console.log(err.response);
+		});
+};
+
+const createCart = (customerId) => {
+	console.log('createCart function is being called');
+	axiosWithAuth()
+		.post(`/customers/${customerId}/cart`)
+		.then((response) => {
+			// console.log('Response after creating a cart', response);
+			window.location.href='browse';
+		})
+		.catch((err) => {
+			console.log(err.response);
+		});
+};
+
 const signup = (dispatch) => async ({
 	email,
 	password,
@@ -41,7 +71,7 @@ const signup = (dispatch) => async ({
 		localStorage.setItem('user_id', response.data.id);
 		dispatch({ type: 'signup', payload: response.data.token });
 		if (response.status === 200) {
-			window.location.href = `/profile/${response.data.id}`;
+				window.location.href=`/profile/${response.data.id}`
 		}
 	} catch (error) {
 		dispatch({
@@ -60,11 +90,11 @@ const signin = (dispatch) => async ({ email, password }) => {
 		console.log(response);
 		localStorage.setItem('token', response.data.token);
 		localStorage.setItem('user_id', response.data.id);
-		localStorage.setItem('isVendor', response.data.isVendor);
-		if ((response.status === 200) & response.data.isVendor) {
-			window.location.href = `profile/${response.data.id}`;
+		if (response.status === 200 & response.data.isVendor) {
+			window.location.href=`profile/${response.data.id}`
 		} else {
-			window.location.href = 'browse';
+			checkIfCart(response.data.id);
+			// window.location.href='browse'
 		}
 	} catch (error) {
 		console.log(error.response);

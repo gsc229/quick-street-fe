@@ -36,7 +36,7 @@ const ViewVendorProducts = (props) => {
 			<div className={profile.products_wrapper}>
 				<h1>Products</h1>
 				<div className={profile.products_card_wrapper}>
-					{vendorProducts.products.map((product) => <Product product={product} key={product._id} />)}
+					{vendorProducts.products.map((product) => <Product product={product} key={product._id} vendorId={props.vendorId} />)}
 					{vendorProducts.count === 0 && (
 						<p className="no_products_content">There are no products to show right now.</p>
 					)}

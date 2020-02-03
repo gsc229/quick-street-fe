@@ -3,11 +3,16 @@ import React, { useEffect, useContext } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 import { OrderReviewItem } from '../components/index';
 import { Context as CartContext } from '../contexts/TestCartContext';
+
+import {Nav} from '../components/index';
+import StripeCheckoutButton from './StripeCheckoutButton';
+
+// styles
 import review from '../styles/scss/review.module.scss';
-import { Nav } from '../components/index';
 
 // components
 import { CustomButton } from '../components/index';
+
 const OrderReview = (props) => {
 	const customerId = localStorage.getItem('user_id');
 	const { state, getCartItems } = useContext(CartContext);
@@ -23,11 +28,10 @@ const OrderReview = (props) => {
 			<div className={review.navbar}>
 				<Nav />
 			</div>
-
 			<div className={review.container}>
 				<h1>Reviewing My Cart</h1>
 				<div className={review.wrapper}>
-					<div className={review.card_wrapper}>
+				
 						{cart &&
 							cart.items &&
 							cart.items.map((product) => <OrderReviewItem product={product} key={product.item._id} />)}
@@ -38,14 +42,11 @@ const OrderReview = (props) => {
 							<p>Grand Total </p>
 							<h2>${cart.total}</h2>
 						</div>
-
 						<CustomButton styleClass="green-border" onClick={props.history.goBack}>
 							Cancel
 						</CustomButton>
-						<CustomButton styleClass="green-full">Confirm</CustomButton>
-					</div>
-				</div>
-			</div>
+      					<StripeCheckoutButton  price='10' customerId={customerId} />  
+							</div></div>
 		</React.Fragment>
 	);
 };

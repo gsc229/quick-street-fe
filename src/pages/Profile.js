@@ -135,12 +135,13 @@ const Profile = props => {
 									value={vendorInfo.business_name}
 
 								/>
-								<div onClick={() => {
-									setEditingName(false)
-									console.log("CLICKED")
-								}} className={banner.edit_guides}>
-									{editingName &&
-										<p className={`${banner.save_changes}`} ><i className="fa fa-save"></i>&nbsp; save</p>}
+								<div
+									className={banner.edit_guides}
+									onClick={() => {
+										setEditingName(false)
+										console.log("CLICKED")
+									}} >
+									<p className={`${banner.save_changes}`} ><i className="fa fa-save"></i>&nbsp; save</p>
 								</div>
 							</>
 							: //<<<<<<< TURNARY input name or p tag

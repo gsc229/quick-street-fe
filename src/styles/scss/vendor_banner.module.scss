@@ -9,7 +9,7 @@
 .banner_wrapper {
   width: 75%;
   margin: 6rem auto;
-  border: 2px solid greenyellow;
+  //border: 2px solid greenyellow;
   text-align: center;
   position: relative;
   /*  @include xl {
@@ -22,15 +22,16 @@
     }
   } */
 
-  // .banner_text_btn -> .vendor_header_name -> business_name_input & business_name_text
+  // .banner_text_btns -> .vendor_header_name -> (business_name_input & business_name_text)
   .banner_text_btns {
     width: 85%;
-    border: indigo solid 2px;
+    //border: blue solid 2px;
     margin: 0 auto;
     margin-bottom: 4vh;
     .vendor_header_name {
+      position: relative;
       width: fit-content;
-      border: lightcoral 2px solid;
+      //border: lightcoral 2px solid;
       text-align: left;
       .business_name_text {
         width: fit-content;
@@ -54,8 +55,8 @@
       .business_name_input {
         border-radius: 10px;
         border: 1px solid rgba(43, 51, 53, 0.5);
-        width: 214px;
-        margin: 10px;
+        width: fit-content;
+        margin: 5px;
         font-size: 2rem;
         font-weight: 600;
         padding: 1% 0 1% 3%;
@@ -63,9 +64,13 @@
         -moz-box-shadow: 0px 0px 12px 4px lightblue;
         box-shadow: 0px 0px 12px 4px lightblue;
       }
-      .save_changes {
+
+      .edit_guides {
+        //border: cyan 2px solid;
+        width: fit-content;
+        margin-left: 10px;
+
         cursor: pointer;
-        font-size: 2rem;
         &:hover {
           color: blue;
         }
@@ -77,19 +82,18 @@
   // .vendor_banner_image_container -> .vendor_banner_upload
   .vendor_banner_image_container {
     position: relative;
-    border: magenta 2px solid;
+    //border: magenta 2px solid;
     width: 85%;
     margin: 0 auto;
+    margin-bottom: 50px;
     .vendor_banner_image {
       width: 100%;
     }
 
     .vendor_banner_upload {
-      border: lightseagreen 2px solid;
+      //border: lightseagreen 2px solid;
       position: absolute;
       right: 0;
-      .icon {
-      }
     }
   }
 }

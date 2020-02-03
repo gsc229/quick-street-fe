@@ -7,6 +7,9 @@ import { Context as CartContext } from '../contexts/TestCartContext';
 import {Nav} from '../components/index';
 import StripeCheckoutButton from './StripeCheckoutButton';
 
+// styles
+import review from '../styles/scss/review.module.scss';
+
 // components
 import { CustomButton } from '../components/index';
 
@@ -25,11 +28,10 @@ const OrderReview = (props) => {
 			<div className={review.navbar}>
 				<Nav />
 			</div>
-
 			<div className={review.container}>
 				<h1>Reviewing My Cart</h1>
 				<div className={review.wrapper}>
-					<div className={review.card_wrapper}>
+				
 						{cart &&
 							cart.items &&
 							cart.items.map((product) => <OrderReviewItem product={product} key={product.item._id} />)}
@@ -40,13 +42,11 @@ const OrderReview = (props) => {
 							<p>Grand Total </p>
 							<h2>${cart.total}</h2>
 						</div>
-<CustomButton styleClass="green-border" onClick={props.history.goBack}>
+						<CustomButton styleClass="green-border" onClick={props.history.goBack}>
 							Cancel
 						</CustomButton>
-      <StripeCheckoutButton  price='10' customerId={customerId} />  
-      </div>
-    </>
-  )
+      					<StripeCheckoutButton  price='10' customerId={customerId} />  
+							</div></div>
 		</React.Fragment>
 	);
 };

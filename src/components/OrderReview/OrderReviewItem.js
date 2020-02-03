@@ -44,6 +44,7 @@ const OrderReviewItem = ({ product }) => {
 
 	return (
 		<React.Fragment>
+				<div className={review.card_wrapper}>
 			<div className={review.image_wrapper}>
 				{product.item.product_image && (
 					<CloudinaryContext cloudName="quickstlabs">
@@ -72,6 +73,7 @@ const OrderReviewItem = ({ product }) => {
 						Remove Item
 					</CustomButton>
 				</div>
+			</div>
 			</div>
 		</React.Fragment>
 	);

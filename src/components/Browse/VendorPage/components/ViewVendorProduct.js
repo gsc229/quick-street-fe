@@ -45,14 +45,21 @@ const ViewVendorProduct = (props) => {
 
 	const handleEmptyCart = () => {
 		setMessageModal(false);
-		deleteCart({cartId: cart._id, customerId});
-		createCart(customerId);
-		addCartItem({
-			productId: props.product._id ,
-			price: props.product.price,
-			quantity: quantity,
-			customerId: customerId
-		});
+		deleteCart({cartId: cart._id, customerId})
+			.then(response => {
+				console.log('response in vendor product page after deleting a cart', response);
+			})
+			.catch(error => {
+				console.log(error.response);
+			})
+
+		// createCart(customerId);
+		// addCartItem({
+		// 	productId: props.product._id ,
+		// 	price: props.product.price,
+		// 	quantity: quantity,
+		// 	customerId: customerId
+		// });
 	};
 
 	useEffect(() => {

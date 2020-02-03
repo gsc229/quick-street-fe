@@ -7,6 +7,10 @@ const cartReducer = (state, action) => {
 			return { ...state, cart: action.payload };
 		case 'add_error': 
 			return { ...state, errorMessage: action.payload};
+		case 'createCart':
+			return { ...state, errorMessage: action.payload};
+		case 'deleteCart' :
+			return { ...state, errorMessage: action.payload};
 		default:
 			return state;
 	}
@@ -16,7 +20,7 @@ const createCart = (dispatch) => async (customerId) => {
 	try {
 		const response = await axiosWithAuth().post(`/customers/${customerId}/cart`);
 		console.log('Response after creating a cart', response);
-		dispatch({ type: 'getCartItems', payload: response.data.data });	
+		dispatch({ type: 'createCart', payload: response.data.data });	
 	} catch (error) {
 		console.log(error);
 		dispatch({
@@ -104,8 +108,15 @@ const deleteCart = (dispatch) => async ({
 	try {
 		const response = await axiosWithAuth().delete(`/cart/${cartId}`);
 		console.log('Response after deleting cart for a customer', response);
-		dispatch({ type: 'getCartItems', payload: response.data.data });
-		// createCart(customerId);
+		dispatch({ type: 'deleteCart', payload: response.data.data });
+		if (response.status === 200) {
+			console.log('delete cart successful');
+			await createCart(customerId);
+			// dispatch({ type: 'createCart', payload: customerId});
+		}
+		else {
+			console.log('this did nt work')
+		}
 	} catch {
 		dispatch({
 			type: 'add_error',

@@ -12,66 +12,13 @@
 }
 
 // ***** BANNER STYLING ******
-.banner_container {
+.profile_container {
   @include xl {
     background-color: $dry-ice;
+    z-index: 4;
   }
   p {
     font-size: 2rem;
-  }
-
-  .banner_wrapper {
-    @include xl {
-      @include profile_padding();
-      width: 144rem;
-      margin: 0 auto;
-      h1 {
-        font-size: 3.6rem;
-        margin: 10px;
-      }
-    }
-    .vendor_header_name {
-      width: fit-content;
-      margin: 20px 0;
-      .business_name_text {
-        width: fit-content;
-        min-width: 400px;
-        padding: 10px;
-        vertical-align: middle;
-        cursor: pointer;
-        font-family: Raleway;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 34px;
-        line-height: 28px;
-        color: #2b3335;
-        &:hover {
-          border-radius: 10px;
-          -webkit-box-shadow: 0px 0px 12px 4px lightblue;
-          -moz-box-shadow: 0px 0px 12px 4px lightblue;
-          box-shadow: 0px 0px 12px 4px lightblue;
-        }
-      }
-      .business_name_input {
-        border-radius: 10px;
-        border: 1px solid rgba(43, 51, 53, 0.5);
-        width: 214px;
-        margin: 10px;
-        font-size: 2rem;
-        font-weight: 600;
-        padding: 1% 0 1% 3%;
-        -webkit-box-shadow: 0px 0px 12px 4px lightblue;
-        -moz-box-shadow: 0px 0px 12px 4px lightblue;
-        box-shadow: 0px 0px 12px 4px lightblue;
-      }
-      .save_changes {
-        cursor: pointer;
-        font-size: 2rem;
-        &:hover {
-          color: blue;
-        }
-      }
-    }
   }
 }
 

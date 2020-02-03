@@ -9,7 +9,7 @@ import {
 import { Placeholder } from '../assets/images/index';
 //Styles
 import profile from '../styles/scss/profile.module.scss';
-
+import banner from '../styles/scss/vendor_banner.module.scss';
 //Font awesom
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSave, faPen } from '@fortawesome/free-solid-svg-icons';
@@ -70,10 +70,6 @@ const Profile = props => {
 
 	}, [vendorId, reloadProducts, setReloadProducts])
 
-
-
-
-
 	const editName = () => {
 		setEditBusinessName(!editBusinessName);
 	};
@@ -120,14 +116,14 @@ const Profile = props => {
 	};
 
 	return (
-		<div className={profile.banner_container}>
+		<div className={profile.profile_container}>
 			<Nav {...vendorInfo} />
-			<div className={profile.banner_wrapper}>
-				<div className={profile.banner_text_btns}>
-					<div className={profile.vendor_header_name}>
+			<div className={banner.banner_wrapper}>
+				<div className={banner.banner_text_btns}>
+					<div className={banner.vendor_header_name}>
 						{editingName ? // <<<<<<<<<< turnary ?
 							<>
-								<input className={profile.business_name_input}
+								<input className={banner.business_name_input}
 									onChange={e => {
 										if (editBusinessName) {
 											setVendorInfo({
@@ -142,21 +138,21 @@ const Profile = props => {
 								<div onClick={() => {
 									setEditingName(false)
 									console.log("CLICKED")
-								}} className={profile.edit_guides}>
+								}} className={banner.edit_guides}>
 									{editingName &&
-										<p className={`${profile.save_changes}`} ><i className="fa fa-save"></i>&nbsp; save</p>}
+										<p className={`${banner.save_changes}`} ><i className="fa fa-save"></i>&nbsp; save</p>}
 								</div>
 							</>
 							: //<<<<<<< TURNARY input name or p tag
-							<h1 onClick={() => setEditingName(true)} className={profile.business_name_text}>{vendorInfo.business_name}</h1>}
+							<h1 onClick={() => setEditingName(true)} className={banner.business_name_text}>{vendorInfo.business_name}</h1>}
 					</div>
 				</div>
 
-				<div className={profile.vendor_banner_image_container}>
+				<div className={banner.vendor_banner_image_container}>
 					{vendorInfo.vendor_banner !== `no-photo.jpg` ? (
 						<CloudinaryContext cloudName='quickstlabs'>
 							<Image
-								className={profile.vendor_banner_image}
+								className={banner.vendor_banner_image}
 								publicId={vendorInfo.vendor_banner}
 							>
 								<Transformation
@@ -174,7 +170,7 @@ const Profile = props => {
 								alt='vendor header'
 							/>
 						)}
-					<div className={profile.vendor_banner_upload}>
+					<div className={banner.vendor_banner_upload}>
 						<BannerUploader
 							vendorId={vendorId}
 							vendorInfo={vendorInfo}

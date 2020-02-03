@@ -170,14 +170,14 @@ const Profile = props => {
 								alt='vendor header'
 							/>
 						)}
-					<div className={banner.vendor_banner_upload}>
-						<BannerUploader
-							vendorId={vendorId}
-							vendorInfo={vendorInfo}
-							setBannerInfo={setBannerInfo}
-							bannerInfo={bannerInfo}
-						/>
-					</div>
+
+					<BannerUploader
+						vendorId={vendorId}
+						vendorInfo={vendorInfo}
+						setBannerInfo={setBannerInfo}
+						bannerInfo={bannerInfo}
+					/>
+
 				</div>
 			</div>
 

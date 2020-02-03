@@ -1,48 +1,58 @@
-@media (min-width: 1440px) {
-  .banner_wrapper {
-    padding-top: 6.7rem;
-    padding-left: 18.9rem;
-    padding-right: 18.9rem;
-    padding-bottom: 10.4rem;
+.banner_wrapper {
+  width: 75%;
+  margin: 6rem auto;
+  border: 2px solid greenyellow;
+  text-align: center;
+  position: relative;
+  /*  @include xl {
+    @include profile_padding();
     width: 144rem;
     margin: 0 auto;
-  }
-  .banner_wrapper h1 {
-    font-size: 3.6rem;
-    margin: 10px;
-  }
+    h1 {
+      font-size: 3.6rem;
+      margin: 10px;
+    }
+  } */
 }
 
-.banner_wrapper .vendor_header_name {
+.banner_wrapper .banner_text_btns {
+  width: 85%;
+  border: indigo solid 2px;
+  margin: 0 auto;
+  margin-bottom: 4vh;
+}
+
+.banner_wrapper .banner_text_btns .vendor_header_name {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  margin: 20px 0;
+  border: lightcoral 2px solid;
+  text-align: left;
 }
 
-.banner_wrapper .vendor_header_name .business_name_text {
+.banner_wrapper .banner_text_btns .vendor_header_name .business_name_text {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  min-width: 400px;
+  min-width: 200px;
   padding: 10px;
   vertical-align: middle;
   cursor: pointer;
   font-family: Raleway;
   font-style: normal;
   font-weight: 600;
-  font-size: 34px;
+  font-size: 2.2vw;
   line-height: 28px;
   color: #2b3335;
 }
 
-.banner_wrapper .vendor_header_name .business_name_text:hover {
+.banner_wrapper .banner_text_btns .vendor_header_name .business_name_text:hover {
   border-radius: 10px;
   -webkit-box-shadow: 0px 0px 12px 4px lightblue;
   box-shadow: 0px 0px 12px 4px lightblue;
 }
 
-.banner_wrapper .vendor_header_name .business_name_input {
+.banner_wrapper .banner_text_btns .vendor_header_name .business_name_input {
   border-radius: 10px;
   border: 1px solid rgba(43, 51, 53, 0.5);
   width: 214px;
@@ -54,13 +64,30 @@
   box-shadow: 0px 0px 12px 4px lightblue;
 }
 
-.banner_wrapper .vendor_header_name .save_changes {
+.banner_wrapper .banner_text_btns .vendor_header_name .save_changes {
   cursor: pointer;
   font-size: 2rem;
 }
 
-.banner_wrapper .vendor_header_name .save_changes:hover {
+.banner_wrapper .banner_text_btns .vendor_header_name .save_changes:hover {
   color: blue;
+}
+
+.banner_wrapper .vendor_banner_image_container {
+  position: relative;
+  border: magenta 2px solid;
+  width: 85%;
+  margin: 0 auto;
+}
+
+.banner_wrapper .vendor_banner_image_container .vendor_banner_image {
+  width: 100%;
+}
+
+.banner_wrapper .vendor_banner_image_container .vendor_banner_upload {
+  border: lightseagreen 2px solid;
+  position: absolute;
+  right: 0;
 }
 
 .vendor_banner_upload {

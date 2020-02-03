@@ -12,27 +12,26 @@
 }
 
 // ***** BANNER STYLING ******
-.banner_container {
+.profile_container {
   @include xl {
     background-color: $dry-ice;
+    z-index: 4;
+  }
+  p {
+    font-size: 2rem;
   }
 }
 
-.banner_wrapper {
-  @include xl {
-    @include profile_padding();
-    width: 144rem;
-    margin: 0 auto;
-    h1 {
-      font-size: 3.6rem;
-    }
-  }
-}
+// ***** ABOUT STYLING **** //
+// ***** ABOUT STYLING **** //
+// ***** ABOUT STYLING **** //
 // ***** ABOUT STYLING **** //
 .about_container {
   background-color: white;
   height: fit-content;
+  border: green 2px solid;
   .about_wrapper {
+    border: magenta 2px solid;
     //background-color: rgba($color: #80ff80, $alpha: 0.5);
     height: 100%;
     label {
@@ -148,6 +147,8 @@
     .saved_text_container {
       position: relative;
       width: fit-content;
+      min-width: 400px;
+
       p {
         //border: 2px solid black;
         width: fit-content;
@@ -176,6 +177,7 @@
       .saved_text_content {
         cursor: pointer;
         padding: 10px;
+        min-height: 40px;
         &:hover {
           border-radius: 10px;
           -webkit-box-shadow: 0px 0px 12px 4px lightblue;
@@ -193,7 +195,13 @@
     }
   }
 }
-
+// ***** PRODUCTS STYLING **** //
+// ***** PRODUCTS STYLING **** //
+// ***** PRODUCTS STYLING **** //
+// ***** PRODUCTS STYLING **** //
+// ***** PRODUCTS STYLING **** //
+// ***** PRODUCTS STYLING **** //
+// ***** PRODUCTS STYLING **** //
 // ***** PRODUCTS STYLING **** //
 .products_container {
   @include xl {

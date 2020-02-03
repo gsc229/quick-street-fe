@@ -13,3 +13,15 @@
 		}
 	}
 }
+.wrapper {
+	@include xl {
+		padding: 8rem 8rem 8rem 8rem;
+		background-color: red;
+	}
+}
+
+.payment_container {
+	@include xl {
+		background-color: blue;
+	}
+}

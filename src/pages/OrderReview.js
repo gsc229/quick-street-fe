@@ -45,7 +45,7 @@ const OrderReview = (props) => {
 						<CustomButton styleClass="green-border" onClick={props.history.goBack}>
 							Cancel
 						</CustomButton>
-      					<StripeCheckoutButton  price='10' customerId={customerId} />  
+      					<StripeCheckoutButton  price={cart.total} customerId={customerId} />  
 							</div></div>
 		</React.Fragment>
 	);

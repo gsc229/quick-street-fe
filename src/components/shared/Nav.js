@@ -25,7 +25,6 @@ import { Context as CartContext } from '../../contexts/TestCartContext';
 import Modal from './Modal';
 import ShoppingCartItems from './ShoppingCart/ShoppingCartItems';
 import Drawer from '@material-ui/core/Drawer';
-
 import { shopping_cart_light } from '../../assets/svgs/index';
 const useStyles = makeStyles(theme => ({
   avatar: {
@@ -34,7 +33,6 @@ const useStyles = makeStyles(theme => ({
   },
   numbder: {
     position: 'absolute'
-
   },
   grow: {
     flexGrow: 1
@@ -54,12 +52,10 @@ const useStyles = makeStyles(theme => ({
     borderRadius: theme.shape.borderRadius,
     backgroundColor: fade(theme.palette.common.white, 0.15),
     '&:hover': {
-
       backgroundColor: fade(theme.palette.common.white, 0.25)
     },
     marginRight: theme.spacing(2),
     marginLeft: 0,
-
     width: '100%',
     [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing(3),
@@ -68,21 +64,6 @@ const useStyles = makeStyles(theme => ({
   },
   searchIcon: {
     width: theme.spacing(7),
-    height: "100%",
-    position: "absolute",
-    pointerEvents: "none",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  inputRoot: {
-    color: "inherit"
-  },
-  inputInput: {
-    padding: theme.spacing(1, 1, 1, 7),
-    transition: theme.transitions.create("width"),
-    width: "100%",
-    [theme.breakpoints.up("md")]: {
     height: '100%',
     position: 'absolute',
     pointerEvents: 'none',
@@ -98,7 +79,6 @@ const useStyles = makeStyles(theme => ({
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('md')]: {
-
       width: 200
     }
   },
@@ -117,7 +97,6 @@ const useStyles = makeStyles(theme => ({
       display: 'none'
     }
   },
-
   list: {
     width: 300,
     backgroundColor: '#00B2ED',
@@ -127,8 +106,6 @@ const useStyles = makeStyles(theme => ({
     paddingBottom: 50,
     color: 'white'
   }
-}
-
 }));
 const Nav = () => {
   const { signout } = useContext(AuthContext);
@@ -158,7 +135,6 @@ const Nav = () => {
     ) {
       return;
     }
-
     setStateDrawer({ ...stateDrawer, [side]: open });
   };
   const token = localStorage.getItem('token');
@@ -167,27 +143,21 @@ const Nav = () => {
   console.log('HERE', { isVendor });
   console.log('our token', { token });
   console.log('cart', cart);
-
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
   const handleProfileMenuOpen = event => {
     setAnchorEl(event.currentTarget);
   };
-
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
   };
-
   const handleMenuClose = () => {
     setAnchorEl(null);
     handleMobileMenuClose();
   };
-
   const handleMobileMenuOpen = event => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
-
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu
@@ -207,7 +177,6 @@ const Nav = () => {
       </MenuItem>
     </Menu>
   );
-
   const sideList = side => (
     <div
       className={classes.list}
@@ -227,7 +196,6 @@ const Nav = () => {
       )}
     </div>
   );
-
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
     <React.Fragment>
@@ -250,7 +218,6 @@ const Nav = () => {
               <ShoppingCartIcon />
             </Badge>
           </IconButton>
-
           <Drawer
             anchor='right'
             open={stateDrawer.right}
@@ -265,7 +232,6 @@ const Nav = () => {
       </Menu>
     </React.Fragment>
   );
-
   return (
     <div className={classes.grow}>
       <AppBar
@@ -289,9 +255,7 @@ const Nav = () => {
           <Typography className={classes.title} variant='h6' noWrap>
             Market Avenue
           </Typography>
-
           <div className={classes.grow} />
-
           <div className={classes.sectionDesktop}>
             {!token && (
               <div className={classes.sectionDesktop}>
@@ -319,7 +283,6 @@ const Nav = () => {
                 </Link>
               </div>
             )}
-
             {isVendor === 'true' && (
               <MenuItem>
                 <IconButton
@@ -334,7 +297,6 @@ const Nav = () => {
                 </IconButton>
               </MenuItem>
             )}
-
             {isVendor === 'false' && (
               <MenuItem>
                 <IconButton
@@ -347,7 +309,6 @@ const Nav = () => {
                 >
                   <AccountCircle style={{ height: '30px', width: '30px' }} />
                 </IconButton>
-
                 <IconButton
                   onClick={toggleDrawer('right', true)}
                   aria-label='show items in car'
@@ -359,7 +320,6 @@ const Nav = () => {
                     />
                   </Badge>
                 </IconButton>
-
                 <Drawer
                   anchor='right'
                   open={stateDrawer.right}
@@ -369,20 +329,6 @@ const Nav = () => {
                 </Drawer>
               </MenuItem>
             )}
-
-       
-          <div className={classes.sectionMobile}>
-            <IconButton
-              aria-label='show more'
-              aria-controls={mobileMenuId}
-              aria-haspopup='true'
-              onClick={handleMobileMenuOpen}
-              color='inherit'
-
-            >
-              <MoreIcon />
-            </IconButton>
-
           </div>
         </Toolbar>
       </AppBar>
@@ -390,8 +336,7 @@ const Nav = () => {
       {renderMenu}
     </div>
   );
-}
-
-
-
+};
 export default Nav;
+
+

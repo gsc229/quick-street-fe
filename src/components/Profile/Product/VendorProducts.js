@@ -55,7 +55,7 @@ const VendorProducts = ({ products, vendorId, reloadProducts, setReloadProducts 
 				</header>
 
 				<div className={v_products.vendor_product_list_wrapper}>
-					<button className="add_product_btn" onClick={createNewProduct}>
+					<button className={v_products.add_product_btn} onClick={createNewProduct}>
 						<FontAwesomeIcon icon={faPlus} />
 						Add product <br />
 					</button>

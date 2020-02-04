@@ -1,14 +1,18 @@
-.vendor_bulletin_wrapper {
+.bulletin_wrapper {
   font-family: 'Raleway', sans-serif;
-  background-color: rgba(233, 187, 250, 0.15);
-  padding: 3% 13% 5%;
+  //border: red 2px solid;
+  background: rgba(233, 187, 250, 0.15);
+  padding-top: 70px;
   // color: #000000;
   margin-bottom: 10%;
 }
 
 .bulletin_inner_container {
-  //border: solid 2px greenyellow;
   .inner_bulletin_wrapper {
+    //border: solid 2px blue;
+    @media only screen and (max-width: 800px) {
+      width: 100%;
+    }
     width: 85%;
     margin: 0 auto;
     display: flex;

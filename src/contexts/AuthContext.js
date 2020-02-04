@@ -49,23 +49,23 @@ const createCart = (customerId) => {
 const signup = (dispatch) => async ({
 	email,
 	password,
-	role,
-	businessName,
-	phoneNumber,
+	businessName: business_name,
+    phoneNumber: phone,
 	streetAddress,
 	city,
-	zipcode
+	zipcode,
+	vendor
 }) => {
 	try {
 		const response = await axiosWithAuth().post('/auth/register', {
 			email,
 			password,
-			role,
-			businessName,
-			phoneNumber,
+			business_name,
+			phone,
 			streetAddress,
 			city,
-			zipcode
+			zipcode,
+			vendor
 		});
 		localStorage.setItem('token', response.data.token);
 		localStorage.setItem('user_id', response.data.id);

@@ -8,7 +8,8 @@ import {
   Menu,
   ShoppingCartItems,
   Modal,
-  Nav
+  Nav,
+  Footer
 } from '../components/index';
 
 // styles
@@ -16,11 +17,6 @@ import browse from '../styles/scss/browse.module.scss';
 
 const Browse = (props) => {
 	// console.log('The browse props are', props);
-
-	const customerId = localStorage.getItem('user_id');
-
-	const [ cart, setCart ] = useState({});
-	const [ cartModal, setCartModal ] = useState(false);
 
 	const [ zipcode, setZipcode ] = useState('');
 	const [ query, setQuery ] = useState([]);
@@ -86,11 +82,7 @@ const Browse = (props) => {
 	}, []);
 
 	return (
-		<div className={browse.container}>
-			<p onClick={() => setCartModal(true)}>Shopping Cart</p>
-			<Modal showModal={cartModal}>
-				<ShoppingCartItems setCartModal={setCartModal} />
-			</Modal>
+		<React.Fragment>
 			<div className={browse.temp_menu}>
 				<Nav />
 			</div>
@@ -233,7 +225,8 @@ const Browse = (props) => {
 					match={props.match}
 				/>
 			</div>
-		</div>
+			<Footer />
+		</React.Fragment>
 	);
 };
 export default Browse;

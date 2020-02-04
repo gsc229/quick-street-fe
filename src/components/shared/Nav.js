@@ -127,7 +127,7 @@ const useStyles = makeStyles(theme => ({
     paddingBottom: 50,
     color:'white'
   }
- 
+}
 }));
 const Nav = () => {
   const { signout } = useContext(AuthContext);

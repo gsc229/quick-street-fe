@@ -133,15 +133,7 @@ const Browse = (props) => {
 								/>
 								<label for="defaultCheck1">Breads</label>
 							</div>
-							<div>
-								<input
-									onChange={handleQueryChange}
-									name="baked goods"
-									type="checkbox"
-									value="vendor_category[in]=Baked goods"
-								/>
-								<label for="defaultCheck1">Baked Goods</label>
-							</div>
+
 							<div>
 								<input
 									onChange={handleQueryChange}
@@ -160,6 +152,16 @@ const Browse = (props) => {
 								/>
 								<label for="defaultCheck1">Spreads</label>
 							</div>
+
+							<div>
+								<input
+									onChange={handleQueryChange}
+									name="baked goods"
+									type="checkbox"
+									value="vendor_category[in]=Baked goods"
+								/>
+								<label for="defaultCheck1">Baked Goods</label>
+							</div>
 							<div>
 								<input
 									onChange={handleQueryChange}
@@ -175,25 +177,6 @@ const Browse = (props) => {
 					<div className={browse.filter_wrapper}>
 						<p>Filter by Diet Category</p>
 						<div className={browse.checkbox_container}>
-
-							<div>
-								<input
-									onChange={handleQueryChange}
-									name="gluten free"
-									type="checkbox"
-									value="diet_categories[in]=Gluten Free"
-								/>
-								<label for="defaultCheck1">Gluten Free</label>
-							</div>
-							<div>
-								<input
-									onChange={handleQueryChange}
-									name="vegetarian"
-									type="checkbox"
-									value="diet_categories[in]=Vegetarian"
-								/>
-								<label for="defaultCheck1">Vegetarian</label>
-							</div>
 
 							<div>
 								<input
@@ -221,6 +204,24 @@ const Browse = (props) => {
 									value="diet_categories[in]=Dairy Free"
 								/>
 								<label for="defaultCheck1">Dairy Free</label>
+							</div>
+							<div>
+								<input
+									onChange={handleQueryChange}
+									name="gluten free"
+									type="checkbox"
+									value="diet_categories[in]=Gluten Free"
+								/>
+								<label for="defaultCheck1">Gluten Free</label>
+							</div>
+							<div>
+								<input
+									onChange={handleQueryChange}
+									name="vegetarian"
+									type="checkbox"
+									value="diet_categories[in]=Vegetarian"
+								/>
+								<label for="defaultCheck1">Vegetarian</label>
 							</div>
 
 						</div>

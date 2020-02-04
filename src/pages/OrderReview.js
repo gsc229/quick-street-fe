@@ -47,7 +47,7 @@ const OrderReview = (props) => {
 
       					<StripeCheckoutButton  price={cart.total} customerId={customerId} />  
 							</div></div>
-
+</div></div>
 		</React.Fragment>
 	);
 };

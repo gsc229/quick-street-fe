@@ -18,9 +18,9 @@ const ViewVendorProduct = (props) => {
 	const [quantity, setQuantity] = useState('1');
 	const [showModal, setShowModal] = useState(false);
 	const [messageModal, setMessageModal] = useState(false);
-	
+
 	const customerId = localStorage.getItem('user_id');
-	
+
 	const handleChange = (event) => {
 		setQuantity(event.target.value);
 	}
@@ -31,21 +31,21 @@ const ViewVendorProduct = (props) => {
 
 	const handleAddToCart = () => {
 		showHideModal(false);
-		if(cart.items.length === 0 || cart.items[0].item.vendor === vendorId) {
+		if (cart.items.length === 0 || cart.items[0].item.vendor === vendorId) {
 			addCartItem({
-				productId: props.product._id ,
+				productId: props.product._id,
 				price: props.product.price,
 				quantity: quantity,
 				customerId: customerId
 			})
 		} else {
-			setMessageModal(true); 
-		}	
+			setMessageModal(true);
+		}
 	};
 
 	const handleEmptyCart = () => {
 		setMessageModal(false);
-		deleteCart({cartId: cart._id, customerId})
+		deleteCart({ cartId: cart._id, customerId })
 			.then(response => {
 				console.log('response in vendor product page after deleting a cart', response);
 			})
@@ -99,7 +99,7 @@ const ViewVendorProduct = (props) => {
 						<div className={modal.row}>
 							<div className={modal.tags}><ul>{props.product.diet.map((diet, index) => (
 								<div key={index}>
-								<li>{diet}</li>
+									<li>{diet}</li>
 								</div>
 							))}</ul></div>
 						</div>
@@ -133,12 +133,12 @@ const ViewVendorProduct = (props) => {
 				<div class={modal.overlay} id={modal.overlay}>
 				</div>
 			</Modal>
-			<Modal showModal={messageModal}>	
+			<Modal showModal={messageModal}>
 				<p>Cart not empty</p>
 				<p>Cart contains items from a different vendor. Empty the cart and add this item?</p>
 				<p onClick={() => setMessageModal(false)}>Cancel</p>
 				<p onClick={handleEmptyCart}>Empty Cart</p>
-			</Modal>					
+			</Modal>
 
 		</>
 	);

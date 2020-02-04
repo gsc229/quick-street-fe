@@ -18,4 +18,5 @@ test(`loads`, () => {
     </Router>
   );
   const { getByRole, findByText } = render(tree);
+  findByText(/welcome back/i);
 });

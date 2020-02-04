@@ -1,0 +1,185 @@
+.green-full {
+  cursor: pointer;
+  background: #21b787;
+  margin-bottom: 2rem;
+}
+
+.green-full:hover {
+  background: #1b946e;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.green-full:focus {
+  outline: none;
+}
+
+@media (min-width: 320px) {
+  .green-full {
+    width: 90vw;
+    color: white;
+    border-radius: 0.9rem;
+    height: 5rem;
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .green-full {
+    width: 87vw;
+    height: 6rem;
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .green-full {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .green-full {
+    width: 100%;
+    height: 6rem;
+    font-size: 2rem;
+  }
+}
+
+.green-border {
+  cursor: pointer;
+  margin-bottom: 2rem;
+  background: #fff;
+}
+
+.green-border:hover {
+  background: #ebebeb;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.green-border:focus {
+  outline: none;
+}
+
+@media (min-width: 320px) {
+  .green-border {
+    width: 90vw;
+    color: black;
+    border: 0.3rem solid #21b787;
+    border-radius: 0.9rem;
+    height: 5rem;
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .green-border {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .green-border {
+    width: 100%;
+    height: 6rem;
+    font-size: 2rem;
+  }
+}
+
+.red-full {
+  cursor: pointer;
+  background: #e92323;
+  margin-bottom: 2rem;
+}
+
+.red-full:hover {
+  background: #cf1515;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.red-full:focus {
+  outline: none;
+}
+
+@media (min-width: 320px) {
+  .red-full {
+    font-size: 1.8rem;
+    width: 40vw;
+    height: 4.4rem;
+    color: white;
+    border-radius: 0.9rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .red-full {
+    width: 87vw;
+    height: 6rem;
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .red-full {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .red-full {
+    width: 100%;
+    height: 6rem;
+    font-size: 2rem;
+  }
+  .red-full a {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.red-border {
+  cursor: pointer;
+  margin-bottom: 2rem;
+  background: #fff;
+}
+
+.red-border:hover {
+  background: #ebebeb;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.red-border:focus {
+  outline: none;
+}
+
+@media (min-width: 320px) {
+  .red-border {
+    width: 90vw;
+    color: #e92323;
+    border: 0.3rem solid #e92323;
+    border-radius: 0.9rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .red-border {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .red-border {
+    width: 100%;
+    height: 6rem;
+    font-size: 2rem;
+    color: #e92323;
+  }
+  .red-border a {
+    color: #e92323;
+    text-decoration: none;
+  }
+}
+/*# sourceMappingURL=custombutton.css.map */

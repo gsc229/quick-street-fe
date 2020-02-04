@@ -1,0 +1,41 @@
+@media (min-width: 320px) {
+  .container {
+    width: 90vw;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 320px) {
+  .wrapper {
+    padding: 40px;
+    width: 90vw;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .wrapper h1 {
+    font-size: 2rem;
+    color: #21b787;
+    margin-bottom: 40px;
+  }
+  .wrapper .image {
+    width: 100%;
+  }
+  .wrapper .image img {
+    width: 100%;
+  }
+  .wrapper p {
+    margin-top: 40px;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .wrapper .image {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .wrapper .image img {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=styling.module.css.map */

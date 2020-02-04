@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import axiosWithAuth from '../../../../utils/axiosWithAuth';
 import { Context as CartContext } from '../../../../contexts/TestCartContext';
 //stlying 
-
+import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
 import profile from '../../../../styles/scss/profile.module.scss';
 import modal from '../../../../styles/scss/browseModal.module.scss';
 import { CustomButton } from '../../../index';
@@ -18,9 +18,9 @@ const ViewVendorProduct = (props) => {
 	const [quantity, setQuantity] = useState('1');
 	const [showModal, setShowModal] = useState(false);
 	const [messageModal, setMessageModal] = useState(false);
-	
+
 	const customerId = localStorage.getItem('user_id');
-	
+
 	const handleChange = (event) => {
 		setQuantity(event.target.value);
 	}
@@ -31,22 +31,25 @@ const ViewVendorProduct = (props) => {
 
 	const handleAddToCart = () => {
 		showHideModal(false);
-		if(cart.items.length === 0 || cart.items[0].item.vendor === vendorId) {
+		if (cart.items.length === 0 || cart.items[0].item.vendor === vendorId) {
 			addCartItem({
-				productId: props.product._id ,
+				productId: props.product._id,
 				price: props.product.price,
 				quantity: quantity,
 				customerId: customerId
 			})
 		} else {
+
 			console.log('inside the else condition for adding a product to cart');
 			setMessageModal(true); 
 		}	
+
 	};
 
 	const handleEmptyCart = () => {
 		setMessageModal(false);
 		addItemFromOtherVendor({cartId: cart._id, customerId, productId: props.product._id, price: props.product.price, quantity: quantity });
+
 		// createCart(customerId);
 		// addCartItem({
 		// 	productId: props.product._id ,
@@ -75,10 +78,16 @@ const ViewVendorProduct = (props) => {
 	return (
 		<>
 			<div onClick={() => showHideModal(true)} className={profile.products_card} key={props.product._id}>
-				<img className={profile.image} src={images[0] ? images[0].secure_url : ""} alt="img" />
+				{/* <img className={profile.image} src={images[0] ? images[0].secure_url : ""} alt="img" /> */}
+				<CloudinaryContext cloudName="quickstlabs">
+					<Image className={profile.image} publicId={images[0] && images[0].public_id}>
+						<Transformation height="122" width="146" crop="fill" />
+					</Image>
+				</CloudinaryContext>
 				<p className={profile.name}>{props.product.name}</p>
 				<p className={profile.price}>${props.product.price}</p>
 			</div>
+
 			<Modal showModal={showModal}>
 				<div className={modal.container} >
 					<div className={modal.column_left} style={modalLeftStyle} >
@@ -93,7 +102,7 @@ const ViewVendorProduct = (props) => {
 						<div className={modal.row}>
 							<div className={modal.tags}><ul>{props.product.diet.map((diet, index) => (
 								<div key={index}>
-								<li>{diet}</li>
+									<li>{diet}</li>
 								</div>
 							))}</ul></div>
 						</div>
@@ -127,6 +136,7 @@ const ViewVendorProduct = (props) => {
 				<div class={modal.overlay} id={modal.overlay}>
 				</div>
 			</Modal>
+
 			<Modal showModal={messageModal}>	
 				<div className={modal.container}>
 					<div className={modal.row}>
@@ -145,6 +155,7 @@ const ViewVendorProduct = (props) => {
 					</div>
 				</div>
 			</Modal>					
+
 
 		</>
 	);

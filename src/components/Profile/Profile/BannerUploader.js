@@ -1,5 +1,5 @@
 import React from 'react';
-import banner from '../../../styles/css/vendor_banner.module.css';
+import banner from '../../../styles/scss/vendor/a_vendors_banner.module.scss';
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpload } from '@fortawesome/free-solid-svg-icons';
@@ -13,7 +13,7 @@ export default function BannerUploader(props) {
 		{
 			cloudName: 'quickstlabs',
 			uploadPreset: 'product-images',
-			sources: [ 'local', 'url', 'camera', 'image_search', 'facebook', 'dropbox', 'instagram' ],
+			sources: ['local', 'url', 'camera', 'image_search', 'facebook', 'dropbox', 'instagram'],
 			showAdvancedOptions: true,
 			cropping: true, // if true multiple must be false, set to false [set multiple to true] to upload multiple files
 			multiple: false,

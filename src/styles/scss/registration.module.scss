@@ -5,26 +5,26 @@
 	@include display();
 	font-family: Rubik;
 	@include phone {
-		background-color: $primary-color;
+		background: url('../../assets/images/Register/meditate-phone.jpg');
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
 		width: 100vw;
-		padding-top: 2rem;
+		padding-top: 1rem;
 		height: 100vh;
 	}
 	@include md {
-		background-color: $primary-color;
-		padding-top: 0rem;
 	}
 	@include lg {
-		background: url('../../assets/images/Register/meditate_girl.png');
-		background-repeat: no-repeat;
-		background-position: right;
-		background-size: contain;
 	}
 	@include xl {
 		background: url('../../assets/images/Register/meditate_girl.png');
 		background-repeat: no-repeat;
 		background-position: right;
 		background-size: contain;
+		width: 144rem;
+		margin: 0 auto;
+		height: 100vh;
 	}
 }
 .wrapper {
@@ -32,16 +32,19 @@
 		margin: 0 auto;
 		width: 90vw;
 		h1 {
-			font-size: 1.4rem;
+			font-size: 2rem;
 			margin: 0rem;
-			color: #fff;
+			color: $primary-color;
 			text-align: center;
 		}
 		p {
 			padding: 0px;
-			color: #fff;
-			font-size: 1.6rem;
+			color: $primary-color;
+			font-size: 1.4rem;
 			text-align: center;
+		}
+		a: {
+			color: black;
 		}
 	}
 	@include sm {
@@ -58,29 +61,11 @@
 		}
 	}
 	@include lg {
-		width: 35vw;
-
-		margin-top: 4rem;
-		margin-left: 1rem;
-		h1 {
-			font-size: 4rem;
-			margin: 0rem;
-			color: $primary-color;
-			text-align: left;
-			font-weight: 500;
-		}
-		p {
-			padding: 0rem;
-			color: $primary-color;
-			font-size: 1.6rem;
-			text-align: left;
-			margin-top: 1.2rem;
-		}
 	}
 	@include xl {
-		width: 40vw;
+		width: 60rem;
 		padding: 4.4rem 4.4rem 0rem 4.4rem;
-		margin-top: 1rem;
+		margin: 0rem 0rem 1rem 0rem;
 
 		h1 {
 			font-size: 4rem;
@@ -107,10 +92,12 @@
 .form {
 	@include phone {
 		label {
-			color: white;
+			color: black;
+			font-size: 1.4rem;
+			margin-bottom: 0.5rem;
 		}
 		a {
-			color: #fff;
+			color: black;
 			margin-left: .5rem;
 		}
 		input {
@@ -201,20 +188,43 @@
 }
 
 .vendorq_wrapper {
-	p {
-		color: black;
-		font-size: 2rem;
+	@include phone {
+		margin-top: 1rem;
+		p {
+			color: black;
+			font-size: 1.4rem;
+		}
+		.radio_buttons_wrapper {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-evenly;
+			margin-bottom: 1rem;
+			input {
+				flex: 1;
+				width: 2.4rem;
+				height: 2.4rem;
+				-moz-appearance: checkbox;
+				-webkit-appearance: checkbox;
+			}
+		}
 	}
-	.radio_buttons_wrapper {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-evenly;
-		input {
-			flex: 1;
-			width: 2.4rem;
-			height: 2.4rem;
-			-moz-appearance: checkbox;
-			-webkit-appearance: checkbox;
+	@include xl {
+		margin-top: 0rem;
+		p {
+			color: black;
+			font-size: 1.6rem;
+		}
+		.radio_buttons_wrapper {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-evenly;
+			input {
+				flex: 1;
+				width: 2.4rem;
+				height: 2.4rem;
+				-moz-appearance: checkbox;
+				-webkit-appearance: checkbox;
+			}
 		}
 	}
 }
@@ -223,10 +233,12 @@
 .form_step2 {
 	@include phone {
 		label {
-			color: white;
+			color: black;
+			font-size: 1.4rem;
+			margin-bottom: 0.5rem;
 		}
 		a {
-			color: #fff;
+			color: black;
 			margin-left: .5rem;
 		}
 		input {
@@ -234,42 +246,40 @@
 			width: 100%;
 			margin: 0px;
 			font-size: 1.6rem;
-		}
-	}
-	@include md {
-		input {
-			@include form_input();
-			width: 100%;
+			margin-bottom: 0.5rem;
 		}
 		.errorMessage {
-			font-size: 0.8rem;
+			font-size: 1.6rem;
 			color: red;
+			margin-top: 1rem;
 		}
 	}
-	@include lg {
+	.address {
 		display: flex;
 		flex-direction: column;
-		width: 100%;
-		flex-wrap: wrap;
-		.form_wrapper {
-			margin-top: 3rem;
-			margin-bottom: 3rem;
-		}
+		border: 1px solid #00b2ed;
+		border-radius: 7px;
+		width: 462px;
+		margin: 10px;
 		input {
 			@include form_input();
-			width: 100%;
 		}
-		label {
-			color: black;
-			font-size: 1.6rem;
+	}
+	.city_zip_container {
+		display: flex;
+		justify-content: space-around;
+		.city {
+			flex: 2;
+			margin-right: 1rem;
 		}
-		.errorMessage {
-			font-size: 1.2rem;
-			color: red;
+		.city_zip {
+			flex: 1;
 		}
-		a {
-			color: $primary-color;
-		}
+	}
+
+	@include md {
+	}
+	@include lg {
 	}
 	@include xl {
 		padding: 0rem;
@@ -322,6 +332,7 @@
 }
 // ***** STEP 3 STYLING **** //
 .form_step3 {
+	text-align: left;
 	@include phone {
 		label {
 			color: white;
@@ -336,41 +347,15 @@
 			margin: 0px;
 			font-size: 1.6rem;
 		}
+		.errorMessage {
+			font-size: 1.6rem;
+			color: red;
+			margin-top: 1rem;
+		}
 	}
 	@include md {
-		input {
-			@include form_input();
-			width: 100%;
-		}
-		.errorMessage {
-			font-size: 0.8rem;
-			color: red;
-		}
 	}
 	@include lg {
-		display: flex;
-		flex-direction: column;
-		width: 100%;
-		flex-wrap: wrap;
-		.form_wrapper {
-			margin-top: 3rem;
-			margin-bottom: 3rem;
-		}
-		input {
-			@include form_input();
-			width: 100%;
-		}
-		label {
-			color: black;
-			font-size: 1.6rem;
-		}
-		.errorMessage {
-			font-size: 1.2rem;
-			color: red;
-		}
-		a {
-			color: $primary-color;
-		}
 	}
 	@include xl {
 		padding: 0rem;
@@ -410,34 +395,71 @@
 		}
 	}
 	.city_zip_container {
-		width: 100%;
-		h1 {
-			font-size: 1.8rem;
-			color: black;
+		@include phone {
+			width: 100%;
+			h1 {
+				font-size: 1.4rem;
+				color: black;
+				text-align: left;
+			}
+			p {
+				@include form_input();
+				color: black;
+				background-color: #e8f0fe;
+				font-size: 1.4rem;
+			}
+			.city {
+				width: 55%;
+			}
+			.city_zip {
+				width: 40%;
+			}
 		}
-		p {
-			@include form_input();
-			color: black;
-			background-color: #e8f0fe;
-			font-size: 1.8rem;
-		}
-		.city {
-			width: 55%;
-		}
-		.city_zip {
-			width: 40%;
+		@include xl {
+			width: 100%;
+			h1 {
+				font-size: 1.8rem;
+				color: black;
+			}
+			p {
+				@include form_input();
+				color: black;
+				background-color: #e8f0fe;
+				font-size: 1.8rem;
+			}
+			.city {
+				width: 55%;
+			}
+			.city_zip {
+				width: 40%;
+			}
 		}
 	}
 	.confirm_form {
-		width: 100%;
-		h1 {
-			font-size: 1.8rem;
-			color: black;
+		@include phone {
+			width: 100%;
+			h1 {
+				font-size: 1.4rem;
+				color: black;
+				text-align: left;
+			}
+			p {
+				@include form_input();
+				color: black;
+				background-color: #e8f0fe;
+			}
 		}
-		p {
-			@include form_input();
-			color: black;
-			background-color: #e8f0fe;
+		@include xl {
+			width: 100%;
+			h1 {
+				font-size: 1.8rem;
+				color: black;
+			}
+			p {
+				@include form_input();
+				color: black;
+				background-color: #e8f0fe;
+			}
 		}
 	}
 }

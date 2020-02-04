@@ -1,0 +1,176 @@
+.about_wrapper {
+  height: fit-content;
+  background: rgba(225, 246, 250, 0.45);
+  //border: green 2px solid;
+  padding: 70px 0;
+}
+
+.about_inner_container {
+  //border: magenta 2px solid;
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  font-size: 2rem;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  h2 {
+    font-size: 2.5rem;
+  }
+  p {
+    //border: 2px solid greenyellow;
+    font-size: 2rem;
+    min-width: 200px;
+    max-width: 90%;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 21px;
+    overflow-wrap: normal;
+  }
+  .about_info {
+    //border: 2px solid yellowgreen;
+    // about/hours/contact/categories/location all have .info_top/bottom
+    margin-top: 20px;
+    .info_top {
+      //background-color: blueviolet;
+      display: flex;
+
+      h2 {
+        //border: 1px solid black;
+        width: fit-content;
+        font-weight: bold;
+      }
+      .map_pin_icon {
+        width: 2rem;
+        position: relative;
+        top: -5px;
+        left: 5px;
+      }
+    }
+    .info_bottom {
+      .info_content {
+        position: relative;
+        .saved_text_container {
+          position: relative;
+          width: fit-content;
+          min-width: 200px;
+
+          .edit_icon {
+            position: absolute;
+            right: -30px;
+            width: 20px;
+          }
+
+          .contact_svg_p_container {
+            display: flex;
+            .contact_icon {
+              position: relative;
+              top: -4px;
+              width: 20px;
+              //border: 2px black solid;
+            }
+          }
+          .saved_text_content {
+            cursor: pointer;
+            padding: 10px;
+            min-height: 40px;
+            &:hover {
+              border-radius: 10px;
+              -webkit-box-shadow: 0px 0px 12px 4px lightblue;
+              -moz-box-shadow: 0px 0px 12px 4px lightblue;
+              box-shadow: 0px 0px 12px 4px lightblue;
+            }
+          }
+        }
+
+        .save_changes {
+          cursor: pointer;
+          &:hover {
+            color: blue;
+          }
+        }
+      }
+    }
+  }
+  .column_left {
+    width: 40%;
+
+    //border: 2px solid purple;
+    @media only screen and (max-width: 800px) {
+      width: 100%;
+      margin: auto;
+      font-size: 2vw;
+      padding: 10px;
+    }
+  }
+  .column_right {
+    width: 40%;
+
+    //border: 2px solid purple;
+    @media only screen and (max-width: 800px) {
+      width: 100%;
+      margin: auto;
+      font-size: 2vw;
+      padding: 10px;
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    flex-direction: column;
+    width: 100%;
+  }
+  label {
+    font-size: 2rem;
+    color: #2b3335;
+  }
+  textarea {
+    border-radius: 10px;
+    border: 1px solid rgba(43, 51, 53, 0.5);
+    height: 100px;
+    width: 100%;
+    padding: 1% 0 1% 3%;
+    -webkit-box-shadow: 0px 0px 12px 4px lightblue;
+    -moz-box-shadow: 0px 0px 12px 4px lightblue;
+    box-shadow: 0px 0px 12px 4px lightblue;
+  }
+  input {
+    border-radius: 10px;
+    border: 1px solid rgba(43, 51, 53, 0.5);
+    height: 32px;
+    width: 214px;
+    padding: 1% 0 1% 3%;
+    -webkit-box-shadow: 0px 0px 12px 4px lightblue;
+    -moz-box-shadow: 0px 0px 12px 4px lightblue;
+    box-shadow: 0px 0px 12px 4px lightblue;
+  }
+  .input_wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0;
+
+    .checkbox_wrapper {
+      -webkit-box-shadow: 0px 0px 12px 4px lightblue;
+      -moz-box-shadow: 0px 0px 12px 4px lightblue;
+      box-shadow: 0px 0px 12px 4px lightblue;
+      display: flex;
+      flex-wrap: wrap;
+      width: fit-content;
+      .checkbox_inner_wrapper {
+        //border: 1px solid black;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        input {
+          box-shadow: none;
+          width: 13px;
+        }
+        label {
+          font-size: 1.8rem;
+          width: fit-content;
+          margin-left: 5px;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}

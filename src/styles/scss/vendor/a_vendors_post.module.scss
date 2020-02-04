@@ -1,0 +1,34 @@
+.vendor_post_list_container {
+  //border: indigo 2px solid;
+  width: 80%;
+  margin: auto;
+  @media only screen and (max-width: 800px) {
+    width: 100%;
+  }
+  ul {
+    padding: 30px;
+  }
+
+  li {
+    list-style-type: none;
+  }
+}
+
+.post_container {
+  @media only screen and (max-width: 800px) {
+    width: 100%;
+    //border: greenyellow 2px solid;
+  }
+  .post_date {
+    font-size: 18px;
+  }
+
+  .post_content {
+    padding-left: 140px;
+    margin-bottom: 14%;
+    font-size: 18px;
+    @media only screen and (max-width: 800px) {
+      padding-left: 10px;
+    }
+  }
+}

@@ -11,7 +11,12 @@
 }
 .hero_container {
 	@include phone {
-		padding: 1rem;
+		width: 100%;
+		background-image: url('../../assets/images/landing/images/hero-banner-phone.png');
+		background-repeat: no-repeat;
+		background-size: 100% auto;
+		background-position: center bottom;
+		height: 60rem;
 		background-color: $primary-color;
 	}
 	@include xl {
@@ -28,8 +33,11 @@
 	@include phone {
 		h1 {
 			font-family: Rubik;
-			font-size: 2rem;
+			padding: 3rem 3rem 3rem 3rem;
+			font-family: Rubik;
+			font-size: 2.5rem;
 			color: #fef2e4;
+			text-align: center;
 		}
 	}
 	@include xl {
@@ -37,20 +45,24 @@
 		margin-left: 7.9rem;
 		width: 43.7rem;
 		h1 {
+			padding: 0rem;
 			font-family: Rubik;
 			font-size: 4rem;
 			color: #fef2e4;
+			text-align: left;
 		}
 	}
 }
 .button_container {
 	@include phone {
+		width: 40%;
+		margin: 0 auto;
 		a {
 			color: white;
 		}
 	}
 	@include xl {
-		margin-top: 6.4rem;
+		margin: 6.4rem 0rem 0rem 0rem;
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-start;
@@ -100,13 +112,10 @@
 
 .top_row {
 	@include phone {
-		color: white;
-		font-family: Rubik;
-		a {
-			color: white;
-		}
+		display: none;
 	}
 	@include xl {
+		display: block;
 		padding: 1rem;
 		h1 {
 			font-size: 4rem;
@@ -117,8 +126,27 @@
 		}
 	}
 }
-.top__button {
-	float: right;
+.top_row_mobile {
+	@include phone {
+		text-align: center;
+		display: block;
+		color: white;
+		font-family: Rubik;
+		a {
+			color: white;
+		}
+	}
+	@include xl {
+		display: none;
+	}
+}
+.top_button {
+	@include phone {
+	}
+	@include xl {
+		width: 20rem;
+		float: right;
+	}
 }
 
 // ***** WORKS STYLING ** //
@@ -169,6 +197,19 @@
 }
 .works_content {
 	@include phone {
+		background: #ffffff;
+		align-items: center;
+		text-align: center;
+		color: #000000;
+		flex-direction: column;
+		box-shadow: 0px 4px 4px rgba(0, 118, 157, 0.1);
+		flex: 1;
+		margin-bottom: 1rem;
+		p {
+			text-align: center;
+			padding: 4rem;
+			font-size: 2.4rem;
+		}
 	}
 	@include xl {
 		background: #ffffff;
@@ -179,6 +220,7 @@
 		box-shadow: 0px 4px 4px rgba(0, 118, 157, 0.1);
 		flex: 1;
 		height: 258px;
+		margin-bottom: 0rem;
 		p {
 			padding: 4rem;
 			font-size: 2.4rem;

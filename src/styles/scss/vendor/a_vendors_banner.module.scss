@@ -1,0 +1,116 @@
+.banner_wrapper {
+  //border: 2px solid greenyellow;
+  text-align: center;
+  position: relative;
+}
+
+.inner_banner_container {
+  //border: gold 2px solid;
+  // .banner_text_btns -> .vendor_header_name -> (business_name_input & business_name_text)
+  .banner_text_btns {
+    //border: blue solid 2px;
+    margin: 0 auto;
+
+    .vendor_header_name {
+      position: relative;
+      width: fit-content;
+      //border: lightcoral 2px solid;
+      text-align: left;
+      .business_name_text {
+        width: fit-content;
+        min-width: 200px;
+        padding: 10px;
+        margin-bottom: 20px;
+        vertical-align: middle;
+        cursor: pointer;
+        font-family: Raleway;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 2.2vw;
+        line-height: 28px;
+        color: #2b3335;
+        &:hover {
+          border-radius: 10px;
+          -webkit-box-shadow: 0px 0px 12px 4px lightblue;
+          -moz-box-shadow: 0px 0px 12px 4px lightblue;
+          box-shadow: 0px 0px 12px 4px lightblue;
+        }
+      }
+      .business_name_input {
+        border-radius: 10px;
+        border: 1px solid rgba(43, 51, 53, 0.5);
+        width: fit-content;
+        margin: 5px;
+        font-size: 2rem;
+        font-weight: 600;
+        padding: 1% 0 1% 3%;
+        -webkit-box-shadow: 0px 0px 12px 4px lightblue;
+        -moz-box-shadow: 0px 0px 12px 4px lightblue;
+        box-shadow: 0px 0px 12px 4px lightblue;
+      }
+
+      .edit_guides {
+        //border: cyan 2px solid;
+        width: fit-content;
+        margin-left: 10px;
+
+        cursor: pointer;
+        &:hover {
+          color: blue;
+        }
+      }
+    }
+  }
+
+  //.vendor_banner_image_container -> (.vendor_banner_image || placeholder)
+  // .vendor_banner_image_container -> .vendor_banner_upload
+  .vendor_banner_image_container {
+    position: relative;
+    //border: magenta 2px solid;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    height: fit-content;
+    .vendor_banner_image {
+      width: 100%;
+      max-height: 500px;
+    }
+    //customer className
+    .business_name_cust {
+      width: 20vw;
+      height: 5vh;
+      //border: 2px solid green;
+      min-width: 200px;
+      padding: 10px;
+      vertical-align: middle;
+      text-align: left;
+      font-family: Raleway;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 2.2vw;
+      line-height: 28px;
+      color: #2b3335;
+    }
+
+    .vendor_banner_upload {
+      //border: lightseagreen 2px solid;
+      position: absolute;
+      right: 0;
+    }
+  }
+
+  .vendor_banner_upload {
+    //background-color: white;
+    display: inline-block;
+    position: absolute;
+    width: fit-content;
+    cursor: pointer;
+    align-self: flex-end;
+    right: 15%;
+    //bottom: 0;
+    #upload {
+      color: #696e6f;
+      cursor: pointer;
+      font-size: 2rem;
+    }
+  }
+}

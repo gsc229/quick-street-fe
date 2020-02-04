@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import axiosWithAuth from '../../../utils/axiosWithAuth';
 import { CustomButton } from '../../index';
+import { Context as CartContext } from '../../../contexts/TestCartContext';
 
 // stlyes
 import registration from '../../../styles/scss/registration.module.scss';
 
 const CustomerConfirmation = (props) => {
+	const { createCart } = useContext(CartContext);
 	const { email, password } = props.values;
 	const [ duplicateEmail, setDuplicateEmail ] = useState('');
 
@@ -15,32 +17,6 @@ const CustomerConfirmation = (props) => {
 		props.previousStep();
 	};
 
-	const createCart = (customerId) => {
-		axiosWithAuth()
-			.post(`/customers/${customerId}/cart`)
-			.then((response) => {
-				localStorage.setItem('cart_id', response.data.data._id);
-				console.log('POST Login.js response: ', response);
-			})
-			.catch((err) => {
-				console.log(err.response);
-			});
-	};
-
-	const checkIfCart = (customerId) => {
-		axiosWithAuth()
-			.get(`/customers/${customerId}/cart`)
-			.then((response) => {
-				localStorage.setItem('cart_id', response.data.data._id);
-				//console.log("GET Login.js response: ", response)
-			})
-			.catch((err) => {
-				if (err.response.status === 404) {
-					createCart(customerId);
-				}
-				console.log(err.response);
-			});
-	};
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		const registerObject = {
@@ -53,8 +29,11 @@ const CustomerConfirmation = (props) => {
 			.then((response) => {
 				// console.log('POST CustomerConfirm res: ', response);
 				localStorage.setItem('token', response.data.token);
-				checkIfCart(response.data.id);
-				props.history.push('/browse');
+				localStorage.setItem('user_id', response.data.id);
+				localStorage.setItem('isVendor', response.data.isVendor);
+				createCart(response.data.id);
+				props.history.push(`/browse`);
+
 			})
 			.catch((error) => {
 				// console.log(error.response);

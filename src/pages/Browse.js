@@ -226,6 +226,7 @@ const Browse = (props) => {
 
 						</div>
 					</div>
+					<button onClick={handleSubmit}>Update</button>
 				</form>
 
 				<Map zipcode={zipcode} vendors={vendors} height={300} width={1280} radius={8046} />

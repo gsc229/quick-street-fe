@@ -9,6 +9,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   height: 100%;
   font-size: 1.5rem;
   padding-top: 50px;
@@ -21,13 +24,42 @@
 
 .about_inner_container p {
   font-size: 1.5rem;
-  min-width: 400px;
   max-width: 90%;
   font-family: Raleway;
   font-style: normal;
   font-weight: normal;
   line-height: 21px;
   overflow-wrap: normal;
+}
+
+.about_inner_container .column_left {
+  width: 40%;
+}
+
+@media only screen and (max-width: 800px) {
+  .about_inner_container .column_left {
+    width: 100%;
+    margin: auto;
+    font-size: 2vw;
+    padding: 10px;
+  }
+}
+
+.about_inner_container .column_right {
+  width: 40%;
+}
+
+@media only screen and (max-width: 800px) {
+  .about_inner_container .column_right {
+    width: 100%;
+    margin: auto;
+    font-size: 2vw;
+    padding: 10px;
+  }
+}
+
+.about_inner_container .column_right .about_info {
+  margin: 0 auto;
 }
 
 @media only screen and (max-width: 800px) {
@@ -93,54 +125,25 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 10px;
 }
 
 .about_inner_container .input_wrapper .checkbox_wrapper .checkbox_inner_wrapper input {
   -webkit-box-shadow: none;
           box-shadow: none;
-  width: 20px;
+  width: 13px;
 }
 
 .about_inner_container .input_wrapper .checkbox_wrapper .checkbox_inner_wrapper label {
-  font-size: 2rem;
+  font-size: 1.3rem;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   margin-left: 5px;
-}
-
-.column_left {
-  width: 50%;
-  margin: 0 auto;
-}
-
-@media only screen and (max-width: 800px) {
-  .column_left {
-    width: 100%;
-    margin: auto;
-    font-size: 2vw;
-    padding: 10px;
-  }
-}
-
-.column_right {
-  width: 50%;
-  margin: 0 auto;
-}
-
-@media only screen and (max-width: 800px) {
-  .column_right {
-    width: 100%;
-    margin: auto;
-    font-size: 2vw;
-    padding: 10px;
-  }
-}
-
-.column_right .about_info {
-  width: 60%;
-  margin: 0 auto;
+  vertical-align: middle;
 }
 
 .info_top {
@@ -173,7 +176,7 @@
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  min-width: 400px;
+  min-width: 200px;
 }
 
 .info_bottom .info_content .saved_text_container .edit_icon {

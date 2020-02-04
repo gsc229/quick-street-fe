@@ -1,5 +1,6 @@
 import React from 'react';
 import VendorPost from './VendorPost';
+import post from '../../../styles/scss/vendor/a_vendors_post.module.scss';
 
 const changeDateFormat = (date) => {
 	let resultingDate = '';
@@ -14,7 +15,7 @@ const changeDateFormat = (date) => {
 
 const VendorPostList = ({ posts }) => {
 	return (
-		<div className="vendor_post_list_container">
+		<div className={post.vendor_post_list_container}>
 			<ul>
 				{posts.length !== 0 ? (
 					posts

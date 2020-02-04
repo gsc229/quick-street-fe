@@ -7,7 +7,7 @@ import UserContext from './contexts/UserContext';
 import { Provider as AuthProvider } from './contexts/AuthContext';
 import { Provider as CartProvider } from './contexts/TestCartContext';
 
-
+import OrderConfirmation from './components/OrderReview/OrderConfirmation';
 import {
 	Register, // ** Register
 	Login, // ** Login
@@ -26,8 +26,8 @@ import Nav from './components/shared/Nav';
 const App = () => {
 	return (
 		<div>
-		
 			<Route path="/orderreview/:id" component={OrderReview} />
+			<Route path="/orderconfirmation" component={OrderConfirmation} />
 			<Route path="/RegisterContext" component={RegisterContext} />
 			<Route path="/LoginContext" component={LoginContext} />
 			<Route path="/styling" component={Styling} />

@@ -48,7 +48,9 @@ const OrderReviewItem = ({ product }) => {
 			<div className={review.image_wrapper}>
 				{product.item.product_image && (
 					<CloudinaryContext cloudName="quickstlabs">
-						<Image publicId={product.item.product_image.thumbnail_url} />
+						<Image publicId={product.item.product_image.public_id} >
+						<Transformation height="160" width="197" crop="fit" />
+						</Image>
 					</CloudinaryContext>
 				)}
 			</div>

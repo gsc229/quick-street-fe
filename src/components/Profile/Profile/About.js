@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { VendorCategories } from '../../index';
 import Map from '../../shared/Map';
 //SVG Icons
-import { pencil_light, pencil_regular, phone_alt_light, envelope_light, map_pin_place, map_marker_alt_light } from '../../../assets/svgs'
+import { pencil_light, pencil_regular, phone_alt_light, envelope_light, map_pin_place, map_marker_alt_light } from '../../../assets/svgs';
 
 // styling
 import profile from '../../../styles/scss/vendor/a_vendors_profile.module.scss';

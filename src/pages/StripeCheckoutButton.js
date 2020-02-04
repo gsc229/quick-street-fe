@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import axiosWithAuth from '../utils/axiosWithAuth';
+import {Context as CartContext} from '../../../contexts/TestCartContext';
 
 const StripeCheckoutButton = ({ price, customerId }) => {
+  const { state, getCartItems } = useContext(CartContext);
+  
     const priceForStripe = price * 100;
     const publishableKey = 'pk_test_h1PiAqFdpVJpFn9xYKA1JEX7008fXbJlqI';
   
@@ -17,8 +20,8 @@ const StripeCheckoutButton = ({ price, customerId }) => {
         }).then(res => {
             console.log(res)
             // clear cart state
-            // clear back upon successful payment (in payment backend)
-            // show confirmatio 
+           
+            // show confirmation 
         }).catch(err => {
             console.log(err)
         })

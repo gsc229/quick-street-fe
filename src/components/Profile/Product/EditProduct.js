@@ -63,6 +63,8 @@ const EditProduct = (props) => {
     if (inOut === 'in') {
       document.getElementById(imgId).style.border = "solid red 3px";
       document.getElementById(span).style.display = 'block';
+      document.getElementById(imgId).style.transition = "border .3s";
+
     }
     if (inOut === 'out') {
       document.getElementById(imgId).style.border = "none";
@@ -237,22 +239,22 @@ const EditProduct = (props) => {
               />
             </div>
             {/* Image deleted POPUP */}
-            {imageDeleted ? (
+            {imageDeleted ? ( // <<<<<< TURNARY
               <h1>
                 <i className="fa fa-check" /> Image Deleted!
   						</h1>
-            ) : (
+            ) : ( //<<<<<<<< : else: 
                 <div className={editingProduct.images_container}>
-                  {loadingImages ? (
+                  {loadingImages ? ( // <<<<<< TURNARY
                     <h1>...Loading Images</h1>
-                  ) : (
+                  ) : ( //<<<<<<<< : else:
                       images.map((image, index) => (
                         <div id={image.public_id} key={image._id} className={`${editingProduct.image_wrapper}`}>
-                          {/* <p>{image._id}</p> */}
-                          <i
+
+                          {images && <i
                             onMouseEnter={() => delHover(image.public_id, index, 'in')}
                             onMouseLeave={() => delHover(image.public_id, index, 'out')}
-                            onClick={() => deleteImage(image._id)} className="fa fa-minus-circle" />
+                            onClick={() => deleteImage(image._id)} className="fa fa-minus-circle" />}
                           <span id={index} className={editingProduct.delete_span} >DELETE</span>
                           <CloudinaryContext cloudName="quickstlabs">
                             <Image publicId={image.public_id}>
@@ -273,7 +275,18 @@ const EditProduct = (props) => {
         {/* ============= RIGHT ============================ */}
 
         <div className={`${editingProduct.edit_product_right} ${editingProduct.inner_container}`}>
-          <div onClick={() => setEditingDetails(!editingDetails)}>
+          <div onClick={() => {
+            setEditingDetails(!editingDetails)
+
+          }}>
+            {/* ==== details saved POPUP  ======*/}
+            {detailsSaved && (
+              <div className={editingProduct.details_saved_popup}>
+                <h3>
+                  <i className="fa fa-check" /> Product Details Saved!
+  						</h3>
+              </div>
+            )}
             {editingDetails ? (
               <h4 className={editingProduct.commit_changes_btn} onClick={submitProductDetails}>
                 {' '}
@@ -285,18 +298,11 @@ const EditProduct = (props) => {
   						</h4>
               )}
           </div>
-          {/* ==== details saved POPUP  ======*/}
-          {detailsSaved && (
-            <div className={editingProduct.details_saved_popup}>
-              <h3>
-                <i className="fa fa-check" /> Product Details Saved!
-  						</h3>
-            </div>
-          )}
 
-          {editingDetails ? (
+
+          {editingDetails ? ( // <<<<< TURNARY
             <EditProductForm product={product} setProduct={setProduct} />
-          ) : (
+          ) : ( // : else do this:
               <div className={editingProduct.details_container}>
                 <div className={editingProduct.details_wrapper}>
                   <div className={editingProduct.input_wrapper}>

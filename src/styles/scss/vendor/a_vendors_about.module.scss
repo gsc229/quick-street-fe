@@ -2,6 +2,7 @@
   height: fit-content;
   background: rgba(225, 246, 250, 0.45);
   //border: green 2px solid;
+  padding: 70px 0;
 }
 
 .about_inner_container {
@@ -9,22 +10,87 @@
   display: flex;
   justify-content: space-between;
   height: 100%;
-  font-size: 1.5rem;
+  font-size: 2rem;
   padding-top: 50px;
   padding-bottom: 50px;
   h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
   p {
     //border: 2px solid greenyellow;
-    font-size: 1.5rem;
-
+    font-size: 2rem;
+    min-width: 200px;
     max-width: 90%;
     font-family: Raleway;
     font-style: normal;
     font-weight: normal;
     line-height: 21px;
     overflow-wrap: normal;
+  }
+  .about_info {
+    //border: 2px solid yellowgreen;
+    // about/hours/contact/categories/location all have .info_top/bottom
+    margin-top: 20px;
+    .info_top {
+      //background-color: blueviolet;
+      display: flex;
+
+      h2 {
+        //border: 1px solid black;
+        width: fit-content;
+        font-weight: bold;
+      }
+      .map_pin_icon {
+        width: 2rem;
+        position: relative;
+        top: -5px;
+        left: 5px;
+      }
+    }
+    .info_bottom {
+      .info_content {
+        position: relative;
+        .saved_text_container {
+          position: relative;
+          width: fit-content;
+          min-width: 200px;
+
+          .edit_icon {
+            position: absolute;
+            right: -30px;
+            width: 20px;
+          }
+
+          .contact_svg_p_container {
+            display: flex;
+            .contact_icon {
+              position: relative;
+              top: -4px;
+              width: 20px;
+              //border: 2px black solid;
+            }
+          }
+          .saved_text_content {
+            cursor: pointer;
+            padding: 10px;
+            min-height: 40px;
+            &:hover {
+              border-radius: 10px;
+              -webkit-box-shadow: 0px 0px 12px 4px lightblue;
+              -moz-box-shadow: 0px 0px 12px 4px lightblue;
+              box-shadow: 0px 0px 12px 4px lightblue;
+            }
+          }
+        }
+
+        .save_changes {
+          cursor: pointer;
+          &:hover {
+            color: blue;
+          }
+        }
+      }
+    }
   }
   .column_left {
     width: 40%;
@@ -47,9 +113,6 @@
       font-size: 2vw;
       padding: 10px;
     }
-    .about_info {
-      margin: 0 auto;
-    }
   }
 
   @media only screen and (max-width: 800px) {
@@ -57,7 +120,7 @@
     width: 100%;
   }
   label {
-    font-size: 1.4vw;
+    font-size: 2rem;
     color: #2b3335;
   }
   textarea {
@@ -107,68 +170,6 @@
           margin-left: 5px;
           vertical-align: middle;
         }
-      }
-    }
-  }
-}
-
-// about/hours/contact/categories/location all have .info_top/bottom
-.info_top {
-  //background-color: blueviolet;
-  display: flex;
-  margin-top: 5vh;
-  h2 {
-    //border: 1px solid black;
-    width: fit-content;
-    font-weight: bold;
-  }
-  .map_pin_icon {
-    width: 1.2vw;
-    position: relative;
-    top: -5px;
-    left: 5px;
-  }
-}
-.info_bottom {
-  .info_content {
-    position: relative;
-    .saved_text_container {
-      position: relative;
-      width: fit-content;
-      min-width: 200px;
-
-      .edit_icon {
-        position: absolute;
-        right: -30px;
-        width: 20px;
-      }
-
-      .contact_svg_p_container {
-        display: flex;
-        .contact_icon {
-          position: relative;
-          top: -4px;
-          width: 20px;
-          //border: 2px black solid;
-        }
-      }
-      .saved_text_content {
-        cursor: pointer;
-        padding: 10px;
-        min-height: 40px;
-        &:hover {
-          border-radius: 10px;
-          -webkit-box-shadow: 0px 0px 12px 4px lightblue;
-          -moz-box-shadow: 0px 0px 12px 4px lightblue;
-          box-shadow: 0px 0px 12px 4px lightblue;
-        }
-      }
-    }
-
-    .save_changes {
-      cursor: pointer;
-      &:hover {
-        color: blue;
       }
     }
   }

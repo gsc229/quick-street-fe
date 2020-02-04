@@ -243,7 +243,8 @@ const Nav = () => {
                 </Link>
               </div>
             )}
-            {!isVendor && (
+
+            {!isVendor && token && (
               <MenuItem>
                 <IconButton
                   edge='end'

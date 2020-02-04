@@ -128,9 +128,29 @@ const addItemFromOtherVendor = (dispatch) => async ({
 	}
 }
 
+const deleteAndAddCart = (dispatch) => async ({
+	cartId, 
+	customerId
+}) => {
+	try {
+		const delCartResponse = await axiosWithAuth().delete(`/cart/${cartId}`);
+		console.log('Response after deleting cart for a customer', delCartResponse);
+		if (delCartResponse.status === 200) {
+			const createCartResponse = await axiosWithAuth().post(`/customers/${customerId}/cart`);
+			console.log('Response after creating cart for a customer', createCartResponse);
+			dispatch({type: 'getCartItems', payload: createCartResponse.data.data});		
+		}
+	} catch {
+		dispatch({
+			type: 'add_error',
+			payload: 'Could not get data from backend'
+		});
+	}
+}
+
 export const { Provider, Context } = createDataContext(
 	cartReducer,
-	{ createCart, getCartItems, addCartItem, updateCartItem, deleteCartItem, addItemFromOtherVendor }, 
+	{ createCart, getCartItems, addCartItem, updateCartItem, deleteCartItem, addItemFromOtherVendor, deleteAndAddCart }, 
 	{ cart: {}, errorMessage: ''}
   
 );

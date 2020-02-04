@@ -26,28 +26,28 @@ const OrderReview = (props) => {
 			</div>
 
 			<div className={review.container}>
-			<h1>Reviewing My Cart</h1>
+				<h1>Reviewing My Cart</h1>
 				<div className={review.wrapper}>
-			
-				<div className={review.left}>
+					<div className={review.left}>
 						{cart &&
 							cart.items &&
 							cart.items.map((product) => <OrderReviewItem product={product} key={product.item._id} />)}
-					
-							</div>
-							<div className={review.payment_container}>
+					</div>
+					<div className={review.payment_container}>
 						<div className={review.row}>
 							<p>Grand Total </p>
 							<h2>${cart.total}</h2>
 						</div>
-							<div className={review.pay_button}>
-						<CustomButton styleClass="green-border" onClick={props.history.goBack}>
-							Cancel
-						</CustomButton>
+						<div className={review.pay_button}>
+							<CustomButton styleClass="green-border" onClick={props.history.goBack}>
+								Cancel
+							</CustomButton>
 
-      					<StripeCheckoutButton  price={cart.total} customerId={customerId} />  
-							</div></div>
-</div></div>
+							<StripeCheckoutButton price={cart.total} customerId={customerId} history={props.history} />
+						</div>
+					</div>
+				</div>
+			</div>
 		</React.Fragment>
 	);
 };

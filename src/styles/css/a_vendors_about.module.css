@@ -6,7 +6,6 @@
 }
 
 .about_inner_container {
-  border: magenta 2px solid;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -24,7 +23,6 @@
 }
 
 .about_inner_container p {
-  border: 2px solid greenyellow;
   font-size: 1.5rem;
   max-width: 90%;
   font-family: Raleway;
@@ -36,7 +34,6 @@
 
 .about_inner_container .column_left {
   width: 40%;
-  border: 2px solid purple;
 }
 
 @media only screen and (max-width: 800px) {
@@ -50,7 +47,6 @@
 
 .about_inner_container .column_right {
   width: 40%;
-  border: 2px solid purple;
 }
 
 @media only screen and (max-width: 800px) {

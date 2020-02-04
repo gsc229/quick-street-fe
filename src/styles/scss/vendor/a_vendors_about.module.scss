@@ -5,7 +5,7 @@
 }
 
 .about_inner_container {
-  border: magenta 2px solid;
+  //border: magenta 2px solid;
   display: flex;
   justify-content: space-between;
   height: 100%;
@@ -16,7 +16,7 @@
     font-size: 2rem;
   }
   p {
-    border: 2px solid greenyellow;
+    //border: 2px solid greenyellow;
     font-size: 1.5rem;
 
     max-width: 90%;
@@ -29,7 +29,7 @@
   .column_left {
     width: 40%;
 
-    border: 2px solid purple;
+    //border: 2px solid purple;
     @media only screen and (max-width: 800px) {
       width: 100%;
       margin: auto;
@@ -40,7 +40,7 @@
   .column_right {
     width: 40%;
 
-    border: 2px solid purple;
+    //border: 2px solid purple;
     @media only screen and (max-width: 800px) {
       width: 100%;
       margin: auto;

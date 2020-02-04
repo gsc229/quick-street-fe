@@ -1,22 +1,18 @@
-@import '../mixins.scss';
-@mixin profile_padding {
-  padding-top: 6.7rem;
-  padding-left: 18.9rem;
-  padding-right: 18.9rem;
-  padding-bottom: 10.4rem;
-}
-
 .bulletin_wrapper {
   font-family: 'Raleway', sans-serif;
+  //border: red 2px solid;
   background: rgba(233, 187, 250, 0.15);
-  padding: 3% 13% 5%;
+  padding-top: 70px;
   // color: #000000;
   margin-bottom: 10%;
 }
 
 .bulletin_inner_container {
-  //border: solid 2px greenyellow;
   .inner_bulletin_wrapper {
+    //border: solid 2px blue;
+    @media only screen and (max-width: 800px) {
+      width: 100%;
+    }
     width: 85%;
     margin: 0 auto;
     display: flex;

@@ -1,7 +1,7 @@
 .bulletin_wrapper {
   font-family: 'Raleway', sans-serif;
   background: rgba(233, 187, 250, 0.15);
-  padding: 3% 13% 5%;
+  padding-top: 70px;
   margin-bottom: 10%;
 }
 
@@ -15,6 +15,12 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+@media only screen and (max-width: 800px) {
+  .bulletin_inner_container .inner_bulletin_wrapper {
+    width: 100%;
+  }
 }
 
 .bulletin_inner_container .inner_bulletin_wrapper .vendor_bulletin_title {

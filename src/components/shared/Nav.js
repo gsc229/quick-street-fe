@@ -310,7 +310,6 @@ const Nav = () => {
                   color='inherit'
                 >
                   <AccountCircle style={{ height: '30px', width: '30px' }} />
-                  hello
                 </IconButton>
               </MenuItem>
             )}

@@ -15,18 +15,18 @@ const OrderConfirmation = () => {
 				<div className={order.wrapper}>
 					<h1>Order Confirmed</h1>
 					<p>Check your email for receipt!</p>
-					<div className={order.info_container}>
+					{/* <div className={order.info_container}>
 						<div className={order.info_wrapper}>
 							<p>Quantity</p>
 							<p>Total</p>
 						</div>
-					</div>
+					</div> */}
 					<div className={order.vendor_info_container}>
 						<p>Contact vendor for pickup details </p>
 						<div className={order.vendor_info_wrapper}>
-							<h1>ANNIES</h1>
-							<p>EMAIL</p>
-							<p>EMAIL</p>
+							<h1>Jim's Cookies</h1>
+							<p>555-555-4444</p>
+							<p>jim@theoffice.com</p>
 						</div>
 					</div>
 				</div>

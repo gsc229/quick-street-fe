@@ -1,21 +1,37 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import axiosWithAuth from '../utils/axiosWithAuth';
+import {Context as CartContext} from '../contexts/TestCartContext';
 
 const StripeCheckoutButton = ({ price, customerId }) => {
+  const { state, deleteAndAddCart } = useContext(CartContext);
+  
+  let cart = state.cart;
+  console.log('do i get a cart id',cart)
+
+
+  
+  
     const priceForStripe = price * 100;
     const publishableKey = 'pk_test_h1PiAqFdpVJpFn9xYKA1JEX7008fXbJlqI';
   
     const onToken = token => {
       console.log(token);
       //alert('Payment Succesful!');
+
+      cart = cart._id
       axiosWithAuth()
         .post(`/customers/${customerId}/cart/payment`, {
             totalPrice: priceForStripe,
             token: token,
             currency: 'usd'
         }).then(res => {
-            console.log(res)
+            console.log('response from successful token',res)
+            // clear cart state
+         
+          deleteAndAddCart({customerId, cartId: cart});
+            // show confirmation 
+
         }).catch(err => {
             console.log(err)
         })

@@ -22,13 +22,21 @@
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin: 0 auto;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+}
+
+@media only screen and (max-width: 800px) {
+  .vendor_product_list_wrapper {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }
 
 .vendor_product_list_wrapper .add_product_btn {
@@ -117,8 +125,8 @@
 }
 
 .vendor_product_list_container {
-  padding: 5% 13% 15% 13%;
-  margin: 0;
+  border: 5px solid orangered;
+  margin: 0 auto;
   width: 85%;
   margin: 0 auto;
 }

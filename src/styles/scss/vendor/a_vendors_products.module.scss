@@ -26,10 +26,13 @@
 .vendor_product_list_wrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   margin: 0 auto;
-  // border: 2px solid blue;
+  //border: 2px solid blue;
   width: fit-content;
+  @media only screen and (max-width: 800px) {
+    justify-content: center;
+  }
   .add_product_btn {
     margin-bottom: 20px;
     background-color: rgba(43, 51, 53, 0.1);
@@ -100,10 +103,10 @@
 }
 
 .vendor_product_list_container {
-  //border: 5px solid orangered;
+  border: 5px solid orangered;
   // height: 745px;
-  padding: 5% 13% 15% 13%;
-  margin: 0;
+  //padding: 5% 13% 15% 13%;
+  margin: 0 auto;
   width: 85%;
   margin: 0 auto;
   .vendor_product_list_title {

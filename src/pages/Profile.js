@@ -15,6 +15,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSave, faPen } from '@fortawesome/free-solid-svg-icons';
 import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
 import axiosWithAuth from '../utils/axiosWithAuth';
+import Footer from '../components/shared/Footer';
 
 const Profile = props => {
 	// It all starts here!...with vendorId from localStorage
@@ -116,6 +117,7 @@ const Profile = props => {
 	};
 
 	return (
+		<React.Fragment>
 		<div className={profile.profile_container}>
 			<Nav {...vendorInfo} />
 			<div className={`${profile.wrapper} ${banner.banner_wrapper}`}>
@@ -204,7 +206,9 @@ const Profile = props => {
 
 
 
-		</div>//Profile Container
+		</div>
+		<Footer/>
+		</React.Fragment>
 	);
 };
 

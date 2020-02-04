@@ -9,30 +9,20 @@ const ShoppingCartItems = ({ setCartModal }) => {
   const cart = state.cart;
   const customerId = localStorage.getItem('user_id'); 
 
-  const handleKeepShopping = (event) => {
-    event.preventDefault();
-    // console.log('Keep shopping clicked');
-    setCartModal(false);
-  };
-
   useEffect(() => {
     getCartItems(customerId);
   }, [])
 
   return (
-    <>
-      <p>Your Cart</p>
+    <React.Fragment>
       {cart && cart.items && cart.items.map(product => (
         <ShoppingCartItem 
         product={product} 
         key={product.item._id} 
         />
       ))}
-      { cart && (<p>Total: {cart.total}</p>)}
-      <button onClick={handleKeepShopping}>Keep Shopping</button>
-      {/* <button onClick={handleCheckout}>Checkout</button> */}
-      {cart && (<Link to={{ pathname: `/orderreview/${cart._id}`}}>Checkout</Link>)}
-    </>
+    
+    </React.Fragment>
   )
 }
 

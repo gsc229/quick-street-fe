@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -16,10 +16,15 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import List from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
+import Button from '@material-ui/core/Button';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { Context as AuthContext } from '../../contexts/AuthContext.js';
 import { Context as CartContext } from '../../contexts/TestCartContext';
 import Modal from './Modal';
 import ShoppingCartItems from './ShoppingCart/ShoppingCartItems';
+import Drawer from '@material-ui/core/Drawer';
 
 import { shopping_cart_light } from '../../assets/svgs/index';
 const useStyles = makeStyles(theme => ({
@@ -92,21 +97,54 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('md')]: {
       display: 'none'
     }
+  },
+  
+  list: {
+    width: 300,
+    backgroundColor: '#00B2ED',
+    paddingLeft: 40,
+    paddingRight: 40,
+    paddingTop: 50,
+    paddingBottom: 50,
+    color:'white'
   }
+ 
 }));
 const Nav = () => {
   const { signout } = useContext(AuthContext);
   const { state, getCartItems } = useContext(CartContext);
+  const cart = state.cart;
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const [stateDrawer, setStateDrawer] = React.useState({
+    top: false
+  });
+  const cartQuantity = (cart) => {
+    if (cart.items) {
+        return cart.items.length;
+    } else {
+      return 0
+    };
+    
+}
+useEffect(() => {
+  getCartItems(customerId);
+}, [])
+console.log("Cart Items", cartQuantity)
+  const toggleDrawer = (side, open) => event => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
 
+    setStateDrawer({ ...stateDrawer, [side]: open });
+  };
   const token = localStorage.getItem('token');
   const isVendor = localStorage.getItem('isVendor');
-
-  const [cartModal, setCartModal] = useState(false);
+  const customerId = localStorage.getItem('customerId');
 
   console.log('our token', { token });
+  console.log('cart', cart);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -148,8 +186,28 @@ const Nav = () => {
     </Menu>
   );
 
+  const sideList = side => (
+    <div
+      className={classes.list}
+      role="presentation"
+      onClick={toggleDrawer(side, false)}
+      onKeyDown={toggleDrawer(side, false)}
+    >
+      <List>
+      <h1>Your Cart</h1>
+      </List>
+      <ShoppingCartItems />
+      { cart && (<p>Total: {cart.total}</p>)}
+      <button onClick={toggleDrawer('right', false)}>Keep Shopping</button>
+      {/* <button onClick={handleCheckout}>Checkout</button> */}
+      {cart && (<Link to={{ pathname: `/orderreview/${cart._id}`}}>Checkout</Link>)}
+    </div>
+  );
+
+
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
+    <React.Fragment>
     <Menu
       anchorEl={mobileMoreAnchorEl}
       anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
@@ -160,33 +218,22 @@ const Nav = () => {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <IconButton aria-label='show 4 new mails' color='inherit'>
-          <Badge badgeContent={4} color='secondary'>
-            <MailIcon />
+        <IconButton onClick={toggleDrawer('right', true)} aria-label="show items in car" color="inherit">
+          <Badge badgeContent={4} color="secondary">
+            <ShoppingCartIcon/>
           </Badge>
         </IconButton>
-        <p>Messages</p>
+       
+    <Drawer anchor="right" open={stateDrawer.right} onClose={toggleDrawer('right', false)}>
+{sideList('right')}
+</Drawer>
       </MenuItem>
       <MenuItem>
-        <IconButton aria-label='show 11 new notifications' color='inherit'>
-          <Badge badgeContent={11} color='secondary'>
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
+        <Link to="/dashboard" >Dashboard</Link>
       </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          aria-label='account of current user'
-          aria-controls='primary-search-account-menu'
-          aria-haspopup='true'
-          color='inherit'
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Profile</p>
-      </MenuItem>
+   
     </Menu>
+    </React.Fragment>
   );
 
   return (
@@ -243,8 +290,9 @@ const Nav = () => {
                 </Link>
               </div>
             )}
-
-            {!isVendor && token && (
+{/* logged in AND vendor */}
+           
+              <React.Fragment>
               <MenuItem>
                 <IconButton
                   edge='end'
@@ -254,41 +302,25 @@ const Nav = () => {
                   onClick={handleProfileMenuOpen}
                   color='inherit'
                 >
-                  <AccountCircle style={{ height: '42px', width: '42px' }} />
+                  <AccountCircle style={{ height: '30px', width: '30px' }} />
                 </IconButton>
-                <p onClick={() => setCartModal(true)}>
-                  <img
-                    src={shopping_cart_light}
-                    style={{ height: '3rem', width: '3rem' }}
-                    alt='shopping cart'
-                  />
-                  {state.cart.items && (
-                    <span className={classes.number}>
-                      {' '}
-                      {state.cart.items.length}
-                    </span>
-                  )}
-                </p>
-                <Modal showModal={cartModal}>
-                  <ShoppingCartItems setCartModal={setCartModal} />
-                </Modal>
+                
               </MenuItem>
-            )}
+              <MenuItem>
+        <IconButton onClick={toggleDrawer('right', true)} aria-label="show items in car" color="inherit">
+          <Badge badgeContent={cartQuantity(cart)} color="secondary">
+            <ShoppingCartIcon style={{ height: '30px', width: '30px' }}/>
+           </Badge>
+        </IconButton>
+       
+    <Drawer anchor="right" open={stateDrawer.right} onClose={toggleDrawer('right', false)}>
+{sideList('right')}
+</Drawer>
+      </MenuItem>
+              </React.Fragment>
           </div>
 
-          {isVendor && (
-            <IconButton
-              edge='end'
-              aria-label='account of current user'
-              aria-controls={menuId}
-              aria-haspopup='true'
-              onClick={handleProfileMenuOpen}
-              color='inherit'
-            >
-              <AccountCircle style={{ height: '42px', width: '42px' }} />
-            </IconButton>
-          )}
-
+       
           <div className={classes.sectionMobile}>
             <IconButton
               aria-label='show more'
@@ -306,6 +338,6 @@ const Nav = () => {
       {renderMenu}
     </div>
   );
-};
+}
 
 export default Nav;

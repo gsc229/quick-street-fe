@@ -1,0 +1,391 @@
+.green-full {
+  cursor: pointer;
+  background: #21b787;
+  margin-bottom: 2rem;
+}
+
+.green-full:hover {
+  background: #1b946e;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.green-full:focus {
+  outline: none;
+}
+
+@media (min-width: 320px) {
+  .green-full {
+    width: 90vw;
+    color: white;
+    border-radius: 0.9rem;
+    height: 5rem;
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .green-full {
+    width: 87vw;
+    height: 6rem;
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .green-full {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .green-full {
+    width: 100%;
+    height: 6rem;
+    font-size: 2rem;
+  }
+}
+
+.green-border {
+  cursor: pointer;
+  margin-bottom: 2rem;
+  background: #fff;
+}
+
+.green-border:hover {
+  background: #ebebeb;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.green-border:focus {
+  outline: none;
+}
+
+@media (min-width: 320px) {
+  .green-border {
+    width: 90vw;
+    color: black;
+    border: 0.3rem solid #21b787;
+    border-radius: 0.9rem;
+    height: 5rem;
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .green-border {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .green-border {
+    width: 100%;
+    height: 6rem;
+    font-size: 2rem;
+  }
+}
+
+.red-full {
+  cursor: pointer;
+  background: #e92323;
+  margin-bottom: 2rem;
+}
+
+.red-full:hover {
+  background: #cf1515;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.red-full:focus {
+  outline: none;
+}
+
+@media (min-width: 320px) {
+  .red-full {
+    font-size: 1.8rem;
+    width: 40vw;
+    height: 4.4rem;
+    color: white;
+    border-radius: 0.9rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .red-full {
+    width: 87vw;
+    height: 6rem;
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .red-full {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .red-full {
+    width: 100%;
+    height: 6rem;
+    font-size: 2rem;
+  }
+  .red-full a {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.red-border {
+  cursor: pointer;
+  margin-bottom: 2rem;
+  background: #fff;
+}
+
+.red-border:hover {
+  background: #ebebeb;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.red-border:focus {
+  outline: none;
+}
+
+@media (min-width: 320px) {
+  .red-border {
+    width: 90vw;
+    color: #e92323;
+    border: 0.3rem solid #e92323;
+    border-radius: 0.9rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .red-border {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .red-border {
+    width: 100%;
+    height: 6rem;
+    font-size: 2rem;
+    color: #e92323;
+  }
+  .red-border a {
+    color: #e92323;
+    text-decoration: none;
+  }
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-family: Rubik;
+}
+
+@media (min-width: 320px) {
+  .container {
+    background: url("../../assets/images/Login/login-phone.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100vw;
+    padding-top: 1rem;
+    height: 100vh;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    width: 144rem;
+    margin: 0 auto;
+    background: url("../../assets/images/Login/login.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+    height: 100vh;
+  }
+}
+
+@media (min-width: 320px) {
+  .logo {
+    padding: 0rem;
+    margin: 0rem;
+  }
+  .logo img {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .logo {
+    display: none;
+  }
+}
+
+@media (min-width: 320px) {
+  .wrapper {
+    margin: 0 auto;
+    width: 90vw;
+  }
+  .wrapper h1 {
+    font-size: 2rem;
+    margin: 0rem;
+    color: #00b2ed;
+    text-align: center;
+  }
+  .wrapper p {
+    padding: 0px;
+    color: #00b2ed;
+    font-size: 1.4rem;
+    text-align: right;
+  }
+}
+
+@media (min-width: 1440px) {
+  .wrapper {
+    width: 60rem;
+    padding: 4.4rem 4.4rem 0rem 4.4rem;
+    margin: 0rem 0rem 3rem 0rem;
+  }
+  .wrapper h1 {
+    font-size: 4rem;
+    margin: 0rem;
+    color: #00b2ed;
+    text-align: left;
+    font-weight: 500;
+  }
+  .wrapper p {
+    padding: 0rem;
+    color: #00b2ed;
+    font-size: 2rem;
+    text-align: left;
+    margin-top: 1.2rem;
+  }
+  .wrapper a {
+    color: #00b2ed;
+    text-decoration: underline;
+    margin-left: 0.4rem;
+  }
+}
+
+@media (min-width: 320px) {
+  .form label {
+    color: black;
+    font-size: 1.4rem;
+  }
+  .form a {
+    color: #00b2ed;
+    margin-left: .5rem;
+  }
+  .form input {
+    border: 0.2rem solid #00b2ed;
+    border-radius: 1rem;
+    padding: 1rem;
+    width: 100%;
+    margin: 0px;
+    font-size: 1.6rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .form input {
+    border: 0.2rem solid #00b2ed;
+    border-radius: 1rem;
+    padding: 1rem;
+    width: 100%;
+  }
+  .form .errorMessage {
+    font-size: 0.8rem;
+    color: red;
+  }
+}
+
+@media (min-width: 1024px) {
+  .form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .form .form_wrapper {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+  .form input {
+    border: 0.2rem solid #00b2ed;
+    border-radius: 1rem;
+    padding: 1rem;
+    width: 100%;
+  }
+  .form label {
+    color: black;
+    font-size: 1.6rem;
+  }
+  .form .errorMessage {
+    font-size: 1.2rem;
+    color: red;
+  }
+  .form a {
+    color: #00b2ed;
+  }
+}
+
+@media (min-width: 1440px) {
+  .form {
+    padding: 0rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+  .form .form_wrapper {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+  .form label {
+    font-size: 1.8rem;
+  }
+  .form a {
+    color: #00b2ed;
+  }
+  .form input {
+    border: 0.2rem solid #00b2ed;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 0px;
+  }
+  .form .errorMessage {
+    margin-top: 1rem;
+  }
+}
+
+@media (min-width: 320px) {
+  .button_wrapper {
+    margin-top: 2rem;
+    height: 6rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .button_wrapper {
+    margin-top: 4.5rem;
+    margin-bottom: 1rem;
+  }
+}
+/*# sourceMappingURL=login.module.css.map */

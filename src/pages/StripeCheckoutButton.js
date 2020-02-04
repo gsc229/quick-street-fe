@@ -16,6 +16,9 @@ const StripeCheckoutButton = ({ price, customerId }) => {
             currency: 'usd'
         }).then(res => {
             console.log(res)
+            // clear cart state
+            // clear back upon successful payment (in payment backend)
+            // show confirmatio 
         }).catch(err => {
             console.log(err)
         })

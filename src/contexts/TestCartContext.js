@@ -7,10 +7,6 @@ const cartReducer = (state, action) => {
 			return { ...state, cart: action.payload };
 		case 'add_error': 
 			return { ...state, errorMessage: action.payload};
-		case 'createCart':
-			return { ...state, errorMessage: action.payload};
-		case 'deleteCart' :
-			return { ...state, errorMessage: action.payload};
 		default:
 			return state;
 	}
@@ -20,7 +16,7 @@ const createCart = (dispatch) => async (customerId) => {
 	try {
 		const response = await axiosWithAuth().post(`/customers/${customerId}/cart`);
 		console.log('Response after creating a cart', response);
-		dispatch({ type: 'createCart', payload: response.data.data });	
+		dispatch({ type: 'getCartItems', payload: response.data.data });	
 	} catch (error) {
 		console.log(error);
 		dispatch({
@@ -101,21 +97,48 @@ const deleteCartItem = (dispatch) => async ({
 	}
 };
 
-const deleteCart = (dispatch) => async ({
+const addItemFromOtherVendor = (dispatch) => async ({
+	cartId, 
+	customerId, 
+	productId, 
+	price, 
+	quantity
+}) => {
+	try {
+		const delCartResponse = await axiosWithAuth().delete(`/cart/${cartId}`);
+		console.log('Response after deleting cart for a customer', delCartResponse);
+		if (delCartResponse.status === 200) {
+			const createCartResponse = await axiosWithAuth().post(`/customers/${customerId}/cart`);
+			console.log('Response after creating cart for a customer', createCartResponse);
+			if (createCartResponse.status === 200) {
+				const addItemResponse = await axiosWithAuth().post(`customers/${customerId}/cart/addtocart`, {
+					productId,
+					price,
+					quantity		
+				});
+				console.log('Response after adding item to cart for a customer', addItemResponse);
+				dispatch({type: 'getCartItems', payload: addItemResponse.data.cart});
+			}
+		}
+	} catch {
+		dispatch({
+			type: 'add_error',
+			payload: 'Could not get data from backend'
+		});
+	}
+}
+
+const deleteAndAddCart = (dispatch) => async ({
 	cartId, 
 	customerId
 }) => {
 	try {
-		const response = await axiosWithAuth().delete(`/cart/${cartId}`);
-		console.log('Response after deleting cart for a customer', response);
-		dispatch({ type: 'deleteCart', payload: response.data.data });
-		if (response.status === 200) {
-			console.log('delete cart successful');
-			await createCart(customerId);
-			// dispatch({ type: 'createCart', payload: customerId});
-		}
-		else {
-			console.log('this did nt work')
+		const delCartResponse = await axiosWithAuth().delete(`/cart/${cartId}`);
+		console.log('Response after deleting cart for a customer', delCartResponse);
+		if (delCartResponse.status === 200) {
+			const createCartResponse = await axiosWithAuth().post(`/customers/${customerId}/cart`);
+			console.log('Response after creating cart for a customer', createCartResponse);
+			dispatch({type: 'getCartItems', payload: createCartResponse.data.data});		
 		}
 	} catch {
 		dispatch({
@@ -127,7 +150,7 @@ const deleteCart = (dispatch) => async ({
 
 export const { Provider, Context } = createDataContext(
 	cartReducer,
-	{ createCart, getCartItems, addCartItem, updateCartItem, deleteCartItem, deleteCart }, 
+	{ createCart, getCartItems, addCartItem, updateCartItem, deleteCartItem, addItemFromOtherVendor, deleteAndAddCart }, 
 	{ cart: {}, errorMessage: ''}
   
 );

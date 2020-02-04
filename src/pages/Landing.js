@@ -7,10 +7,11 @@ import landing from '../styles/scss/landing.module.scss';
 import Image from '../assets/images/Image';
 
 // Components
-import { Nav, LandingGallery, CarouselTop, CarouselTopMobile, CustomButton } from '../components/index';
+import { Nav, LandingGallery, CarouselTop, CarouselTopMobile, CustomButton, Footer } from '../components/index';
 
 const Landing = () => {
 	return (
+		<React.Fragment>
 		<div className={landing.container}>
 			<div className={landing.hero_container}>
 				<Nav />
@@ -121,6 +122,8 @@ const Landing = () => {
 				</div>
 			</div>
 		</div>
+		 <Footer />
+		 </React.Fragment>
 	);
 };
 

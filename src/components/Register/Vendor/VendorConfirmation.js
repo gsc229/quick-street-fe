@@ -42,7 +42,7 @@ const VendorConfirmation = (props) => {
 		axiosWithAuth()
 			.post('/auth/register', registerObject)
 			.then((response) => {
-				// console.log('POST VendorConfirm res: ', response);
+			    console.log('POST VendorConfirm res: ', response);
 				localStorage.setItem('token', response.data.token);
 				props.history.push(`/profile/${response.data.id}`);
 			})
@@ -110,7 +110,7 @@ const VendorConfirmation = (props) => {
 					<CustomButton styleClass="green-border" onClick={cancel}>
 						Back
 					</CustomButton>
-					<CustomButton styleClass="green-full" onClick={() => signup({ email, password })}>
+					<CustomButton styleClass="green-full" onClick={() => signup({ email, password, businessName, phoneNumber,city,zipcode,vendor:true })}>
 						Save & Confirm
 					</CustomButton>
 				</div>

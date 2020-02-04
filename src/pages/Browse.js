@@ -3,12 +3,22 @@ import React, { useState, useEffect, useContext } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 // components
 import {
+<<<<<<< HEAD
 	Map,
 	Search,
 	Menu,
 	ShoppingCartItems,
 	Modal,
 	Nav
+=======
+  Map,
+  Search,
+  Menu,
+  ShoppingCartItems,
+  Modal,
+  Nav,
+  Footer
+>>>>>>> 06a7403c2a70d33132300f438ca30ef56bebe513
 } from '../components/index';
 
 // styles
@@ -17,6 +27,7 @@ import browse from '../styles/scss/browse.module.scss';
 const Browse = (props) => {
 	// console.log('The browse props are', props);
 
+<<<<<<< HEAD
 	const customerId = localStorage.getItem('user_id');
 
 	const [cart, setCart] = useState({});
@@ -24,6 +35,10 @@ const Browse = (props) => {
 
 	const [zipcode, setZipcode] = useState('');
 	const [query, setQuery] = useState([]);
+=======
+	const [ zipcode, setZipcode ] = useState('');
+	const [ query, setQuery ] = useState([]);
+>>>>>>> 06a7403c2a70d33132300f438ca30ef56bebe513
 
 	const [vendors, setVendors] = useState({
 		count: '',
@@ -86,11 +101,7 @@ const Browse = (props) => {
 	}, []);
 
 	return (
-		<div className={browse.container}>
-			<p onClick={() => setCartModal(true)}>Shopping Cart</p>
-			<Modal showModal={cartModal}>
-				<ShoppingCartItems setCartModal={setCartModal} />
-			</Modal>
+		<React.Fragment>
 			<div className={browse.temp_menu}>
 				<Nav />
 			</div>
@@ -244,7 +255,8 @@ const Browse = (props) => {
 					match={props.match}
 				/>
 			</div>
-		</div>
+			<Footer />
+		</React.Fragment>
 	);
 };
 export default Browse;

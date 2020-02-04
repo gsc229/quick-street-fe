@@ -8,6 +8,7 @@
 
 @media (min-width: 320px) {
   .hero_container {
+    padding: 1rem;
     width: 100%;
     background-image: url("../../assets/images/landing/images/hero-banner-phone.png");
     background-repeat: no-repeat;
@@ -128,7 +129,14 @@
 
 @media (min-width: 320px) {
   .top_row {
+
+    color: white;
+    font-family: Rubik;
+  }
+  .top_row a {
+    color: white;
     display: none;
+
   }
 }
 
@@ -168,6 +176,13 @@
   .top_button {
     width: 20rem;
     float: right;
+  }
+}
+
+@media (min-width: 320px) {
+  .works_container {
+    width: 100%;
+    padding: 1rem;
   }
 }
 

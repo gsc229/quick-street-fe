@@ -10,7 +10,7 @@ import { Modal } from '../../../index';
 import ModalCarousel2 from './ModalCarousel2';
 
 const ViewVendorProduct = (props) => {
-	const { state, addCartItem, createCart, deleteCart } = useContext(CartContext);
+	const { state, addCartItem, addItemFromOtherVendor } = useContext(CartContext);
 	const cart = state.cart;
 	// console.log('cart in the vendor product page', cart);
 	const vendorId = props.vendorId;
@@ -39,19 +39,16 @@ const ViewVendorProduct = (props) => {
 				customerId: customerId
 			})
 		} else {
-			setMessageModal(true);
-		}
+
+			console.log('inside the else condition for adding a product to cart');
+			setMessageModal(true); 
+		}	
+
 	};
 
 	const handleEmptyCart = () => {
 		setMessageModal(false);
-		deleteCart({ cartId: cart._id, customerId })
-			.then(response => {
-				console.log('response in vendor product page after deleting a cart', response);
-			})
-			.catch(error => {
-				console.log(error.response);
-			})
+		addItemFromOtherVendor({cartId: cart._id, customerId, productId: props.product._id, price: props.product.price, quantity: quantity });
 
 		// createCart(customerId);
 		// addCartItem({
@@ -139,12 +136,26 @@ const ViewVendorProduct = (props) => {
 				<div class={modal.overlay} id={modal.overlay}>
 				</div>
 			</Modal>
-			<Modal showModal={messageModal}>
-				<p>Cart not empty</p>
-				<p>Cart contains items from a different vendor. Empty the cart and add this item?</p>
-				<p onClick={() => setMessageModal(false)}>Cancel</p>
-				<p onClick={handleEmptyCart}>Empty Cart</p>
-			</Modal>
+
+			<Modal showModal={messageModal}>	
+				<div className={modal.container}>
+					<div className={modal.row}>
+						<h1>Cart not empty</h1>
+					</div>
+					<div className={modal.row}>
+						<h1>Cart contains items from a different vendor. Empty the cart and add this item?</h1>
+					</div>
+					<div className={modal.button_wrapper}>
+						<div className={modal.button_left}>
+							<CustomButton styleClass='red-full' onClick={() => setMessageModal(false)}>Cancel</CustomButton>
+						</div>
+						<div className={modal.button_right}>
+							<CustomButton styleClass='green-full' onClick={handleEmptyCart}>Empty Cart</CustomButton>
+						</div>
+					</div>
+				</div>
+			</Modal>					
+
 
 		</>
 	);

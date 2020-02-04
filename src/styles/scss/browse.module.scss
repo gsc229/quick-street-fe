@@ -2,148 +2,176 @@
 
 // **** ITEMS RELATED TO BROWSE.JS ** //
 .container {
-	@include phone {
-		padding: 0px;
-	}
-	@include xl {
-		width: 144rem;
-		margin: 0 auto;
-	}
+  @include phone {
+    padding: 0px;
+  }
+  @include xl {
+    width: 144rem;
+    margin: 0 auto;
+  }
 }
 .temp_menu {
-	@include xl {
-		background-color: $primary-color;
-	}
+  @include xl {
+    background-color: $primary-color;
+  }
 }
 .wrapper {
-	@include xl {
-		margin: 0 auto;
-		width: 128rem;
-		p {
-			font-size: 24px;
-			margin-top: 3%;
-			color: #2b3335;
-		}
-	}
+  @include xl {
+    margin: 0 auto;
+    width: 128rem;
+    p {
+      font-size: 24px;
+      margin-top: 3%;
+      color: #2b3335;
+    }
+  }
 }
 .filter_container {
-	@include xl {
-		width: 100%;
-		display: flex;
-		justify-content: space-evenly;
-	}
+  //border: 3px solid yellowgreen;
+  margin: 20px auto;
+  @include xl {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .filter_wrapper {
+    //border: 1px solid blue;
+    @include xl {
+      flex: 1;
+      //margin-left: 10rem;
+      label {
+        font-size: 1.2rem;
+        padding: 0.2rem;
+      }
+      p {
+        margin: 0rem;
+        padding: 0rem;
+      }
+    }
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    .checkbox_container {
+      display: flex;
+      flex-wrap: wrap;
+      //border: yellowgreen 3px solid;
+      padding: 0;
+      div {
+        //border: yellowgreen 3px solid;
+        display: flex;
+        width: 150px;
+        align-items: center;
+        margin-left: 0;
+        input {
+          height: 1.8rem;
+          width: 1.8rem;
+          font-size: 1.6rem;
+          border-radius: 10px;
+        }
+        label {
+          font-size: 1.8rem;
+        }
+      }
+    }
+  }
 }
 .zip_wrapper {
-	@include xl {
-		background-color: blue;
-		width: 40rem;
-		flex: 1;
-	}
+  @include xl {
+    background-color: blue;
+    width: 40rem;
+    flex: 1;
+  }
 }
 .zipcode_input {
-	@include xl {
-		@include form_input();
-		width: 27.3rem;
-		height: 3.6rem;
-		background-image: url('../../assets/svgs/search_icon.svg');
-		background-repeat: no-repeat;
-		background-position: 0.5rem 1rem;
-		padding-left: 2.8rem;
-		font-size: 1.4rem;
-		margin-bottom: 3.2rem;
-		&:focus {
-			//removes outline when clicked (focused) on
-			outline: none;
-		}
-	}
-}
-.filter_wrapper {
-	@include xl {
-		flex: 1;
-		margin-left: 10rem;
-		label {
-			font-size: 1.2rem;
-			padding: 0.2rem;
-		}
-		p {
-			margin: 0rem;
-			padding: 0rem;
-		}
-	}
+  @include xl {
+    @include form_input();
+    width: 27.3rem;
+    height: 3.6rem;
+    background-image: url('../../assets/svgs/search_icon.svg');
+    background-repeat: no-repeat;
+    background-position: 0.5rem 1rem;
+    padding-left: 2.8rem;
+    font-size: 1.4rem;
+    margin-bottom: 3.2rem;
+    &:focus {
+      //removes outline when clicked (focused) on
+      outline: none;
+    }
+  }
 }
 
 // *** ITEMS RELATED TO SEARCH.JS
 
 .result_para {
-	margin-top: 5.5rem;
-	margin-bottom: 3.2rem;
-	font-size: 24px;
-	color: #2b3335;
-	text-align: center;
+  margin-top: 5.5rem;
+  margin-bottom: 3.2rem;
+  font-size: 24px;
+  color: #2b3335;
+  text-align: center;
 }
 .vendor_div_empty {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 .vendor_details_empty {
-	width: 19.2rem;
-	border: 0.2rem #e5e5e5 solid;
+  width: 19.2rem;
+  border: 0.2rem #e5e5e5 solid;
 }
 .placeholder_image {
-	width: 100%;
+  width: 100%;
 }
 
 .placeholder_text {
-	height: 2vh;
-	margin-bottom: 6px;
-	margin-top: 6px;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	width: 80%;
+  height: 2vh;
+  margin-bottom: 6px;
+  margin-top: 6px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
 }
 
 .vendor_count {
-	font-size: 2.4rem;
-	color: #2b3335;
-	margin-top: 1.5rem;
-	margin-bottom: 1.5rem;
+  font-size: 2.4rem;
+  color: #2b3335;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .vendors_div {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	margin-bottom: 4rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 4rem;
 }
 
 .vendor_details_div {
-	width: 15rem;
-	margin: 0 0.8rem 2.4rem 0.8rem;
+  width: 15rem;
+  margin: 0 0.8rem 2.4rem 0.8rem;
 }
 
 .vendor_banner_image {
-	width: 100%;
-	object-fit: cover;
-	background-color: red;
+  width: 100%;
+  object-fit: cover;
+  //background-color: red;
 }
 
 .vendor_name {
-	font-size: 1.6rem;
-	color: #2b3335;
-	margin: 8px 0 0px 0;
+  font-size: 1.6rem;
+  color: #2b3335;
+  margin: 8px 0 0px 0;
 }
 
 .category {
-	p {
-		font-size: 1.4rem;
-		color: #2b3335;
-	}
+  p {
+    font-size: 1.4rem;
+    color: #2b3335;
+  }
 }
 
 .view_vendor {
-	font-size: 1.4rem;
-	color: #00769d;
-	text-decoration: none;
+  font-size: 1.4rem;
+  color: #00769d;
+  text-decoration: none;
 }

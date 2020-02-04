@@ -49,32 +49,30 @@ const createCart = (customerId) => {
 const signup = (dispatch) => async ({
 	email,
 	password,
-	role,
-	businessName,
-	phoneNumber,
-	streetAddress,
-	city,
-	zipcode
+	business_name,
+  phone,
+	address,
+	vendor
 }) => {
 	try {
 		const response = await axiosWithAuth().post('/auth/register', {
 			email,
 			password,
-			role,
-			businessName,
-			phoneNumber,
-			streetAddress,
-			city,
-			zipcode
+			business_name,
+			phone,
+			address,
+			vendor
 		});
 		localStorage.setItem('token', response.data.token);
 		localStorage.setItem('user_id', response.data.id);
 		localStorage.setItem('isVendor', response.data.isVendor);
 		dispatch({ type: 'signup', payload: response.data.token });
 		if (response.status === 200) {
-				window.location.href=`/profile/${response.data.id}`
+			// console.log('response after creating a vendor', response);
+			window.location.href=`/profile/${response.data.id}`
 		}
 	} catch (error) {
+		console.log('Error while creating a vendor', error.response);
 		dispatch({
 			type: 'add_error',
 			payload: 'something went wrong'
@@ -107,6 +105,7 @@ const signout = (dispatch) => async () => {
 	localStorage.removeItem('token');
 	localStorage.removeItem('user_id');
 	localStorage.removeItem('isVendor');
+	//localStorage.removeItem('lsid');
 	dispatch({ type: 'signout' });
 };
 

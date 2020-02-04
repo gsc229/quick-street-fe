@@ -3,22 +3,13 @@ import React, { useState, useEffect, useContext } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 // components
 import {
-<<<<<<< HEAD
 	Map,
 	Search,
 	Menu,
 	ShoppingCartItems,
 	Modal,
-	Nav
-=======
-  Map,
-  Search,
-  Menu,
-  ShoppingCartItems,
-  Modal,
-  Nav,
-  Footer
->>>>>>> 06a7403c2a70d33132300f438ca30ef56bebe513
+	Nav,
+	Footer
 } from '../components/index';
 
 // styles
@@ -27,18 +18,8 @@ import browse from '../styles/scss/browse.module.scss';
 const Browse = (props) => {
 	// console.log('The browse props are', props);
 
-<<<<<<< HEAD
-	const customerId = localStorage.getItem('user_id');
-
-	const [cart, setCart] = useState({});
-	const [cartModal, setCartModal] = useState(false);
-
 	const [zipcode, setZipcode] = useState('');
 	const [query, setQuery] = useState([]);
-=======
-	const [ zipcode, setZipcode ] = useState('');
-	const [ query, setQuery ] = useState([]);
->>>>>>> 06a7403c2a70d33132300f438ca30ef56bebe513
 
 	const [vendors, setVendors] = useState({
 		count: '',

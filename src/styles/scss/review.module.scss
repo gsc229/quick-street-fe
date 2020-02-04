@@ -7,6 +7,9 @@
 	@include xl {
 		width: 144rem;
 		margin: 0 auto;
+		h1 {
+			padding: 4rem 8rem 0rem 7rem;
+		}
 	}
 }
 .wrapper {
@@ -25,18 +28,31 @@
 		width: 47.6rem;
 		padding: 4rem;
 		margin-left: 9.7rem;
-		.row {
-			display: block;
-			p {
-				float: left;
-			}
-			h2 {
-				float: right;
-				font-size: 2.4rem;
-				margin: 0rem;
-				padding: 0rem;
-			}
+		
+	}
+}
+.row {
+	@include xl {
+		margin-bottom: 3rem;
+		height: 3rem;
+		p {
+			float: left;
+			font-size: 2.4rem;
+			margin: 0rem;
+			padding: 0rem;
 		}
+		h2 {
+			float: right;
+			font-size: 2.4rem;
+			margin: 0rem;
+			padding: 0rem;
+		}
+	}
+
+}
+.pay_button {
+	@include xl {
+		margin-top: 2rem;
 	}
 }
 
@@ -57,7 +73,7 @@
 			font-size: 2.4rem;
 		}
 		p {
-			font-size: 2rem;
+			font-size: 2.4rem;
 		}
 	}
 }
@@ -91,6 +107,9 @@
 .product_info {
 	@include xl {
 		margin: 0rem 2rem 0rem 0rem;
+		h1 {
+			padding: 0rem;
+		}
 	}
 }
 .product_price {
@@ -104,6 +123,9 @@
 }
 .button {
 	@include xl {
-		width: 19rem;
+		
 	}
+}
+.left {
+	
 }

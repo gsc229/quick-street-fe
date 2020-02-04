@@ -1,3 +1,7 @@
+.profile_container p {
+  font-size: 2rem;
+}
+
 .profile_container .wrapper {
   width: 100%;
   margin: 100px auto;

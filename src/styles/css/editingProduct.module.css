@@ -7,14 +7,34 @@
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  min-height: 900px;
   left: 15%;
   position: absolute;
+}
+
+@media only screen and (max-width: 800px) {
+  .container {
+    padding: 0;
+  }
+}
+
+.container .top_content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+@media only screen and (max-width: 800px) {
+  .container .top_content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    width: 100%;
+  }
 }
 
 .container .close_x {
@@ -32,7 +52,7 @@
   border-radius: 10px;
   width: 100%;
   height: 100%;
-  z-index: 2;
+  z-index: 4;
   text-align: center;
   top: 0;
   left: 0;
@@ -59,7 +79,7 @@
   border-radius: 10px;
   width: 100%;
   height: 100%;
-  z-index: 2;
+  z-index: 4;
   text-align: center;
 }
 
@@ -92,6 +112,15 @@
   padding: 10px;
 }
 
+@media only screen and (max-width: 800px) {
+  .inner_container {
+    width: 100%;
+  }
+}
+
+/* ======= .edit_product_left =========== */
+/* ======= .edit_product_left =========== */
+/* ======= .edit_product_left =========== */
 /* ======= .edit_product_left =========== */
 .edit_product_left {
   display: -webkit-box;
@@ -103,8 +132,6 @@
           flex-direction: column;
   /* ==== .left_uppper_container */
   /* end .left_upper_container */
-  /* ===== .btn_container ===== */
-  /* end .btn_container */
 }
 
 .edit_product_left .left_upper_container {
@@ -167,69 +194,23 @@
   font-size: 2rem;
   position: absolute;
   left: 90%;
+  z-index: 2;
   cursor: pointer;
 }
 
-.edit_product_left .btn_container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin-top: 5vh;
-}
-
-@media (min-width: 320px) {
-  .edit_product_left .btn_container {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-}
-
-@media (min-width: 1024px) {
-  .edit_product_left .btn_container {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-  }
-}
-
-.edit_product_left .btn_container button {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  margin-top: 20px;
-  border-radius: 10px;
-  font-size: 1.6rem;
-  font-weight: 600;
-  padding: 5px;
-}
-
-.edit_product_left .btn_container .finished_editing_btn {
-  border: 3px solid #21b7b7;
-  background-color: #21b7b7;
-  color: #fef2e4;
-  cursor: pointer;
-}
-
-.edit_product_left .btn_container .finished_editing_btn:hover {
-  background-color: whitesmoke;
-  color: #21b7b7;
-}
-
-.edit_product_left .btn_container .delete_product_btn {
-  border: 3px solid #e92323;
-  color: #e92323;
-  cursor: pointer;
-}
-
-.edit_product_left .btn_container .delete_product_btn:hover {
-  background-color: #e92323;
+.edit_product_left .left_upper_container .images_container .image_wrapper i:hover {
   color: white;
+}
+
+.edit_product_left .left_upper_container .images_container .image_wrapper .delete_span {
+  background-color: red;
+  color: white;
+  font-weight: bolder;
+  display: none;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 0px;
 }
 
 /* END .edit_product_left */
@@ -244,7 +225,7 @@
   position: relative;
 }
 
-.edit_product_right h4 {
+.edit_product_right .edit_details_btn {
   cursor: pointer;
   color: #fd7e14;
   font-weight: bolder;
@@ -256,6 +237,29 @@
   padding: 10px;
 }
 
+.edit_product_right .edit_details_btn:hover {
+  background-color: #fd7e14;
+  color: whitesmoke;
+}
+
+.edit_product_right .commit_changes_btn {
+  cursor: pointer;
+  background-color: #fd7e14;
+  font-weight: bolder;
+  color: whitesmoke;
+  border: 1px solid grey;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.edit_product_right .commit_changes_btn:hover {
+  background-color: whitesmoke;
+  color: #fd7e14;
+}
+
 .edit_product_right i {
   font-size: 2rem;
   cursor: pointer;
@@ -264,11 +268,14 @@
 .edit_product_right .details_saved_popup {
   background-color: #fffefe;
   display: block;
-  border-radius: 10px;
   position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
   width: 100%;
   height: 100%;
   text-align: center;
+  z-index: 3;
 }
 
 .edit_product_right .details_saved_popup h3 {
@@ -313,7 +320,7 @@
 }
 
 .edit_product_right .details_container .details_wrapper .input_wrapper p {
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 
 .edit_product_right .details_container .details_wrapper .diet_category_container {
@@ -378,6 +385,65 @@
 }
 
 /* end edit_product_right */
+/* ===== .btn_container ===== */
+/* ===== .btn_container ===== */
+/* ===== .btn_container ===== */
+/* ===== .btn_container ===== */
+.btn_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 15vh;
+}
+
+@media only screen and (max-width: 800px) {
+  .btn_container {
+    width: 100%;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+  }
+}
+
+.btn_container button {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-top: 20px;
+  border-radius: 10px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding: 5px;
+}
+
+.btn_container .finished_editing_btn {
+  border: 3px solid #21b787;
+  background-color: #21b787;
+  color: #fef2e4;
+  cursor: pointer;
+}
+
+.btn_container .finished_editing_btn:hover {
+  background-color: whitesmoke;
+  color: #21b787;
+}
+
+.btn_container .delete_product_btn {
+  border: 3px solid #e92323;
+  color: #e92323;
+  cursor: pointer;
+}
+
+.btn_container .delete_product_btn:hover {
+  background-color: #e92323;
+  color: white;
+}
+
+/* end .btn_container */
 .vendor_product_btn_group button {
   width: 30%;
   height: 10%;

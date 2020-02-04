@@ -287,8 +287,6 @@
   }
   .products_card_wrapper .products_card .image {
     cursor: pointer;
-    width: 14.6rem;
-    height: 12.2rem;
     -o-object-fit: cover;
        object-fit: cover;
     border-radius: 0.3rem;

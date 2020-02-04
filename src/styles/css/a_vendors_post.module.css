@@ -1,0 +1,41 @@
+.vendor_post_list_container {
+  width: 80%;
+  margin: auto;
+}
+
+@media only screen and (max-width: 800px) {
+  .vendor_post_list_container {
+    width: 100%;
+  }
+}
+
+.vendor_post_list_container ul {
+  padding: 30px;
+}
+
+.vendor_post_list_container li {
+  list-style-type: none;
+}
+
+@media only screen and (max-width: 800px) {
+  .post_container {
+    width: 100%;
+  }
+}
+
+.post_container .post_date {
+  font-size: 18px;
+}
+
+.post_container .post_content {
+  padding-left: 140px;
+  margin-bottom: 14%;
+  font-size: 18px;
+}
+
+@media only screen and (max-width: 800px) {
+  .post_container .post_content {
+    padding-left: 10px;
+  }
+}
+/*# sourceMappingURL=a_vendors_post.module.css.map */

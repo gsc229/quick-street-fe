@@ -69,6 +69,7 @@ const signup = (dispatch) => async ({
 		});
 		localStorage.setItem('token', response.data.token);
 		localStorage.setItem('user_id', response.data.id);
+		localStorage.setItem('isVendor', response.data.isVendor);
 		dispatch({ type: 'signup', payload: response.data.token });
 		if (response.status === 200) {
 				window.location.href=`/profile/${response.data.id}`
@@ -90,6 +91,7 @@ const signin = (dispatch) => async ({ email, password }) => {
 		console.log(response);
 		localStorage.setItem('token', response.data.token);
 		localStorage.setItem('user_id', response.data.id);
+		localStorage.setItem('isVendor', response.data.isVendor);
 		if (response.status === 200 & response.data.isVendor) {
 			window.location.href=`profile/${response.data.id}`
 		} else {
@@ -105,7 +107,7 @@ const signout = (dispatch) => async () => {
 	localStorage.removeItem('token');
 	localStorage.removeItem('user_id');
 	localStorage.removeItem('isVendor');
-	localStorage.removeItem('lsid');
+	//localStorage.removeItem('lsid');
 	dispatch({ type: 'signout' });
 };
 

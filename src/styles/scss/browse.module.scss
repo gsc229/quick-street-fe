@@ -27,10 +27,52 @@
   }
 }
 .filter_container {
+  //border: 3px solid yellowgreen;
+  margin: 20px auto;
   @include xl {
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+  }
+  .filter_wrapper {
+    //border: 1px solid blue;
+    @include xl {
+      flex: 1;
+      //margin-left: 10rem;
+      label {
+        font-size: 1.2rem;
+        padding: 0.2rem;
+      }
+      p {
+        margin: 0rem;
+        padding: 0rem;
+      }
+    }
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    .checkbox_container {
+      display: flex;
+      flex-wrap: wrap;
+      //border: yellowgreen 3px solid;
+      padding: 0;
+      div {
+        //border: yellowgreen 3px solid;
+        display: flex;
+        width: 150px;
+        align-items: center;
+        margin-left: 0;
+        input {
+          height: 1.8rem;
+          width: 1.8rem;
+          font-size: 1.6rem;
+          border-radius: 10px;
+        }
+        label {
+          font-size: 1.8rem;
+        }
+      }
+    }
   }
 }
 .zip_wrapper {
@@ -54,20 +96,6 @@
     &:focus {
       //removes outline when clicked (focused) on
       outline: none;
-    }
-  }
-}
-.filter_wrapper {
-  @include xl {
-    flex: 1;
-    margin-left: 10rem;
-    label {
-      font-size: 1.2rem;
-      padding: 0.2rem;
-    }
-    p {
-      margin: 0rem;
-      padding: 0rem;
     }
   }
 }

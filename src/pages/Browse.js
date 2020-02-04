@@ -3,13 +3,13 @@ import React, { useState, useEffect, useContext } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 // components
 import {
-  Map,
-  Search,
-  Menu,
-  ShoppingCartItems,
-  Modal,
-  Nav,
-  Footer
+	Map,
+	Search,
+	Menu,
+	ShoppingCartItems,
+	Modal,
+	Nav,
+	Footer
 } from '../components/index';
 
 // styles
@@ -18,14 +18,14 @@ import browse from '../styles/scss/browse.module.scss';
 const Browse = (props) => {
 	// console.log('The browse props are', props);
 
-	const [ zipcode, setZipcode ] = useState('');
-	const [ query, setQuery ] = useState([]);
+	const [zipcode, setZipcode] = useState('');
+	const [query, setQuery] = useState([]);
 
-	const [ vendors, setVendors ] = useState({
+	const [vendors, setVendors] = useState({
 		count: '',
 		vendorDetails: []
 	});
-	const [ customerZip, setCustomerZip ] = useState('');
+	const [customerZip, setCustomerZip] = useState('');
 	// const customerId = localStorage.getItem('user_id');
 
 	const handleChange = (event) => {
@@ -36,7 +36,7 @@ const Browse = (props) => {
 		console.log(event.target.value);
 
 		if (!query.includes(event.target.value)) {
-			setQuery([ ...query, event.target.value ]);
+			setQuery([...query, event.target.value]);
 		} else {
 			setQuery(query.filter((el) => el !== event.target.value));
 		}
@@ -88,130 +88,142 @@ const Browse = (props) => {
 			</div>
 
 			<div className={browse.wrapper}>
-				{zipcode === '' && <p>Enter a location to start browsing</p>}
-				{zipcode !== '' && <p>Your results for</p>}
+
 				<form className={browse.filter_container} onSubmit={handleSubmit}>
-					<input
-						name="zipcode"
-						placeholder="zip code"
-						onChange={handleChange}
-						value={customerZip}
-						className={browse.zipcode_input}
-					/>
+					<div className={browse.filter_wrapper}>
+						{zipcode === '' && <p>Enter a location to start browsing</p>}
+						{zipcode !== '' && <p>Your results for</p>}
+						<input
+							name="zipcode"
+							placeholder="zip code"
+							onChange={handleChange}
+							value={customerZip}
+							className={browse.zipcode_input}
+						/>
+
+					</div>
 					<div className={browse.filter_wrapper}>
 						<p>Filter by vendor category</p>
-						<div>
-							<input
-								onChange={handleQueryChange}
-								name="vegetables"
-								type="checkbox"
-								value="vendor_category[in]=Vegetables"
-							/>
-							<label for="defaultCheck1">Vegetables</label>
-						</div>
-						<div>
-							<input
-								onChange={handleQueryChange}
-								name="fruits"
-								type="checkbox"
-								value="vendor_category[in]=Fruits"
-							/>
-							<label for="defaultCheck1">Fruits</label>
-						</div>
+						<div className={`form-check ${browse.checkbox_container}`}>
+							<div>
+								<input
+									onChange={handleQueryChange}
+									name="vegetables"
+									type="checkbox"
+									value="vendor_category[in]=Vegetables"
+								/>
+								<label for="defaultCheck1">Vegetables</label>
+							</div>
+							<div>
+								<input
+									onChange={handleQueryChange}
+									name="fruits"
+									type="checkbox"
+									value="vendor_category[in]=Fruits"
+								/>
+								<label for="defaultCheck1">Fruits</label>
+							</div>
 
-						<div>
-							<input
-								onChange={handleQueryChange}
-								name="breads"
-								type="checkbox"
-								value="vendor_category[in]=Breads"
-							/>
-							<label for="defaultCheck1">Breads</label>
-						</div>
-						<div>
-							<input
-								onChange={handleQueryChange}
-								name="baked goods"
-								type="checkbox"
-								value="vendor_category[in]=Baked goods"
-							/>
-							<label for="defaultCheck1">Baked goods</label>
-						</div>
-						<div>
-							<input
-								onChange={handleQueryChange}
-								name="beverages"
-								type="checkbox"
-								value="vendor_category[in]=Beverages"
-							/>
-							<label for="defaultCheck1">Beverages</label>
-						</div>
-						<div>
-							<input
-								onChange={handleQueryChange}
-								name="spreads"
-								type="checkbox"
-								value="vendor_category[in]=Spreads"
-							/>
-							<label for="defaultCheck1">Spreads</label>
-						</div>
-						<div>
-							<input
-								onChange={handleQueryChange}
-								name="other"
-								type="checkbox"
-								value="vendor_category[in]=Others"
-							/>
-							<label for="defaultCheck1">Others</label>
+							<div>
+								<input
+									onChange={handleQueryChange}
+									name="breads"
+									type="checkbox"
+									value="vendor_category[in]=Breads"
+								/>
+								<label for="defaultCheck1">Breads</label>
+							</div>
+
+							<div>
+								<input
+									onChange={handleQueryChange}
+									name="beverages"
+									type="checkbox"
+									value="vendor_category[in]=Beverages"
+								/>
+								<label for="defaultCheck1">Beverages</label>
+							</div>
+							<div>
+								<input
+									onChange={handleQueryChange}
+									name="spreads"
+									type="checkbox"
+									value="vendor_category[in]=Spreads"
+								/>
+								<label for="defaultCheck1">Spreads</label>
+							</div>
+
+							<div>
+								<input
+									onChange={handleQueryChange}
+									name="baked goods"
+									type="checkbox"
+									value="vendor_category[in]=Baked goods"
+								/>
+								<label for="defaultCheck1">Baked Goods</label>
+							</div>
+							<div>
+								<input
+									onChange={handleQueryChange}
+									name="other"
+									type="checkbox"
+									value="vendor_category[in]=Others"
+								/>
+								<label for="defaultCheck1">Others</label>
+							</div>
+
 						</div>
 					</div>
 					<div className={browse.filter_wrapper}>
 						<p>Filter by Diet Category</p>
-						<div>
-							<input
-								onChange={handleQueryChange}
-								name="gluten free"
-								type="checkbox"
-								value="diet_categories[in]=Gluten Free"
-							/>
-							<label for="defaultCheck1">Gluten Free</label>
-						</div>
-						<div>
-							<input
-								onChange={handleQueryChange}
-								name="vegetarian"
-								type="checkbox"
-								value="diet_categories[in]=Vegetarian"
-							/>
-							<label for="defaultCheck1">Vegetarian</label>
-						</div>
+						<div className={browse.checkbox_container}>
 
-						<div>
-							<input
-								onChange={handleQueryChange}
-								name="vegan"
-								type="checkbox"
-								value="diet_categories[in]=Vegan"
-							/>
-							<label for="defaultCheck1">Vegan</label>
-						</div>
-						<div>
-							<input
-								onChange={handleQueryChange}
-								name="keto"
-								type="checkbox"
-								value="diet_categories[in]=Keto"
-							/>
-							<label for="defaultCheck1">Keto</label>
-						</div>
-						<div>
-							<input
-								onChange={handleQueryChange}
-								name="Dairy Free"
-								type="checkbox"
-								value="diet_categories[in]=Dairy Free"
-							/>
-							<label for="defaultCheck1">Dairy Free</label>
+							<div>
+								<input
+									onChange={handleQueryChange}
+									name="vegan"
+									type="checkbox"
+									value="diet_categories[in]=Vegan"
+								/>
+								<label for="defaultCheck1">Vegan</label>
+							</div>
+							<div>
+								<input
+									onChange={handleQueryChange}
+									name="keto"
+									type="checkbox"
+									value="diet_categories[in]=Keto"
+								/>
+								<label for="defaultCheck1">Keto</label>
+							</div>
+							<div>
+								<input
+									onChange={handleQueryChange}
+									name="Dairy Free"
+									type="checkbox"
+									value="diet_categories[in]=Dairy Free"
+								/>
+								<label for="defaultCheck1">Dairy Free</label>
+							</div>
+							<div>
+								<input
+									onChange={handleQueryChange}
+									name="gluten free"
+									type="checkbox"
+									value="diet_categories[in]=Gluten Free"
+								/>
+								<label for="defaultCheck1">Gluten Free</label>
+							</div>
+							<div>
+								<input
+									onChange={handleQueryChange}
+									name="vegetarian"
+									type="checkbox"
+									value="diet_categories[in]=Vegetarian"
+								/>
+								<label for="defaultCheck1">Vegetarian</label>
+							</div>
+
 						</div>
 					</div>
 				</form>

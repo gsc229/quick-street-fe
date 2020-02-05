@@ -10,22 +10,19 @@ import Footer from '../shared/Footer';
 import axiosWithAuth from '../../utils/axiosWithAuth';
 
 const OrderConfirmation = () => {
-	const [ orderObj, setOrderObj ] = useState('')
+	const [ orderObj, setOrderObj ] = useState('');
 	const customerId = localStorage.getItem('user_id');
-	console.log('customerID in orderconfirmation', customerId)
+	console.log('customerID in orderconfirmation', customerId);
 	//const { state, setOrders } = useContext(OrderContext); // context??
 
-
-		useEffect(() => {
-			axiosWithAuth().get(`/customers/${customerId}/order`)
-			.then((res) => {
-				const length = res.data.orders.length;
-				const lastOrder = res.data.orders[length - 1]
-				setOrderObj(lastOrder)
-				console.log('last order', lastOrder)
-			})
-		}, [])	
-
+	useEffect(() => {
+		axiosWithAuth().get(`/customers/${customerId}/order`).then((res) => {
+			const length = res.data.orders.length;
+			const lastOrder = res.data.orders[length - 1];
+			setOrderObj(lastOrder);
+			console.log('last order', lastOrder);
+		});
+	}, []);
 
 	return (
 		<React.Fragment>
@@ -36,7 +33,7 @@ const OrderConfirmation = () => {
 				<div className={order.wrapper}>
 					<h1>Order Confirmed</h1>
 					<p>Check your email for receipt!</p>
-					
+
 					<div className={order.info_container}>
 						<div className={order.info_wrapper}>
 							<h1>Your Order Number</h1>

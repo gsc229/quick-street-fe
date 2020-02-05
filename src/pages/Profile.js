@@ -123,7 +123,7 @@ const Profile = props => {
   return (
     <React.Fragment>
       <div className={browse.temp_menu}>
-        <Nav {...vendorInfo} />
+        <Nav />
       </div>
       <div className={profile.profile_container}>
         <div className={`${profile.wrapper} ${banner.banner_wrapper}`}>

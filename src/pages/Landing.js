@@ -19,9 +19,9 @@ import {
 const Landing = () => {
   return (
     <React.Fragment>
-      <Nav />
       <div className={landing.container}>
         <div className={landing.hero_container}>
+          <Nav />
           <div className={landing.info}>
             <h1>
               Finally , A Way For Vendors and Lovers of Food to Come Together in

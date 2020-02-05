@@ -18,7 +18,6 @@ const EditProduct = (props) => {
   const [loadingImages, setLoadingImages] = useState(false);
   const [imageDeleted, setImageDeleted] = useState(false);
   const [productDeleted, setProductDeleted] = useState(false);
-
   // Bool to reload images after POST or DELETE request passed to ProductImageUploader
   const [reloadingImages, setReloadingImages] = useState(false);
 
@@ -291,21 +290,14 @@ const EditProduct = (props) => {
       						</h3>
                 </div>
               )}
-              {editingDetails ? (
-                <h4 className={editingProduct.commit_changes_btn} onClick={submitProductDetails}>
-                  {' '}
-                  <i className="fa fa-check-circle" /> Commit Changes
+              <h4 className={editingProduct.edit_details_btn} >
+                <i className="fa fa-edit" />Edit Details
       						</h4>
-              ) : (
-                  <h4 className={editingProduct.edit_details_btn} >
-                    <i className="fa fa-edit" />Edit Details
-      						</h4>
-                )}
             </div>
 
 
             {editingDetails ? ( // <<<<< TURNARY
-              <EditProductForm product={product} setProduct={setProduct} />
+              <EditProductForm product={product} setProduct={setProduct} submitProductDetails={submitProductDetails} setEditingDetails={setEditingDetails} />
             ) : ( // : else do this:
                 <div className={editingProduct.details_container}>
                   <div className={editingProduct.details_wrapper}>

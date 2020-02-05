@@ -105,10 +105,13 @@ const useStyles = makeStyles((theme) => ({
 		paddingRight: 40,
 		paddingTop: 50,
 		paddingBottom: 50,
-		color: 'white'
+		color: 'white',
+		height: '100vh'
 	},
 	checkout: {
-		fontSize: 20
+		fontSize: 20,
+		borderTop: '2px solid #E1F6FA',
+		paddingTop: 40
 	}
 }));
 
@@ -192,15 +195,16 @@ const Nav = () => {
 				<h1>Your Cart</h1>
 			</List>
 			<ShoppingCartItems />
-			<Divider />
 			<div className={classes.checkout}>
 				{cart && (
 					<p>
-						Total items({cartQuantity(cart)}) ${cart.total}
+						Total items({cartQuantity(cart)}) <span style={{ float: 'right' }}>${cart.total}</span>
 					</p>
 				)}
-				<CustomButton onClick={toggleDrawer('right', false)}>Keep Shopping</CustomButton>
-				<CustomButton>
+				<CustomButton styleClass="white-border" onClick={toggleDrawer('right', false)}>
+					Keep Shopping
+				</CustomButton>
+				<CustomButton styleClass="checkout">
 					{cart && <Link to={{ pathname: `/orderreview/${cart._id}` }}>Checkout</Link>}
 				</CustomButton>
 			</div>

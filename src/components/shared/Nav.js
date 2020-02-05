@@ -129,12 +129,9 @@ const Nav = () => {
 		}
 	};
 	console.log('Customer ID', customerId);
-	useEffect(
-		() => {
-			getCartItems(customerId);
-		},
-		[ cart ]
-	);
+	useEffect(() => {
+		getCartItems(customerId);
+	}, []);
 	console.log('State Items', state);
 	const toggleDrawer = (side, open) => (event) => {
 		if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -283,30 +280,38 @@ const Nav = () => {
 							</MenuItem>
 						)}
 						{isVendor === 'false' && (
-							<MenuItem>
-								<IconButton
-									edge="end"
-									aria-label="account of current user"
-									aria-controls={menuId}
-									aria-haspopup="true"
-									onClick={handleProfileMenuOpen}
-									color="inherit"
-								>
-									<AccountCircle style={{ height: '30px', width: '30px' }} />
-								</IconButton>
-								<IconButton
-									onClick={toggleDrawer('right', true)}
-									aria-label="show items in car"
-									color="inherit"
-								>
-									<Badge badgeContent={cartQuantity(cart)} color="secondary">
-										<ShoppingCartIcon style={{ height: '30px', width: '30px' }} />
-									</Badge>
-								</IconButton>
-								<Drawer anchor="right" open={stateDrawer.right} onClose={toggleDrawer('right', false)}>
-									{sideList('right')}
-								</Drawer>
-							</MenuItem>
+							<React.Fragment>
+								<MenuItem>
+									<IconButton
+										edge="end"
+										aria-label="account of current user"
+										aria-controls={menuId}
+										aria-haspopup="true"
+										onClick={handleProfileMenuOpen}
+										color="inherit"
+									>
+										<AccountCircle style={{ height: '30px', width: '30px' }} />
+									</IconButton>
+								</MenuItem>
+								<MenuItem>
+									<IconButton
+										onClick={toggleDrawer('right', true)}
+										aria-label="show items in car"
+										color="inherit"
+									>
+										<Badge badgeContent={cartQuantity(cart)} color="secondary">
+											<ShoppingCartIcon style={{ height: '30px', width: '30px' }} />
+										</Badge>
+									</IconButton>
+									<Drawer
+										anchor="right"
+										open={stateDrawer.right}
+										onClose={toggleDrawer('right', false)}
+									>
+										{sideList('right')}
+									</Drawer>
+								</MenuItem>
+							</React.Fragment>
 						)}
 					</div>
 				</Toolbar>

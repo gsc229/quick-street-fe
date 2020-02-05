@@ -75,7 +75,7 @@ const Browse = (props) => {
 
 	return (
 		<React.Fragment>
-			<div className={browse.temp_menu}>
+			<div style={{ backgroundColor: '#00B2ED' }} className={browse.temp_menu}>
 				<Nav />
 			</div>
 

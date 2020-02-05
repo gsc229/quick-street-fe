@@ -21,7 +21,7 @@ const OrderReview = (props) => {
 
 	return (
 		<React.Fragment>
-			<div className={review.navbar}>
+			<div style={{ backgroundColor: '#00B2ED' }} className={review.navbar}>
 				<Nav />
 			</div>
 

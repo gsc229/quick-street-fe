@@ -60,7 +60,7 @@ const OrderReviewItem = ({ product }) => {
 
 				<form className={review.quantity} onSubmit={editCartItemQuantity}>
 					<label>Quantity</label>
-					<input name="quantity" type="number" value={quantity} onChange={handleQuantityChange} />
+					<input name="quantity" type="number" value={quantity} onChange={handleQuantityChange} min="1" />
 				</form>
 			</div>
 			<div className={review.product_price}>

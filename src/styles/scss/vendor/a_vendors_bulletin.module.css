@@ -1,0 +1,52 @@
+.bulletin_wrapper {
+  font-family: 'Raleway', sans-serif;
+  background: rgba(233, 187, 250, 0.15);
+  padding-top: 70px;
+  margin-bottom: 10%;
+}
+
+.bulletin_inner_container .inner_bulletin_wrapper {
+  width: 85%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media only screen and (max-width: 800px) {
+  .bulletin_inner_container .inner_bulletin_wrapper {
+    width: 100%;
+  }
+}
+
+.bulletin_inner_container .inner_bulletin_wrapper .vendor_bulletin_title {
+  color: #2b3335;
+  margin-bottom: 3%;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+.bulletin_inner_container .inner_bulletin_wrapper .vendor_add_post_btn_wrapper button {
+  width: 100px;
+  height: 30px;
+  background-color: #00769d;
+  border-radius: 10px;
+  text-align: center;
+  color: #fef2e4;
+  margin: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.bulletin_inner_container .inner_bulletin_wrapper .vendor_add_post_btn_wrapper button:hover {
+  background-color: #fef2e4;
+  color: #00769d;
+  border: 3px solid #00769d;
+}
+/*# sourceMappingURL=a_vendors_bulletin.module.css.map */

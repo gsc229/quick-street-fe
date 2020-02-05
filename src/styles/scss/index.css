@@ -1,0 +1,313 @@
+html,
+body {
+  width: 100%;
+  font-size: 10px;
+  font-family: Raleway;
+}
+
+#wrapper {
+  width: 90vw;
+  margin: 0 auto;
+}
+
+/******** COMMENT *******/
+.App {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.vendor_profile_container {
+  width: 60%;
+  margin-left: 20%;
+}
+
+.vendor_header_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+}
+
+.vendor_profile_btn_group {
+  text-align: end;
+  padding-top: 5%;
+  position: absolute;
+  right: -80px;
+}
+
+.vendor_profile_btn_group img {
+  margin-right: 10px;
+}
+
+.vendor_profile_btn_group button {
+  margin-right: -100px;
+}
+
+.vendor_banner_container {
+  position: relative;
+}
+
+.vendor_banner_image {
+  width: 100%;
+  text-align: center;
+}
+
+.vendor_banner_input {
+  display: none;
+}
+
+.vendor_banner_upload {
+  position: absolute;
+  bottom: 5px;
+  right: 0px;
+}
+
+.vendor_profile_nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.vendor_profile_nav ul li {
+  list-style: none;
+  margin: 20px;
+}
+
+/******** vendor about  *********/
+.vendor_about_container {
+  height: 600px;
+  margin-top: 10%;
+}
+
+.vendor_about_title {
+  position: relative;
+}
+
+.vendor_about_title hr {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 85%;
+}
+
+.vendor_info_form {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.vendor_info_left {
+  width: 50%;
+  padding: 6% 0%;
+}
+
+.vendor_info_form input {
+  border: 1px solid black;
+  height: 20px;
+  margin-top: 5%;
+}
+
+.vendor_info_days {
+  position: relative;
+  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 10% 0;
+}
+
+.vendor_info_days select {
+  margin-top: 5%;
+  border: 1px solid black;
+  border-radius: 0px;
+  width: 100%;
+  height: 25px;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+}
+
+.vendor_info_arrow {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  bottom: 24px;
+  left: 80%;
+}
+
+.vendor_info_phone {
+  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 10%;
+}
+
+.vendor_info_about {
+  width: 80%;
+  height: 150px;
+  width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 20%;
+}
+
+.vendor_info_hour {
+  width: 80%;
+  margin-top: 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.vendor_info_hour input {
+  width: 80px;
+  margin-right: 10px;
+}
+
+.vendor_info_hour_input_2 {
+  margin-left: 10px;
+}
+
+.vendor_info_about textarea {
+  border: 1px solid black;
+  margin-top: 5%;
+  width: 120%;
+  height: 70%;
+}
+
+.vendor_info_right {
+  width: 50%;
+  padding: 6% 0%;
+}
+
+.vendor_info_location {
+  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 6%;
+}
+
+/************ vendor bulletin **********/
+.vendor_bulletin_container {
+  width: 100%;
+  height: 100%;
+  margin-top: 10%;
+}
+
+.vendor_bulletin_title {
+  position: relative;
+}
+
+.vendor_bulletin_title hr {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 80%;
+}
+
+.vendor_add_post_btn_wrapper {
+  text-align: end;
+}
+
+.vendor_add_post_btn_wrapper button {
+  width: 126px;
+  height: 26px;
+  background-color: lightgray;
+  border: 1px solid black;
+}
+
+.vendor_add_post_form_show {
+  display: block;
+  padding: 30px;
+}
+
+.vendor_add_post_form_show p {
+  font-size: 24px;
+}
+
+.vendor_add_post_form_show textarea {
+  width: 100%;
+  height: 100px;
+}
+
+.vendor_add_post_form_show input {
+  height: 25%;
+  width: 20%;
+  padding: 1%;
+  border: 1px solid #2b3335;
+  border-radius: 3px;
+}
+
+.vendor_add_post_btn_group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.vendor_add_post_btn_group .save_button {
+  background-color: #00769d;
+  color: #fef2e4;
+  cursor: pointer;
+}
+
+.vendor_add_post_form_show button {
+  height: 10%;
+  width: 30%;
+  margin: 5% 7%;
+  padding: 1% 0;
+  background-color: lightgray;
+  /* border: 1px solid black; */
+  border-radius: 5px;
+  color: gray;
+  cursor: pointer;
+}
+
+.vendor_add_post_form_hide {
+  display: none;
+}
+
+.vendor_post_list_container ul {
+  padding: 30px;
+}
+
+.vendor_post_list_container li {
+  list-style-type: none;
+}
+
+/************ vendor product ***********/
+/*# sourceMappingURL=index.css.map */

@@ -79,8 +79,7 @@ const Profile = props => {
     setEditBusinessName(!editBusinessName);
   };
 
-  const saveName = e => {
-    e.preventDefault();
+  const saveName = () => {
     axiosWithAuth()
       .put(
         `https://quickstlabs.herokuapp.com/api/v1.0/vendors/${vendorId}`,
@@ -137,7 +136,7 @@ const Profile = props => {
                     <input
                       className={banner.business_name_input}
                       onChange={e => {
-                        if (editBusinessName) {
+                        if (editingName) {
                           setVendorInfo({
                             ...vendorInfo,
                             business_name: e.target.value
@@ -150,6 +149,7 @@ const Profile = props => {
                       className={banner.edit_guides}
                       onClick={() => {
                         setEditingName(false);
+                        saveName();
                         console.log('CLICKED');
                       }}
                     >

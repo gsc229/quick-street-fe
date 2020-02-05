@@ -104,38 +104,44 @@ const EditProductForm = (props) => {
           <div id={editingProduct.checkbox_container} className={editingProduct.input_wrapper}>
             <div className={`form-check ${editingProduct.checkbox_wrapper}`}> <label htmlFor="name">Diet Categories: </label>
               <div>
-                <input checked={dietsOnFile && dietsOnFile.indexOf('Gluten Free') !== -1 ? true : false} onChange={handleSelect} className={`form-check-input ${editingProduct.checkbox_input}`} name='diet' type="checkbox" value='Gluten Free' />
                 <label className={`form-check-label ${editingProduct.checkbox_label}`} for="defaultCheck1">
+
+                  <input checked={dietsOnFile && dietsOnFile.indexOf('Gluten Free') !== -1 ? true : false} onChange={handleSelect} className={`form-check-input ${editingProduct.checkbox_input}`} name='diet' type="checkbox" value='Gluten Free' />
                   Gluten Free
                 </label>
               </div>
               <div>
-                <input checked={dietsOnFile && dietsOnFile.indexOf('Vegetarian') !== -1 ? true : false} onChange={handleSelect} className={`form-check-input ${editingProduct.checkbox_input}`} name='diet' type="checkbox" value='Vegetarian' />
                 <label className={`form-check-label ${editingProduct.checkbox_label}`} for="defaultCheck1">
+
+                  <input checked={dietsOnFile && dietsOnFile.indexOf('Vegetarian') !== -1 ? true : false} onChange={handleSelect} className={`form-check-input ${editingProduct.checkbox_input}`} name='diet' type="checkbox" value='Vegetarian' />
                   Vegetarian
                 </label>
               </div>
               <div>
-                <input checked={dietsOnFile && dietsOnFile.indexOf('Vegan') !== -1 ? true : false} onChange={handleSelect} className={`form-check-input ${editingProduct.checkbox_input}`} name='diet' type="checkbox" value='Vegan' />
                 <label className={`form-check-label ${editingProduct.checkbox_label}`} for="defaultCheck1">
+
+                  <input checked={dietsOnFile && dietsOnFile.indexOf('Vegan') !== -1 ? true : false} onChange={handleSelect} className={`form-check-input ${editingProduct.checkbox_input}`} name='diet' type="checkbox" value='Vegan' />
                   Vegan
                 </label>
+
               </div>
               <div>
-                <input checked={dietsOnFile && dietsOnFile.indexOf('Keto') !== -1 ? true : false} onChange={handleSelect} className={`form-check-input ${editingProduct.checkbox_input}`} name='diet' type="checkbox" value='Keto' />
                 <label className={`form-check-label ${editingProduct.checkbox_label}`} for="defaultCheck1">
+
+                  <input checked={dietsOnFile && dietsOnFile.indexOf('Keto') !== -1 ? true : false} onChange={handleSelect} className={`form-check-input ${editingProduct.checkbox_input}`} name='diet' type="checkbox" value='Keto' />
                   Keto
                 </label>
+
               </div>
               <div>
-                <input checked={dietsOnFile && dietsOnFile.indexOf('Dairy Free') !== -1 ? true : false} onChange={handleSelect} className={`form-check-input ${editingProduct.checkbox_input}`} name='diet' type="checkbox" value='Dairy Free' />
                 <label className={`form-check-label ${editingProduct.checkbox_label}`} for="defaultCheck1">
+
+                  <input checked={dietsOnFile && dietsOnFile.indexOf('Dairy Free') !== -1 ? true : false} onChange={handleSelect} className={`form-check-input ${editingProduct.checkbox_input}`} name='diet' type="checkbox" value='Dairy Free' />
                   Dairy Free
                 </label>
+
               </div>
             </div>
-
-
           </div>{/* END Checkboxes */}
           <div className={editingProduct.input_wrapper}>
             <label htmlFor="price">$ Price: </label>

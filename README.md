@@ -5,15 +5,15 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Contributors
 
-
-|[Richard Lawson](https://github.com/lawsonarichard)|                                       [Chao Ji](https://github.com/cjgodfather)                                        |                                       [Rashmi Poddar](https://github.com/rashmipoddar)                                        |                                       [Dominique Maack](https://github.com/dmaack)                                        |                                       [Greg Cameron](https://github.com/gsc229)                                        |                                       [Luis Ocasio](https://github.com/LuisOcasio)                                        |
-| :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
+|                                       [Richard Lawson](https://github.com/lawsonarichard)                                       |                                           [Chao Ji](https://github.com/cjgodfather)                                           |                                    [Rashmi Poddar](https://github.com/rashmipoddar)                                     |                                      [Dominique Maack](https://github.com/dmaack)                                       |                                          [Greg Cameron](https://github.com/gsc229)                                          | [Luis Ocasio](https://github.com/LuisOcasio)                                                                                                                                                                                                   |
+| :-----------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [<img src="https://ca.slack-edge.com/T4JUEB3ME-UJRACG1SQ-443632831451-512" width = "200" />](https://github.com/lawsonarichard) |
-|                      [<img src="https://ca.slack-edge.com/T4JUEB3ME-ULVDSJDLG-3313f82a2992-512" width = "200" />](https://github.com/cjgodfather)                       |                      [<img src="https://ca.slack-edge.com/T4JUEB3ME-ULJ1T89DY-9fcc77e18fe9-512" width = "200" />](https://github.com/rashmipoddar)                       |                      [<img src="https://ca.slack-edge.com/T4JUEB3ME-UJQLGLDB5-79302f48ee3c-512" width = "200" />](https://github.com/dmaack)                       |                      [<img src="https://ca.slack-edge.com/T4JUEB3ME-UJG4U8BNZ-917ae58a74d9-512" width = "200" />](https://github.com/gsc229)                       |                      [<img src="https://ca.slack-edge.com/T4JUEB3ME-UHADUPR0B-5b039d19981f-512" width = "200" />](https://github.com/LuisOcasio)  
+|  [<img src="https://ca.slack-edge.com/T4JUEB3ME-ULVDSJDLG-3313f82a2992-512" width = "200" />](https://github.com/cjgodfather)   | [<img src="https://ca.slack-edge.com/T4JUEB3ME-ULJ1T89DY-9fcc77e18fe9-512" width = "200" />](https://github.com/rashmipoddar) | [<img src="https://ca.slack-edge.com/T4JUEB3ME-UJQLGLDB5-79302f48ee3c-512" width = "200" />](https://github.com/dmaack) | [<img src="https://ca.slack-edge.com/T4JUEB3ME-UJG4U8BNZ-917ae58a74d9-512" width = "200" />](https://github.com/gsc229) | [<img src="https://ca.slack-edge.com/T4JUEB3ME-UHADUPR0B-5b039d19981f-512" width = "200" />](https://github.com/LuisOcasio) | [<img src="https://media-exp1.licdn.com/dms/image/C4E03AQFPdR3DfdmBkw/profile-displayphoto-shrink_800_800/0?e=1586390400&v=beta&t=k0hoRjxuwh4LqxonQH540NUmKOsEbEhb_NpGuflbPlk" width = "200" />](https://www.linkedin.com/in/kimberly-mai-ho/) |
+
 | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/lawsonarichard)
-|                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/cjgodfather)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/rashmipoddar)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/dmaack)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/gsc229)           |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/LuisOcasio)             |
+| [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/cjgodfather) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/rashmipoddar) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/dmaack) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/gsc229) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/LuisOcasio) |
 | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](www.linkedin.com/in/lawsonarichard) |
-| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/chao-ji-113b594a/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](www.linkedin.com/in/rashmi-poddar) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/dominique-maack-414bab58/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/greg-cameron-90488b30/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/ocasio-perez/) |
+| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/chao-ji-113b594a/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](www.linkedin.com/in/rashmi-poddar) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/dominique-maack-414bab58/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/greg-cameron-90488b30/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/ocasio-perez/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/kimberly-mai-ho/)
 
 ### `yarn build`
 
@@ -29,16 +29,14 @@ Description
 
 It is a one stop platform for like-minded users and local vendors to connect. The vendors are able to market their product online. The users will be able to browse and buy products in their area from vendors that can sell at a reduced overhead cost by removing the entry and time constraints involved in participation at a physical farmers market
 
-
 ### Key Features
 
 - Vendors can register and create their account.
 - Vendors can add, update and delete their profile which contains three main things
-    - An about section that has information about the vendor
-    - A product section that showcases all the products that the vendor has to offer along with images
-    - A bulletin board section that displays special updates and news
+  - An about section that has information about the vendor
+  - A product section that showcases all the products that the vendor has to offer along with images
+  - A bulletin board section that displays special updates and news
 - Customers can view all the vendors in their area by inputting a zipcode
-
 
 ## Tech Stack
 
@@ -46,20 +44,19 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/an
 
 #### React
 
-- React is great choice for building interactive and dynamic UIs. It is component based which is perfect for an      application like Market Avenue which has a nested component structure.            
+- React is great choice for building interactive and dynamic UIs. It is component based which is perfect for an application like Market Avenue which has a nested component structure.
 
 #### Sass/SCSS
 
-- It allows us to create variables, mixins and functions which makes it easy to reuse styles across the app. It      allows us to write nested CSS which is easy to write and understand
+- It allows us to create variables, mixins and functions which makes it easy to reuse styles across the app. It allows us to write nested CSS which is easy to write and understand
 
 #### Cloudinary React
 
--    
+-
 
 #### Axios
 
--  
-
+-
 
 #### Front end deployed to `🚫insert service here`
 
@@ -80,9 +77,9 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/an
 
 The API allows users to register and login to Market Avenue. There are two user types - vendors and customers.
 
-## Google Maps JavaScript API 
+## Google Maps JavaScript API
 
-We are using the Google Maps JavaScript API to display a map to the users which points out the area in which a vendor works. 
+We are using the Google Maps JavaScript API to display a map to the users which points out the area in which a vendor works.
 
 ## Google Geocoding API
 
@@ -94,13 +91,11 @@ We are using the Google Geocoding API to convert a zipcode into geographic coord
 
 This is the way you take out your flustrations. Get away from those little Christmas tree things we used to make in school. Isn't it fantastic that you can change your mind and create all these happy things? Everything's not great in life, but we can still find beauty in it.
 
-
 # Environment Variables
 
 In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file at the root level containing the following:
 
     *  REACT_APP_GOOGLE_MAPS_API_KEY - This is your Google API key, which can be generated in the Google Cloud Console
-   
 
 # 5️⃣ Content Licenses
 
@@ -128,12 +123,13 @@ When contributing to this repository, please first discuss the change you wish t
 Please note we have a [code of conduct](./CODE_OF_CONDUCT.md). Please follow it in all your interactions with the project.
 
 ## Issue/Bug Request
-   
- **If you are having an issue with the existing project code, please submit a bug report under the following guidelines:**
- - Check first to see if your issue has already been reported.
- - Check to see if the issue has recently been fixed by attempting to reproduce the issue using the latest master branch in the repository.
- - Create a live example of the problem.
- - Submit a detailed bug report including your environment & browser, steps to reproduce the issue, actual and expected outcomes,  where you believe the issue is originating from, and any potential solutions you have considered.
+
+**If you are having an issue with the existing project code, please submit a bug report under the following guidelines:**
+
+- Check first to see if your issue has already been reported.
+- Check to see if the issue has recently been fixed by attempting to reproduce the issue using the latest master branch in the repository.
+- Create a live example of the problem.
+- Submit a detailed bug report including your environment & browser, steps to reproduce the issue, actual and expected outcomes, where you believe the issue is originating from, and any potential solutions you have considered.
 
 ### Feature Requests
 
@@ -160,4 +156,3 @@ These contribution guidelines have been adapted from [this good-Contributing.md-
 ## Documentation
 
 See [Backend Documentation](https://github.com/Lambda-School-Labs/quick-street-be) for details on the backend of our project.
-

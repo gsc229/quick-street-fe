@@ -182,6 +182,9 @@ const Nav = () => {
 				<Link to="/dashboard">Dashboard</Link>
 			</MenuItem>
 			<MenuItem onClick={handleMenuClose}>
+				<Link to={`/profile/${customerId}`}>Profile</Link>
+			</MenuItem>
+			<MenuItem onClick={handleMenuClose}>
 				<Link to="/login" onClick={() => signout()}>
 					Sign Out
 				</Link>
@@ -247,7 +250,7 @@ const Nav = () => {
 		<div className={classes.grow}>
 			<AppBar
 				style={{
-					background: '#00b2ed',
+					background: 'transparent',
 					boxShadow: 'none',
 					position: 'static'
 				}}
@@ -297,30 +300,38 @@ const Nav = () => {
 							</MenuItem>
 						)}
 						{isVendor === 'false' && (
-							<MenuItem>
-								<IconButton
-									edge="end"
-									aria-label="account of current user"
-									aria-controls={menuId}
-									aria-haspopup="true"
-									onClick={handleProfileMenuOpen}
-									color="inherit"
-								>
-									<AccountCircle style={{ height: '30px', width: '30px' }} />
-								</IconButton>
-								<IconButton
-									onClick={toggleDrawer('right', true)}
-									aria-label="show items in car"
-									color="inherit"
-								>
-									<Badge badgeContent={cartQuantity(cart)} color="secondary">
-										<ShoppingCartIcon style={{ height: '30px', width: '30px' }} />
-									</Badge>
-								</IconButton>
-								<Drawer anchor="right" open={stateDrawer.right} onClose={toggleDrawer('right', false)}>
-									{sideList('right')}
-								</Drawer>
-							</MenuItem>
+							<React.Fragment>
+								<MenuItem>
+									<IconButton
+										edge="end"
+										aria-label="account of current user"
+										aria-controls={menuId}
+										aria-haspopup="true"
+										onClick={handleProfileMenuOpen}
+										color="inherit"
+									>
+										<AccountCircle style={{ height: '30px', width: '30px' }} />
+									</IconButton>
+								</MenuItem>
+								<MenuItem>
+									<IconButton
+										onClick={toggleDrawer('right', true)}
+										aria-label="show items in car"
+										color="inherit"
+									>
+										<Badge badgeContent={cartQuantity(cart)} color="secondary">
+											<ShoppingCartIcon style={{ height: '30px', width: '30px' }} />
+										</Badge>
+									</IconButton>
+									<Drawer
+										anchor="right"
+										open={stateDrawer.right}
+										onClose={toggleDrawer('right', false)}
+									>
+										{sideList('right')}
+									</Drawer>
+								</MenuItem>
+							</React.Fragment>
 						)}
 					</div>
 				</Toolbar>

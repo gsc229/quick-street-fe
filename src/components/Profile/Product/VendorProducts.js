@@ -49,6 +49,7 @@ const VendorProducts = ({ products, vendorId, reloadProducts, setReloadProducts 
 					product_id={editingProdId}
 					reloadProducts={reloadProducts}
 					setReloadProducts={setReloadProducts}
+					showEditProduct={showEditProduct}
 				/>}
 				<header className={v_products.vendor_product_list_title}>
 					<h2>Products</h2>

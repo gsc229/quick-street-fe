@@ -5,7 +5,6 @@ import Landing from "../pages/Landing";
 import { Provider as AuthProvider } from "../contexts/AuthContext";
 import { Provider as CartProvider } from "../contexts/TestCartContext";
 import { BrowserRouter as Router } from "react-router-dom";
-import { act } from "react-dom/test-utils";
 
 test(`loads and display h1`, () => {
   const tree = (
@@ -17,5 +16,10 @@ test(`loads and display h1`, () => {
       </AuthProvider>
     </Router>
   );
-  const { getByRole, findByText } = render(tree);
+  const { findByText, getByText } = render(tree);
+  findByText(
+    /Finally , A Way For Vendors and Lovers of Food to Come Together in Harmony/i
+  );
+  findByText(/Browse, buy, share your finds on local food vendors./i);
+  fireEvent.click(getByText("Get Started"));
 });

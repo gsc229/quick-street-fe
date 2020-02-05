@@ -11,7 +11,7 @@ import axiosWithAuth from '../../../utils/axiosWithAuth';
 const VendorProducts = ({ products, vendorId, reloadProducts, setReloadProducts }) => {
 	// Opens EditingProduct MODAL    
 	const [editingProd, setEditingProd] = useState(false);// change back to false
-	// Passed to EditingProdcut MODAL            // change back to ""
+	// Passed to EditingProdcut MODAL // 5e1c9cedcb86ae00173f8aee change back to ""
 	const [editingProdId, setEditingProdId] = useState("");
 
 
@@ -65,6 +65,7 @@ const VendorProducts = ({ products, vendorId, reloadProducts, setReloadProducts 
 
 								onClick={() => {
 									showEditProduct(p._id);
+
 								}}
 								className="product-wrapper"
 							>
@@ -76,6 +77,7 @@ const VendorProducts = ({ products, vendorId, reloadProducts, setReloadProducts 
 									img={p.imageId ? p.imageId : p.image_Id}
 									setReloadProducts={setReloadProducts}
 									reloadProducts={reloadProducts}
+
 								/>
 							</div>
 						))

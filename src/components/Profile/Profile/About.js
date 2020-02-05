@@ -289,7 +289,7 @@ const About = ({ editAbout, vendorInfo, info, setInfo, editProfile, saveProfile,
 												saveProfile();
 											}}
 										>
-											This vendor can be found in the{vendorInfo.location.zipcode} area.
+											This vendor can be found in the {vendorInfo.location.zipcode} area.
 										</p>
 									</div>
 								} {/* END OF TURNARY - LOCATION */}

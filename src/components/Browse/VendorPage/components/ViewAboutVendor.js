@@ -45,8 +45,8 @@ const ViewAboutVendor = (props) => {
 					<div className={profile.column_left}>
 					<h1>About Us</h1>
 					<p>{vendor.description}</p>				
-					{/* <p className='title'>Hours of Operation</p>
-          <p className='title_content'>{vendor.days_of_week} - {vendor.hours}</p> */}
+					<h1>Hours of Operation</h1>
+          <p>{vendor.hours}</p>
 					<h1>Contact</h1>
 					<p>{vendor.phone}</p>
 					<p>{vendor.email}</p>

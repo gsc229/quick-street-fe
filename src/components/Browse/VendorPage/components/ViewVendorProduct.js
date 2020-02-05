@@ -114,6 +114,7 @@ const ViewVendorProduct = (props) => {
 								value={quantity}
 								onChange={handleChange}
 								min='1'
+								max='10'
 							/>
 						</div>
 						<div className={modal.button_wrapper}>

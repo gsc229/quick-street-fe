@@ -51,10 +51,10 @@ const Map = props => {
     if (mapDetails.isDefault) {
       let cityCircle = new window.google.maps.Circle({
         strokeColor: "#B706F5",
-        strokeOpacity: 0.8,
+        strokeOpacity: 0.6,
         strokeWeight: 2,
-        fillColor: "transparent",
-        fillOpacity: 0.35,
+        fillColor: "#B706F5",
+        fillOpacity: 0.1,
         map: map,
         center: { lat: mapDetails.lat, lng: mapDetails.lng },
         radius: props.radius

@@ -2,16 +2,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 // components
-import {
-	Map,
-	Search,
-	Menu,
-	ShoppingCartItems,
-	Modal,
-	Nav,
-	Footer, 
-	CustomButton
-} from '../components/index';
+import { Map, Search, Menu, ShoppingCartItems, Modal, Nav, Footer, CustomButton } from '../components/index';
 
 // styles
 import browse from '../styles/scss/browse.module.scss';
@@ -19,14 +10,14 @@ import browse from '../styles/scss/browse.module.scss';
 const Browse = (props) => {
 	// console.log('The browse props are', props);
 
-	const [zipcode, setZipcode] = useState('');
-	const [query, setQuery] = useState([]);
+	const [ zipcode, setZipcode ] = useState('');
+	const [ query, setQuery ] = useState([]);
 
-	const [vendors, setVendors] = useState({
+	const [ vendors, setVendors ] = useState({
 		count: '',
 		vendorDetails: []
 	});
-	const [customerZip, setCustomerZip] = useState('');
+	const [ customerZip, setCustomerZip ] = useState('');
 	// const customerId = localStorage.getItem('user_id');
 
 	const handleChange = (event) => {
@@ -37,7 +28,7 @@ const Browse = (props) => {
 		console.log(event.target.value);
 
 		if (!query.includes(event.target.value)) {
-			setQuery([...query, event.target.value]);
+			setQuery([ ...query, event.target.value ]);
 		} else {
 			setQuery(query.filter((el) => el !== event.target.value));
 		}
@@ -89,7 +80,6 @@ const Browse = (props) => {
 			</div>
 
 			<div className={browse.wrapper}>
-
 				<form className={browse.filter_container} onSubmit={handleSubmit}>
 					<div className={browse.filter_wrapper}>
 						{zipcode === '' && <p>Enter a location to start browsing</p>}
@@ -102,7 +92,9 @@ const Browse = (props) => {
 							className={browse.zipcode_input}
 						/>
 						<div className={browse.custom_button_wrapper}>
-							<CustomButton styleClass='green-full' onClick={handleSubmit}>Update</CustomButton>
+							<CustomButton styleClass="green-full" onClick={handleSubmit}>
+								Update
+							</CustomButton>
 						</div>
 					</div>
 					<div className={browse.filter_wrapper}>
@@ -174,13 +166,11 @@ const Browse = (props) => {
 								/>
 								<label for="defaultCheck1">Others</label>
 							</div>
-
 						</div>
 					</div>
 					<div className={browse.filter_wrapper}>
 						<p>Filter by Diet Category</p>
 						<div className={browse.checkbox_container}>
-
 							<div>
 								<input
 									onChange={handleQueryChange}
@@ -226,7 +216,6 @@ const Browse = (props) => {
 								/>
 								<label for="defaultCheck1">Vegetarian</label>
 							</div>
-
 						</div>
 					</div>
 				</form>

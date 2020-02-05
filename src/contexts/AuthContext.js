@@ -105,7 +105,7 @@ const signout = (dispatch) => async () => {
 	localStorage.removeItem('token');
 	localStorage.removeItem('user_id');
 	localStorage.removeItem('isVendor');
-	//localStorage.removeItem('lsid');
+	localStorage.removeItem('lsid');
 	dispatch({ type: 'signout' });
 };
 

@@ -27,6 +27,8 @@ import ShoppingCartItems from './ShoppingCart/ShoppingCartItems';
 import Drawer from '@material-ui/core/Drawer';
 import { shopping_cart_light } from '../../assets/svgs/index';
 import { CustomButton } from '../index';
+import logo from '../../assets/images/landing/logo.png';
+
 const useStyles = makeStyles((theme) => ({
 	avatar: {
 		height: '42px',
@@ -36,7 +38,9 @@ const useStyles = makeStyles((theme) => ({
 		position: 'absolute'
 	},
 	grow: {
-		flexGrow: 1
+		flexGrow: 1,
+		display: 'flex',
+		alignItems: 'center'
 	},
 	menuButton: {
 		marginRight: theme.spacing(2)
@@ -46,7 +50,8 @@ const useStyles = makeStyles((theme) => ({
 		display: 'none',
 		[theme.breakpoints.up('lg')]: {
 			display: 'block'
-		}
+		},
+		fontSize: '2.4rem'
 	},
 	search: {
 		position: 'relative',
@@ -147,9 +152,6 @@ const Nav = () => {
 		setStateDrawer({ ...stateDrawer, [side]: open });
 	};
 
-	console.log('HERE', { isVendor });
-	console.log('our token', { token });
-	console.log('cart', cart);
 	const isMenuOpen = Boolean(anchorEl);
 	const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 	const handleProfileMenuOpen = (event) => {
@@ -176,7 +178,9 @@ const Nav = () => {
 			open={isMenuOpen}
 			onClose={handleMenuClose}
 		>
-			<MenuItem onClick={handleMenuClose}>Dashboard</MenuItem>
+			<MenuItem onClick={handleMenuClose}>
+				<Link to="/dashboard">Dashboard</Link>
+			</MenuItem>
 			<MenuItem onClick={handleMenuClose}>
 				<Link to="/login" onClick={() => signout()}>
 					Sign Out
@@ -233,7 +237,7 @@ const Nav = () => {
 					</Drawer>
 				</MenuItem>
 				<MenuItem>
-					<Link to="/dashboard">Dashboard</Link>
+					<Link to="/">Home</Link>
 				</MenuItem>
 			</Menu>
 		</React.Fragment>
@@ -242,17 +246,14 @@ const Nav = () => {
 	return (
 		<div className={classes.grow}>
 			<AppBar
-				// style={{ background: 'transparent', boxShadow: 'none' }}
-				style={token ? { background: '#00B2ED' } : { background: 'transparent', boxShadow: 'none' }}
-				position="static"
+				style={{
+					background: '#00b2ed',
+					boxShadow: 'none',
+					position: 'static'
+				}}
 			>
 				<Toolbar>
-					<IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="open drawer">
-						<MenuIcon />
-					</IconButton>
-					<Typography className={classes.title} variant="h6" noWrap>
-						Market Avenue
-					</Typography>
+					<img src={logo} style={{ height: '45px', width: '45px' }} />
 					<div className={classes.grow} />
 					<div className={classes.sectionDesktop}>
 						{!token && (
@@ -296,38 +297,30 @@ const Nav = () => {
 							</MenuItem>
 						)}
 						{isVendor === 'false' && (
-							<React.Fragment>
-								<MenuItem>
-									<IconButton
-										edge="end"
-										aria-label="account of current user"
-										aria-controls={menuId}
-										aria-haspopup="true"
-										onClick={handleProfileMenuOpen}
-										color="inherit"
-									>
-										<AccountCircle style={{ height: '30px', width: '30px' }} />
-									</IconButton>
-								</MenuItem>
-								<MenuItem>
-									<IconButton
-										onClick={toggleDrawer('right', true)}
-										aria-label="show items in car"
-										color="inherit"
-									>
-										<Badge badgeContent={cartQuantity(cart)} color="secondary">
-											<ShoppingCartIcon style={{ height: '30px', width: '30px' }} />
-										</Badge>
-									</IconButton>
-									<Drawer
-										anchor="right"
-										open={stateDrawer.right}
-										onClose={toggleDrawer('right', false)}
-									>
-										{sideList('right')}
-									</Drawer>
-								</MenuItem>
-							</React.Fragment>
+							<MenuItem>
+								<IconButton
+									edge="end"
+									aria-label="account of current user"
+									aria-controls={menuId}
+									aria-haspopup="true"
+									onClick={handleProfileMenuOpen}
+									color="inherit"
+								>
+									<AccountCircle style={{ height: '30px', width: '30px' }} />
+								</IconButton>
+								<IconButton
+									onClick={toggleDrawer('right', true)}
+									aria-label="show items in car"
+									color="inherit"
+								>
+									<Badge badgeContent={cartQuantity(cart)} color="secondary">
+										<ShoppingCartIcon style={{ height: '30px', width: '30px' }} />
+									</Badge>
+								</IconButton>
+								<Drawer anchor="right" open={stateDrawer.right} onClose={toggleDrawer('right', false)}>
+									{sideList('right')}
+								</Drawer>
+							</MenuItem>
 						)}
 					</div>
 				</Toolbar>

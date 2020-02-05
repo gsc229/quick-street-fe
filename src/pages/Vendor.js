@@ -16,7 +16,6 @@ import '../styles/scss/OldcustomerFacingVendorProfile.scss';
 // stlyes
 import browse from '../styles/scss/browse.module.scss';
 
-
 const Vendor = props => {
   const vendorId = props.match.params.id;
   const [cartModal, setCartModal] = useState(false);
@@ -24,14 +23,14 @@ const Vendor = props => {
   return (
     <React.Fragment>
       <div className={browse.temp_menu}>
-				<Nav />
-			</div>
+        <Nav />
+      </div>
       <ViewAboutVendor vendorId={vendorId} />
       <ViewVendorProducts vendorId={vendorId} />
       <ViewVendorPosts vendorId={vendorId} />
       {/* <button onClick={() => props.history.goBack()}>Back</button> */}
       <Footer />
-      </React.Fragment>
+    </React.Fragment>
   );
 };
 

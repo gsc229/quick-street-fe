@@ -134,3 +134,19 @@
 		}
 	}
 }
+.change_vendor_container {
+	@include xl {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 100rem;
+		padding: 2rem;
+		border-radius: 1rem;
+		max-width: 100%;
+		overflow: auto;
+		z-index: 1010;
+		background-color: white;
+		min-height: 30rem;
+	}
+}

@@ -26,6 +26,8 @@ import Modal from './Modal';
 import ShoppingCartItems from './ShoppingCart/ShoppingCartItems';
 import Drawer from '@material-ui/core/Drawer';
 import { shopping_cart_light } from '../../assets/svgs/index';
+import logo from '../../assets/images/landing/logo.png';
+
 const useStyles = makeStyles(theme => ({
   avatar: {
     height: '42px',
@@ -35,7 +37,9 @@ const useStyles = makeStyles(theme => ({
     position: 'absolute'
   },
   grow: {
-    flexGrow: 1
+    flexGrow: 1,
+    display: 'flex',
+    alignItems: 'center'
   },
   menuButton: {
     marginRight: theme.spacing(2)
@@ -239,17 +243,14 @@ const Nav = () => {
   return (
     <div className={classes.grow}>
       <AppBar
-        // style={{ background: 'transparent', boxShadow: 'none' }}
-        style={{ background: 'transparent', boxShadow: 'none' }}
-        position='static'
+        style={{
+          background: '#00b2ed',
+          boxShadow: 'none',
+          position: 'fixed !important'
+        }}
       >
         <Toolbar>
-          {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="open drawer">
-						<MenuIcon />
-					</IconButton> */}
-          <Typography className={classes.title} variant='h6' noWrap>
-            Market Avenue
-          </Typography>
+          <img src={logo} style={{ height: '75px', width: '75px' }} />
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             {!token && (

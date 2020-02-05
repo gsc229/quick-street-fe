@@ -370,13 +370,21 @@
     border-radius: 10px;
     #checkbox_container {
       width: 200px;
-
       .checkbox_wrapper {
         div {
-          //border: 2px solid blue;
-          width: 130px;
           display: flex;
-          justify-content: space-between;
+          align-items: center;
+          width: 150px;
+          margin-left: 0;
+          padding: 5px;
+          //border: 2px solid blue;
+          label {
+            //border: 2px solid red;
+            width: fit-content;
+          }
+          input {
+            margin: 0;
+          }
         }
       }
     }

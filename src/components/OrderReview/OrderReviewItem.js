@@ -17,12 +17,13 @@ const OrderReviewItem = ({ product }) => {
 
 	const handleQuantityChange = (event) => {
 		event.preventDefault();
-		if (event.target.value >= 1) {
+		if (event.target.value >= 1 && event.target.value <= 10) {
 			editCartItemQuantity(event.target.value);
+		} else if (event.target.value > 10) {
+			editCartItemQuantity(10);
 		} else {
 			editCartItemQuantity(1);
 		}
-		
 	};
 
 	const editCartItemQuantity = (quantity) => {
@@ -63,7 +64,12 @@ const OrderReviewItem = ({ product }) => {
 
 				<form className={review.quantity}>
 					<label>Quantity</label>
-					<input name="quantity" type="number" value={product.quantity} onChange={handleQuantityChange} />
+					<input 
+						name="quantity" 
+						type="number" 
+						value={product.quantity} 
+						onChange={handleQuantityChange} 
+					/>
 				</form>
 			</div>
 			<div className={review.product_price}>

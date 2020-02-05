@@ -2,9 +2,9 @@ import React from 'react';
 import footer from '../../styles/scss/footer.module.scss';
 
 const Footer = () => {
-  return (
-    <div className={footer.footer_container}>
-      {/* <div className={footer.footer_top_row}>
+	return (
+		<div className={footer.footer_container}>
+			{/* <div className={footer.footer_top_row}>
         <div className={footer.footer_top_row_column}>
           <p>Company</p>
           <p>About Us</p>
@@ -25,15 +25,12 @@ const Footer = () => {
           <p>Swag</p>
         </div>
       </div> */}
-      <div className={footer.footer_bottom_row}>
-        <div className={footer.footer_bottom_row_blank} />
-        <div className={footer.footer_bottom_row_copyright}>
-          <p>
-            © 2019 Quick Street, All rights reserved | Terms Of Service |
-            Privacy Policy
-          </p>
-        </div>
-        {/* <div className={footer.footer_bottom_row_social}>
+			<div className={footer.footer_bottom_row}>
+				<div className={footer.footer_bottom_row_blank} />
+				<div className={footer.footer_bottom_row_copyright}>
+					<p>© 2019-2020 Quick Street, All rights reserved </p>
+				</div>
+				{/* <div className={footer.footer_bottom_row_social}>
         <Icon name='snapchat' width={24} fill={'#000'} />
         <Icon name='instagram' width={24} fill={'#000'} />
         <Icon name='youtube' width={27} height={20} fill={'#000'} />
@@ -41,9 +38,9 @@ const Footer = () => {
         <Icon name='facebook' width={27} fill={'#000'} />
         <Icon name='pinterest' width={27} fill={'#000'} />
       </div> */}
-      </div>
-    </div>
-  );
+			</div>
+		</div>
+	);
 };
 
 export default Footer;

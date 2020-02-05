@@ -1,0 +1,24 @@
+@import './mixins.scss';
+
+.wrapper {
+	@include xl {
+		display: flex;
+	}
+}
+.left {
+	@include xl {
+		flex: 1;
+		p {
+			font-size: 2rem;
+		}
+	}
+}
+.right {
+	@include xl {
+		flex: 1;
+		margin-left: 0.5rem;
+		p {
+			font-size: 2rem;
+		}
+	}
+}

@@ -108,6 +108,7 @@ const EditProductForm = (props) => {
                   Gluten Free
                 </label>
                 <input checked={dietsOnFile && dietsOnFile.indexOf('Gluten Free') !== -1 ? true : false} onChange={handleSelect} className={`form-check-input ${editingProduct.checkbox_input}`} name='diet' type="checkbox" value='Gluten Free' />
+
               </div>
               <div>
                 <label className={`form-check-label ${editingProduct.checkbox_label}`} for="defaultCheck1">

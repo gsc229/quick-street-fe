@@ -121,7 +121,7 @@ const Profile = props => {
 
   return (
     <React.Fragment>
-      <div className={browse.temp_menu}>
+      <div style={{ backgroundColor: '#00B2ED' }} className={browse.temp_menu}>
         <Nav />
       </div>
       <div className={profile.profile_container}>
@@ -132,7 +132,7 @@ const Profile = props => {
             <div className={banner.banner_text_btns}>
               <div className={banner.vendor_header_name}>
                 {editingName ? ( // <<<<<<<<<< turnary ?
-                  <>
+                  <React.Fragment>
                     <input
                       className={banner.business_name_input}
                       onChange={e => {
@@ -157,7 +157,7 @@ const Profile = props => {
                         <i className='fa fa-save'></i>&nbsp; save
                       </p>
                     </div>
-                  </>
+                    </React.Fragment>
                 ) : (
                   //<<<<<<< TURNARY input name or p tag
                   <h1

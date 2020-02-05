@@ -181,9 +181,11 @@ const Nav = () => {
 			<MenuItem onClick={handleMenuClose}>
 				<Link to="/dashboard">Dashboard</Link>
 			</MenuItem>
-			<MenuItem onClick={handleMenuClose}>
-				<Link to={`/profile/${customerId}`}>Profile</Link>
-			</MenuItem>
+			{isVendor === 'true' && (
+				<MenuItem onClick={handleMenuClose}>
+					<Link to={`/profile/${customerId}`}>Profile</Link>
+				</MenuItem>
+			)}
 			<MenuItem onClick={handleMenuClose}>
 				<Link to="/login" onClick={() => signout()}>
 					Sign Out

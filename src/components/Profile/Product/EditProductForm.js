@@ -4,7 +4,7 @@ import axiosWithAuth from '../../../utils/axiosWithAuth';
 
 const EditProductForm = (props) => {
 
-  const { product, setProduct, submitProductDetails, setEditingDetails } = props;
+  const { product, setProduct, submitProductDetails, setEditingDetails, showEditProduct, reloadProducts, setReloadProducts } = props;
   // this state is for pre selecting checkboxes
   const [dietsOnFile, setDietsOnFile] = useState([]);
   const [unitOnFile, setUnitOnFile] = useState([]);
@@ -74,6 +74,18 @@ const EditProductForm = (props) => {
         console.log(`${e.target.value} NOT HERE ANYWAY!`)
       }
     }
+  }
+
+  const discardChanges = () => {
+    axiosWithAuth()
+      .get(`/products/${product._id}`)
+      .then(response => {
+        setProduct(response.data.data)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+
   }
 
   return (
@@ -146,15 +158,24 @@ const EditProductForm = (props) => {
             <label htmlFor="">...or write in your own unit: </label>
             <input onChange={handleChanges} name='unit' type="text" placeholder={'Write unit'} />
           </div>
-        </form>
-        <h4 className={editingProduct.commit_changes_btn} onClick={() => {
-          submitProductDetails()
-          setEditingDetails(false)
-        }}>
-          {' '}
-          <i className="fa fa-check-circle" /> Commit Changes
-        </h4>
 
+        </form>
+
+        <div className={editingProduct.commit_discard_btns}>
+          <h4 className={editingProduct.commit_changes_btn} onClick={() => {
+            submitProductDetails()
+            setEditingDetails(false)
+          }}>
+            <i className="fa fa-check-circle" /> Commit Changes
+          </h4>
+          <h4 className={editingProduct.discard_changes_btn} onClick={() => {
+            discardChanges()
+            setEditingDetails(false)
+          }}>
+            <i className="fa fa-long-arrow-right"></i>Discard Changes
+          </h4>
+
+        </div>
       </div>
     </div>
   )

@@ -6,7 +6,7 @@ import modal from '../../../styles/scss/browseModal.module.scss';
 import { EditProductForm, ProductImageUploader } from '../../index';
 import { Modal } from '../../index';
 const EditProduct = (props) => {
-  const { setReloadProducts, reloadProducts } = props;
+  const { setReloadProducts, reloadProducts, showEditProduct } = props;
   const [images, setImages] = useState([]);
   const [product, setProduct] = useState({ diet: [''] });
   // POPUP Bools
@@ -297,7 +297,7 @@ const EditProduct = (props) => {
 
 
             {editingDetails ? ( // <<<<< TURNARY
-              <EditProductForm product={product} setProduct={setProduct} submitProductDetails={submitProductDetails} setEditingDetails={setEditingDetails} />
+              <EditProductForm product={product} reloadProducts={reloadProducts} setReloadProducts={setReloadProducts} setProduct={setProduct} submitProductDetails={submitProductDetails} setEditingDetails={setEditingDetails} showEditProduct={showEditProduct} />
             ) : ( // : else do this:
                 <div className={editingProduct.details_container}>
                   <div className={editingProduct.details_wrapper}>

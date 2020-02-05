@@ -171,7 +171,7 @@ const Nav = () => {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={handleMenuClose}>
-        <Link to='/'>Home</Link>
+        <Link to='/dashboard'>Dashboard</Link>
       </MenuItem>
       <MenuItem onClick={handleMenuClose}>
         <Link to='/login' onClick={() => signout()}>

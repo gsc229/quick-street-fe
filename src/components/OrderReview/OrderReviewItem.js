@@ -15,17 +15,20 @@ const OrderReviewItem = ({ product }) => {
 	const { updateCartItem, deleteCartItem } = useContext(CartContext);
 	const [ vendor, setVendor ] = useState('');
 
-	const [ quantity, setQuantity ] = useState(product.quantity);
-
 	const handleQuantityChange = (event) => {
-		setQuantity(event.target.value);
+		event.preventDefault();
+		if (event.target.value >= 1) {
+			editCartItemQuantity(event.target.value);
+		} else {
+			editCartItemQuantity(1);
+		}
+		
 	};
 
-	const editCartItemQuantity = (event) => {
-		event.preventDefault();
+	const editCartItemQuantity = (quantity) => {
 		updateCartItem({
 			productId: product.item._id,
-			quantity,
+			quantity: quantity,
 			customerId
 		});
 	};
@@ -58,9 +61,9 @@ const OrderReviewItem = ({ product }) => {
 				<h1>{product.item.name}</h1>
 				<p>{vendor}</p>
 
-				<form className={review.quantity} onSubmit={editCartItemQuantity}>
+				<form className={review.quantity}>
 					<label>Quantity</label>
-					<input name="quantity" type="number" value={quantity} onChange={handleQuantityChange} />
+					<input name="quantity" type="number" value={product.quantity} onChange={handleQuantityChange} />
 				</form>
 			</div>
 			<div className={review.product_price}>

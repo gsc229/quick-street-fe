@@ -1,22 +1,42 @@
 @import '../mixins.scss';
 
 .container {
-  background-color: white;
-  border: 1px solid #888;
-  border-radius: 10px;
-  padding: 3% 10% 5%;
-  width: 70%;
-  height: fit-content;
-  min-height: 900px;
-  left: 15%;
-  position: absolute;
-  @media only screen and (max-width: 800px) {
-    padding: 0;
+  background-color: rgba(43, 51, 53, 0.5);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  .inner_wrapper {
+    position: relative;
+    //border: 10px solid magenta;
+    background-color: white;
+    border: 1px solid #888;
+    border-radius: 10px;
+    padding: 30px;
+    width: 70%;
+    margin: 0 auto;
+    top: 10%;
+    height: 85vh;
+    //min-height: 900px;
+    //left: 15%;
+    //position: absolute;
+    @media only screen and (max-width: 800px) {
+      padding: 0;
+    }
+  }
+  button {
+    width: fit-content;
+    margin-top: 20px;
+    border-radius: 10px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    padding: 5px;
   }
   .top_content {
-    //border: rgb(220, 53, 69) solid 2px;
+    //border: 2px solid blue;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     @media only screen and (max-width: 800px) {
       flex-direction: column-reverse;
       width: 100%;
@@ -43,6 +63,7 @@
     h3 {
       position: relative;
       top: 40%;
+      font-size: 3rem;
     }
     span {
       font-weight: bolder;
@@ -54,6 +75,7 @@
   .confirm_close_popup {
     background-color: rgba($color: #fffefe, $alpha: 1);
     position: absolute;
+    padding: 30px;
     top: 0;
     left: 0;
     border-radius: 10px;
@@ -61,6 +83,37 @@
     height: 100%;
     z-index: 4;
     text-align: center;
+
+    .discard_changes_btn {
+      border: 3px solid #e92323;
+      background-color: white;
+      color: #e92323;
+      cursor: pointer;
+      &:hover {
+        background-color: #e92323;
+        color: white;
+      }
+    }
+    .continue_editing_btn {
+      border: 3px solid #21b787;
+      background-color: white;
+      color: #21b787;
+      cursor: pointer;
+      &:hover {
+        background-color: #21b787;
+        color: white;
+      }
+    }
+    .save_and_close_btn {
+      border: 3px solid #21b787;
+      background-color: #21b787;
+      color: #fef2e4;
+      cursor: pointer;
+      &:hover {
+        background-color: whitesmoke;
+        color: #21b787;
+      }
+    }
 
     .confirm_close_popup_info {
       position: relative;
@@ -70,6 +123,7 @@
       }
       h3 {
         margin-bottom: 50px;
+        font-size: 3rem;
       }
       span {
         font-weight: bolder;
@@ -91,12 +145,12 @@
     width: 100%;
   }
 }
-
 /* ======= .edit_product_left =========== */
 /* ======= .edit_product_left =========== */
 /* ======= .edit_product_left =========== */
 /* ======= .edit_product_left =========== */
 .edit_product_left {
+  //border: 2px solid greenyellow;
   display: flex;
   flex-direction: column;
   /* ==== .left_uppper_container */
@@ -167,8 +221,9 @@
 /* ===== edit_product_right ============== */
 /* ===== edit_product_right ============== */
 .edit_product_right {
+  //border: greenyellow 2px solid;
   height: fit-content;
-  position: relative;
+  //position: relative;
   .edit_details_btn {
     cursor: pointer;
     color: rgb(253, 126, 20);
@@ -182,9 +237,14 @@
       color: whitesmoke;
     }
   }
+  .commit_discard_btns {
+    //border: 2px solid blue;
+    display: flex;
+  }
   .commit_changes_btn {
     cursor: pointer;
     background-color: rgb(253, 126, 20);
+    margin: 0 auto;
     font-weight: bolder;
     color: whitesmoke;
     border: 1px solid grey;
@@ -200,6 +260,28 @@
     font-size: 2rem;
     cursor: pointer;
   }
+  .discard_changes_btn {
+    cursor: pointer;
+    margin: 0 auto;
+    font-weight: bolder;
+    border: 1px solid grey;
+    width: fit-content;
+    border-radius: 10px;
+    padding: 10px;
+    border: 3px solid #21b787;
+    background-color: #21b787;
+    color: #fef2e4;
+    cursor: pointer;
+    &:hover {
+      background-color: whitesmoke;
+      color: #21b787;
+    }
+  }
+  i {
+    font-size: 2rem;
+    cursor: pointer;
+    margin-right: 5px;
+  }
   .details_saved_popup {
     background-color: rgba($color: #fffefe, $alpha: 1);
     display: block;
@@ -212,7 +294,6 @@
     height: 100%;
     text-align: center;
     z-index: 3;
-
     h3 {
       position: relative;
       margin-top: 22%;
@@ -227,7 +308,6 @@
     flex-direction: column;
     justify-content: space-between;
     height: fit-content;
-
     .details_wrapper {
       //input wrapper details container EditProduct.js
       .input_wrapper {
@@ -255,11 +335,58 @@
   }
 
   // input wrapper EditProductFrom.js
+  .edit_product_form_container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    //border: 2px solid red;
+    //background-color: white;
+    z-index: 100;
+    background: white;
+    display: flex;
+    align-items: center;
+    .edit_form_inner_container {
+      border-radius: 10px;
+      //border: blue 2px solid;
+      //background: white;
+      z-index: 100;
+      height: fit-content;
+      padding: 20px;
+      margin: 0 auto;
+    }
+  }
   .edit_product_form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    z-index: 100;
+    //border: 2px solid greenyellow;
+    margin-bottom: 20px;
+
+    //background-color: white;
+    border-radius: 10px;
+    #checkbox_container {
+      width: 200px;
+
+      .checkbox_wrapper {
+        div {
+          //border: 2px solid blue;
+          width: 130px;
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    }
     .input_wrapper {
+      //border: blue 2px solid;
+      width: fit-content;
       display: flex;
       flex-direction: column;
-      margin: 2rem 0;
+      //margin: 20px auto;
+      margin: 20px 20px;
       label {
         font-size: 1.4rem;
         color: #2b3335;
@@ -302,8 +429,10 @@
 .btn_container {
   //background-color: blue;
   display: flex;
-  justify-content: space-between;
-  margin-top: 15vh;
+  justify-content: space-around;
+  align-items: center;
+  height: fit-content;
+  //margin-top: 15vh;
   @media only screen and (max-width: 800px) {
     width: 100%;
     justify-content: space-around;
@@ -312,7 +441,7 @@
   }
   button {
     width: fit-content;
-    margin-top: 20px;
+    margin: 20px;
     border-radius: 10px;
     font-size: 1.6rem;
     font-weight: 600;

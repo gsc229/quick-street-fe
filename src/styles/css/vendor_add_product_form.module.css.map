@@ -2,7 +2,7 @@
     "version": 3,
     "mappings": "",
     "sources": [
-        "../scss/vendor_add_product_form.module.scss"
+        "../scss/vendor/vendor_add_product_form.module.scss"
     ],
     "names": [],
     "file": "vendor_add_product_form.module.css"

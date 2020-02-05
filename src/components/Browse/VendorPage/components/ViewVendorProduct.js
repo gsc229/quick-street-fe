@@ -49,14 +49,6 @@ const ViewVendorProduct = (props) => {
 	const handleEmptyCart = () => {
 		setMessageModal(false);
 		addItemFromOtherVendor({cartId: cart._id, customerId, productId: props.product._id, price: props.product.price, quantity: quantity });
-
-		// createCart(customerId);
-		// addCartItem({
-		// 	productId: props.product._id ,
-		// 	price: props.product.price,
-		// 	quantity: quantity,
-		// 	customerId: customerId
-		// });
 	};
 
 	useEffect(() => {
@@ -121,6 +113,7 @@ const ViewVendorProduct = (props) => {
 								type='number'
 								value={quantity}
 								onChange={handleChange}
+								min='1'
 							/>
 						</div>
 						<div className={modal.button_wrapper}>
@@ -138,19 +131,17 @@ const ViewVendorProduct = (props) => {
 			</Modal>
 
 			<Modal showModal={messageModal}>	
-				<div className={modal.container}>
-					<div className={modal.row}>
-						<h1>Cart not empty</h1>
-					</div>
-					<div className={modal.row}>
-						<h1>Cart contains items from a different vendor. Empty the cart and add this item?</h1>
-					</div>
+				<div className={modal.change_vendor_container}>
+					<h1>Cart not empty</h1>
+					<h3>Cart contains items from a different vendor.</h3>
+					<h3>Empty the cart and add this item?</h3>
+					
 					<div className={modal.button_wrapper}>
 						<div className={modal.button_left}>
-							<CustomButton styleClass='red-full' onClick={() => setMessageModal(false)}>Cancel</CustomButton>
+							<CustomButton styleClass='green-full' onClick={() => setMessageModal(false)}>Cancel</CustomButton>
 						</div>
 						<div className={modal.button_right}>
-							<CustomButton styleClass='green-full' onClick={handleEmptyCart}>Empty Cart</CustomButton>
+							<CustomButton styleClass='red-full' onClick={handleEmptyCart}>Empty Cart</CustomButton>
 						</div>
 					</div>
 				</div>

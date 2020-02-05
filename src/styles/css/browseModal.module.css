@@ -169,4 +169,22 @@
     width: 50%;
   }
 }
+
+@media (min-width: 1440px) {
+  .change_vendor_container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    width: 100rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 100%;
+    overflow: auto;
+    z-index: 1010;
+    background-color: white;
+    min-height: 30rem;
+  }
+}
 /*# sourceMappingURL=browseModal.module.css.map */

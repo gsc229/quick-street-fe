@@ -9,7 +9,8 @@ import {
 	ShoppingCartItems,
 	Modal,
 	Nav,
-	Footer
+	Footer, 
+	CustomButton
 } from '../components/index';
 
 // styles
@@ -100,7 +101,9 @@ const Browse = (props) => {
 							value={customerZip}
 							className={browse.zipcode_input}
 						/>
-
+						<div className={browse.custom_button_wrapper}>
+							<CustomButton styleClass='green-full' onClick={handleSubmit}>Update</CustomButton>
+						</div>
 					</div>
 					<div className={browse.filter_wrapper}>
 						<p>Filter by vendor category</p>
@@ -226,7 +229,6 @@ const Browse = (props) => {
 
 						</div>
 					</div>
-					<button onClick={handleSubmit}>Update</button>
 				</form>
 
 				<Map zipcode={zipcode} vendors={vendors} height={300} width={1280} radius={8046} />

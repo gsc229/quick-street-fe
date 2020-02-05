@@ -10,7 +10,7 @@ const EditProduct = (props) => {
   const [images, setImages] = useState([]);
   const [product, setProduct] = useState({ diet: [''] });
   // POPUP Bools
-  const [editingDetails, setEditingDetails] = useState(true); // change back to false
+  const [editingDetails, setEditingDetails] = useState(false); // change back to false
   const [detailsSaved, setDetailsSaved] = useState(false);
   const [allChangesSaved, setAllChangesSaved] = useState(false);
   const [confirmClose, setConfirmClose] = useState(false);

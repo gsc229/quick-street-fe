@@ -1,6 +1,11 @@
 // styling imports
-@import './mixins';
-
+@import './mixins.scss';
+@mixin profile_padding {
+	padding-top: 6.7rem;
+	padding-left: 18.9rem;
+	padding-right: 18.9rem;
+	padding-bottom: 10.4rem;
+}
 .container {
 	@include phone {
 	}
@@ -11,6 +16,13 @@
 	@include lg {
 	}
 	@include xl {
+		@include profile_padding();
+		width: 144rem;
+		margin: 0 auto;
+		height: 100vh;
+		h1 {
+			font-size: 3.6rem;
+		}
 	}
 }
 
@@ -24,5 +36,31 @@
 	@include lg {
 	}
 	@include xl {
+		h1 {
+			font-size: 2.6rem;
+			margin-bottom: 2rem;
+		}
+	}
+}
+
+.button_container {
+	@include xl {
+		padding-top: 7rem;
+		width: 80rem;
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-evenly;
+	}
+}
+.button_left {
+	@include xl {
+		float: left;
+		width: 25rem;
+	}
+}
+.button_right {
+	@include xl {
+		float: right;
+		width: 25rem;
 	}
 }

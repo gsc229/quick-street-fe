@@ -1,0 +1,31 @@
+@import './mixins.scss';
+
+.wrapper {
+	font-family: Raleway;
+	@include xl {
+		display: flex;
+		margin-bottom: 4rem;
+	}
+}
+.left {
+	@include xl {
+		flex: 1;
+		width: 11rem;
+		p {
+			font-size: 2rem;
+		}
+		img {
+			width: 100%;
+		}
+	}
+}
+.right {
+	@include xl {
+		flex: 1;
+		flex-wrap: wrap;
+		margin-left: 1.5rem;
+		p {
+			font-size: 1.8rem;
+		}
+	}
+}

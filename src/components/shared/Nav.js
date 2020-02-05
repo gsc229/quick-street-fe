@@ -26,6 +26,7 @@ import Modal from './Modal';
 import ShoppingCartItems from './ShoppingCart/ShoppingCartItems';
 import Drawer from '@material-ui/core/Drawer';
 import { shopping_cart_light } from '../../assets/svgs/index';
+import { CustomButton } from '../index';
 import logo from '../../assets/images/landing/logo.png';
 
 const useStyles = makeStyles((theme) => ({
@@ -103,13 +104,19 @@ const useStyles = makeStyles((theme) => ({
 		}
 	},
 	list: {
-		width: 300,
+		width: 400,
 		backgroundColor: '#00B2ED',
 		paddingLeft: 40,
 		paddingRight: 40,
 		paddingTop: 50,
 		paddingBottom: 50,
-		color: 'white'
+		color: 'white',
+		height: '100vh'
+	},
+	checkout: {
+		fontSize: 20,
+		borderTop: '2px solid #E1F6FA',
+		paddingTop: 40
 	}
 }));
 
@@ -192,10 +199,19 @@ const Nav = () => {
 				<h1>Your Cart</h1>
 			</List>
 			<ShoppingCartItems />
-			{cart && <p>Total: {cart.total}</p>}
-			<button onClick={toggleDrawer('right', false)}>Keep Shopping</button>
-			{/* <button onClick={handleCheckout}>Checkout</button> */}
-			{cart && <Link to={{ pathname: `/orderreview/${cart._id}` }}>Checkout</Link>}
+			<div className={classes.checkout}>
+				{cart && (
+					<p>
+						Total items({cartQuantity(cart)}) <span style={{ float: 'right' }}>${cart.total}</span>
+					</p>
+				)}
+				<CustomButton styleClass="white-border" onClick={toggleDrawer('right', false)}>
+					Keep Shopping
+				</CustomButton>
+				<CustomButton styleClass="checkout">
+					{cart && <Link to={{ pathname: `/orderreview/${cart._id}` }}>Checkout</Link>}
+				</CustomButton>
+			</div>
 		</div>
 	);
 	const mobileMenuId = 'primary-search-account-menu-mobile';

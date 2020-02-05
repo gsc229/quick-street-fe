@@ -1,11 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 // components
 import { Nav } from '../index';
 // stlyes
 import order from '../../styles/scss/order.module.scss';
 import browse from '../../styles/scss/browse.module.scss';
 import Footer from '../shared/Footer';
+import axiosWithAuth from '../../utils/axiosWithAuth';
+
 const OrderConfirmation = () => {
+	const [ getOrder, setgetOrder ] = useState('');
+	const customerId = localStorage.getItem('user_id');
+
+	useEffect(() => {
+		axiosWithAuth()
+			.get(`/customers/${customerId}/order`)
+			.then((response) => {
+				console.log(response);
+				setgetOrder(response.data.orders);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	}, []);
 	return (
 		<React.Fragment>
 			<div className={browse.temp_menu}>

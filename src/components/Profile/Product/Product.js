@@ -6,6 +6,7 @@ import product from '../../../styles/scss/vendor/a_vendors_products.module.scss'
 const Product = ({ name, img, price, productId, setReloadProducts, reloadProducts }) => {
 	const [productImages, setProductImages] = useState('');
 
+
 	useEffect(() => {
 		//console.log(`USEEFFECT 3 Product.js productId: `, productId)
 		axiosWithAuth()

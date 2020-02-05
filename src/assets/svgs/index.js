@@ -1,6 +1,6 @@
 import pencilLight from './pencil-light1.svg';
 import pencilRegular from './pencil-regular1.svg';
-import envelopeLight from './envelope-light (1) 1.svg';
+import envelopeLight from './envelope-light.svg';
 import phoneAltLight from './phone-alt-light1.svg';
 import shoppingCartLight from './shopping-cart-light.svg';
 import shoppingCartRegular from './shopping-cart-regular 1.svg';

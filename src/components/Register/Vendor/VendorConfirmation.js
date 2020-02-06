@@ -42,7 +42,7 @@ const VendorConfirmation = (props) => {
 		axiosWithAuth()
 			.post('/auth/register', registerObject)
 			.then((response) => {
-			  console.log('POST VendorConfirm res: ', response);
+			  // console.log('POST VendorConfirm res: ', response);
 				localStorage.setItem('token', response.data.token);
 				props.history.push(`/profile/${response.data.id}`);
 			})

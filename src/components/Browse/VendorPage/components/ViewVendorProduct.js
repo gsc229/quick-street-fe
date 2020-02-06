@@ -39,8 +39,6 @@ const ViewVendorProduct = (props) => {
 				customerId: customerId
 			})
 		} else {
-
-			console.log('inside the else condition for adding a product to cart');
 			setMessageModal(true); 
 		}	
 

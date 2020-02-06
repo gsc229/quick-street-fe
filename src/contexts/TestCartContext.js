@@ -15,7 +15,7 @@ const cartReducer = (state, action) => {
 const createCart = (dispatch) => async (customerId) => {
 	try {
 		const response = await axiosWithAuth().post(`/customers/${customerId}/cart`);
-		console.log('Response after creating a cart', response);
+		// console.log('Response after creating a cart', response);
 		dispatch({ type: 'getCartItems', payload: response.data.data });	
 	} catch (error) {
 		console.log(error);
@@ -52,7 +52,7 @@ const addCartItem = (dispatch) => async ({
 			price,
 			quantity		
 		});
-		console.log('Response after adding a product to cart', response);
+		// console.log('Response after adding a product to cart', response);
 		dispatch({ type: 'getCartItems', payload: response.data.cart }); 
 	} catch (error) {
 		console.log('Error when adding a product to cart', error.response);
@@ -106,17 +106,17 @@ const addItemFromOtherVendor = (dispatch) => async ({
 }) => {
 	try {
 		const delCartResponse = await axiosWithAuth().delete(`/cart/${cartId}`);
-		console.log('Response after deleting cart for a customer', delCartResponse);
+		// console.log('Response after deleting cart for a customer', delCartResponse);
 		if (delCartResponse.status === 200) {
 			const createCartResponse = await axiosWithAuth().post(`/customers/${customerId}/cart`);
-			console.log('Response after creating cart for a customer', createCartResponse);
+			// console.log('Response after creating cart for a customer', createCartResponse);
 			if (createCartResponse.status === 200) {
 				const addItemResponse = await axiosWithAuth().post(`customers/${customerId}/cart/addtocart`, {
 					productId,
 					price,
 					quantity		
 				});
-				console.log('Response after adding item to cart for a customer', addItemResponse);
+				// console.log('Response after adding item to cart for a customer', addItemResponse);
 				dispatch({type: 'getCartItems', payload: addItemResponse.data.cart});
 			}
 		}
@@ -134,10 +134,10 @@ const deleteAndAddCart = (dispatch) => async ({
 }) => {
 	try {
 		const delCartResponse = await axiosWithAuth().delete(`/cart/${cartId}`);
-		console.log('Response after deleting cart for a customer', delCartResponse);
+		// console.log('Response after deleting cart for a customer', delCartResponse);
 		if (delCartResponse.status === 200) {
 			const createCartResponse = await axiosWithAuth().post(`/customers/${customerId}/cart`);
-			console.log('Response after creating cart for a customer', createCartResponse);
+			// console.log('Response after creating cart for a customer', createCartResponse);
 			dispatch({type: 'getCartItems', payload: createCartResponse.data.data});		
 		}
 	} catch {

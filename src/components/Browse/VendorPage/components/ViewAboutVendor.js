@@ -20,7 +20,7 @@ const ViewAboutVendor = (props) => {
 				setVendor(response.data.data);
 			})
 			.catch((error) => {
-				console.log(error);
+				// console.log(error);
 			});
 	};
 

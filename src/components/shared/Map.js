@@ -13,7 +13,7 @@ const Map = props => {
 
   const getGeocode = () => {
     // console.log(props.zipcode);
-    console.log(`API KEY FROM ENV:  ${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`);
+    //console.log(`${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`);
     // Using Google Geocoding API to convert zipcode to coordinates 
     axios
       .get(
